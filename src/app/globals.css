@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-surface: #1a1a1a;
+  --color-accent: #FFA116;
+  --color-textMuted: #a1a1aa;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #1a1a1a;
+  border-radius: 9999px;
+  transition: background-color 0.2s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #374151;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-surface/80 backdrop-blur-md border border-white/5 shadow-lg;
+  }
+}
+
+@keyframes revealFromMist {
+  0% { 
+    opacity: 0; 
+    filter: blur(10px); 
+    transform: translateY(25px) scale(0.97); 
+  }
+  100% { 
+    opacity: 1; 
+    filter: blur(0); 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+@layer utilities {
+  .animate-reveal {
+    animation: revealFromMist 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+  }
+  
+  .delay-200 { animation-delay: 200ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-800 { animation-delay: 800ms; }
+}
