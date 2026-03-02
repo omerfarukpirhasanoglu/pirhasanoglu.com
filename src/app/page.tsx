@@ -93,7 +93,7 @@ export default function LandingPage() {
                 Keras tabanlı konvolüsyonel sinir ağları (CNN) kullanarak yüklenen görüntülerin özniteliklerini çıkarır ve yüksek doğrulukla analiz eder.
               </p>
               <div className="text-accent text-sm font-medium flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
-                Modelle Etkileşime Geç <ArrowRight className="w-4 h-4" />
+                Model ile Etkileşime Geç <ArrowRight className="w-4 h-4" />
               </div>
             </Link>
 
