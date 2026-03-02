@@ -30,7 +30,7 @@ export default function LandingPage() {
           Deep Learning - Neural Networks - GPU Inference 
         </p>
         <div className="animate-reveal delay-800 relative z-10">
-          <Link href="/dashboard/tool-1" className="group flex items-center gap-2 bg-linear-to-br from-white to-gray-400 text-background px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors duration-250 soft-ease">
+          <Link href="/dashboard" className="group flex items-center gap-2 bg-linear-to-br from-white to-gray-400 text-background px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors duration-250 soft-ease">
             Projeleri Keşfet 
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-250" />
           </Link>
