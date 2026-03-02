@@ -1,4 +1,4 @@
-##### My Website #####
+# My Website
 
 Kişisel portfolyo web sitem.  
 Next.js, React, TypeScript ve TailwindCSS kullanılarak geliştirilmiştir.
