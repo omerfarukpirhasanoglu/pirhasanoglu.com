@@ -13,7 +13,7 @@ import { Button } from "@/src/components/ui/Button";
 
 export default function SettingsPage() {
   //state yönetimi 
-  const [threshold, setThreshold] = useState(75);
+  const [threshold, setThreshold] = useState(80);
   const [advancedMetrics, setAdvancedMetrics] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
 
@@ -44,16 +44,16 @@ export default function SettingsPage() {
       <div>
         <h1 className="text-3xl font-bold tracking-tight text-gray-100 flex items-center gap-3 mb-2">
           <SettingsIcon className="w-8 h-8 text-accent" />
-          Model & Çıkarım Ayarları
+          Ayarlar
         </h1>
         <p className="text-textMuted">
-          Derin öğrenme modellerinin karar sınırlarını ve arayüz telemetri detaylarını yapılandırabilirsiniz.
+          Derin öğrenme modellerinin karar sınırlarını ve telemetri detaylarını yapılandırabilirsiniz.
         </p>
       </div>
 
       <div className="flex flex-col gap-6">
         
-        {/*Threshold state*/}
+        {/* Karar Mekanizması (Threshold) Kartı */}
         <div className="glass-panel rounded-2xl p-6 md:p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-10 h-10 rounded-xl bg-surface flex items-center justify-center border border-white/10">
@@ -61,33 +61,62 @@ export default function SettingsPage() {
             </div>
             <div>
               <h2 className="text-xl font-semibold text-gray-200">Karar Güven Eşiği (Confidence Threshold)</h2>
-              <p className="text-sm text-textMuted">Modelin kesin bir analiz yapabilmesi için gereken minimum olasılık değeri.</p>
+              <p className="text-sm text-textMuted">Modelin kesin bir sınıflandırma yapabilmesi için gereken minimum olasılık değeri.</p>
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="flex flex-col gap-4">
-              <div className="flex justify-between items-end">
-                <label className="text-sm font-medium text-gray-300">Minimum Doğruluk Oranı</label>
-                <span className="text-2xl font-bold text-accent">%{threshold}</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            {/*Option 1*/}
+            <div 
+              onClick={() => setThreshold(60)}
+              className={`p-5 rounded-xl cursor-pointer transition-all duration-300 border ${
+                threshold === 60 ? "bg-accent/10 border-accent/50 shadow-[0_0_15px_rgba(255,161,22,0.1)]" : "bg-background/50 border-white/5 hover:border-white/10"
+              }`}
+            >
+              <div className="flex justify-between items-center mb-2">
+                <h3 className={`font-semibold ${threshold === 60 ? "text-accent" : "text-gray-200"}`}>%60 Eşik</h3>
+                {threshold === 60 && <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>}
               </div>
-              
-              <input 
-                type="range" 
-                min="50" 
-                max="99" 
-                value={threshold}
-                onChange={(e) => setThreshold(parseInt(e.target.value))}
-                className="w-full h-2 bg-background rounded-lg appearance-none cursor-pointer accent-accent border border-white/5"
-              />
-              
-              <div className="flex justify-between text-xs text-textMuted">
-                <span>%60 (Esnek Çıkarım)</span>
-                <span>%95 (Emin Çıkarım)</span>
-              </div>
-              
+              <p className="text-sm text-textMuted">Esnek Seçim</p>
+              <p className="text-xs text-textMuted/70 mt-3 leading-relaxed">Gürültülü verilerde toleranslı davranır. Deneysel tahminler için.</p>
             </div>
+
+            {/*Option 2*/}
+            <div 
+              onClick={() => setThreshold(80)}
+              className={`p-5 rounded-xl cursor-pointer transition-all duration-300 border ${
+                threshold === 80 ? "bg-accent/10 border-accent/50 shadow-[0_0_15px_rgba(255,161,22,0.1)]" : "bg-background/50 border-white/5 hover:border-white/10"
+              }`}
+            >
+              <div className="flex justify-between items-center mb-2">
+                <h3 className={`font-semibold ${threshold === 80 ? "text-accent" : "text-gray-200"}`}>%60-95 Arası</h3>
+                {threshold === 80 && <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>}
+              </div>
+              <p className="text-sm text-textMuted">Genel Kullanım</p>
+              <p className="text-xs text-textMuted/70 mt-3 leading-relaxed">Genel kullanım için en dengeli yaklaşım.</p>
+            </div>
+
+            {/*Option 3*/}
+            <div 
+              onClick={() => setThreshold(95)}
+              className={`p-5 rounded-xl cursor-pointer transition-all duration-300 border ${
+                threshold === 95 ? "bg-accent/10 border-accent/50 shadow-[0_0_15px_rgba(255,161,22,0.1)]" : "bg-background/50 border-white/5 hover:border-white/10"
+              }`}
+            >
+              <div className="flex justify-between items-center mb-2">
+                <h3 className={`font-semibold ${threshold === 95 ? "text-accent" : "text-gray-200"}`}>%95 Eşik</h3>
+                {threshold === 95 && <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>}
+              </div>
+              <p className="text-sm text-textMuted">Yüksek Disiplinler İçin</p>
+              <p className="text-xs text-textMuted/70 mt-3 leading-relaxed">Sadece en emin olduğu sonuçları geçirir. Hassas modeller içindir.</p>
+            </div>
+
           </div>
+          
+          <p className="text-xs text-textMuted/80 bg-background/50 p-3 rounded-lg border border-white/5 mt-6">
+            * Seçili eşiğin altındaki tahminler sistem tarafından "Belirsiz" olarak işaretlenir.
+          </p>
         </div>
 
         {/* Telemetri ve Görüntüleme Kartı */}
