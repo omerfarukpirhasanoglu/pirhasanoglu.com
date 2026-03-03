@@ -61,8 +61,16 @@ export default function LandingPage() {
               Keras API ile ANN, CNN, RNN, LSTM, GAN, RBFN, ResNets, DQL ve Transformers sinir ağı türleri ile modeller kurdum ve eğittim. PyTorch ile GPU destekli çıkarım (inference) ve FastAPI köprüsü geliştirdim.
             </p>
             <p>
-              Projelerimde, veri ön işleme, model eğitimi, hiperparametre optimizasyonu ve üretim ortamına dağıtım süreçlerini kapsayan uçtan uca yapay zeka çözümleri sunuyorum.
+              Projelerimde, veri ön işleme, model eğitimi, hiperparametre optimizasyonu ve üretim ortamına dağıtım süreçlerini kapsayan uçtan uca yapay zeka çözümleri sunmaktayım.
             </p>
+            <p>
+              Sıkıcı teknik laflar bir yana; bilgisayar denen ve mimarisine hayran olduğum bu çok havalı hesap makinesinin tabiri caizse "öğrenebiliyor" oluşu, içine doğduğum çağın en müthiş kırılma noktası gibi :D
+              Dolayısı ile bu teknoloji ve insanımızın arasındaki pürüzler kaldırılmalı, AI okuryazarlığımız hem bireysel hem toplumsal ölçekte ilerleme kaydetmeli.
+            </p>
+            <p>
+              Taktir edersiniz ki ben de geliştirdiğim sistemlerin ulaşılabilir olmasını misyon edindim ve bu platformu inşa ettim.
+            </p>
+            <p>Ben feedback panelini bitirene kadar öneriler için sosyal medya adreslerim aşağıda bulunuyor olacak.</p>
           </div>
         </div>
       </section>
