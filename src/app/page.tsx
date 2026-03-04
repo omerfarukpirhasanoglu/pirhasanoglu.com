@@ -51,7 +51,7 @@ export default function LandingPage() {
           </div>
           
           <div className="space-y-6 text-textMuted leading-relaxed text-lg">
-            <img src="https://media.licdn.com/dms/image/v2/D4E03AQGxJ9ZPADFu_A/profile-displayphoto-scale_400_400/B4EZjC_T1ZGcAk-/0/1755618035012?e=1773878400&v=beta&t=B3LwkMII0NuCGt2NWkpYBVy_RkhID4oqUNiITIc4HUs" 
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQHQVkJrzhJqlw/profile-displayphoto-scale_400_400/B4DZy6ZmdKG8Ak-/0/1772653804546?e=1774483200&v=beta&t=Ah3YhkWuWRZ0cMrF-gq4Ol_54wk1-gSJFfVLmBD8oN0" 
             alt="architect" width={90} height={90} style={{borderRadius: "7%"}}/>
             <h3 className="text-xl font-semibold text-white">Ömer Faruk PİRHASANOĞLU</h3>
             <p>
@@ -68,7 +68,7 @@ export default function LandingPage() {
               Dolayısı ile bu teknoloji ve insanımızın arasındaki pürüzler kaldırılmalı, AI okuryazarlığımız hem bireysel hem toplumsal ölçekte ilerleme kaydetmeli.
             </p>
             <p>
-              Taktir edersiniz ki ben de geliştirdiğim sistemlerin ulaşılabilir olmasını misyon edindim ve bu platformu inşa ettim.
+              Takdir edersiniz ki ben de geliştirdiğim sistemlerin ulaşılabilir olmasını misyon edindim ve bu platformu inşa ettim.
             </p>
             <p>Ben feedback panelini bitirene kadar öneriler için sosyal medya adreslerim aşağıda bulunuyor olacak.</p>
           </div>
