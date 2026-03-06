@@ -11,6 +11,7 @@ import {
   ChevronRight,
   Cpu,
   LucideIcon,
+  ScanSearch,
 } from "lucide-react";
 
 // item: any yerine gerçek bir interface tanımladık
@@ -65,6 +66,7 @@ export default function Sidebar() {
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
     { name: "Görüntü Analizi", href: "/dashboard/tool-1", icon: ImageIcon },
     { name: "Sistem Modeli", href: "/dashboard/tool-2", icon: Cpu },
+    { name: "Nesne Tespiti", href: "/dashboard/tool-3", icon: ScanSearch },
   ];
 
   const bottomItems: MenuItem[] = [

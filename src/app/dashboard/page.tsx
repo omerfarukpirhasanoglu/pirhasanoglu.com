@@ -6,7 +6,8 @@ import {
   Box, 
   ArrowRight, 
   CheckCircle2, 
-  Clock,Layers
+  Clock,Layers,
+  ScanSearch
 } from "lucide-react";
 
 export default function DashboardPage() {
@@ -123,30 +124,28 @@ export default function DashboardPage() {
             </button>
           </div>
         </div>
-        {/* Proje Kartı 3*/}
+        {/* Proje Kartı 3 */}
         <div className="glass-panel rounded-3xl p-1 border border-white/5 opacity-60 hover:opacity-100 transition-opacity duration-300 animate-reveal delay-800">
           <div className="bg-surface/50 rounded-[22px] p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center">
-            
+
             <div className="w-16 h-16 shrink-0 bg-background rounded-2xl flex items-center justify-center border border-white/10">
-              <Box className="w-8 h-8 text-textMuted" />
+              <ScanSearch className="w-8 h-8 text-textMuted" />
             </div>
 
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h3 className="text-xl font-bold text-gray-100 text-opacity-80">Veri İzleme ve Yönetim Mimarisi</h3>
+                <h3 className="text-xl font-bold text-gray-100">Nesne Tespiti</h3>
                 <span className="px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-gray-400 text-xs font-medium flex items-center gap-1.5">
                   <Clock className="w-3 h-3" /> Geliştiriliyor
                 </span>
               </div>
               <p className="text-textMuted leading-relaxed max-w-2xl text-sm mb-4">
-                C# ve .NET Framework üzerinde SQLite entegrasyonu ile kurgulanmış, stüdyo projelerinin ilerleyişini ve yetkilendirme süreçlerini takip eden asenkron veri izleme sistemi.
+                PyTorch tabanlı nesne tespit modeli. Görüntü içindeki nesneleri bounding box ile işaretler, sınıflandırır ve güven skorlarını raporlar.
               </p>
-              
-              {/* Etiketler */}
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-lg bg-white/5 text-gray-400 text-xs font-medium border border-white/10">C#</span>
-                <span className="px-3 py-1 rounded-lg bg-white/5 text-gray-400 text-xs font-medium border border-white/10">.NET Framework</span>
-                <span className="px-3 py-1 rounded-lg bg-white/5 text-gray-400 text-xs font-medium border border-white/10">SQLite</span>
+                <span className="px-3 py-1 rounded-lg bg-white/5 text-gray-400 text-xs font-medium border border-white/10">PyTorch</span>
+                <span className="px-3 py-1 rounded-lg bg-white/5 text-gray-400 text-xs font-medium border border-white/10">Computer Vision</span>
+                <span className="px-3 py-1 rounded-lg bg-white/5 text-gray-400 text-xs font-medium border border-white/10">YOLO</span>
               </div>
             </div>
 
