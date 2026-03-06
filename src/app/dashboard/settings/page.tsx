@@ -1,46 +1,71 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { 
-  Settings as SettingsIcon, 
-  Sliders, 
-  Eye, 
-  Target, 
-  Save, 
-  Activity
+import {
+  Settings as SettingsIcon,
+  Sliders,
+  Eye,
+  Target,
+  Save,
+  Activity,
+  Info,
 } from "lucide-react";
 import { Button } from "@/src/components/ui/Button";
 
+const THRESHOLD_OPTIONS = [
+  {
+    value: 60,
+    label: "%60 Eşik",
+    title: "Esnek Seçim",
+    description: "Gürültülü verilerde toleranslı davranır. Deneysel tahminler için.",
+  },
+  {
+    value: 80,
+    label: "%80 Eşik", 
+    title: "Genel Kullanım",
+    description: "Genel kullanım için en dengeli yaklaşım.",
+  },
+  {
+    value: 95,
+    label: "%95 Eşik",
+    title: "Yüksek Disiplinler İçin",
+    description: "Sadece en emin olduğu sonuçları geçirir. Hassas modeller içindir.",
+  },
+] as const;
+
+//Geçerli threshold değerleri için tip — 60, 80 veya 95 dışında bir değer girilemez
+type ThresholdValue = typeof THRESHOLD_OPTIONS[number]["value"];
+
 export default function SettingsPage() {
-  //state yönetimi 
-  const [threshold, setThreshold] = useState(80);
+  const [threshold, setThreshold] = useState<ThresholdValue>(80);
   const [advancedMetrics, setAdvancedMetrics] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
 
-  const handleSave = () => {
-    setIsSaved(true);
-    // Burada ayarlar localStorage'a kaydedilir
-    if (typeof window !== "undefined") {
-      localStorage.setItem("ai_threshold", threshold.toString());
-      localStorage.setItem("ai_advanced_metrics", advancedMetrics.toString());
+  //Sayfa yüklenince localStorage'dan oku
+  useEffect(() => {
+    const savedThreshold = localStorage.getItem("ai_threshold");
+    const savedMetrics = localStorage.getItem("ai_advanced_metrics");
+
+    if (savedThreshold) {
+      const parsed = parseInt(savedThreshold) as ThresholdValue;
+      // Geçersiz bir değer kaydedilmişse varsayılana dön
+      if ([60, 80, 95].includes(parsed)) setThreshold(parsed);
     }
+    if (savedMetrics === "true") setAdvancedMetrics(true);
+  }, []);
+
+  const handleSave = () => {
+  
+    localStorage.setItem("ai_threshold", threshold.toString());
+    localStorage.setItem("ai_advanced_metrics", advancedMetrics.toString());
+    setIsSaved(true);
     setTimeout(() => setIsSaved(false), 2000);
   };
 
-  // Update state when page loads to reflect saved settings
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const savedThreshold = localStorage.getItem("ai_threshold");
-      const savedMetrics = localStorage.getItem("ai_advanced_metrics");
-      if (savedThreshold) setThreshold(parseInt(savedThreshold));
-      if (savedMetrics === "true") setAdvancedMetrics(true);
-    }
-  }, []);
-
   return (
     <div className="max-w-4xl mx-auto w-full flex flex-col gap-8 animate-reveal">
-      
-      {/*head*/}
+
+      {/* Başlık */}
       <div>
         <h1 className="text-3xl font-bold tracking-tight text-gray-100 flex items-center gap-3 mb-2">
           <SettingsIcon className="w-8 h-8 text-accent" />
@@ -52,8 +77,8 @@ export default function SettingsPage() {
       </div>
 
       <div className="flex flex-col gap-6">
-        
-        {/* Karar Mekanizması (Threshold) Kartı */}
+
+        {/* Threshold Kartı */}
         <div className="glass-panel rounded-2xl p-6 md:p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-10 h-10 rounded-xl bg-surface flex items-center justify-center border border-white/10">
@@ -66,60 +91,36 @@ export default function SettingsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            
-            {/*Option 1*/}
-            <div 
-              onClick={() => setThreshold(60)}
-              className={`p-5 rounded-xl cursor-pointer transition-all duration-300 border ${
-                threshold === 60 ? "bg-accent/10 border-accent/50 shadow-[0_0_15px_rgba(255,161,22,0.1)]" : "bg-background/50 border-white/5 hover:border-white/10"
-              }`}
-            >
-              <div className="flex justify-between items-center mb-2">
-                <h3 className={`font-semibold ${threshold === 60 ? "text-accent" : "text-gray-200"}`}>%60 Eşik</h3>
-                {threshold === 60 && <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>}
+            {THRESHOLD_OPTIONS.map((option) => (
+              <div
+                key={option.value}
+                onClick={() => setThreshold(option.value)}
+                className={`p-5 rounded-xl cursor-pointer transition-all duration-300 border ${
+                  threshold === option.value
+                    ? "bg-accent/10 border-accent/50 shadow-[0_0_15px_rgba(255,161,22,0.1)]"
+                    : "bg-background/50 border-white/5 hover:border-white/10"
+                }`}
+              >
+                <div className="flex justify-between items-center mb-2">
+                  <h3 className={`font-semibold ${threshold === option.value ? "text-accent" : "text-gray-200"}`}>
+                    {option.label}
+                  </h3>
+                  {threshold === option.value && (
+                    <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                  )}
+                </div>
+                <p className="text-sm text-textMuted">{option.title}</p>
+                <p className="text-xs text-textMuted/70 mt-3 leading-relaxed">{option.description}</p>
               </div>
-              <p className="text-sm text-textMuted">Esnek Seçim</p>
-              <p className="text-xs text-textMuted/70 mt-3 leading-relaxed">Gürültülü verilerde toleranslı davranır. Deneysel tahminler için.</p>
-            </div>
-
-            {/*Option 2*/}
-            <div 
-              onClick={() => setThreshold(80)}
-              className={`p-5 rounded-xl cursor-pointer transition-all duration-300 border ${
-                threshold === 80 ? "bg-accent/10 border-accent/50 shadow-[0_0_15px_rgba(255,161,22,0.1)]" : "bg-background/50 border-white/5 hover:border-white/10"
-              }`}
-            >
-              <div className="flex justify-between items-center mb-2">
-                <h3 className={`font-semibold ${threshold === 80 ? "text-accent" : "text-gray-200"}`}>%60-95 Arası</h3>
-                {threshold === 80 && <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>}
-              </div>
-              <p className="text-sm text-textMuted">Genel Kullanım</p>
-              <p className="text-xs text-textMuted/70 mt-3 leading-relaxed">Genel kullanım için en dengeli yaklaşım.</p>
-            </div>
-
-            {/*Option 3*/}
-            <div 
-              onClick={() => setThreshold(95)}
-              className={`p-5 rounded-xl cursor-pointer transition-all duration-300 border ${
-                threshold === 95 ? "bg-accent/10 border-accent/50 shadow-[0_0_15px_rgba(255,161,22,0.1)]" : "bg-background/50 border-white/5 hover:border-white/10"
-              }`}
-            >
-              <div className="flex justify-between items-center mb-2">
-                <h3 className={`font-semibold ${threshold === 95 ? "text-accent" : "text-gray-200"}`}>%95 Eşik</h3>
-                {threshold === 95 && <div className="w-2 h-2 rounded-full bg-accent animate-pulse"></div>}
-              </div>
-              <p className="text-sm text-textMuted">Yüksek Disiplinler İçin</p>
-              <p className="text-xs text-textMuted/70 mt-3 leading-relaxed">Sadece en emin olduğu sonuçları geçirir. Hassas modeller içindir.</p>
-            </div>
-
+            ))}
           </div>
-          
+
           <p className="text-xs text-textMuted/80 bg-background/50 p-3 rounded-lg border border-white/5 mt-6">
             * Seçili eşiğin altındaki tahminler sistem tarafından "Belirsiz" olarak işaretlenir.
           </p>
         </div>
 
-        {/* Telemetri ve Görüntüleme Kartı */}
+        {/* Telemetri Kartı */}
         <div className="glass-panel rounded-2xl p-6 md:p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors delay-200 animate-reveal">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-10 h-10 rounded-xl bg-surface flex items-center justify-center border border-white/10">
@@ -132,8 +133,7 @@ export default function SettingsPage() {
           </div>
 
           <div className="space-y-4">
-            
-            <div 
+            <div
               onClick={() => setAdvancedMetrics(!advancedMetrics)}
               className={`flex items-start gap-4 p-5 rounded-xl border cursor-pointer transition-all duration-300 ${
                 advancedMetrics ? "bg-accent/5 border-accent/30" : "bg-background/50 border-white/5 hover:border-white/10"
@@ -142,10 +142,10 @@ export default function SettingsPage() {
               <div className="mt-1">
                 {advancedMetrics ? (
                   <div className="w-5 h-5 rounded-full bg-accent flex items-center justify-center shadow-[0_0_10px_rgba(255,161,22,0.5)]">
-                    <div className="w-2 h-2 bg-background rounded-full"></div>
+                    <div className="w-2 h-2 bg-background rounded-full" />
                   </div>
                 ) : (
-                  <div className="w-5 h-5 rounded-full border-2 border-textMuted"></div>
+                  <div className="w-5 h-5 rounded-full border-2 border-textMuted" />
                 )}
               </div>
               <div>
@@ -158,7 +158,6 @@ export default function SettingsPage() {
               </div>
             </div>
 
-            {/*FP16/FP32*/}
             <div className="flex items-center justify-between p-5 bg-background/30 rounded-xl border border-white/5 opacity-70">
               <div className="flex items-center gap-3">
                 <Sliders className="w-5 h-5 text-gray-400" />
@@ -171,9 +170,9 @@ export default function SettingsPage() {
           </div>
         </div>
 
-        {/*SAVE*/}
+        {/* Kaydet */}
         <div className="flex justify-end mt-4 delay-400 animate-reveal">
-          <Button 
+          <Button
             onClick={handleSave}
             className={`px-8 py-6 rounded-xl text-md flex items-center gap-2 transition-all duration-300 ${
               isSaved ? "bg-green-600 hover:bg-green-500 shadow-green-500/20" : "shadow-lg shadow-accent/20 hover:shadow-accent/40"

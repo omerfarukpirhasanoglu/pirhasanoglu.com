@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Cpu, Network, Layers, Terminal } from "lucide-react";
 import Footer from "@/src/components/layout/Footer";
-import { Covered_By_Your_Grace } from "next/font/google";
-
+import Image from "next/image";
 export default function LandingPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -51,8 +50,8 @@ export default function LandingPage() {
           </div>
           
           <div className="space-y-6 text-textMuted leading-relaxed text-lg">
-            <img src="https://media.licdn.com/dms/image/v2/D4D03AQHQVkJrzhJqlw/profile-displayphoto-scale_400_400/B4DZy6ZmdKG8Ak-/0/1772653804546?e=1774483200&v=beta&t=Ah3YhkWuWRZ0cMrF-gq4Ol_54wk1-gSJFfVLmBD8oN0" 
-            alt="architect" width={90} height={90} style={{borderRadius: "7%"}}/>
+            
+            <Image src="/profile.png" alt="Ömer Faruk Pirhasanoğlu" width={90} height={90} style={{ borderRadius: "7%" }} />
             <h3 className="text-xl font-semibold text-white">Ömer Faruk PİRHASANOĞLU</h3>
             <p>
               Bilgisayar Mühendisliği 3.Sınıf öğrencisiyim. Yapıcı, Çözüm odaklı ve olabildiğince optimize AI teknolojileri geliştiriyorum.

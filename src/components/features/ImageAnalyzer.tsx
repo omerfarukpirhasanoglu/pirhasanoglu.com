@@ -4,6 +4,15 @@ import { useState } from "react";
 import { UploadCloud, FileImage, Cpu, AlertCircle } from "lucide-react";
 import { Button } from "@/src/components/ui/Button";
 import { Card } from "@/src/components/ui/Card";
+import { API_CONFIG } from "@/src/config/api"; // ✅ artık config'den geliyor
+
+// ✅ API'den dönen verinin şeklini TypeScript'e tanıtıyoruz
+// FastAPI'n farklı alanlar dönüyorsa burası güncellenmeli
+interface AnalysisResult {
+  mesaj: string;
+  dosya_boyutu_mb: number;
+  ai_tahmini: string;
+}
 
 interface ImageAnalyzerProps {
   title: string;
@@ -14,50 +23,50 @@ export default function ImageAnalyzer({ title, description }: ImageAnalyzerProps
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<AnalysisResult | null>(null); 
   const [error, setError] = useState<string | null>(null);
 
-  // Kullanıcı dosya seçtiğinde çalışan fonksiyon
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       setSelectedFile(file);
       setError(null);
       setResult(null);
-      // Ekranda göstermek için dosyanın geçici URL'si
-      setPreviewUrl(URL.createObjectURL(file)); 
+      setPreviewUrl(URL.createObjectURL(file));
     }
   };
 
-  // Fotoğrafı FastAPI sunucusuna gönderen fonksiyon
   const handleAnalyze = async () => {
     if (!selectedFile) return;
 
     setIsLoading(true);
     setError(null);
 
-    // (FormData)
     const formData = new FormData();
     formData.append("file", selectedFile);
 
     try {
-      // FastAPI sunucusuna POST isteği 
-      const response = await fetch("http://localhost:8000/api/analyze-image", {
+      //  Hardcoded URL kaldırıldı, config'den okunuyor
+      const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.ANALYZE_IMAGE}`;
+      const response = await fetch(url, {
         method: "POST",
         body: formData,
-        // DİKKAT: FormData kullanırken "Content-Type" header'ı manuel EKLENMEZ. Tarayıcı kendi halleder.
+        // DİKKAT: FormData kullanırken "Content-Type" header'ı manuel eklenmez, tarayıcı halleder.
       });
 
       if (!response.ok) {
-        throw new Error("Sunucu ile iletişim kurulamadı.");
+        throw new Error(`Sunucu hatası: ${response.status}`);
       }
 
-      //FastAPI sonucunu JSON olarak okuyoruz
-      const data = await response.json();
+      const data: AnalysisResult = await response.json(); //  tip güvencesiyle okuyoruz
       setResult(data);
-      
-    } catch (err: any) {
-      setError(err.message || "Bilinmeyen bir hata oluştu.");
+
+    } catch (err: unknown) { // ✅ any yerine unknown
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Bilinmeyen bir hata oluştu.");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -65,7 +74,6 @@ export default function ImageAnalyzer({ title, description }: ImageAnalyzerProps
 
   return (
     <div className="max-w-3xl mx-auto flex flex-col gap-6">
-      {/* Üst Başlık */}
       <div>
         <h2 className="text-2xl font-bold tracking-tight text-gray-100">{title}</h2>
         <p className="text-textMuted mt-1">{description}</p>
@@ -75,13 +83,12 @@ export default function ImageAnalyzer({ title, description }: ImageAnalyzerProps
         
         {/* Yükleme Alanı */}
         <div className="relative border-2 border-dashed border-white/10 rounded-xl p-8 text-center hover:border-accent/40 transition-colors duration-300 bg-background/50">
-          <input 
-            type="file" 
-            accept="image/*" 
-            onChange={handleFileChange} 
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
           />
-          
           {previewUrl ? (
             <div className="flex flex-col items-center gap-4 animate-in zoom-in-95 duration-300">
               <div className="w-32 h-32 relative rounded-lg overflow-hidden border border-white/10 shadow-lg">
@@ -104,8 +111,8 @@ export default function ImageAnalyzer({ title, description }: ImageAnalyzerProps
 
         {/* Aksiyon Butonu */}
         <div className="flex justify-end">
-          <Button 
-            onClick={handleAnalyze} 
+          <Button
+            onClick={handleAnalyze}
             disabled={!selectedFile || isLoading}
             isLoading={isLoading}
           >
@@ -129,7 +136,6 @@ export default function ImageAnalyzer({ title, description }: ImageAnalyzerProps
               <FileImage className="w-5 h-5 text-accent" />
               <h3 className="font-medium text-gray-200">Analiz Sonucu</h3>
             </div>
-            
             <div className="grid grid-cols-2 gap-4">
               <div className="p-3 bg-background/50 rounded-lg border border-white/5">
                 <p className="text-xs text-textMuted mb-1">Durum</p>
