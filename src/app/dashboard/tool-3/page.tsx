@@ -30,7 +30,7 @@ export default function Tool3Page() {
             </div>
             <h3 className="text-xl font-semibold text-gray-200">Bu araç henüz hazır değil</h3>
             <p className="text-textMuted text-sm max-w-md leading-relaxed">
-              PyTorch tabanlı nesne tespit modeli ve bounding box görselleştirme arayüzü üzerinde çalışılıyor.
+              PyTorch tabanlı nesne tespit modeli ve bounding box görselleştirme arayüzü üzerinde çalışıyorum.
               Tamamlandığında burada yayınlanacak.
             </p>
           </div>

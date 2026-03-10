@@ -30,7 +30,7 @@ export default function Tool2Page() {
             </div>
             <h3 className="text-xl font-semibold text-gray-200">Bu araç henüz hazır değil</h3>
             <p className="text-textMuted text-sm max-w-md leading-relaxed">
-              PyTorch modelinin GPU inference pipeline'ı ve FastAPI entegrasyonu üzerinde çalışılıyor.
+              PyTorch modelinin GPU inference pipeline'ı ve FastAPI entegrasyonu üzerinde çalışıyorum.
               Tamamlandığında burada yayınlanacak.
             </p>
           </div>

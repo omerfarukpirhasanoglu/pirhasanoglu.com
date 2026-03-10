@@ -26,7 +26,7 @@ export default function LandingPage() {
           </h1>
         </div>
         <p className="max-w-2xl text-lg text-textMuted mb-10 leading-relaxed relative z-10 animate-reveal delay-600">
-          Deep Learning - Neural Networks - GPU Inference 
+          Deep Learning - Computer Vision - GPU Inference 
         </p>
         <div className="animate-reveal delay-800 relative z-10">
           <Link href="/dashboard" className="group flex items-center gap-2 bg-linear-to-br from-white to-gray-400 text-background px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors duration-250 soft-ease">
