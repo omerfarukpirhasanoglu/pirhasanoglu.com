@@ -332,8 +332,8 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
                 onClick={() => setShowDetails(!showDetails)}
                 className="w-full flex items-center justify-between p-4 text-sm text-textMuted hover:text-gray-200 hover:bg-white/5 transition-colors duration-200"
               >
-                <div className="flex items-center gap-2 text-accent">
-                  <Clock className="w-4 h-4"/>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-accent"/>
                   <span>Teknik Detaylar</span>
                 </div>
                 {showDetails
