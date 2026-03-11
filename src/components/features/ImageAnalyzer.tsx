@@ -302,10 +302,10 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
                     {/* Skora göre dinamik moda yorumu */}
                     <p className="text-sm text-textMuted leading-relaxed">
                       {result.renk_analizi.genel_istatistikler.uyum_skoru >= 75
-                        ? "Seçtiğin renkler birbiriyle mükemmel uyum içinde."
+                        ? "Seçtiğin renkler birbiriyle mükemmel bir ahenk içinde."
                         : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50
-                        ? "Renkler genel olarak uyumlu. Küçük dokunuşlarla çok daha güçlü bir kombin elde edebilirsin."
-                        : "Renkler arasında belirgin bir kontrast var. Cesur bir tercih ama dikkatli kombinlemek gerekiyor."
+                        ? "Renkler tam anlamıyla uyumlu olmasa da küçük dokunuşlarla çok daha güçlü bir kombin elde edebilirsin."
+                        : "Renkler arasında fazla kontrast farkı var. Cesur bir tercih ama dikkatli kombinlemek gerekiyor."
                       }
                     </p>
                   </div>
