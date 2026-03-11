@@ -95,9 +95,9 @@ export default function LandingPage() {
               <div className="w-14 h-14 bg-surface rounded-xl flex items-center justify-center mb-6 border border-white/5 group-hover:border-accent/30 transition-colors">
                 <Cpu className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
               </div>
-              <h3 className="text-xl font-medium mb-3">Görüntü Sınıflandırma</h3>
+              <h3 className="text-xl font-medium mb-3">Görüntü Sınıflandırma - Stil Analizi</h3>
               <p className="text-textMuted text-sm mb-8 flex-1 leading-relaxed">
-                Keras tabanlı konvolüsyonel sinir ağları (CNN) kullanarak yüklenen görüntülerin özniteliklerini çıkarır ve yüksek doğrulukla analiz eder.
+                Keras kullanılarak eğitilmiş Convolutional Neural Network modelim. Yüklenen görüntülerin her bir pikselini özenle analiz eder.
               </p>
               <div className="text-accent text-sm font-medium flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
                 Model ile Etkileşime Geç <ArrowRight className="w-4 h-4" />

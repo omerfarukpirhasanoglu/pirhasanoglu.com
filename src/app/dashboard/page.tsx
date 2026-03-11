@@ -73,13 +73,14 @@ export default function DashboardPage() {
             {/*contents*/}
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h3 className="text-2xl font-bold text-gray-100">Görüntü Analizi</h3>
+                <h3 className="text-2xl font-bold text-gray-100">Kıyafetinin rengini, stilini ve uyumunu saniyeler içinde analiz et</h3>
                 <span className="px-2.5 py-0.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium flex items-center gap-1.5">
                   <CheckCircle2 className="w-3 h-3" /> Yayında
                 </span>
               </div>
               <p className="text-textMuted leading-relaxed mb-4 max-w-2xl">
-                Keras kullanılarak eğitilmiş Convolutional Neural Network modeli. Yüklenen görüntüleri FastAPI köprüsü üzerinden numpy dizilerine çevirerek analiz eder ve yüksek doğrulukla analiz eder.
+                FastAPI backendine bağlı, Keras tabanlı konvolüsyonel sinir ağları (CNN) kullanarak yüklenen görüntülerin özniteliklerini çıkaran ve yüksek doğrulukla analiz eden modelim.
+                Bu model sayesinde tarzınızı uzman bir yapay zekanın detaylı metrikleriyle inceleyebilirsiniz.
               </p>
               
               {/*tags*/}

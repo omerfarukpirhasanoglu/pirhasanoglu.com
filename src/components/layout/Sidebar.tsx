@@ -14,15 +14,12 @@ import {
   ScanSearch,
 } from "lucide-react";
 
-// item: any yerine gerçek bir interface tanımladık
 interface MenuItem {
   name: string;
   href: string;
-  icon: LucideIcon; // lucide-react ikonları için doğru tip bu
+  icon: LucideIcon;
 }
 
-// NavItem, Sidebar'ın dışına çıkarıldı — artık her render'da yeniden oluşturulmuyor
-// isCollapsed ve pathname dışarıdan prop olarak geliyor
 interface NavItemProps {
   item: MenuItem;
   isCollapsed: boolean;
@@ -61,10 +58,9 @@ export default function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const pathname = usePathname();
 
-  // Tip MenuItem[] — yanlış alan yazsak TypeScript anında uyarır
   const menuItems: MenuItem[] = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-    { name: "Görüntü Analizi", href: "/dashboard/tool-1", icon: ImageIcon },
+    { name: "Chroma Modelim", href: "/dashboard/tool-1", icon: ImageIcon },
     { name: "Sistem Modeli", href: "/dashboard/tool-2", icon: Cpu },
     { name: "Nesne Tespiti", href: "/dashboard/tool-3", icon: ScanSearch },
   ];

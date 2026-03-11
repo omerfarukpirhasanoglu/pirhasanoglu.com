@@ -170,7 +170,7 @@ export default function ImageAnalyzer({ title, description }: ImageAnalyzerProps
           </div>
         )}
 
-        {/* ✅ Sonuç Ekranı */}
+        {/* Sonuç Ekranı */}
         {result && (
           <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
 
@@ -237,7 +237,7 @@ export default function ImageAnalyzer({ title, description }: ImageAnalyzerProps
                 </div>
               </div>
 
-              {/* ✅ Renk Uyumu — ana sahne */}
+              {/* Renk Uyumu — ana sahne */}
               <div className="pt-4 border-t border-white/5">
                 <p className="text-xs text-textMuted uppercase tracking-widest mb-4">Renk Uyumu</p>
 
@@ -291,19 +291,19 @@ export default function ImageAnalyzer({ title, description }: ImageAnalyzerProps
                     }`}>
                       {result.renk_analizi.genel_istatistikler.uyum_notu}
                     </p>
-                    {/* ✅ Skora göre dinamik moda yorumu */}
+                    {/* Skora göre dinamik moda yorumu */}
                     <p className="text-sm text-textMuted leading-relaxed">
                       {result.renk_analizi.genel_istatistikler.uyum_skoru >= 75
-                        ? "Seçtiğin renkler birbiriyle mükemmel uyum içinde. Bu kombin gardırobunun yıldızı olabilir."
+                        ? "Seçtiğin renkler birbiriyle mükemmel uyum içinde."
                         : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50
                         ? "Renkler genel olarak uyumlu. Küçük dokunuşlarla çok daha güçlü bir kombin elde edebilirsin."
-                        : "Renkler arasında belirgin bir kontrast var. Cesur bir tercih — ama dikkatli kombinlemek gerekiyor."
+                        : "Renkler arasında belirgin bir kontrast var. Cesur bir tercih ama dikkatli kombinlemek gerekiyor."
                       }
                     </p>
                   </div>
                 </div>
 
-                {/* ✅ Renk paleti şeridi — tüm dominant renklerin yan yana gradient görünümü */}
+                {/* Renk paleti şeridi*/}
                 <div
                   className="mt-5 h-2 rounded-full w-full"
                   style={{
