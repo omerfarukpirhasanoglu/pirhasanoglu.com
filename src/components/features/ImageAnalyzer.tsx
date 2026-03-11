@@ -217,35 +217,105 @@ export default function ImageAnalyzer({ title, description }: ImageAnalyzerProps
               )}
             </div>
 
-            {/* Dominant Renkler */}
-            <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
-              <h3 className="font-semibold text-gray-200 mb-4">Dominant Renkler</h3>
-              <div className="flex gap-3">
-                {result.renk_analizi.dominant_colors.map((renk, index) => (
-                  <div key={index} className="flex-1 flex flex-col items-center gap-2">
-                    {/* Renk kutusu */}
-                    <div
-                      className="w-full h-14 rounded-lg border border-white/10 shadow-lg"
-                      style={{ backgroundColor: rgbToCss(renk.rgb) }}
-                    />
-                    <p className="text-xs text-gray-300 font-medium text-center">{renk.isim}</p>
-                    <p className="text-xs text-textMuted">%{renk.yuzde}</p>
-                  </div>
-                ))}
-              </div>
+            {/* Dominant Renkler + Renk Uyumu */}
+            <div className="p-6 bg-white/5 border border-white/10 rounded-xl flex flex-col gap-6">
 
-              {/* Uyum skoru */}
-              <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
-                <p className="text-sm text-textMuted">Renk Uyumu</p>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-semibold text-gray-200">
-                    {result.renk_analizi.genel_istatistikler.uyum_notu}
-                  </span>
-                  <span className="text-sm font-bold text-accent">
-                    %{result.renk_analizi.genel_istatistikler.uyum_skoru}
-                  </span>
+              {/* Dominant Renkler */}
+              <div>
+                <h3 className="font-semibold text-gray-200 mb-4">Dominant Renkler</h3>
+                <div className="flex gap-3">
+                  {result.renk_analizi.dominant_colors.map((renk, index) => (
+                    <div key={index} className="flex-1 flex flex-col items-center gap-2">
+                      <div
+                        className="w-full h-14 rounded-lg border border-white/10 shadow-lg"
+                        style={{ backgroundColor: rgbToCss(renk.rgb) }}
+                      />
+                      <p className="text-xs text-gray-300 font-medium text-center">{renk.isim}</p>
+                      <p className="text-xs text-textMuted">%{renk.yuzde}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
+
+              {/* ✅ Renk Uyumu — ana sahne */}
+              <div className="pt-4 border-t border-white/5">
+                <p className="text-xs text-textMuted uppercase tracking-widest mb-4">Renk Uyumu</p>
+
+                <div className="flex items-center gap-6">
+
+                  {/* Skor dairesi */}
+                  <div className="relative w-24 h-24 shrink-0">
+                    <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
+                      {/* Arka plan halkası */}
+                      <circle
+                        cx="50" cy="50" r="40"
+                        fill="none"
+                        stroke="rgba(255,255,255,0.05)"
+                        strokeWidth="10"
+                      />
+                      {/* Skor halkası — skora göre doluluk */}
+                      <circle
+                        cx="50" cy="50" r="40"
+                        fill="none"
+                        stroke={
+                          result.renk_analizi.genel_istatistikler.uyum_skoru >= 75
+                            ? "rgb(74, 222, 128)"   // yeşil
+                            : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50
+                            ? "rgb(251, 191, 36)"   // sarı
+                            : "rgb(248, 113, 113)"  // kırmızı
+                        }
+                        strokeWidth="10"
+                        strokeLinecap="round"
+                        strokeDasharray={`${2 * Math.PI * 40}`}
+                        strokeDashoffset={`${2 * Math.PI * 40 * (1 - result.renk_analizi.genel_istatistikler.uyum_skoru / 100)}`}
+                        className="transition-all duration-1000"
+                      />
+                    </svg>
+                    {/* Ortadaki skor yazısı */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                      <span className="text-2xl font-bold text-gray-100">
+                        {result.renk_analizi.genel_istatistikler.uyum_skoru}
+                      </span>
+                      <span className="text-xs text-textMuted">/100</span>
+                    </div>
+                  </div>
+
+                  {/* Sağ taraf — not ve yorum */}
+                  <div className="flex flex-col gap-2">
+                    <p className={`text-lg font-bold ${
+                      result.renk_analizi.genel_istatistikler.uyum_skoru >= 75
+                        ? "text-green-400"
+                        : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50
+                        ? "text-amber-400"
+                        : "text-red-400"
+                    }`}>
+                      {result.renk_analizi.genel_istatistikler.uyum_notu}
+                    </p>
+                    {/* ✅ Skora göre dinamik moda yorumu */}
+                    <p className="text-sm text-textMuted leading-relaxed">
+                      {result.renk_analizi.genel_istatistikler.uyum_skoru >= 75
+                        ? "Seçtiğin renkler birbiriyle mükemmel uyum içinde. Bu kombin gardırobunun yıldızı olabilir."
+                        : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50
+                        ? "Renkler genel olarak uyumlu. Küçük dokunuşlarla çok daha güçlü bir kombin elde edebilirsin."
+                        : "Renkler arasında belirgin bir kontrast var. Cesur bir tercih — ama dikkatli kombinlemek gerekiyor."
+                      }
+                    </p>
+                  </div>
+                </div>
+
+                {/* ✅ Renk paleti şeridi — tüm dominant renklerin yan yana gradient görünümü */}
+                <div
+                  className="mt-5 h-2 rounded-full w-full"
+                  style={{
+                    background: `linear-gradient(to right, ${
+                      result.renk_analizi.dominant_colors
+                        .map((r) => rgbToCss(r.rgb))
+                        .join(", ")
+                    })`
+                  }}
+                />
+              </div>
+
             </div>
 
             {/* açılır/kapanır panel */}
