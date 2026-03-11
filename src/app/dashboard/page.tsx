@@ -73,7 +73,12 @@ export default function DashboardPage() {
             {/*contents*/}
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h3 className="text-2xl font-bold text-gray-100">Kıyafetinin rengini, stilini ve uyumunu saniyeler içinde analiz et</h3>
+                <h3 className="text-2xl font-bold text-gray-100 flex items-center gap-3">
+                  Chroma
+                  <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent">
+                    v1.0
+                  </span>
+                </h3>
                 <span className="px-2.5 py-0.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium flex items-center gap-1.5">
                   <CheckCircle2 className="w-3 h-3" /> Yayında
                 </span>

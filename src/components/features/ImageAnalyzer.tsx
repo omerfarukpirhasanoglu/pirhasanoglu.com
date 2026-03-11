@@ -47,6 +47,7 @@ interface AnalysisResult {
 
 interface ImageAnalyzerProps {
   title: string;
+  titleBadge?: string;
   description: string;
 }
 
@@ -62,7 +63,7 @@ function rgbToCss(rgb: number[]): string {
   return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
 }
 
-export default function ImageAnalyzer({ title, description }: ImageAnalyzerProps) {
+export default function ImageAnalyzer({ title, titleBadge, description }: ImageAnalyzerProps) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -116,7 +117,14 @@ export default function ImageAnalyzer({ title, description }: ImageAnalyzerProps
 
       {/* Başlık */}
       <div>
-        <h2 className="text-2xl font-bold tracking-tight text-gray-100">{title}</h2>
+        <h2 className="text-2xl font-bold tracking-tight text-gray-100 flex items-center gap-3">
+          {title}
+          {titleBadge && (
+            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent">
+              {titleBadge}
+            </span>
+          )}
+        </h2>
         <p className="text-textMuted mt-1">{description}</p>
       </div>
 
