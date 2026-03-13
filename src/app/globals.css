@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0a0a0a;
-  --color-surface: #1a1a1a;
-  --color-accent: #FFA116;
-  --color-textMuted: #a1a1aa;
+  --color-background: #e8e4df;
+  --color-surface: #f0ece7;
+  --color-accent: #c47d2a;
+  --color-textMuted: #7a736b;
 }
 ::-webkit-scrollbar {
   width: 6px;
@@ -14,17 +14,17 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #1a1a1a;
+  background-color: #c8bfb5;
   border-radius: 9999px;
   transition: background-color 0.2s;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #374151;
+  background-color: #a89e94;
 }
 
 @layer utilities {
   .glass-panel {
-    @apply bg-surface/80 backdrop-blur-md border border-white/5 shadow-lg;
+    @apply bg-surface/80 backdrop-blur-md border border-black/5 shadow-lg;
   }
 }
 
