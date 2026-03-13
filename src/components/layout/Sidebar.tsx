@@ -71,11 +71,11 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`relative h-screen bg-surface border-r border-black/5 flex flex-col transition-all duration-300 soft-ease z-20
+      className={`relative h-screen bg-surface border-r border-white/5 flex flex-col transition-all duration-300 soft-ease z-20
         ${isCollapsed ? "w-20" : "w-64"}`}
     >
       {/* Header */}
-      <div className="h-20 flex items-center px-6 border-b border-black/5 shrink-0">
+      <div className="h-20 flex items-center px-6 border-b border-white/5 shrink-0">
         <Link href="/" className="flex items-center gap-3 overflow-hidden whitespace-nowrap group w-full">
           <div className="w-8 h-8 rounded-lg bg-linear-to-br from-accent to-orange-600 flex items-center justify-center shrink-0 shadow-lg shadow-accent/20 group-hover:shadow-accent/40 transition-shadow duration-300">
             <span className="text-background font-bold text-lg">AI</span>
@@ -96,7 +96,7 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      <div className="p-3 border-t border-black/5 flex flex-col gap-1">
+      <div className="p-3 border-t border-white/5 flex flex-col gap-1">
         {bottomItems.map((item) => (
           <NavItem key={item.href} item={item} isCollapsed={isCollapsed} pathname={pathname} />
         ))}

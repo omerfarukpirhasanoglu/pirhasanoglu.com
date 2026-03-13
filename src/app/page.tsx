@@ -15,13 +15,13 @@ export default function LandingPage() {
           }}
         />  
 
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-black/5 text-accent text-sm mb-8 animate-reveal delay-200 relative z-10">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-white/5 text-accent text-sm mb-8 animate-reveal delay-200 relative z-10">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
           AI & Sistem Mimarisi
         </div>
         
         <div className="relative z-10">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 text-stone-900 animate-reveal delay-400">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 text-white animate-reveal delay-400">
             Veriyi Anlama Dönüştür
           </h1>
         </div>
@@ -29,7 +29,7 @@ export default function LandingPage() {
           Deep Learning - Computer Vision - GPU Inference 
         </p>
         <div className="animate-reveal delay-800 relative z-10">
-          <Link href="/dashboard" className="group flex items-center gap-2 bg-stone-800 text-[#e8e4df] px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors duration-250 soft-ease">
+          <Link href="/dashboard" className="group flex items-center gap-2 bg-white text-background px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors duration-250 soft-ease">
             Projeleri Keşfet 
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-250" />
           </Link>
@@ -38,7 +38,7 @@ export default function LandingPage() {
       {/*About Me*/}
       <section className="px-6 py-24 relative z-10 animate-reveal delay-1000">
         <div className="max-w-4xl mx-auto glass-panel rounded-3xl p-8 md:p-12 
-            border border-black/5 relative overflow-hidden group 
+            border border-white/5 relative overflow-hidden group 
             transition-all duration-700 soft-ease
             hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/7">
           
@@ -52,7 +52,7 @@ export default function LandingPage() {
           <div className="space-y-6 text-textMuted leading-relaxed text-lg">
             
             <Image src="/profile.png" alt="Ömer Faruk Pirhasanoğlu" width={90} height={90} style={{ borderRadius: "7%" }} />
-            <h3 className="text-xl font-semibold text-stone-900">Ömer Faruk PİRHASANOĞLU</h3>
+            <h3 className="text-xl font-semibold text-white">Ömer Faruk PİRHASANOĞLU</h3>
             <p>
               Bilgisayar Mühendisliği 3.Sınıf öğrencisiyim. Yapıcı, Çözüm odaklı ve olabildiğince optimize AI teknolojileri geliştiriyorum.
             </p>
@@ -75,7 +75,7 @@ export default function LandingPage() {
       </section>
 
       {/* Projects Section */}
-      <section className="px-6 py-24 bg-surface/50 border-t border-black/5 relative overflow-hidden">
+      <section className="px-6 py-24 bg-surface/50 border-t border-white/5 relative overflow-hidden">
         {/*glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-75 bg-accent/5 rounded-full blur-[100px] pointer-events-none -z-10" />
 
@@ -92,7 +92,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             
             <Link href="/dashboard/tool-1" className="group glass-panel p-8 rounded-2xl hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
-              <div className="w-14 h-14 bg-surface rounded-xl flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
+              <div className="w-14 h-14 bg-surface rounded-xl flex items-center justify-center mb-6 border border-white/5 group-hover:border-accent/30 transition-colors">
                 <Cpu className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
               </div>
               <h3 className="text-xl font-medium mb-3">Görüntü Sınıflandırma - Stil Analizi</h3>
@@ -105,7 +105,7 @@ export default function LandingPage() {
             </Link>
 
             <Link href="/dashboard/tool-2" className="group glass-panel p-8 rounded-2xl hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
-              <div className="w-14 h-14 bg-surface rounded-xl flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
+              <div className="w-14 h-14 bg-surface rounded-xl flex items-center justify-center mb-6 border border-white/5 group-hover:border-accent/30 transition-colors">
                 <Network className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
               </div>
               <h3 className="text-xl font-medium mb-3">Tensör İşleme Mimarisi</h3>
@@ -119,7 +119,7 @@ export default function LandingPage() {
 
             <Link href="/dashboard/tool-3" className="group glass-panel p-8 rounded-2xl hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
               <div className="group glass-panel p-8 rounded-2xl opacity-50 cursor-not-allowed flex flex-col">
-                <div className="w-14 h-14 bg-surface rounded-xl flex items-center justify-center mb-6 border border-black/5">
+                <div className="w-14 h-14 bg-surface rounded-xl flex items-center justify-center mb-6 border border-white/5">
                   <ScanSearch className="w-6 h-6 text-gray-400" />
                 </div>
                 <h3 className="text-xl font-medium mb-3">Nesne Tespiti</h3>

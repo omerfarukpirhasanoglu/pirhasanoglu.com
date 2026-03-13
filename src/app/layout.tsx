@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="tr">
       {/*relative*/}
-      <body className={`${inter.className} bg-background text-stone-800 antialiased min-h-screen flex flex-col relative`}>
+      <body className={`${inter.className} bg-background text-gray-100 antialiased min-h-screen flex flex-col relative`}>
         
         {/*Noise*/}
         <div 
