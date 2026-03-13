@@ -11,7 +11,7 @@ export default function LandingPage() {
         <div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-200 h-150 pointer-events-none z-0 animate-reveal"
           style={{
-            background: 'radial-gradient(circle, rgba(0, 0, 22, 0.05) 7%, rgba(196, 125, 42, 0.25) 45%, transparent 80%)',
+            background: 'radial-gradient(circle, rgba(0, 0, 22, 0.05) 25%, rgba(196, 125, 42, 0.25) 45%, transparent 80%)',
           }}
         />  
 
