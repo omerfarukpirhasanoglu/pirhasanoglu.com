@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Cpu, Network, Layers, Terminal, ScanSearch, Clock } from "lucide-react";
+import { ArrowRight, Cpu, Network, Layers, Terminal, ScanSearch} from "lucide-react";
 import Footer from "@/src/components/layout/Footer";
 import Image from "next/image";
 export default function LandingPage() {
@@ -10,7 +10,7 @@ export default function LandingPage() {
 
         {/* Node Network Background */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <svg width="100%" height="100%" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+          <svg width="100%" height="100%" viewBox="0 0 680 380" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
             <style>{`
               .e   { fill: none; stroke: #c47d2a; stroke-width: 0.7; opacity: 0.17; }
               .eg  { fill: none; stroke: #888; stroke-width: 0.6; opacity: 0.18; }
@@ -230,7 +230,7 @@ export default function LandingPage() {
             hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/7">
           
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-12 h-12 bg-surface rounded-xs flex items-center justify-center border border-black/10 group-hover:border-accent/20 transition-colors duration-500">
+            <div className="w-12 h-12 bg-surface rounded-xl flex items-center justify-center border border-black/10 group-hover:border-accent/20 transition-colors duration-500">
               <Terminal className="w-6 h-6 text-accent" />
             </div>
             <h2 className="text-2xl font-bold tracking-tight">Sistem Mimarı & Geliştirici</h2>
