@@ -20,7 +20,7 @@ export default function LandingPage() {
               .nf  { fill: #555; }
               .lbl { fill: #b87428; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; opacity: 0.65; }
             `}</style>
-            <g transform="scale(0.72) translate(94, 45)"></g>
+            <g transform="scale(0.86) translate(75, 36)"></g>
             {/* FAR EDGE dim nodes */}
             <circle cx="28"  cy="32"  r="1.8" className="nf"/>
             <circle cx="72"  cy="8"   r="1.4" className="nf"/>
@@ -200,7 +200,7 @@ export default function LandingPage() {
         </div>
         
         <div className="relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 text-stone-900 animate-reveal delay-400">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent animate-reveal delay-400">
             Veriyi Anlama Dönüştür
           </h1>
         </div>
