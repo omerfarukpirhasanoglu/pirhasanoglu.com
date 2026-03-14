@@ -17,9 +17,9 @@ export default function Tool2Page() {
         </div>
 
         {/* Yapım aşamasında kartı */}
-        <div className="glass-panel rounded-2xl p-12 border border-white/5 flex flex-col items-center justify-center text-center gap-6">
+        <div className="glass-panel rounded-lg p-12 border border-white/5 flex flex-col items-center justify-center text-center gap-6">
           
-          <div className="w-16 h-16 rounded-2xl bg-surface flex items-center justify-center border border-white/10">
+          <div className="w-16 h-16 rounded-lg bg-surface flex items-center justify-center border border-white/10">
             <Cpu className="w-8 h-8 text-textMuted" />
           </div>
 

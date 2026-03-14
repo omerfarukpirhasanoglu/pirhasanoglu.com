@@ -6,7 +6,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* Hero Section */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 text-center pt-20 pb-32 relative overflow-hidden">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 text-center pt-40 pb-48 relative overflow-hidden">
 
         {/* Node Network Background */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
@@ -216,7 +216,7 @@ export default function LandingPage() {
       </main>
       {/*About Me*/}
       <section className="px-6 py-24 relative z-10 animate-reveal delay-1000">
-        <div className="max-w-4xl mx-auto glass-panel rounded-3xl p-8 md:p-12 
+        <div className="max-w-4xl mx-auto glass-panel rounded-xl p-8 md:p-12 
             border border-black/5 relative overflow-hidden group 
             transition-all duration-700 soft-ease
             hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/7">
@@ -270,7 +270,7 @@ export default function LandingPage() {
           {/*Grid*/}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             
-            <Link href="/dashboard/tool-1" className="group glass-panel p-8 rounded-2xl hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
+            <Link href="/dashboard/tool-1" className="group glass-panel p-8 rounded-lg hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
               <div className="w-14 h-14 bg-surface rounded-xl flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
                 <Cpu className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
               </div>
@@ -283,7 +283,7 @@ export default function LandingPage() {
               </div>
             </Link>
 
-            <Link href="/dashboard/tool-2" className="group glass-panel p-8 rounded-2xl hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
+            <Link href="/dashboard/tool-2" className="group glass-panel p-8 rounded-lg hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
               <div className="w-14 h-14 bg-surface rounded-xl flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
                 <Network className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
               </div>
@@ -296,8 +296,8 @@ export default function LandingPage() {
               </div>
             </Link>
 
-            <Link href="/dashboard/tool-3" className="group glass-panel p-8 rounded-2xl hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
-              <div className="group glass-panel p-8 rounded-2xl opacity-50 cursor-not-allowed flex flex-col">
+            <Link href="/dashboard/tool-3" className="group glass-panel p-8 rounded-lg hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
+              <div className="group glass-panel p-8 rounded-lg opacity-50 cursor-not-allowed flex flex-col">
                 <div className="w-14 h-14 bg-surface rounded-xl flex items-center justify-center mb-6 border border-black/5">
                   <ScanSearch className="w-6 h-6 text-gray-400" />
                 </div>

@@ -18,7 +18,7 @@ export default function DashboardPage() {
 
         {/* Vizyon ve Odak Grid'i */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="glass-panel p-5 rounded-2xl flex items-center gap-4 border border-white/5 bg-surface/30">
+          <div className="glass-panel p-5 rounded-lg flex items-center gap-4 border border-white/5 bg-surface/30">
             <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center border border-accent/20">
               <Activity className="w-5 h-5 text-accent" />
             </div>
@@ -28,7 +28,7 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          <div className="glass-panel p-5 rounded-2xl flex items-center gap-4 border border-white/5 bg-surface/30">
+          <div className="glass-panel p-5 rounded-lg flex items-center gap-4 border border-white/5 bg-surface/30">
             <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/20">
               <Layers className="w-5 h-5 text-blue-400" />
             </div>
@@ -38,7 +38,7 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          <div className="glass-panel p-5 rounded-2xl flex items-center gap-4 border border-white/5 bg-surface/30">
+          <div className="glass-panel p-5 rounded-lg flex items-center gap-4 border border-white/5 bg-surface/30">
             <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center border border-green-500/20">
               <CheckCircle2 className="w-5 h-5 text-green-400" />
             </div>
@@ -55,11 +55,11 @@ export default function DashboardPage() {
         <h2 className="text-2xl font-semibold text-gray-200 animate-reveal delay-200">Modellerim</h2>
         
         {/* Proje Kartı 1 */}
-        <div className="glass-panel rounded-3xl p-1 border border-white/5 group hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 animate-reveal delay-400 relative overflow-hidden">
+        <div className="glass-panel rounded-xl p-1 border border-white/5 group hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 animate-reveal delay-400 relative overflow-hidden">
           {/*glow*/}
           <div className="absolute top-0 right-0 w-96 h-full bg-linear-to-l from-accent/5 to-transparent pointer-events-none" />
           
-          <div className="bg-surface/50 rounded-[22px] p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center relative z-10">
+          <div className="bg-surface/50 rounded-[10px] p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center relative z-10">
             
             {/*contents*/}
             <div className="flex-1">
@@ -97,8 +97,8 @@ export default function DashboardPage() {
         </div>
 
         {/* Proje Kartı 2*/}
-        <div className="glass-panel rounded-3xl p-1 border border-white/5 opacity-60 hover:opacity-100 transition-opacity duration-300 animate-reveal delay-600">
-          <div className="bg-surface/50 rounded-[22px] p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center">
+        <div className="glass-panel rounded-xl p-1 border border-white/5 opacity-60 hover:opacity-100 transition-opacity duration-300 animate-reveal delay-600">
+          <div className="bg-surface/50 rounded-[10px] p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center">
             
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
@@ -118,8 +118,8 @@ export default function DashboardPage() {
           </div>
         </div>
         {/* Proje Kartı 3 */}
-        <div className="glass-panel rounded-3xl p-1 border border-white/5 opacity-60 hover:opacity-100 transition-opacity duration-300 animate-reveal delay-800">
-          <div className="bg-surface/50 rounded-[22px] p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center">
+        <div className="glass-panel rounded-xl p-1 border border-white/5 opacity-60 hover:opacity-100 transition-opacity duration-300 animate-reveal delay-800">
+          <div className="bg-surface/50 rounded-[10px] p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center">
 
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">

@@ -79,9 +79,9 @@ export default function SettingsPage() {
       <div className="flex flex-col gap-6">
 
         {/* Threshold Kartı */}
-        <div className="glass-panel rounded-2xl p-6 md:p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors">
+        <div className="glass-panel rounded-lg p-6 md:p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors">
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-10 h-10 rounded-xl bg-surface flex items-center justify-center border border-white/10">
+            <div className="w-10 h-10 rounded-md bg-surface flex items-center justify-center border border-white/10">
             </div>
             <div>
               <h2 className="text-xl font-semibold text-gray-200">Karar Güven Eşiği (Confidence Threshold)</h2>
@@ -94,7 +94,7 @@ export default function SettingsPage() {
               <div
                 key={option.value}
                 onClick={() => setThreshold(option.value)}
-                className={`p-5 rounded-xl cursor-pointer transition-all duration-300 border ${
+                className={`p-5 rounded-md cursor-pointer transition-all duration-300 border ${
                   threshold === option.value
                     ? "bg-accent/10 border-accent/50 shadow-[0_0_15px_rgba(255,161,22,0.1)]"
                     : "bg-background/50 border-white/5 hover:border-white/10"
@@ -120,9 +120,9 @@ export default function SettingsPage() {
         </div>
 
         {/* Telemetri Kartı */}
-        <div className="glass-panel rounded-2xl p-6 md:p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors delay-200 animate-reveal">
+        <div className="glass-panel rounded-lg p-6 md:p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors delay-200 animate-reveal">
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-surface flex items-center justify-center border border-white/10">
+            <div className="w-10 h-10 rounded-md bg-surface flex items-center justify-center border border-white/10">
             </div>
             <div>
               <h2 className="text-xl font-semibold text-gray-200">Çıktı Telemetrisi</h2>
@@ -133,7 +133,7 @@ export default function SettingsPage() {
           <div className="space-y-4">
             <div
               onClick={() => setAdvancedMetrics(!advancedMetrics)}
-              className={`flex items-start gap-4 p-5 rounded-xl border cursor-pointer transition-all duration-300 ${
+              className={`flex items-start gap-4 p-5 rounded-md border cursor-pointer transition-all duration-300 ${
                 advancedMetrics ? "bg-accent/5 border-accent/30" : "bg-background/50 border-white/5 hover:border-white/10"
               }`}
             >
@@ -156,7 +156,7 @@ export default function SettingsPage() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between p-5 bg-background/30 rounded-xl border border-white/5 opacity-70">
+            <div className="flex items-center justify-between p-5 bg-background/30 rounded-md border border-white/5 opacity-70">
               <div className="flex items-center gap-3">
                 <Sliders className="w-5 h-5 text-gray-400" />
                 <div>
@@ -172,7 +172,7 @@ export default function SettingsPage() {
         <div className="flex justify-end mt-4 delay-400 animate-reveal">
           <Button
             onClick={handleSave}
-            className={`px-8 py-6 rounded-xl text-md flex items-center gap-2 transition-all duration-300 ${
+            className={`px-8 py-6 rounded-md text-md flex items-center gap-2 transition-all duration-300 ${
               isSaved ? "bg-green-600 hover:bg-green-500 shadow-green-500/20" : "shadow-lg shadow-accent/20 hover:shadow-accent/40"
             }`}
           >

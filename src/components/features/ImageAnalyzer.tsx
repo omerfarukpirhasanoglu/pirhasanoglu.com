@@ -131,7 +131,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
       <Card className="flex flex-col gap-6 bg-surface/40">
 
         {/* Yükleme Alanı */}
-        <div className="relative border-2 border-dashed border-white/10 rounded-xl p-8 text-center hover:border-accent/40 transition-colors duration-300 bg-background/50">
+        <div className="relative border-2 border-dashed border-white/10 rounded-md p-8 text-center hover:border-accent/40 transition-colors duration-300 bg-background/50">
           <input
             type="file"
             accept="image/*"
@@ -172,7 +172,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
 
         {/* Hata */}
         {error && (
-          <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center gap-3 text-red-400 text-sm animate-in slide-in-from-top-2">
+          <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-md flex items-center gap-3 text-red-400 text-sm animate-in slide-in-from-top-2">
             <AlertCircle className="w-5 h-5 shrink-0" />
             <p>{error}</p>
           </div>
@@ -183,7 +183,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
           <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
 
             {/* Ana Stil Tahmini */}
-            <div className="p-6 bg-accent/5 border border-accent/20 rounded-xl">
+            <div className="p-6 bg-accent/5 border border-accent/20 rounded-md">
               <div className="flex items-center gap-2 mb-4">
                 <Sparkles className="w-5 h-5 text-accent" />
                 <h3 className="font-semibold text-gray-200">Stil Tahmini</h3>
@@ -226,7 +226,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
             </div>
 
             {/* Dominant Renkler + Renk Uyumu */}
-            <div className="p-6 bg-white/5 border border-white/10 rounded-xl flex flex-col gap-6">
+            <div className="p-6 bg-white/5 border border-white/10 rounded-md flex flex-col gap-6">
 
               {/* Dominant Renkler */}
               <div>
@@ -327,7 +327,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
             </div>
 
             {/* açılır/kapanır panel */}
-            <div className="border border-white/5 rounded-xl overflow-hidden">
+            <div className="border border-white/5 rounded-md overflow-hidden">
               <button
                 onClick={() => setShowDetails(!showDetails)}
                 className="w-full flex items-center justify-between p-4 text-sm text-textMuted hover:text-gray-200 hover:bg-white/5 transition-colors duration-200"
