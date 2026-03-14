@@ -10,7 +10,7 @@ export default function LandingPage() {
 
         {/* Node Network Background */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <svg width="100%" height="100%" viewBox="0 0 680 340" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+          <svg width="100%" height="100%" viewBox="0 0 680 300" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
             <style>{`
               .e   { fill: none; stroke: #c47d2a; stroke-width: 0.7; opacity: 0.17; }
               .eg  { fill: none; stroke: #888; stroke-width: 0.6; opacity: 0.18; }
