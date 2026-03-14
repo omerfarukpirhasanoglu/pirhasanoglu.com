@@ -10,7 +10,7 @@ export default function LandingPage() {
 
         {/* Node Network Background */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <svg width="100%" height="100%" viewBox="0 0 680 560" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+          <svg width="100%" height="100%" viewBox="0 0 680 340" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
             <style>{`
               .e   { fill: none; stroke: #c47d2a; stroke-width: 0.7; opacity: 0.17; }
               .eg  { fill: none; stroke: #888; stroke-width: 0.6; opacity: 0.18; }
@@ -208,7 +208,7 @@ export default function LandingPage() {
           Deep Learning - Computer Vision - GPU Inference 
         </p>
         <div className="animate-reveal delay-800 relative z-10">
-          <Link href="/dashboard" className="group flex items-center gap-2 bg-stone-800 text-[#e8e4df] px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors duration-250 soft-ease">
+          <Link href="/dashboard" className="group flex items-center gap-2 bg-stone-800 text-[#e8e4df] px-6 py-3 rounded-full font-medium hover:bg-stone-600 transition-colors duration-250 soft-ease">
             Projeleri Keşfet 
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-250" />
           </Link>
@@ -231,7 +231,7 @@ export default function LandingPage() {
           <div className="space-y-6 text-textMuted leading-relaxed text-lg">
             
             <Image src="/profile.png" alt="Ömer Faruk Pirhasanoğlu" width={90} height={90} style={{ borderRadius: "7%" }} />
-            <h3 className="text-xl font-semibold text-stone-900">Ömer Faruk PİRHASANOĞLU</h3>
+            <h3 className="text-xl font-semibold text-stone-100">Ömer Faruk PİRHASANOĞLU</h3>
             <p>
               Bilgisayar Mühendisliği 3.Sınıf öğrencisiyim. Yapıcı, Çözüm odaklı ve olabildiğince optimize AI teknolojileri geliştiriyorum.
             </p>

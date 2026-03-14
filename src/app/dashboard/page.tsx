@@ -1,13 +1,9 @@
 import Link from "next/link";
 import { 
   Activity, 
-  Server, 
-  Cpu, 
-  Box, 
   ArrowRight, 
   CheckCircle2, 
-  Clock,Layers,
-  ScanSearch
+  Clock, Layers,
 } from "lucide-react";
 
 export default function DashboardPage() {
@@ -65,11 +61,6 @@ export default function DashboardPage() {
           
           <div className="bg-surface/50 rounded-[22px] p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center relative z-10">
             
-            {/*icons*/}
-            <div className="w-16 h-16 shrink-0 bg-background rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-accent/30 transition-colors duration-500">
-              <Cpu className="w-8 h-8 text-textMuted group-hover:text-accent transition-colors duration-500" />
-            </div>
-
             {/*contents*/}
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
@@ -109,10 +100,6 @@ export default function DashboardPage() {
         <div className="glass-panel rounded-3xl p-1 border border-white/5 opacity-60 hover:opacity-100 transition-opacity duration-300 animate-reveal delay-600">
           <div className="bg-surface/50 rounded-[22px] p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center">
             
-            <div className="w-16 h-16 shrink-0 bg-background rounded-2xl flex items-center justify-center border border-white/10">
-              <Server className="w-8 h-8 text-textMuted" />
-            </div>
-
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
                 <h3 className="text-xl font-bold text-gray-100 text-opacity-80">Tensör İşleme Mimarisi</h3>
@@ -133,10 +120,6 @@ export default function DashboardPage() {
         {/* Proje Kartı 3 */}
         <div className="glass-panel rounded-3xl p-1 border border-white/5 opacity-60 hover:opacity-100 transition-opacity duration-300 animate-reveal delay-800">
           <div className="bg-surface/50 rounded-[22px] p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center">
-
-            <div className="w-16 h-16 shrink-0 bg-background rounded-2xl flex items-center justify-center border border-white/10">
-              <ScanSearch className="w-8 h-8 text-textMuted" />
-            </div>
 
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">

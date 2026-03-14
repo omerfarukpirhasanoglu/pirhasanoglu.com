@@ -82,7 +82,6 @@ export default function SettingsPage() {
         <div className="glass-panel rounded-2xl p-6 md:p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-10 h-10 rounded-xl bg-surface flex items-center justify-center border border-white/10">
-              <Target className="w-5 h-5 text-amber-400" />
             </div>
             <div>
               <h2 className="text-xl font-semibold text-gray-200">Karar Güven Eşiği (Confidence Threshold)</h2>
@@ -124,7 +123,6 @@ export default function SettingsPage() {
         <div className="glass-panel rounded-2xl p-6 md:p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors delay-200 animate-reveal">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-10 h-10 rounded-xl bg-surface flex items-center justify-center border border-white/10">
-              <Eye className="w-5 h-5 text-accent" />
             </div>
             <div>
               <h2 className="text-xl font-semibold text-gray-200">Çıktı Telemetrisi</h2>
