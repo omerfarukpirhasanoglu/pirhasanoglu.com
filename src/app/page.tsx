@@ -10,7 +10,7 @@ export default function LandingPage() {
 
         {/* Node Network Background */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <svg width="100%" height="100%" viewBox="0 0 680 460" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+          <svg width="100%" height="100%" viewBox="0 0 680 560" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
             <style>{`
               .e   { fill: none; stroke: #c47d2a; stroke-width: 0.7; opacity: 0.17; }
               .eg  { fill: none; stroke: #888; stroke-width: 0.6; opacity: 0.18; }
@@ -20,7 +20,7 @@ export default function LandingPage() {
               .nf  { fill: #555; }
               .lbl { fill: #b87428; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; opacity: 0.65; }
             `}</style>
-            <g transform="scale(0.86) translate(75, 36)"></g>
+            <g transform="scale(0.86) translate(82, 40)"></g>
             {/* FAR EDGE dim nodes */}
             <circle cx="28"  cy="32"  r="1.8" className="nf"/>
             <circle cx="72"  cy="8"   r="1.4" className="nf"/>
