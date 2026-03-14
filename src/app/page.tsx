@@ -20,7 +20,7 @@ export default function LandingPage() {
               .nf  { fill: #555; }
               .lbl { fill: #b87428; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; opacity: 0.65; }
             `}</style>
-            <g transform="scale(0.86) translate(82, 40)"></g>
+            <g transform="scale(0.80) translate(82, 40)"></g>
             {/* FAR EDGE dim nodes */}
             <circle cx="28"  cy="32"  r="1.8" className="nf"/>
             <circle cx="72"  cy="8"   r="1.4" className="nf"/>
@@ -181,6 +181,14 @@ export default function LandingPage() {
               <animate attributeName="r"       values="6;21;6"    dur="4.5s" repeatCount="indefinite" begin="2.1s"/>
               <animate attributeName="opacity" values="0.6;0;0.6" dur="4.5s" repeatCount="indefinite" begin="2.1s"/>
             </circle>
+            <circle cx="224" cy="108" r="5.2" fill="#c47d2a">
+              <animate attributeName="r"       values="5;16;5"    dur="5.8s" repeatCount="indefinite" begin="0.3s"/>
+              <animate attributeName="opacity" values="0.4;0;0.4" dur="5.8s" repeatCount="indefinite" begin="0.3s"/>
+            </circle>
+            <circle cx="468" cy="308" r="5.2" fill="#c47d2a">
+              <animate attributeName="r"       values="5;16;5"    dur="4.2s" repeatCount="indefinite" begin="3.1s"/>
+              <animate attributeName="opacity" values="0.4;0;0.4" dur="4.2s" repeatCount="indefinite" begin="3.1s"/>
+            </circle>
 
             {/* LABELS */}
             <text x="190" y="96"  textAnchor="middle" className="lbl">adam</text>
@@ -222,7 +230,7 @@ export default function LandingPage() {
             hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/7">
           
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-12 h-12 bg-surface rounded-xl flex items-center justify-center border border-black/10 group-hover:border-accent/20 transition-colors duration-500">
+            <div className="w-12 h-12 bg-surface rounded-xs flex items-center justify-center border border-black/10 group-hover:border-accent/20 transition-colors duration-500">
               <Terminal className="w-6 h-6 text-accent" />
             </div>
             <h2 className="text-2xl font-bold tracking-tight">Sistem Mimarı & Geliştirici</h2>

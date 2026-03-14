@@ -81,7 +81,7 @@ export default function SettingsPage() {
         {/* Threshold Kartı */}
         <div className="glass-panel rounded-lg p-6 md:p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors">
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-10 h-10 rounded-md bg-surface flex items-center justify-center border border-white/10">
+            <div className="w-10 h-10 rounded-md bg-surface flex items-center justify-center border">
             </div>
             <div>
               <h2 className="text-xl font-semibold text-gray-200">Karar Güven Eşiği (Confidence Threshold)</h2>
@@ -122,7 +122,7 @@ export default function SettingsPage() {
         {/* Telemetri Kartı */}
         <div className="glass-panel rounded-lg p-6 md:p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors delay-200 animate-reveal">
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-10 h-10 rounded-md bg-surface flex items-center justify-center border border-white/10">
+            <div className="w-10 h-10 rounded-md bg-surface flex items-center justify-center border">
             </div>
             <div>
               <h2 className="text-xl font-semibold text-gray-200">Çıktı Telemetrisi</h2>
