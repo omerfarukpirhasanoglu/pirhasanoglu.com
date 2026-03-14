@@ -201,14 +201,15 @@ export default function LandingPage() {
             <text x="510" y="322" textAnchor="middle" className="lbl">τ=0.5</text>
           </svg>
         </div>
-
+        
+        <div className="relative z-10 flex flex-col items-center mt-8"></div>
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-black/5 text-accent text-sm mb-8 animate-reveal delay-200 relative z-10">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
           AI & Sistem Mimarisi
         </div>
         
         <div className="relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent animate-reveal delay-400">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 bg-linear-to-r from-white to-amber-400 bg-clip-text text-transparent animate-reveal delay-400">
             Veriyi Anlama Dönüştür
           </h1>
         </div>
