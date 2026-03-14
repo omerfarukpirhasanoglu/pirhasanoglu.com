@@ -6,7 +6,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* Hero Section */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 text-center pt-30 pb-48 relative overflow-hidden">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 text-center pt-40 pb-48 relative overflow-hidden">
 
         {/* Node Network Background */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
@@ -20,7 +20,7 @@ export default function LandingPage() {
               .nf  { fill: #555; }
               .lbl { fill: #b87428; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; opacity: 0.65; }
             `}</style>
-            <g transform="scale(0.80) translate(82, 40)"></g>
+            <g transform="scale(0.80) translate(82, -15)"></g>
             {/* FAR EDGE dim nodes */}
             <circle cx="28"  cy="32"  r="1.8" className="nf"/>
             <circle cx="72"  cy="8"   r="1.4" className="nf"/>
