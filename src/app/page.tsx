@@ -10,7 +10,7 @@ export default function LandingPage() {
 
         {/* Node Network Background */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <svg width="100%" height="100%" viewBox="0 0 680 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <svg width="100%" height="100%" viewBox="0 0 680 460" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
             <style>{`
               .e   { fill: none; stroke: #c47d2a; stroke-width: 0.7; opacity: 0.17; }
               .eg  { fill: none; stroke: #888; stroke-width: 0.6; opacity: 0.18; }
@@ -200,7 +200,7 @@ export default function LandingPage() {
         </div>
         
         <div className="relative z-10">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 text-stone-900 animate-reveal delay-400">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 text-stone-900 animate-reveal delay-400">
             Veriyi Anlama Dönüştür
           </h1>
         </div>
