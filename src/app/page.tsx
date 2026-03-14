@@ -20,7 +20,7 @@ export default function LandingPage() {
               .nf  { fill: #555; }
               .lbl { fill: #b87428; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; opacity: 0.65; }
             `}</style>
-            <g transform="scale(0.80) translate(82, 40)"></g>
+            <g transform="scale(0.80) translate(82, 20)"></g>
             {/* FAR EDGE dim nodes */}
             <circle cx="28"  cy="32"  r="1.8" className="nf"/>
             <circle cx="72"  cy="8"   r="1.4" className="nf"/>
@@ -241,13 +241,18 @@ export default function LandingPage() {
             <Image src="/profile.png" alt="Ömer Faruk Pirhasanoğlu" width={90} height={90} style={{ borderRadius: "7%" }} />
             <h3 className="text-xl font-semibold text-stone-100">Ömer Faruk PİRHASANOĞLU</h3>
             <p>
-              Bilgisayar Mühendisliği 3.Sınıf öğrencisiyim. Yapıcı, Çözüm odaklı ve olabildiğince optimize AI teknolojileri geliştiriyorum.
+              Derin öğrenme ve bilgisayarla görme alanında uzmanlaşmakta olan 3. sınıf Bilgisayar Mühendisliği öğrencisiyim. Mimari tasarımdan bulut dağıtımına kadar uçtan uca üretim kalitesinde,
+              olabilidğince optimize yapay zeka modelleri tasarlıyor, eğitiyor ve deploy ediyorum.
             </p>
             <p>
-              Keras API ile ANN, CNN, RNN, LSTM, GAN, RBFN, ResNets, DQL ve Transformers sinir ağı türleri ile modeller kurdum ve eğittim. PyTorch ile GPU destekli çıkarım (inference) ve FastAPI köprüsü geliştirdim.
+              Temel uzmanlık alanlarım: Keras & PyTorch · Transfer Learning · Çok Fazlı Eğitim · Hiperparametre Fine-Tuning · GPU Destekli Çıkarım (CUDA) · Bilgisayarla Görme · Özel Sinir Ağı Mimarileri
             </p>
             <p>
-              Projelerimde, veri ön işleme, model eğitimi, hiperparametre optimizasyonu ve üretim ortamına dağıtım süreçlerini kapsayan uçtan uca yapay zeka çözümleri sunmaktayım.
+              Uçtan uca bir görüntü sınıflandırma sistemi geliştirip deploy ettim: ön işleme pipeline'ı → 2 fazlı transfer learning (temel katmanlar donduruldu, üst katmanlar düşük öğrenme hızıyla fine-tune edildi)
+               → Docker'lı AI-Backend → canlı bulut endpoint'i. Regularizasyon, batch stratejileri ve overfitting kontrollerini bilinçli mimari kararlar olarak uyguluyorum.
+            </p>
+            <p>
+              Ayrıca: Git/GitHub · Docker · Agile/Scrum · LLM prompt mühendisliği & hata giderimi · kod inceleme (code review).
             </p>
             <p>
               Sıkıcı teknik laflar bir yana; bilgisayar denen ve mimarisine hayran olduğum bu çok havalı hesap makinesinin tabiri caizse "öğrenebiliyor" oluşu, içine doğduğum çağın en müthiş kırılma noktası gibi :D
