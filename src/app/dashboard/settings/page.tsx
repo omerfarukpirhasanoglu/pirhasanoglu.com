@@ -96,7 +96,7 @@ export default function SettingsPage() {
                 onClick={() => setThreshold(option.value)}
                 className={`p-5 rounded-md cursor-pointer transition-all duration-300 border ${
                   threshold === option.value
-                    ? "bg-accent/10 border-accent/50 shadow-[0_0_15px_rgba(255,161,22,0.1)]"
+                    ? "bg-accent/10 border-accent/50 shadow-[0_0_15px_rgba(77,184,173,0.1)]"
                     : "bg-background/50 border-white/5 hover:border-white/10"
                 }`}
               >
@@ -139,7 +139,7 @@ export default function SettingsPage() {
             >
               <div className="mt-1">
                 {advancedMetrics ? (
-                  <div className="w-5 h-5 rounded-full bg-accent flex items-center justify-center shadow-[0_0_10px_rgba(255,161,22,0.5)]">
+                  <div className="w-5 h-5 rounded-full bg-accent flex items-center justify-center shadow-[0_0_10px_rgba(77,184,173,0.5)]">
                     <div className="w-2 h-2 bg-background rounded-full" />
                   </div>
                 ) : (

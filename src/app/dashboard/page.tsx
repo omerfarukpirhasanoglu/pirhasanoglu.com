@@ -89,7 +89,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Buttons*/}
-            <Link href="/dashboard/tool-1" className="shrink-0 w-full md:w-auto flex items-center justify-center gap-2 bg-accent text-background px-6 py-3 rounded-xl font-medium hover:bg-orange-500 transition-colors duration-250">
+            <Link href="/dashboard/tool-1" className="shrink-0 w-full md:w-auto flex items-center justify-center gap-2 bg-accent text-background px-6 py-3 rounded-xl font-medium hover:bg-teal-500 transition-colors duration-250">
               Modeli İncele
               <ArrowRight className="w-4 h-4" />
             </Link>

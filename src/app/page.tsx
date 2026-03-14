@@ -12,13 +12,13 @@ export default function LandingPage() {
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
           <svg width="100%" height="100%" viewBox="0 0 680 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
             <style>{`
-              .e   { fill: none; stroke: #c47d2a; stroke-width: 0.7; opacity: 0.17; }
+              .e   { fill: none; stroke: #4db8ad; stroke-width: 0.7; opacity: 0.17; }
               .eg  { fill: none; stroke: #888; stroke-width: 0.6; opacity: 0.18; }
               .ef  { fill: none; stroke: #777; stroke-width: 0.5; opacity: 0.13; }
-              .nd  { fill: #c47d2a; }
+              .nd  { fill: #4db8ad; }
               .ns  { fill: #666; }
               .nf  { fill: #555; }
-              .lbl { fill: #b87428; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; opacity: 0.65; }
+              .lbl { fill: #3a9990; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; opacity: 0.65; }
             `}</style>
             <g transform="scale(0.80) translate(82, 40)"></g>
             {/* FAR EDGE dim nodes */}
@@ -159,33 +159,33 @@ export default function LandingPage() {
             <line x1="624" y1="215" x2="158" y2="368" className="eg" opacity="0.07"/>
 
             {/* GLOW */}
-            <circle cx="352" cy="82"  r="24" fill="#c47d2a" opacity="0.055"/>
-            <circle cx="108" cy="225" r="20" fill="#c47d2a" opacity="0.048"/>
-            <circle cx="572" cy="198" r="20" fill="#c47d2a" opacity="0.048"/>
-            <circle cx="358" cy="322" r="22" fill="#c47d2a" opacity="0.050"/>
+            <circle cx="352" cy="82"  r="24" fill="#4db8ad" opacity="0.055"/>
+            <circle cx="108" cy="225" r="20" fill="#4db8ad" opacity="0.048"/>
+            <circle cx="572" cy="198" r="20" fill="#4db8ad" opacity="0.048"/>
+            <circle cx="358" cy="322" r="22" fill="#4db8ad" opacity="0.050"/>
 
             {/* PULSE */}
-            <circle cx="352" cy="82" r="6.2" fill="#c47d2a">
+            <circle cx="352" cy="82" r="6.2" fill="#4db8ad">
               <animate attributeName="r"       values="6;22;6"    dur="4.0s" repeatCount="indefinite"/>
               <animate attributeName="opacity" values="0.6;0;0.6" dur="4.0s" repeatCount="indefinite"/>
             </circle>
-            <circle cx="108" cy="225" r="6.2" fill="#c47d2a">
+            <circle cx="108" cy="225" r="6.2" fill="#4db8ad">
               <animate attributeName="r"       values="6;19;6"    dur="4.9s" repeatCount="indefinite" begin="1.4s"/>
               <animate attributeName="opacity" values="0.5;0;0.5" dur="4.9s" repeatCount="indefinite" begin="1.4s"/>
             </circle>
-            <circle cx="572" cy="198" r="6.0" fill="#c47d2a">
+            <circle cx="572" cy="198" r="6.0" fill="#4db8ad">
               <animate attributeName="r"       values="6;19;6"    dur="5.3s" repeatCount="indefinite" begin="0.7s"/>
               <animate attributeName="opacity" values="0.5;0;0.5" dur="5.3s" repeatCount="indefinite" begin="0.7s"/>
             </circle>
-            <circle cx="358" cy="322" r="6.2" fill="#c47d2a">
+            <circle cx="358" cy="322" r="6.2" fill="#4db8ad">
               <animate attributeName="r"       values="6;21;6"    dur="4.5s" repeatCount="indefinite" begin="2.1s"/>
               <animate attributeName="opacity" values="0.6;0;0.6" dur="4.5s" repeatCount="indefinite" begin="2.1s"/>
             </circle>
-            <circle cx="224" cy="108" r="5.2" fill="#c47d2a">
+            <circle cx="224" cy="108" r="5.2" fill="#4db8ad">
               <animate attributeName="r"       values="5;16;5"    dur="5.8s" repeatCount="indefinite" begin="0.3s"/>
               <animate attributeName="opacity" values="0.4;0;0.4" dur="5.8s" repeatCount="indefinite" begin="0.3s"/>
             </circle>
-            <circle cx="468" cy="308" r="5.2" fill="#c47d2a">
+            <circle cx="468" cy="308" r="5.2" fill="#4db8ad">
               <animate attributeName="r"       values="5;16;5"    dur="4.2s" repeatCount="indefinite" begin="3.1s"/>
               <animate attributeName="opacity" values="0.4;0;0.4" dur="4.2s" repeatCount="indefinite" begin="3.1s"/>
             </circle>
@@ -209,7 +209,7 @@ export default function LandingPage() {
         </div>
         
         <div className="relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 bg-linear-to-r from-white to-amber-400 bg-clip-text text-transparent animate-reveal delay-400">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent animate-reveal delay-400">
             Veriyi Anlama Dönüştür
           </h1>
         </div>

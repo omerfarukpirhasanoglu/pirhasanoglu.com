@@ -77,7 +77,7 @@ export default function Sidebar() {
       {/* Header */}
       <div className="h-20 flex items-center px-6 border-b border-black/5 shrink-0">
         <Link href="/" className="flex items-center gap-3 overflow-hidden whitespace-nowrap group w-full">
-          <div className="w-8 h-8 rounded-lg bg-linear-to-br from-accent to-orange-600 flex items-center justify-center shrink-0 shadow-lg shadow-accent/20 group-hover:shadow-accent/40 transition-shadow duration-300">
+          <div className="w-8 h-8 rounded-lg bg-linear-to-br from-accent to-teal-600 flex items-center justify-center shrink-0 shadow-lg shadow-accent/20 group-hover:shadow-accent/40 transition-shadow duration-300">
             <span className="text-background font-bold text-lg">AI</span>
           </div>
           <span className={`font-semibold text-lg tracking-tight transition-all duration-300 group-hover:text-accent

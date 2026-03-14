@@ -54,7 +54,7 @@ interface ImageAnalyzerProps {
 // Güven skoruna göre renk — yüksekse yeşil, düşükse sarı/kırmızı
 function getGuvenRengi(guven: number): string {
   if (guven >= 75) return "text-green-400";
-  if (guven >= 50) return "text-amber-400";
+  if (guven >= 50) return "text-teal-400";
   return "text-red-400";
 }
 
@@ -294,7 +294,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
                       result.renk_analizi.genel_istatistikler.uyum_skoru >= 75
                         ? "text-green-400"
                         : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50
-                        ? "text-amber-400"
+                        ? "text-teal-400"
                         : "text-red-400"
                     }`}>
                       {result.renk_analizi.genel_istatistikler.uyum_notu}
