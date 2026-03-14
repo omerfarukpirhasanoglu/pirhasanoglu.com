@@ -52,7 +52,7 @@ export default function DashboardPage() {
 
       {/* Ana Projeler Listesi */}
       <div className="flex flex-col gap-6">
-        <h2 className="text-xl font-semibold text-gray-200 animate-reveal delay-200">Modellerim</h2>
+        <h2 className="text-2xl font-semibold text-gray-200 animate-reveal delay-200">Modellerim</h2>
         
         {/* Proje Kartı 1 */}
         <div className="glass-panel rounded-3xl p-1 border border-white/5 group hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 animate-reveal delay-400 relative overflow-hidden">
@@ -64,7 +64,7 @@ export default function DashboardPage() {
             {/*contents*/}
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h3 className="text-2xl font-bold text-gray-100 flex items-center gap-3">
+                <h3 className="text-xl font-bold text-gray-100 flex items-center gap-3">
                   Chroma
                   <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent">
                     v1.0
@@ -107,7 +107,7 @@ export default function DashboardPage() {
                   <Clock className="w-3 h-3" /> Geliştiriliyor
                 </span>
               </div>
-              <p className="text-textMuted leading-relaxed max-w-2xl text-sm">
+              <p className="text-textMuted leading-relaxed max-w-2xl">
                 PyTorch ortamında eğitilmiş modeller için GPU destekli çıkarım ve asenkron veri akışı sağlayacak yeni nesil pipeline modülü.
               </p>
             </div>
@@ -128,7 +128,7 @@ export default function DashboardPage() {
                   <Clock className="w-3 h-3" /> Geliştiriliyor
                 </span>
               </div>
-              <p className="text-textMuted leading-relaxed max-w-2xl text-sm mb-4">
+              <p className="text-textMuted leading-relaxed max-w-2xl">
                 PyTorch tabanlı nesne tespit modeli. Görüntü içindeki nesneleri bounding box ile işaretler, sınıflandırır ve güven skorlarını raporlar.
               </p>
               <div className="flex flex-wrap gap-2">
