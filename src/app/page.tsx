@@ -410,7 +410,7 @@ export default function LandingPage() {
 
         {/* Cam kart */}
         <div className="max-w-4xl mx-auto relative" style={{
-          zIndex: 1,
+          zIndex: 2,
           borderRadius: "6px",
           background: "rgba(33,33,33,0.85)",
           boxShadow: "0 0 0 0.5px rgba(255,255,255,0.08), 0 24px 48px rgba(0,0,0,0.4)",
