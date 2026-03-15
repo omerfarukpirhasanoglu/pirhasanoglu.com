@@ -79,7 +79,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Sağ  inference sonucu */}
-            <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "2800px", background: "transparent"}}>
+            <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "280px", background: "transparent"}}>
               <Image
                 src="/sample-output.jpg"
                 alt="örnek çıktı"
