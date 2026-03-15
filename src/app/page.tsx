@@ -412,7 +412,8 @@ export default function LandingPage() {
         <div className="max-w-4xl mx-auto relative" style={{
           zIndex: 1,
           borderRadius: "6px",
-          background: "rgba(33,33,33,0.38)",
+          background: "rgba(33,33,33,0.75)",
+          boxShadow: "0 0 0 0.5px rgba(255,255,255,0.08), 0 24px 48px rgba(0,0,0,0.4)",
           backdropFilter: "blur(10px)",
           WebkitBackdropFilter: "blur(10px)",
           border: "0.5px solid rgba(255,255,255,0.08)",
