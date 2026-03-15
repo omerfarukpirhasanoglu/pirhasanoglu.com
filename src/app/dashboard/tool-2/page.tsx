@@ -25,8 +25,8 @@ export default function Tool2Page() {
 
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-center gap-2">
-              <Clock className="w-4 h-4 text-orange-400" />
-              <span className="text-sm font-medium text-orange-400">Geliştirme Aşamasında</span>
+              <Clock className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-accent">Geliştirme Aşamasında</span>
             </div>
             <h3 className="text-xl font-semibold text-gray-200">Bu araç henüz hazır değil</h3>
             <p className="text-textMuted text-sm max-w-md leading-relaxed">

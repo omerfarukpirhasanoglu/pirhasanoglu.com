@@ -61,7 +61,7 @@ export default function Sidebar() {
   const menuItems: MenuItem[] = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
     { name: "Chroma v1.0", href: "/dashboard/tool-1", icon: ImageIcon },
-    { name: "Sistem Modeli", href: "/dashboard/tool-2", icon: Cpu },
+    { name: "Tensör İşleme", href: "/dashboard/tool-2", icon: Cpu },
     { name: "Nesne Tespiti", href: "/dashboard/tool-3", icon: ScanSearch },
   ];
 
@@ -77,8 +77,8 @@ export default function Sidebar() {
       {/* Header */}
       <div className="h-20 flex items-center px-6 border-b border-black/5 shrink-0">
         <Link href="/" className="flex items-center gap-3 overflow-hidden whitespace-nowrap group w-full">
-          <div className="w-8 h-8 rounded-sm bg-linear-to-br from-[#f75f5f] to-[#ffd44f] flex items-center justify-center shrink-0 shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow duration-300">
-            <span className="text-background font-bold text-lg">AI</span>
+          <div className="w-8 h-8 rounded-sm bg-linear-to-br from-accent to-[#ffd44f] flex items-center justify-center shrink-0 shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow duration-300">
+            <span className="text-background font-bold text-lg">OP</span>
           </div>
           <span className={`font-semibold text-lg tracking-tight transition-all duration-300 group-hover:text-accent
             ${isCollapsed ? "opacity-0 hidden" : "opacity-100"}`}>

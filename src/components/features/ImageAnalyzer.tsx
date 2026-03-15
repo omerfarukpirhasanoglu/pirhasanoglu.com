@@ -54,7 +54,7 @@ interface ImageAnalyzerProps {
 // Güven skoruna göre renk — yüksekse yeşil, düşükse sarı/kırmızı
 function getGuvenRengi(guven: number): string {
   if (guven >= 75) return "text-green-400";
-  if (guven >= 50) return "text-orange-400";
+  if (guven >= 50) return "text-[#f75f5f]";
   return "text-red-400";
 }
 
@@ -199,7 +199,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
               {/* Güven çubuğu */}
               <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-accent rounded-full transition-all duration-700"
+                  className="h-full bg-linear-to-r from-accent to-[#ffd44f] rounded-full transition-all duration-700"
                   style={{ width: `${result.stil.guven}%` }}
                 />
               </div>
@@ -294,7 +294,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
                       result.renk_analizi.genel_istatistikler.uyum_skoru >= 75
                         ? "text-green-400"
                         : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50
-                        ? "text-orange-400"
+                        ? "text-accent"
                         : "text-red-400"
                     }`}>
                       {result.renk_analizi.genel_istatistikler.uyum_notu}

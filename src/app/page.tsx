@@ -6,8 +6,8 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-5 pointer-events-none">
-        <nav className="w-full max-w-5xl flex items-center justify-between px-5 h-10 pointer-events-auto"
+      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-3 px-4 pointer-events-none">
+        <nav className="w-full flex items-center justify-between px-6 h-10 pointer-events-auto"
           style={{
             background: "rgba(33,33,33,0.38)",
             backdropFilter: "blur(10px)",
@@ -244,7 +244,7 @@ export default function LandingPage() {
         
         <div className="relative z-10 flex flex-col items-center mt-8"></div>
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-black/5 text-accent text-sm mb-8 animate-reveal delay-200 relative z-10">
-          <span className="w-2 h-2 rounded-full bg-[#f75f5f] animate-pulse"></span>
+          <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
           AI & Sistem Mimarisi
         </div>
         
@@ -257,7 +257,7 @@ export default function LandingPage() {
           Deep Learning - Computer Vision - GPU Inference 
         </p>
         <div className="animate-reveal delay-800 relative z-10">
-          <Link href="/dashboard" className="group flex items-center gap-2 bg-linear-to-r from-[#f75f5f] to-[#ffd44f] text-[#1a0808] px-6 py-3 rounded-sm font-semibold hover:opacity-90 transition-colors duration-250 soft-ease">
+          <Link href="/dashboard" className="group flex items-center gap-2 bg-linear-to-r from-accent to-[#ffd44f] text-[#1a0808] px-6 py-3 rounded-sm font-semibold hover:opacity-90 transition-colors duration-250 soft-ease">
             Projeleri Keşfet 
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-250" />
           </Link>
