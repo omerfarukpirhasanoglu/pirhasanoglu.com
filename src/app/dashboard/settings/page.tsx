@@ -4,11 +4,8 @@ import { useState, useEffect } from "react";
 import {
   Settings as SettingsIcon,
   Sliders,
-  Eye,
-  Target,
   Save,
   Activity,
-  Info,
 } from "lucide-react";
 import { Button } from "@/src/components/ui/Button";
 
@@ -81,8 +78,6 @@ export default function SettingsPage() {
         {/* Threshold Kartı */}
         <div className="glass-panel rounded-sm p-6 md:p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors">
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-10 h-10 rounded-sm bg-surface flex items-center justify-center border">
-            </div>
             <div>
               <h2 className="text-xl font-semibold text-gray-200">Karar Güven Eşiği (Confidence Threshold)</h2>
               <p className="text-sm text-textMuted">Modelin kesin bir sınıflandırma yapabilmesi için gereken minimum olasılık değeri.</p>
@@ -122,8 +117,6 @@ export default function SettingsPage() {
         {/* Telemetri Kartı */}
         <div className="glass-panel rounded-sm p-6 md:p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors delay-200 animate-reveal">
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-10 h-10 rounded-sm bg-surface flex items-center justify-center border">
-            </div>
             <div>
               <h2 className="text-xl font-semibold text-gray-200">Çıktı Telemetrisi</h2>
               <p className="text-sm text-textMuted">Analiz sonuç ekranında gösterilecek veri derinliğini belirler.</p>
@@ -139,7 +132,7 @@ export default function SettingsPage() {
             >
               <div className="mt-1">
                 {advancedMetrics ? (
-                  <div className="w-5 h-5 rounded-full bg-linear-to-br from-accent to-[#ffd44f] flex items-center justify-center shadow-[0_0_10px_rgba(247,95,95,0.5)]">
+                  <div className="w-5 h-5 rounded-full text-accent flex items-center justify-center shadow-[0_0_10px_rgba(247,95,95,0.5)]">
                     <div className="w-2 h-2 bg-background rounded-full" />
                   </div>
                 ) : (
