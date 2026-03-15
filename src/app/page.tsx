@@ -272,151 +272,10 @@ export default function LandingPage() {
         </div>
       </main>
       {/*About Me*/}
-      <section className="px-6 py-24 relative z-10 animate-reveal delay-1000" style={{overflow: "visible"}}>
-
-        {/* SVG — section'ın tamamına yayılıyor, taşıyor */}
-        <div className="fixed pointer-events-none" style={{
-          inset: "-96px 0",
-          zIndex: 0,
-          overflow: "visible",
-        }}>
-          <svg width="100%" height="100%" viewBox="0 0 680 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="aboutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#f75f5f"/>
-                <stop offset="50%" stopColor="#f9964a"/>
-                <stop offset="100%" stopColor="#ffd44f"/>
-              </linearGradient>
-            </defs>
-            <circle cx="18"  cy="42"  r="1.4" fill="#383838"/>
-            <circle cx="648" cy="28"  r="1.6" fill="#383838"/>
-            <circle cx="12"  cy="388" r="1.4" fill="#383838"/>
-            <circle cx="662" cy="375" r="1.6" fill="#383838"/>
-            <circle cx="355" cy="6"   r="1.4" fill="#383838"/>
-            <circle cx="88"  cy="188" r="1.5" fill="#404040"/>
-            <circle cx="592" cy="142" r="1.5" fill="#404040"/>
-            <circle cx="44"  cy="312" r="1.4" fill="#383838"/>
-            <circle cx="630" cy="298" r="1.5" fill="#404040"/>
-            <circle cx="288" cy="402" r="1.4" fill="#383838"/>
-            <circle cx="508" cy="12"  r="1.3" fill="#383838"/>
-            <circle cx="142" cy="18"  r="1.4" fill="#383838"/>
-            <circle cx="112" cy="72"  r="2.4" fill="#505050"/>
-            <circle cx="248" cy="48"  r="2.2" fill="#4a4a4a"/>
-            <circle cx="455" cy="38"  r="2.2" fill="#4a4a4a"/>
-            <circle cx="572" cy="88"  r="2.4" fill="#505050"/>
-            <circle cx="68"  cy="255" r="2.4" fill="#505050"/>
-            <circle cx="618" cy="232" r="2.2" fill="#4a4a4a"/>
-            <circle cx="105" cy="368" r="2.2" fill="#4a4a4a"/>
-            <circle cx="188" cy="395" r="2.0" fill="#444"/>
-            <circle cx="498" cy="388" r="2.2" fill="#4a4a4a"/>
-            <circle cx="578" cy="348" r="2.4" fill="#505050"/>
-            <circle cx="322" cy="58"  r="2.2" fill="#4a4a4a"/>
-            <circle cx="158" cy="338" r="2.0" fill="#444"/>
-            <circle cx="542" cy="318" r="2.0" fill="#444"/>
-            <line x1="112" y1="72"  x2="248" y2="48"  stroke="#484848" strokeWidth="0.5" opacity="0.55"/>
-            <line x1="248" y1="48"  x2="322" y2="58"  stroke="#484848" strokeWidth="0.5" opacity="0.5"/>
-            <line x1="322" y1="58"  x2="455" y2="38"  stroke="#484848" strokeWidth="0.5" opacity="0.5"/>
-            <line x1="455" y1="38"  x2="572" y2="88"  stroke="#484848" strokeWidth="0.5" opacity="0.55"/>
-            <line x1="112" y1="72"  x2="68"  y2="255" stroke="#484848" strokeWidth="0.4" opacity="0.4"/>
-            <line x1="572" y1="88"  x2="618" y2="232" stroke="#484848" strokeWidth="0.4" opacity="0.4"/>
-            <line x1="68"  y1="255" x2="105" y2="368" stroke="#484848" strokeWidth="0.4" opacity="0.4"/>
-            <line x1="618" y1="232" x2="578" y2="348" stroke="#484848" strokeWidth="0.4" opacity="0.4"/>
-            <line x1="105" y1="368" x2="188" y2="395" stroke="#484848" strokeWidth="0.4" opacity="0.4"/>
-            <line x1="188" y1="395" x2="498" y2="388" stroke="#484848" strokeWidth="0.4" opacity="0.4"/>
-            <line x1="498" y1="388" x2="578" y2="348" stroke="#484848" strokeWidth="0.4" opacity="0.4"/>
-            <line x1="248" y1="48"  x2="68"  y2="255" stroke="#484848" strokeWidth="0.4" opacity="0.25"/>
-            <line x1="455" y1="38"  x2="618" y2="232" stroke="#484848" strokeWidth="0.4" opacity="0.25"/>
-            <line x1="158" y1="338" x2="105" y2="368" stroke="#484848" strokeWidth="0.4" opacity="0.3"/>
-            <line x1="542" y1="318" x2="578" y2="348" stroke="#484848" strokeWidth="0.4" opacity="0.3"/>
-            <circle cx="205" cy="118" r="4.8" fill="url(#aboutGrad)" opacity="0.60"/>
-            <circle cx="358" cy="82"  r="6.0" fill="url(#aboutGrad)" opacity="0.78"/>
-            <circle cx="488" cy="135" r="4.5" fill="url(#aboutGrad)" opacity="0.62"/>
-            <circle cx="148" cy="205" r="4.5" fill="url(#aboutGrad)" opacity="0.58"/>
-            <circle cx="535" cy="188" r="5.0" fill="url(#aboutGrad)" opacity="0.68"/>
-            <circle cx="115" cy="298" r="4.8" fill="url(#aboutGrad)" opacity="0.62"/>
-            <circle cx="278" cy="252" r="5.5" fill="url(#aboutGrad)" opacity="0.75"/>
-            <circle cx="435" cy="268" r="5.2" fill="url(#aboutGrad)" opacity="0.72"/>
-            <circle cx="558" cy="302" r="4.5" fill="url(#aboutGrad)" opacity="0.60"/>
-            <circle cx="195" cy="348" r="4.2" fill="url(#aboutGrad)" opacity="0.55"/>
-            <circle cx="382" cy="335" r="5.5" fill="url(#aboutGrad)" opacity="0.74"/>
-            <circle cx="505" cy="358" r="4.0" fill="url(#aboutGrad)" opacity="0.52"/>
-            <line x1="205" y1="118" x2="358" y2="82"  stroke="url(#aboutGrad)" strokeWidth="0.7" opacity="0.2"/>
-            <line x1="358" y1="82"  x2="488" y2="135" stroke="url(#aboutGrad)" strokeWidth="0.7" opacity="0.2"/>
-            <line x1="205" y1="118" x2="148" y2="205" stroke="url(#aboutGrad)" strokeWidth="0.6" opacity="0.18"/>
-            <line x1="488" y1="135" x2="535" y2="188" stroke="url(#aboutGrad)" strokeWidth="0.6" opacity="0.18"/>
-            <line x1="148" y1="205" x2="115" y2="298" stroke="url(#aboutGrad)" strokeWidth="0.6" opacity="0.17"/>
-            <line x1="535" y1="188" x2="558" y2="302" stroke="url(#aboutGrad)" strokeWidth="0.6" opacity="0.17"/>
-            <line x1="278" y1="252" x2="435" y2="268" stroke="url(#aboutGrad)" strokeWidth="0.7" opacity="0.22"/>
-            <line x1="115" y1="298" x2="195" y2="348" stroke="url(#aboutGrad)" strokeWidth="0.6" opacity="0.16"/>
-            <line x1="195" y1="348" x2="382" y2="335" stroke="url(#aboutGrad)" strokeWidth="0.7" opacity="0.2"/>
-            <line x1="382" y1="335" x2="505" y2="358" stroke="url(#aboutGrad)" strokeWidth="0.6" opacity="0.16"/>
-            <line x1="505" y1="358" x2="558" y2="302" stroke="url(#aboutGrad)" strokeWidth="0.6" opacity="0.16"/>
-            <line x1="358" y1="82"  x2="278" y2="252" stroke="url(#aboutGrad)" strokeWidth="0.7" opacity="0.14"/>
-            <line x1="358" y1="82"  x2="435" y2="268" stroke="url(#aboutGrad)" strokeWidth="0.7" opacity="0.14"/>
-            <line x1="148" y1="205" x2="278" y2="252" stroke="url(#aboutGrad)" strokeWidth="0.6" opacity="0.13"/>
-            <line x1="535" y1="188" x2="435" y2="268" stroke="url(#aboutGrad)" strokeWidth="0.6" opacity="0.13"/>
-            <line x1="278" y1="252" x2="382" y2="335" stroke="url(#aboutGrad)" strokeWidth="0.6" opacity="0.14"/>
-            <line x1="435" y1="268" x2="382" y2="335" stroke="url(#aboutGrad)" strokeWidth="0.6" opacity="0.14"/>
-            <line x1="205" y1="118" x2="278" y2="252" stroke="url(#aboutGrad)" strokeWidth="0.5" opacity="0.1"/>
-            <line x1="488" y1="135" x2="435" y2="268" stroke="url(#aboutGrad)" strokeWidth="0.5" opacity="0.1"/>
-            <line x1="112" y1="72"  x2="205" y2="118" stroke="#484848" strokeWidth="0.5" opacity="0.5"/>
-            <line x1="248" y1="48"  x2="205" y2="118" stroke="#484848" strokeWidth="0.5" opacity="0.45"/>
-            <line x1="322" y1="58"  x2="358" y2="82"  stroke="#484848" strokeWidth="0.5" opacity="0.5"/>
-            <line x1="455" y1="38"  x2="488" y2="135" stroke="#484848" strokeWidth="0.5" opacity="0.45"/>
-            <line x1="572" y1="88"  x2="488" y2="135" stroke="#484848" strokeWidth="0.5" opacity="0.5"/>
-            <line x1="68"  y1="255" x2="148" y2="205" stroke="#484848" strokeWidth="0.5" opacity="0.45"/>
-            <line x1="618" y1="232" x2="535" y2="188" stroke="#484848" strokeWidth="0.5" opacity="0.45"/>
-            <line x1="68"  y1="255" x2="115" y2="298" stroke="#484848" strokeWidth="0.4" opacity="0.4"/>
-            <line x1="105" y1="368" x2="195" y2="348" stroke="#484848" strokeWidth="0.4" opacity="0.4"/>
-            <line x1="188" y1="395" x2="195" y2="348" stroke="#484848" strokeWidth="0.4" opacity="0.35"/>
-            <line x1="498" y1="388" x2="505" y2="358" stroke="#484848" strokeWidth="0.4" opacity="0.4"/>
-            <line x1="578" y1="348" x2="558" y2="302" stroke="#484848" strokeWidth="0.4" opacity="0.4"/>
-            <line x1="158" y1="338" x2="115" y2="298" stroke="#484848" strokeWidth="0.4" opacity="0.35"/>
-            <line x1="542" y1="318" x2="558" y2="302" stroke="#484848" strokeWidth="0.4" opacity="0.35"/>
-            <circle cx="358" cy="82"  r="26" fill="#f75f5f" opacity="0.055"/>
-            <circle cx="278" cy="252" r="22" fill="#f9964a" opacity="0.05"/>
-            <circle cx="435" cy="268" r="20" fill="#ffd44f" opacity="0.05"/>
-            <circle cx="382" cy="335" r="22" fill="#f9964a" opacity="0.05"/>
-            <circle cx="358" cy="82" r="6" fill="#f75f5f">
-              <animate attributeName="r"       values="6;24;6"    dur="4.0s" repeatCount="indefinite"/>
-              <animate attributeName="opacity" values="0.6;0;0.6" dur="4.0s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="278" cy="252" r="5.5" fill="#f9964a">
-              <animate attributeName="r"       values="5;20;5"    dur="5.1s" repeatCount="indefinite" begin="1.2s"/>
-              <animate attributeName="opacity" values="0.55;0;0.55" dur="5.1s" repeatCount="indefinite" begin="1.2s"/>
-            </circle>
-            <circle cx="435" cy="268" r="5.2" fill="#ffd44f">
-              <animate attributeName="r"       values="5;19;5"    dur="4.6s" repeatCount="indefinite" begin="0.6s"/>
-              <animate attributeName="opacity" values="0.5;0;0.5" dur="4.6s" repeatCount="indefinite" begin="0.6s"/>
-            </circle>
-            <circle cx="382" cy="335" r="5.5" fill="#f9964a">
-              <animate attributeName="r"       values="5;21;5"    dur="4.3s" repeatCount="indefinite" begin="2.4s"/>
-              <animate attributeName="opacity" values="0.55;0;0.55" dur="4.3s" repeatCount="indefinite" begin="2.4s"/>
-            </circle>
-            <circle cx="205" cy="118" r="4.8" fill="#f75f5f">
-              <animate attributeName="r"       values="4;15;4"    dur="5.8s" repeatCount="indefinite" begin="0.3s"/>
-              <animate attributeName="opacity" values="0.4;0;0.4" dur="5.8s" repeatCount="indefinite" begin="0.3s"/>
-            </circle>
-            <circle cx="535" cy="188" r="5.0" fill="#ffd44f">
-              <animate attributeName="r"       values="4;16;4"    dur="4.9s" repeatCount="indefinite" begin="3.2s"/>
-              <animate attributeName="opacity" values="0.4;0;0.4" dur="4.9s" repeatCount="indefinite" begin="3.2s"/>
-            </circle>
-            <circle cx="115" cy="298" r="4.8" fill="#f75f5f">
-              <animate attributeName="r"       values="4;14;4"    dur="6.2s" repeatCount="indefinite" begin="1.8s"/>
-              <animate attributeName="opacity" values="0.35;0;0.35" dur="6.2s" repeatCount="indefinite" begin="1.8s"/>
-            </circle>
-            <circle cx="558" cy="302" r="4.5" fill="#ffd44f">
-              <animate attributeName="r"       values="4;14;4"    dur="5.5s" repeatCount="indefinite" begin="4.0s"/>
-              <animate attributeName="opacity" values="0.35;0;0.35" dur="5.5s" repeatCount="indefinite" begin="4.0s"/>
-            </circle>
-          </svg>
-        </div>
-
-        {/* Cam kart — SVG'nin üstünde */}
-        <div className="max-w-4xl mx-auto relative" style={{
-          zIndex: 1,
+      <section className="px-6 py-24 relative z-10 animate-reveal delay-1000">
+        <div className="max-w-4xl mx-auto" style={{
           borderRadius: "6px",
-          background: "rgba(33,33,33,0.72)",
+          background: "rgba(33,33,33,0.38)",
           backdropFilter: "blur(10px)",
           WebkitBackdropFilter: "blur(10px)",
           border: "0.5px solid rgba(255,255,255,0.08)",
@@ -455,7 +314,6 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-
       </section>
 
       {/* Projects Section */}
