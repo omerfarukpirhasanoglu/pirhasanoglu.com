@@ -42,8 +42,8 @@ export default function DashboardPage() {
         <h2 className="text-2xl font-semibold text-gray-200 animate-reveal delay-200">Modellerim</h2>
         
         {/* Proje Kartı 1 */}
-        <div className="rounded-sm border border-white/5 group hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-full bg-linear-to-l from-accent/5 to-transparent pointer-events-none" />
+        <div className="rounded-sm border border-white/5 group hover:border-accent/30 shadow-lg shadow-black/30 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-96 h-full bg-linear-to-r from-accent/5 to-transparent pointer-events-none" />
           
           <div className="rounded-sm flex flex-col md:flex-row relative z-10">
             
@@ -79,7 +79,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Sağ  inference sonucu */}
-            <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "280px", background: "transparent"}}>
+            <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "360px", background: "transparent"}}>
               <Image
                 src="/sample-output.jpg"
                 alt="örnek çıktı"
@@ -89,8 +89,8 @@ export default function DashboardPage() {
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/70 to-transparent flex flex-col gap-1.5">
                 {[
                   { label: "Casual", score: 88 },
-                  { label: "Minimal", score: 61 },
-                  { label: "Formal", score: 24 },
+                  { label: "Sport", score: 17 },
+                  { label: "Formal", score: 9 },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-2">
                     <span className="text-[10px] text-white/60 font-mono w-10">{item.label}</span>
@@ -142,11 +142,6 @@ export default function DashboardPage() {
               <p className="text-textMuted leading-relaxed max-w-2xl">
                 PyTorch tabanlı nesne tespit modeli. Görüntü içindeki nesneleri bounding box ile işaretler, sınıflandırır ve güven skorlarını raporlar.
               </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/10">PyTorch</span>
-                <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/10">Computer Vision</span>
-                <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/10">YOLO</span>
-              </div>
             </div>
 
             <button disabled className="shrink-0 w-full md:w-auto px-6 py-3 rounded-sm font-medium bg-white/5 text-textMuted cursor-not-allowed border border-white/5">
