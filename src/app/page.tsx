@@ -409,13 +409,13 @@ export default function LandingPage() {
         </div>
 
         {/* Cam kart */}
-        <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-3 px-4 pointer-events-none" style={{
+        <div className="max-w-4xl mx-auto relative" style={{
           zIndex: 1,
           borderRadius: "6px",
           background: "rgba(33,33,33,0.85)",
           boxShadow: "0 0 0 0.5px rgba(255,255,255,0.08), 0 24px 48px rgba(0,0,0,0.4)",
-          backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(10px)",
+          backdropFilter: "blur(100px)",
+          WebkitBackdropFilter: "blur(100px)",
           border: "0.5px solid rgba(255,255,255,0.08)",
         }}>
           <div className="p-8 md:p-12">
