@@ -274,23 +274,9 @@ export default function LandingPage() {
       {/*About Me*/}
       <section className="px-6 py-24 relative z-10 animate-reveal delay-1000">
 
-        {/* Arkaplan SVG — absolute, section'ı doldurur, taşar */}
-        <div className="absolute inset-0 pointer-events-none" style={{zIndex: 0, margin: "-96px -100px"}}>
-          <svg width="100%" height="100%" viewBox="0 0 680 420" 
-            preserveAspectRatio="xMidYMid slice" 
-            xmlns="http://www.w3.org/2000/svg">
-            {/* node network içeriği */}
-          </svg>
-        </div>
-        {/* Cam kart — SVG'nin üstünde, blur SVG'yi yakalar */}
-        <div className="max-w-4xl mx-auto relative" style={{
-          zIndex: 1,
-          borderRadius: "6px",
-          background: "rgba(33,33,33,0.38)",
-          backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(10px)",
-          border: "0.5px solid rgba(255,255,255,0.08)",
-        }}>
+        {/* Arkaplan SVG */}
+        <div className="absolute pointer-events-none" style={{zIndex: 0, inset: "-96px -100px"}}>
+          <svg width="100%" height="100%" viewBox="0 0 680 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="aboutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#f75f5f"/>
@@ -419,12 +405,14 @@ export default function LandingPage() {
               <animate attributeName="r"       values="4;14;4"    dur="5.5s" repeatCount="indefinite" begin="4.0s"/>
               <animate attributeName="opacity" values="0.35;0;0.35" dur="5.5s" repeatCount="indefinite" begin="4.0s"/>
             </circle>
+          </svg>
+        </div>
 
-        {/* Cam kart — SVG'nin üstünde */}
+        {/* Cam kart */}
         <div className="max-w-4xl mx-auto relative" style={{
           zIndex: 1,
           borderRadius: "6px",
-          background: "rgba(33,33,33,0.72)",
+          background: "rgba(33,33,33,0.38)",
           backdropFilter: "blur(10px)",
           WebkitBackdropFilter: "blur(10px)",
           border: "0.5px solid rgba(255,255,255,0.08)",
@@ -463,7 +451,7 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-      </div>
+
       </section>
 
       {/* Projects Section */}
