@@ -40,12 +40,13 @@ function NavItem({ item, isCollapsed, pathname }: NavItemProps) {
         }`}
       title={isCollapsed ? item.name : ""}
     >
-      <Icon className={`w-5 h-5 shrink-0 ${isActive ? "bg-linear-to-r from-accent to-[#ffd44f]" : "group-hover:text-stone-00"}`} />
+      <Icon className={`w-5 h-5 shrink-0 ${isActive ? "text-accent" : "group-hover:text-stone-600"}`} />
 
       <span className={`overflow-hidden whitespace-nowrap transition-all duration-300 soft-ease
         ${isCollapsed ? "w-0 opacity-0" : "w-auto opacity-100"}`}>
         {item.name}
       </span>
+
     </Link>
   );
 }
@@ -73,7 +74,7 @@ export default function Sidebar() {
       {/* Header */}
       <div className="h-20 flex items-center px-6 border-b border-black/5 shrink-0">
         <Link href="/" className="flex items-center gap-3 overflow-hidden whitespace-nowrap group w-full">
-          <div className="w-8 h-8 rounded-sm text-accent flex items-center justify-center shrink-0 shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow duration-300">
+          <div className="w-8 h-8 rounded-sm bg-linear-to-br from-accent to-[#ffd44f] flex items-center justify-center shrink-0 shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow duration-300">
             <span className="text-background font-bold text-lg">OP</span>
           </div>
           <span className={`font-semibold text-lg tracking-tight transition-all duration-300 group-hover:text-accent
