@@ -55,7 +55,7 @@ export default function DashboardPage() {
         <h2 className="text-2xl font-semibold text-gray-200 animate-reveal delay-200">Modellerim</h2>
         
         {/* Proje Kartı 1 */}
-        <div className="glass-panel rounded-sm p-1 border border-white/5 group hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 animate-reveal delay-400 relative overflow-hidden">
+        <div className="glass-panel rounded-sm p-1 border border-white/5 group hover:border- from-accent to-[#ffd44f] hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 animate-reveal delay-400 relative overflow-hidden">
           {/*glow*/}
           <div className="absolute top-0 right-0 w-96 h-full bg-linear-to-l from-accent/5 to-transparent pointer-events-none" />
           
