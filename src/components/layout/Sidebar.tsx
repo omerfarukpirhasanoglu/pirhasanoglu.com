@@ -35,12 +35,12 @@ function NavItem({ item, isCollapsed, pathname }: NavItemProps) {
       href={item.href}
       className={`flex items-center gap-3 px-3 py-3 rounded-sm transition-all duration-250 soft-ease group relative
         ${isActive
-          ? "bg-accent/10 text-accent font-medium"
+          ? "bg-accent/10 bg-linear-to-r from-accent to-[#ffd44f] font-medium"
           : "text-textMuted hover:bg-black/5 hover:text-stone-700"
         }`}
       title={isCollapsed ? item.name : ""}
     >
-      <Icon className={`w-5 h-5 shrink-0 ${isActive ? "bg-linear-to-r from-accent to-[#ffd44f]" : "group-hover:text-stone-600"}`} />
+      <Icon className={`w-5 h-5 shrink-0 ${isActive ? "bg-linear-to-r text-accent" : "group-hover:text-stone-500"}`} />
 
       <span className={`overflow-hidden whitespace-nowrap transition-all duration-300 soft-ease
         ${isCollapsed ? "w-0 opacity-0" : "w-auto opacity-100"}`}>
