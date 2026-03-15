@@ -6,7 +6,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
 
-      {/* Global Arkaplan SVG — fixed, tüm sayfanın arkasında */}
+      {/* Global Arkaplan SVG*/}
       <div className="fixed inset-0 pointer-events-none" style={{zIndex: 0}}>
         <svg width="100%" height="100%" viewBox="0 0 680 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -244,7 +244,7 @@ export default function LandingPage() {
       </main>
 
       {/*About Me*/}
-      <section className="px-6 py-24 animate-reveal delay-1000" style={{position: "relative", zIndex: 1}}>
+      <section className="px-6 py-24" style={{position: "relative", zIndex: 1}}>
         <div className="max-w-4xl mx-auto" style={{
           borderRadius: "6px",
           background: "rgba(33,33,33,0.38)",
