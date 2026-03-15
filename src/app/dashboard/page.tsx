@@ -19,7 +19,7 @@ export default function DashboardPage() {
         <div className="inline-flex items-center gap-0 px-7.5 h-15 bg-white/3 border border-white/[0.07] rounded-sm whitespace-nowrap overflow-hidden">
           <span className="text-accent font-mono text-[23px] mr-3.5">❯</span>
           <span
-            className="text-[18px] font-semibold font-mono"
+            className="text-[17px] font-semibold font-mono"
             style={{
               background: "linear-gradient(90deg, #f75f5f 0%, #f9964a 40%, #ffd44f 100%)",
               WebkitBackgroundClip: "text",
@@ -33,7 +33,7 @@ export default function DashboardPage() {
             <span style={{ WebkitTextFillColor: "rgba(255,255,255,0.15)", background: "none" }}> · </span>
             ölçeklenebilir
           </span>
-          <span className="text-[18px] text-[#555] font-mono ml-3.5">AI teknolojileri</span>
+          <span className="text-[17px] text-[#555] font-mono ml-3.5">AI teknolojileri</span>
         </div>
       </div>
 
@@ -43,7 +43,7 @@ export default function DashboardPage() {
         
         {/* Proje Kartı 1 */}
         <div className="glass-panel rounded-sm p-1 border border-white/5 group hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-120 h-full bg-linear-to-l from-accent/5 to-transparent pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-full bg-linear-to-l from-accent/5 to-transparent pointer-events-none" />
           
           <div className="bg-surface/50 rounded-sm flex flex-col md:flex-row relative z-10">
             
@@ -79,31 +79,29 @@ export default function DashboardPage() {
             </div>
 
             {/* Sağ  inference sonucu */}
-            <div className="w-full md:w-[40%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 flex flex-col items-center justify-center gap-3 p-6 bg-black/15 relative">
-              <div className="absolute inset-0 bg-linear-to-b from-accent/3 to-transparent pointer-events-none" />
-              <div className="relative z-10 flex flex-col items-center gap-3 w-full">
-                <div className="w-20 h-20 rounded-sm border border-white/8 bg-surface flex items-center justify-center overflow-hidden">
-                  <Image src="/sample-output.jpg" alt="örnek çıktı" width={112} height={112} className="w-full h-full object-cover rounded-sm"/>
-                </div>
-                <div className="w-full flex flex-col gap-1.5">
-                  {[
-                    { label: "Casual", score: 88 },
-                    { label: "Minimal", score: 61 },
-                    { label: "Formal", score: 24 },
-                  ].map((item) => (
-                    <div key={item.label} className="flex items-center gap-2">
-                      <span className="text-[10px] text-textMuted font-mono w-10">{item.label}</span>
-                      <div className="flex-1 h-0.75 bg-white/5 rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-linear-to-r from-accent to-[#ffd44f] rounded-full"
-                          style={{ width: `${item.score}%` }}
-                        />
-                      </div>
-                      <span className="text-[10px] text-accent font-mono w-7 text-right">{item.score}%</span>
+            <div className="md:w-[40%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden">
+              <Image
+                src="/sample-output.jpg"
+                alt="örnek çıktı"
+                fill
+                className="object-cover"
+              />
+              {/* skorlar üstte overlay olarak */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/70 to-transparent flex flex-col gap-1.5">
+                {[
+                  { label: "Casual", score: 88 },
+                  { label: "Minimal", score: 61 },
+                  { label: "Formal", score: 24 },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-2">
+                    <span className="text-[10px] text-white/60 font-mono w-10">{item.label}</span>
+                    <div className="flex-1 h-0.5 bg-white/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-linear-to-r from-accent to-[#ffd44f] rounded-full" style={{ width: `${item.score}%` }}/>
                     </div>
-                  ))}
-                </div>
-                <span className="text-[10px] text-white/20 font-mono">örnek inference çıktısı</span>
+                    <span className="text-[10px] text-accent font-mono w-7 text-right">{item.score}%</span>
+                  </div>
+                ))}
+                <span className="text-[10px] text-white/20 font-mono mt-1">örnek inference çıktısı</span>
               </div>
             </div>
 
