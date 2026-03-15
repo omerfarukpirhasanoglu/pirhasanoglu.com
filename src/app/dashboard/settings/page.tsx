@@ -68,7 +68,7 @@ export default function SettingsPage() {
       {/* Başlık */}
       <div>
         <h1 className="text-3xl font-bold tracking-tight text-gray-100 flex items-center gap-3 mb-2">
-          <SettingsIcon className="w-8 h-8 bg-linear-to-r from-accent to-[#ffd44f]" />
+          <SettingsIcon className="w-8 h-8 text-accent" />
           Ayarlar
         </h1>
         <p className="text-textMuted">
@@ -101,7 +101,7 @@ export default function SettingsPage() {
                 }`}
               >
                 <div className="flex justify-between items-center mb-2">
-                  <h3 className={`font-semibold ${threshold === option.value ? "bg-linear-to-r from-accent to-[#ffd44f]" : "text-gray-200"}`}>
+                  <h3 className={`font-semibold ${threshold === option.value ? "text-accent" : "text-gray-200"}`}>
                     {option.label}
                   </h3>
                   {threshold === option.value && (

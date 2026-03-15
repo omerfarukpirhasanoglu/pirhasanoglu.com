@@ -40,7 +40,7 @@ function NavItem({ item, isCollapsed, pathname }: NavItemProps) {
         }`}
       title={isCollapsed ? item.name : ""}
     >
-      <Icon className={`w-5 h-5 shrink-0 ${isActive ? " text-accent" : "group-hover:text-stone-00"}`} />
+      <Icon className={`w-5 h-5 shrink-0 ${isActive ? "bg-linear-to-r from-accent to-[#ffd44f]" : "group-hover:text-stone-00"}`} />
 
       <span className={`overflow-hidden whitespace-nowrap transition-all duration-300 soft-ease
         ${isCollapsed ? "w-0 opacity-0" : "w-auto opacity-100"}`}>

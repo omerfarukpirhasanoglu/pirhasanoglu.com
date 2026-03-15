@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { 
-  Activity, 
+import {  
   ArrowRight, 
   CheckCircle2, 
-  Clock, Layers,
+  Clock,
 } from "lucide-react";
 
 export default function DashboardPage() {
@@ -16,37 +15,25 @@ export default function DashboardPage() {
           <h1 className="text-3xl font-bold tracking-tight text-gray-100 mb-2">Proje Paneli</h1>
         </div>
 
-        {/* Vizyon ve Odak Grid'i */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="glass-panel p-5 rounded-sm flex items-center gap-4 border border-white/5 bg-surface/30">
-            <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center border border-accent/20">
-              <Activity className="w-5 h-5 bg-linear-to-r from-accent to-[#ffd44f]" />
-            </div>
-            <div>
-              <p className="text-xs text-textMuted mb-1">Ana Odak</p>
-              <p className="font-semibold text-gray-200">Derin Öğrenme & MLOps</p>
-            </div>
-          </div>
-
-          <div className="glass-panel p-5 rounded-sm flex items-center gap-4 border border-white/5 bg-surface/30">
-            <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/20">
-              <Layers className="w-5 h-5 bg-linear-to-r from-accent to-[#ffd44f]" />
-            </div>
-            <div>
-              <p className="text-xs text-textMuted mb-1">Mimari Yaklaşım</p>
-              <p className="font-semibold text-gray-200">Ölçeklenebilir & Modüler</p>
-            </div>
-          </div>
-
-          <div className="glass-panel p-5 rounded-sm flex items-center gap-4 border border-white/5 bg-surface/30">
-            <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center border border-green-500/20">
-              <CheckCircle2 className="w-5 h-5 bg-linear-to-r from-accent to-[#ffd44f]" />
-            </div>
-            <div>
-              <p className="text-xs text-textMuted mb-1">Geliştirme Standardı</p>
-              <p className="font-semibold text-gray-200">Hizmete Hazır Sistemler</p>
-            </div>
-          </div>
+        {/* Vision Bar */}
+        <div className="inline-flex items-center gap-0 px-4.5 h-9.5 bg-white/3 border border-white/[0.07] rounded-sm whitespace-nowrap overflow-hidden">
+          <span className="text-accent font-mono text-[13px] mr-3.5">❯</span>
+          <span
+            className="text-[12px] font-semibold font-mono"
+            style={{
+              background: "linear-gradient(90deg, #f75f5f 0%, #f9964a 40%, #ffd44f 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            çözüm odaklı
+            <span style={{ WebkitTextFillColor: "rgba(255,255,255,0.15)", background: "none" }}> · </span>
+            optimize
+            <span style={{ WebkitTextFillColor: "rgba(255,255,255,0.15)", background: "none" }}> · </span>
+            ölçeklenebilir
+          </span>
+          <span className="text-[12px] text-[#555] font-mono ml-3.5">AI teknolojileri</span>
         </div>
       </div>
 
