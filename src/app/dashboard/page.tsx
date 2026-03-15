@@ -17,9 +17,9 @@ export default function DashboardPage() {
 
         {/* Vision Bar */}
         <div className="inline-flex items-center gap-0 px-7.5 h-15 bg-white/3 border border-white/[0.07] rounded-sm whitespace-nowrap overflow-hidden">
-          <span className="text-accent font-mono text-[24px] mr-3.5">❯</span>
+          <span className="text-accent font-mono text-[23px] mr-3.5">❯</span>
           <span
-            className="text-[20px] font-semibold font-mono"
+            className="text-[18px] font-semibold font-mono"
             style={{
               background: "linear-gradient(90deg, #f75f5f 0%, #f9964a 40%, #ffd44f 100%)",
               WebkitBackgroundClip: "text",
@@ -33,7 +33,7 @@ export default function DashboardPage() {
             <span style={{ WebkitTextFillColor: "rgba(255,255,255,0.15)", background: "none" }}> · </span>
             ölçeklenebilir
           </span>
-          <span className="text-[20px] text-[#555] font-mono ml-3.5">AI teknolojileri</span>
+          <span className="text-[18px] text-[#555] font-mono ml-3.5">AI teknolojileri</span>
         </div>
       </div>
 

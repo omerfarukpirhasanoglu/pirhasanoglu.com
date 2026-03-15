@@ -34,6 +34,14 @@ export default function LandingPage() {
             >
               LinkedIn
             </Link>
+            <span className="text-[#3a3a3a] text-xs select-none">|</span>
+            <Link
+              href="https://www.instagram.com/omerpirhasanoglu"
+              target="_blank"
+              className="text-xs text-[#777] hover:text-[#c8c4be] transition-colors duration-200 px-3 py-1"
+            >
+              Instagram
+            </Link>
           </div>
         </nav>
       </header>

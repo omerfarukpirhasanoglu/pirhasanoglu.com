@@ -132,8 +132,8 @@ export default function SettingsPage() {
             >
               <div className="mt-1">
                 {advancedMetrics ? (
-                  <div className="w-5 h-5 rounded-full text-accent flex items-center justify-center shadow-[0_0_10px_rgba(247,95,95,0.5)]">
-                    <div className="w-2 h-2 text-accent rounded-full" />
+                  <div className="w-5 h-5 rounded-full bg-linear-to-br from-accent to-[#ffd44f] flex items-center justify-center shadow-[0_0_10px_rgba(247,95,95,0.5)]">
+                    <div className="w-2 h-2 bg-yellow-200 rounded-full" />
                   </div>
                 ) : (
                   <div className="w-5 h-5 rounded-full border-2 border-textMuted" />
