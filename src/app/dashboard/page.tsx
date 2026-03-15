@@ -75,11 +75,11 @@ export default function DashboardPage() {
             </div>
 
             {/* Sağ — inference sonucu */}
-            <div className="w-full md:w-56 shrink-0 border-t md:border-t-0 md:border-l border-white/5 flex flex-col items-center justify-center gap-3 p-6 bg-black/15 relative">
+            <div className="w-full md:w-72 shrink-0 border-t md:border-t-0 md:border-l border-white/5 flex flex-col items-center justify-center gap-3 p-6 bg-black/15 relative">
               <div className="absolute inset-0 bg-linear-to-b from-accent/3 to-transparent pointer-events-none" />
               <div className="relative z-10 flex flex-col items-center gap-3 w-full">
                 <div className="w-20 h-20 rounded-sm border border-white/8 bg-surface flex items-center justify-center overflow-hidden">
-                  <Image src="/sample-output.jpg" alt="örnek çıktı" width={80} height={80} className="w-full h-full object-cover rounded-sm"/>
+                  <Image src="/sample-output.jpg" alt="örnek çıktı" width={112} height={112} className="w-full h-full object-cover rounded-sm"/>
                 </div>
                 <div className="w-full flex flex-col gap-1.5">
                   {[
