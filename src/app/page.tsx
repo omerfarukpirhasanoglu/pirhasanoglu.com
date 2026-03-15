@@ -273,10 +273,9 @@ export default function LandingPage() {
       </main>
       {/*About Me*/}
       <section className="px-6 py-24 relative z-10 animate-reveal delay-1000">
-        <div className="max-w-4xl mx-auto relative" style={{ borderRadius: "6px"}}>
+        <div className="absolute inset-0 -top-24 -bottom-24 left-0 right-0 pointer-events-none overflow-visible" style={{zIndex: 0}}>
           
           {/* Arka plan node network */}
-          <div className="absolute inset-0 pointer-events-none">
             <svg width="100%" height="100%" viewBox="0 0 680 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="aboutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -426,12 +425,11 @@ export default function LandingPage() {
           </div>
 
           {/* Cam zemin */}
-          <div className="absolute inset-0 pointer-events-none" style={{
+          <div className="max-w-4xl mx-auto relative" style={{zIndex: 1, borderRadius: "6px",
             background: "rgba(33,33,33,0.38)",
             backdropFilter: "blur(10px)",
             WebkitBackdropFilter: "blur(10px)",
             border: "0.5px solid rgba(255,255,255,0.08)",
-            borderRadius: "6px",
           }}/>
 
           {/* İçerik */}
@@ -468,9 +466,7 @@ export default function LandingPage() {
               </p>
               <p>Ben feedback panelini bitirene kadar öneriler için sosyal medya adreslerim aşağıda bulunuyor olacak.</p>
             </div>
-          </div>
-
-        </div>
+          </div>          
       </section>
 
       {/* Projects Section */}
