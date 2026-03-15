@@ -8,7 +8,7 @@ export default function LandingPage() {
 
       {/* Global Arkaplan SVG*/}
       <div className="fixed inset-0 pointer-events-none" style={{zIndex: 0}}>
-        <svg width="100%" height="100%" viewBox="0 0 680 480" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <svg width="100%" height="100%" viewBox="0 0 720 423" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#f75f5f"/>
