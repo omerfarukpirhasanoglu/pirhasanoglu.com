@@ -8,7 +8,7 @@ export default function LandingPage() {
 
       {/* Global Arkaplan SVG*/}
       <div className="fixed inset-0 pointer-events-none" style={{zIndex: 0}}>
-        <svg width="100%" height="100%" viewBox="0 0 680 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <svg width="100%" height="100%" viewBox="0 0 680 480" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#f75f5f"/>
@@ -208,7 +208,7 @@ export default function LandingPage() {
             borderRadius: "6px",
           }}>
           <Link href="/" className="text-sm font-medium text-[#c8c4be] tracking-wide hover:text-white transition-colors duration-200">
-            omer pirhasanoglu
+            omer faruk pirhasanoglu
           </Link>
           <div className="flex items-center">
             <Link href="https://github.com/omerfarukpirhasanoglu" target="_blank" className="text-xs text-[#777] hover:text-[#c8c4be] transition-colors duration-200 px-3 py-1">GitHub</Link>
