@@ -275,7 +275,7 @@ export default function LandingPage() {
       <section className="px-6 py-24 relative z-10 animate-reveal delay-1000" style={{overflow: "visible"}}>
 
         {/* SVG — section'ın tamamına yayılıyor, taşıyor */}
-        <div className="absolute pointer-events-none" style={{
+        <div className="fixed pointer-events-none" style={{
           inset: "-96px 0",
           zIndex: 0,
           overflow: "visible",
@@ -416,7 +416,7 @@ export default function LandingPage() {
         <div className="max-w-4xl mx-auto relative" style={{
           zIndex: 1,
           borderRadius: "6px",
-          background: "rgba(33,33,33,0.28)",
+          background: "rgba(33,33,33,0.72)",
           backdropFilter: "blur(10px)",
           WebkitBackdropFilter: "blur(10px)",
           border: "0.5px solid rgba(255,255,255,0.08)",
