@@ -47,34 +47,38 @@ export default function DashboardPage() {
           
           <div className="bg-surface/50 rounded-sm flex flex-col md:flex-row relative z-10">
             
-            {/* Sol — metin */}
+            {/* Sol metin */}
             <div className="md:w-[60%] p-6 md:p-8 flex flex-col min-w-0">
-              <div className="flex items-center gap-3 mb-3">
+              {/*isim + badge + tag'ler*/}
+              <div className="flex items-center gap-2 flex-wrap mb-3">
                 <h3 className="text-xl font-bold text-gray-100">Chroma</h3>
                 <span className="text-xs font-medium px-2 py-0.5 rounded-sm bg-accent/10 border border-accent/20 text-accent">v1.0</span>
                 <span className="px-2 py-0.5 rounded-sm bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>yayında
                 </span>
+                <div className="flex flex-wrap gap-1.5 ml-1">
+                  <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">Keras</span>
+                  <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">FastAPI</span>
+                  <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">Python</span>
+                  <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">React</span>
+                </div>
               </div>
-              <p className="text-textMuted leading-relaxed mb-6 flex-1">
+
+              {/*Açıklama*/}
+              <p className="text-textMuted leading-relaxed flex-1 mb-4">
                 FastAPI backendine bağlı, Keras tabanlı konvolüsyonel sinir ağları (CNN) kullanarak yüklenen görüntülerin özniteliklerini çıkaran ve yüksek doğrulukla analiz eden modelim.
                 Bu model sayesinde tarzınızı uzman bir yapay zekanın detaylı metrikleriyle inceleyebilirsiniz.
               </p>
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-300 text-xs font-medium border border-white/5">Keras</span>
-                  <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-300 text-xs font-medium border border-white/5">FastAPI</span>
-                  <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-300 text-xs font-medium border border-white/5">Python</span>
-                  <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-300 text-xs font-medium border border-white/5">React</span>
-                </div>
-                <Link href="/dashboard/tool-1" className="shrink-0 flex items-center gap-2 bg-linear-to-r from-accent to-[#ffd44f] text-[#1a0808] px-5 py-2 rounded-sm font-semibold text-sm hover:opacity-90 transition-opacity duration-250">
-                  Modeli İncele
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
+
+              {/*buton*/}
+              <Link href="/dashboard/tool-1" className="w-full flex items-center justify-center gap-2 bg-linear-to-r from-accent to-[#ffd44f] text-[#1a0808] px-5 py-2.5 rounded-sm font-semibold text-sm hover:opacity-90 transition-opacity duration-250">
+                Modeli İncele
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+
             </div>
 
-            {/* Sağ — inference sonucu */}
+            {/* Sağ  inference sonucu */}
             <div className="w-full md:w-[40%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 flex flex-col items-center justify-center gap-3 p-6 bg-black/15 relative">
               <div className="absolute inset-0 bg-linear-to-b from-accent/3 to-transparent pointer-events-none" />
               <div className="relative z-10 flex flex-col items-center gap-3 w-full">
