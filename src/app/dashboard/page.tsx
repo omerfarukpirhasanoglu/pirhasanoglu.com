@@ -42,13 +42,13 @@ export default function DashboardPage() {
         <h2 className="text-2xl font-semibold text-gray-200 animate-reveal delay-200">Modellerim</h2>
         
         {/* Proje Kartı 1 */}
-        <div className="glass-panel rounded-sm p-1 border border-white/5 group hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden">
+        <div className="rounded-sm p-1 border border-white/5 group hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-full bg-linear-to-l from-accent/5 to-transparent pointer-events-none" />
           
           <div className="bg-surface/50 rounded-sm flex flex-col md:flex-row relative z-10">
             
             {/* Sol metin */}
-            <div className="md:w-[60%] p-6 md:p-8 flex flex-col min-w-0">
+            <div className="md:w-[55%] p-6 md:p-8 flex flex-col min-w-0">
               {/*isim + badge + tag'ler*/}
               <div className="flex items-center gap-2 flex-wrap mb-3">
                 <h3 className="text-xl font-bold text-gray-100">Chroma</h3>
@@ -79,12 +79,12 @@ export default function DashboardPage() {
             </div>
 
             {/* Sağ  inference sonucu */}
-            <div className="md:w-[40%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "200px"}}>
+            <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "200px"}}>
               <Image
                 src="/sample-output.jpg"
                 alt="örnek çıktı"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/70 to-transparent flex flex-col gap-1.5">
                 {[
