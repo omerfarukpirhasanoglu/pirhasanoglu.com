@@ -48,7 +48,7 @@ export default function DashboardPage() {
           <div className="bg-surface/50 rounded-sm flex flex-col md:flex-row relative z-10">
             
             {/* Sol — metin */}
-            <div className="flex-1 p-6 md:p-8 flex flex-col min-w-0">
+            <div className="md:w-[60%] p-6 md:p-8 flex flex-col min-w-0">
               <div className="flex items-center gap-3 mb-3">
                 <h3 className="text-xl font-bold text-gray-100">Chroma</h3>
                 <span className="text-xs font-medium px-2 py-0.5 rounded-sm bg-accent/10 border border-accent/20 text-accent">v1.0</span>
@@ -75,7 +75,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Sağ — inference sonucu */}
-            <div className="w-full md:w-72 shrink-0 border-t md:border-t-0 md:border-l border-white/5 flex flex-col items-center justify-center gap-3 p-6 bg-black/15 relative">
+            <div className="w-full md:w-[40%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 flex flex-col items-center justify-center gap-3 p-6 bg-black/15 relative">
               <div className="absolute inset-0 bg-linear-to-b from-accent/3 to-transparent pointer-events-none" />
               <div className="relative z-10 flex flex-col items-center gap-3 w-full">
                 <div className="w-20 h-20 rounded-sm border border-white/8 bg-surface flex items-center justify-center overflow-hidden">
