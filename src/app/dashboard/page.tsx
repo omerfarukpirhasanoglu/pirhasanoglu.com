@@ -20,7 +20,7 @@ export default function DashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="glass-panel p-5 rounded-sm flex items-center gap-4 border border-white/5 bg-surface/30">
             <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center border border-accent/20">
-              <Activity className="w-5 h-5 text-accent" />
+              <Activity className="w-5 h-5 bg-linear-to-r from-accent to-[#ffd44f]" />
             </div>
             <div>
               <p className="text-xs text-textMuted mb-1">Ana Odak</p>
@@ -30,7 +30,7 @@ export default function DashboardPage() {
 
           <div className="glass-panel p-5 rounded-sm flex items-center gap-4 border border-white/5 bg-surface/30">
             <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/20">
-              <Layers className="w-5 h-5 text-blue-400" />
+              <Layers className="w-5 h-5 bg-linear-to-r from-accent to-[#ffd44f]" />
             </div>
             <div>
               <p className="text-xs text-textMuted mb-1">Mimari Yaklaşım</p>
@@ -40,7 +40,7 @@ export default function DashboardPage() {
 
           <div className="glass-panel p-5 rounded-sm flex items-center gap-4 border border-white/5 bg-surface/30">
             <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center border border-green-500/20">
-              <CheckCircle2 className="w-5 h-5 text-green-400" />
+              <CheckCircle2 className="w-5 h-5 bg-linear-to-r from-accent to-[#ffd44f]" />
             </div>
             <div>
               <p className="text-xs text-textMuted mb-1">Geliştirme Standardı</p>

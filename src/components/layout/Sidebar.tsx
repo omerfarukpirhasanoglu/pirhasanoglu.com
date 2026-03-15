@@ -40,7 +40,7 @@ function NavItem({ item, isCollapsed, pathname }: NavItemProps) {
         }`}
       title={isCollapsed ? item.name : ""}
     >
-      <Icon className={`w-5 h-5 shrink-0 ${isActive ? "text-accent" : "group-hover:text-stone-600"}`} />
+      <Icon className={`w-5 h-5 shrink-0 ${isActive ? "bg-linear-to-r from-accent to-[#ffd44f]" : "group-hover:text-stone-600"}`} />
 
       <span className={`overflow-hidden whitespace-nowrap transition-all duration-300 soft-ease
         ${isCollapsed ? "w-0 opacity-0" : "w-auto opacity-100"}`}>
@@ -48,7 +48,7 @@ function NavItem({ item, isCollapsed, pathname }: NavItemProps) {
       </span>
 
       {isActive && !isCollapsed && (
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-accent rounded-r-full" />
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-linear-to-r from-accent to-[#ffd44f] rounded-r-full" />
       )}
     </Link>
   );
@@ -80,7 +80,7 @@ export default function Sidebar() {
           <div className="w-8 h-8 rounded-sm bg-linear-to-br from-accent to-[#ffd44f] flex items-center justify-center shrink-0 shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow duration-300">
             <span className="text-background font-bold text-lg">OP</span>
           </div>
-          <span className={`font-semibold text-lg tracking-tight transition-all duration-300 group-hover:text-accent
+          <span className={`font-semibold text-lg tracking-tight transition-all duration-300 group-hover:bg-linear-to-r from-accent to-[#ffd44f]
             ${isCollapsed ? "opacity-0 hidden" : "opacity-100"}`}>
             Ana Sayfa
           </span>
