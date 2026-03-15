@@ -79,14 +79,13 @@ export default function DashboardPage() {
             </div>
 
             {/* Sağ  inference sonucu */}
-            <div className="md:w-[40%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden">
+            <div className="md:w-[40%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "200px"}}>
               <Image
                 src="/sample-output.jpg"
                 alt="örnek çıktı"
                 fill
                 className="object-cover"
               />
-              {/* skorlar üstte overlay olarak */}
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/70 to-transparent flex flex-col gap-1.5">
                 {[
                   { label: "Casual", score: 88 },
