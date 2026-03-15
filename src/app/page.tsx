@@ -276,7 +276,7 @@ export default function LandingPage() {
 
         {/* Arkaplan SVG */}
         <div className="absolute pointer-events-none" style={{zIndex: 0, inset: "-96px -100px"}}>
-          <svg width="100%" height="100%" viewBox="0 0 680 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <svg width="100%" height="100%" viewBox="0 0 680 440" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="aboutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#f75f5f"/>
@@ -422,14 +422,14 @@ export default function LandingPage() {
             <div className="flex items-center gap-4 mb-8">
               <div>
                 <h2 className="text-2xl font-bold tracking-tight text-gray-100">Sistem Mimarı & Geliştirici</h2>
-                <h3 className="text-sm font-semibold mt-1" style={{
+                <p className="text-xl font-semibold mt-1" style={{
                   background: "linear-gradient(90deg, #f75f5f, #f9964a, #ffd44f)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
                 }}>
                   Ömer Faruk Pirhasanoğlu
-                </h3>
+                </p>
               </div>
             </div>
             <div className="space-y-6 text-textMuted leading-relaxed text-lg">
