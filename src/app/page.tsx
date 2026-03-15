@@ -273,7 +273,7 @@ export default function LandingPage() {
       </main>
       {/*About Me*/}
       <section className="px-6 py-24 relative z-10 animate-reveal delay-1000">
-        <div className="max-w-4xl mx-auto relative" style={{ borderRadius: "6px", overflow: "hidden" }}>
+        <div className="max-w-4xl mx-auto relative" style={{ borderRadius: "6px"}}>
           
           {/* Arka plan node network */}
           <div className="absolute inset-0 pointer-events-none">
@@ -427,7 +427,7 @@ export default function LandingPage() {
 
           {/* Cam zemin */}
           <div className="absolute inset-0 pointer-events-none" style={{
-            background: "rgba(33,33,33,0.28)",
+            background: "rgba(33,33,33,0.38)",
             backdropFilter: "blur(10px)",
             WebkitBackdropFilter: "blur(10px)",
             border: "0.5px solid rgba(255,255,255,0.08)",
