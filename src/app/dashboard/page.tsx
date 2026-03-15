@@ -43,7 +43,7 @@ export default function DashboardPage() {
         
         {/* Proje Kartı 1 */}
         <div className="rounded-sm border border-white/5 group hover:border-accent/30 shadow-lg shadow-black/30 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-96 h-full bg-linear-to-r from-accent/5 to-transparent pointer-events-none" />
+          <div className="absolute top-0 left-0 w-96 h-full bg-linear-to-r from-accent/8 to-transparent pointer-events-none" />
           
           <div className="rounded-sm flex flex-col md:flex-row relative z-10">
             
