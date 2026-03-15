@@ -42,8 +42,8 @@ export default function DashboardPage() {
         <h2 className="text-2xl font-semibold text-gray-200 animate-reveal delay-200">Modellerim</h2>
         
         {/* Proje Kartı 1 */}
-        <div className="rounded-sm border border-white/5 group hover:border-accent/30 shadow-lg shadow-black/30 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-96 h-full bg-linear-to-r from-accent/8 to-transparent pointer-events-none" />
+        <div className="rounded-sm border border-white/5 group hover:border-accent/30 shadow-lg shadow-black/80 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-96 h-full bg-linear-to-r from-accent/7 to-transparent pointer-events-none" />
           
           <div className="rounded-sm flex flex-col md:flex-row relative z-10">
             
@@ -79,7 +79,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Sağ  inference sonucu */}
-            <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "360px", background: "transparent"}}>
+            <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "300px", background: "transparent"}}>
               <Image
                 src="/sample-output.jpg"
                 alt="örnek çıktı"
@@ -100,7 +100,6 @@ export default function DashboardPage() {
                     <span className="text-[10px] text-accent font-mono w-7 text-right">{item.score}%</span>
                   </div>
                 ))}
-                <span className="text-[10px] text-white/20 font-mono mt-1">örnek inference çıktısı</span>
               </div>
             </div>
 
