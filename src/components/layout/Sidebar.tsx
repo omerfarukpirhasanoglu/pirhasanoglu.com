@@ -33,7 +33,7 @@ function NavItem({ item, isCollapsed, pathname }: NavItemProps) {
   return (
     <Link
       href={item.href}
-      className={`flex items-center gap-3 px-3 py-3 rounded-md transition-all duration-250 soft-ease group relative
+      className={`flex items-center gap-3 px-3 py-3 rounded-sm transition-all duration-250 soft-ease group relative
         ${isActive
           ? "bg-accent/10 text-accent font-medium"
           : "text-textMuted hover:bg-black/5 hover:text-stone-700"
@@ -77,7 +77,7 @@ export default function Sidebar() {
       {/* Header */}
       <div className="h-20 flex items-center px-6 border-b border-black/5 shrink-0">
         <Link href="/" className="flex items-center gap-3 overflow-hidden whitespace-nowrap group w-full">
-          <div className="w-8 h-8 rounded-lg bg-linear-to-br from-accent to-teal-600 flex items-center justify-center shrink-0 shadow-lg shadow-accent/20 group-hover:shadow-accent/40 transition-shadow duration-300">
+          <div className="w-8 h-8 rounded-sm bg-linear-to-br from-[#f75f5f] to-[#ffd44f] flex items-center justify-center shrink-0 shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow duration-300">
             <span className="text-background font-bold text-lg">AI</span>
           </div>
           <span className={`font-semibold text-lg tracking-tight transition-all duration-300 group-hover:text-accent

@@ -5,20 +5,60 @@ import Image from "next/image";
 export default function LandingPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      {/* Navbar */}
+      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-5 pointer-events-none">
+        <nav className="w-full max-w-5xl flex items-center justify-between px-5 h-10 pointer-events-auto"
+          style={{
+            background: "rgba(33,33,33,0.38)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
+            border: "0.5px solid rgba(255,255,255,0.08)",
+            borderRadius: "6px",
+          }}>
+          <Link href="/" className="text-sm font-medium text-[#c8c4be] tracking-wide hover:text-white transition-colors duration-200">
+            omer pirhasanoglu
+          </Link>
+          <div className="flex items-center">
+            <Link
+              href="https://github.com/omerfarukpirhasanoglu"
+              target="_blank"
+              className="text-xs text-[#777] hover:text-[#c8c4be] transition-colors duration-200 px-3 py-1"
+            >
+              GitHub
+            </Link>
+            <span className="text-[#3a3a3a] text-xs select-none">|</span>
+            <Link
+              href="https://www.linkedin.com/in/omer-pirhasanoglu"
+              target="_blank"
+              className="text-xs text-[#777] hover:text-[#c8c4be] transition-colors duration-200 px-3 py-1"
+            >
+              LinkedIn
+            </Link>
+          </div>
+        </nav>
+      </header>
+
       {/* Hero Section */}
       <main className="flex-1 flex flex-col items-center justify-center px-6 text-center pt-40 pb-48 relative overflow-hidden">
 
         {/* Node Network Background */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
           <svg width="100%" height="100%" viewBox="0 0 680 400" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#f75f5f"/>
+                <stop offset="50%" stopColor="#f9964a"/>
+                <stop offset="100%" stopColor="#ffd44f"/>
+              </linearGradient>
+            </defs>
             <style>{`
-              .e   { fill: none; stroke: #4db8ad; stroke-width: 0.7; opacity: 0.17; }
+              .e   { fill: none; stroke: url(#fireGrad); stroke-width: 0.7; opacity: 0.17; }
               .eg  { fill: none; stroke: #888; stroke-width: 0.6; opacity: 0.18; }
               .ef  { fill: none; stroke: #777; stroke-width: 0.5; opacity: 0.13; }
-              .nd  { fill: #4db8ad; }
+              .nd  { fill: url(#fireGrad); }
               .ns  { fill: #666; }
               .nf  { fill: #555; }
-              .lbl { fill: #3a9990; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; opacity: 0.65; }
+              .lbl { fill: #f9964a; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; opacity: 0.65; }
             `}</style>
             <g transform="scale(0.80) translate(82, 40)"></g>
             {/* FAR EDGE dim nodes */}
@@ -159,33 +199,33 @@ export default function LandingPage() {
             <line x1="624" y1="215" x2="158" y2="368" className="eg" opacity="0.07"/>
 
             {/* GLOW */}
-            <circle cx="352" cy="82"  r="24" fill="#4db8ad" opacity="0.055"/>
-            <circle cx="108" cy="225" r="20" fill="#4db8ad" opacity="0.048"/>
-            <circle cx="572" cy="198" r="20" fill="#4db8ad" opacity="0.048"/>
-            <circle cx="358" cy="322" r="22" fill="#4db8ad" opacity="0.050"/>
+            <circle cx="352" cy="82"  r="24" fill="#f75f5f" opacity="0.055"/>
+            <circle cx="108" cy="225" r="20" fill="#ffd44f" opacity="0.048"/>
+            <circle cx="572" cy="198" r="20" fill="#f9964a" opacity="0.048"/>
+            <circle cx="358" cy="322" r="22" fill="#f9964a" opacity="0.050"/>
 
             {/* PULSE */}
-            <circle cx="352" cy="82" r="6.2" fill="#4db8ad">
+            <circle cx="352" cy="82" r="6.2" fill="#f75f5f">
               <animate attributeName="r"       values="6;22;6"    dur="4.0s" repeatCount="indefinite"/>
               <animate attributeName="opacity" values="0.6;0;0.6" dur="4.0s" repeatCount="indefinite"/>
             </circle>
-            <circle cx="108" cy="225" r="6.2" fill="#4db8ad">
+            <circle cx="108" cy="225" r="6.2" fill="#f9964a">
               <animate attributeName="r"       values="6;19;6"    dur="4.9s" repeatCount="indefinite" begin="1.4s"/>
               <animate attributeName="opacity" values="0.5;0;0.5" dur="4.9s" repeatCount="indefinite" begin="1.4s"/>
             </circle>
-            <circle cx="572" cy="198" r="6.0" fill="#4db8ad">
+            <circle cx="572" cy="198" r="6.0" fill="#ffd44f">
               <animate attributeName="r"       values="6;19;6"    dur="5.3s" repeatCount="indefinite" begin="0.7s"/>
               <animate attributeName="opacity" values="0.5;0;0.5" dur="5.3s" repeatCount="indefinite" begin="0.7s"/>
             </circle>
-            <circle cx="358" cy="322" r="6.2" fill="#4db8ad">
+            <circle cx="358" cy="322" r="6.2" fill="#f9964a">
               <animate attributeName="r"       values="6;21;6"    dur="4.5s" repeatCount="indefinite" begin="2.1s"/>
               <animate attributeName="opacity" values="0.6;0;0.6" dur="4.5s" repeatCount="indefinite" begin="2.1s"/>
             </circle>
-            <circle cx="224" cy="108" r="5.2" fill="#4db8ad">
+            <circle cx="224" cy="108" r="5.2" fill="#f75f5f">
               <animate attributeName="r"       values="5;16;5"    dur="5.8s" repeatCount="indefinite" begin="0.3s"/>
               <animate attributeName="opacity" values="0.4;0;0.4" dur="5.8s" repeatCount="indefinite" begin="0.3s"/>
             </circle>
-            <circle cx="468" cy="308" r="5.2" fill="#4db8ad">
+            <circle cx="468" cy="308" r="5.2" fill="#ffd44f">
               <animate attributeName="r"       values="5;16;5"    dur="4.2s" repeatCount="indefinite" begin="3.1s"/>
               <animate attributeName="opacity" values="0.4;0;0.4" dur="4.2s" repeatCount="indefinite" begin="3.1s"/>
             </circle>
@@ -204,7 +244,7 @@ export default function LandingPage() {
         
         <div className="relative z-10 flex flex-col items-center mt-8"></div>
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-black/5 text-accent text-sm mb-8 animate-reveal delay-200 relative z-10">
-          <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+          <span className="w-2 h-2 rounded-full bg-[#f75f5f] animate-pulse"></span>
           AI & Sistem Mimarisi
         </div>
         
@@ -217,7 +257,7 @@ export default function LandingPage() {
           Deep Learning - Computer Vision - GPU Inference 
         </p>
         <div className="animate-reveal delay-800 relative z-10">
-          <Link href="/dashboard" className="group flex items-center gap-2 bg-stone-800 text-[#e8e4df] px-6 py-3 rounded-full font-medium hover:bg-stone-600 transition-colors duration-250 soft-ease">
+          <Link href="/dashboard" className="group flex items-center gap-2 bg-linear-to-r from-[#f75f5f] to-[#ffd44f] text-[#1a0808] px-6 py-3 rounded-sm font-semibold hover:opacity-90 transition-colors duration-250 soft-ease">
             Projeleri Keşfet 
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-250" />
           </Link>
@@ -225,13 +265,13 @@ export default function LandingPage() {
       </main>
       {/*About Me*/}
       <section className="px-6 py-24 relative z-10 animate-reveal delay-1000">
-        <div className="max-w-4xl mx-auto glass-panel rounded-xl p-8 md:p-12 
+        <div className="max-w-4xl mx-auto glass-panel rounded-sm p-8 md:p-12 
             border border-black/5 relative overflow-hidden group 
             transition-all duration-700 soft-ease
             hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/7">
           
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-12 h-12 bg-surface rounded-xl flex items-center justify-center border border-black/10 group-hover:border-accent/20 transition-colors duration-500">
+            <div className="w-12 h-12 bg-surface rounded-sm flex items-center justify-center border border-black/10 group-hover:border-accent/20 transition-colors duration-500">
               <Terminal className="w-6 h-6 text-accent" />
             </div>
             <h2 className="text-2xl font-bold tracking-tight">Sistem Mimarı & Geliştirici</h2>
@@ -284,8 +324,8 @@ export default function LandingPage() {
           {/*Grid*/}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             
-            <Link href="/dashboard/tool-1" className="group glass-panel p-8 rounded-lg hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
-              <div className="w-14 h-14 bg-surface rounded-xl flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
+            <Link href="/dashboard/tool-1" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
+              <div className="w-14 h-14 bg-surface rounded-sm flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
                 <Cpu className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
               </div>
               <h3 className="text-xl font-medium mb-3">Görüntü Sınıflandırma - Stil Analizi</h3>
@@ -297,8 +337,8 @@ export default function LandingPage() {
               </div>
             </Link>
 
-            <Link href="/dashboard/tool-2" className="group glass-panel p-8 rounded-lg hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
-              <div className="w-14 h-14 bg-surface rounded-xl flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
+            <Link href="/dashboard/tool-2" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
+              <div className="w-14 h-14 bg-surface rounded-sm flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
                 <Network className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
               </div>
               <h3 className="text-xl font-medium mb-3">Tensör İşleme Mimarisi</h3>
@@ -310,9 +350,9 @@ export default function LandingPage() {
               </div>
             </Link>
 
-            <Link href="/dashboard/tool-3" className="group glass-panel p-8 rounded-lg hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
-              <div className="group glass-panel p-8 rounded-lg opacity-50 cursor-not-allowed flex flex-col">
-                <div className="w-14 h-14 bg-surface rounded-xl flex items-center justify-center mb-6 border border-black/5">
+            <Link href="/dashboard/tool-3" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
+              <div className="group glass-panel p-8 rounded-sm opacity-50 cursor-not-allowed flex flex-col">
+                <div className="w-14 h-14 bg-surface rounded-sm flex items-center justify-center mb-6 border border-black/5">
                   <ScanSearch className="w-6 h-6 text-gray-400" />
                 </div>
                 <h3 className="text-xl font-medium mb-3">Nesne Tespiti</h3>

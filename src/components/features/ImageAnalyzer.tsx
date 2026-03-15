@@ -54,7 +54,7 @@ interface ImageAnalyzerProps {
 // Güven skoruna göre renk — yüksekse yeşil, düşükse sarı/kırmızı
 function getGuvenRengi(guven: number): string {
   if (guven >= 75) return "text-green-400";
-  if (guven >= 50) return "text-teal-400";
+  if (guven >= 50) return "text-orange-400";
   return "text-red-400";
 }
 
@@ -131,7 +131,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
       <Card className="flex flex-col gap-6 bg-surface/40">
 
         {/* Yükleme Alanı */}
-        <div className="relative border-2 border-dashed border-white/10 rounded-md p-8 text-center hover:border-accent/40 transition-colors duration-300 bg-background/50">
+        <div className="relative border-2 border-dashed border-white/10 rounded-sm p-8 text-center hover:border-accent/40 transition-colors duration-300 bg-background/50">
           <input
             type="file"
             accept="image/*"
@@ -140,7 +140,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
           />
           {previewUrl ? (
             <div className="flex flex-col items-center gap-4 animate-in zoom-in-95 duration-300">
-              <div className="w-32 h-32 relative rounded-lg overflow-hidden border border-white/10 shadow-lg">
+              <div className="w-32 h-32 relative rounded-sm overflow-hidden border border-white/10 shadow-lg">
                 <img src={previewUrl} alt="Önizleme" className="w-full h-full object-cover" />
               </div>
               <p className="text-sm text-accent font-medium">{selectedFile?.name}</p>
@@ -172,7 +172,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
 
         {/* Hata */}
         {error && (
-          <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-md flex items-center gap-3 text-red-400 text-sm animate-in slide-in-from-top-2">
+          <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-sm flex items-center gap-3 text-red-400 text-sm animate-in slide-in-from-top-2">
             <AlertCircle className="w-5 h-5 shrink-0" />
             <p>{error}</p>
           </div>
@@ -183,7 +183,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
           <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
 
             {/* Ana Stil Tahmini */}
-            <div className="p-6 bg-accent/5 border border-accent/20 rounded-md">
+            <div className="p-6 bg-accent/5 border border-accent/20 rounded-sm">
               <div className="flex items-center gap-2 mb-4">
                 <Sparkles className="w-5 h-5 text-accent" />
                 <h3 className="font-semibold text-gray-200">Stil Tahmini</h3>
@@ -226,7 +226,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
             </div>
 
             {/* Dominant Renkler + Renk Uyumu */}
-            <div className="p-6 bg-white/5 border border-white/10 rounded-md flex flex-col gap-6">
+            <div className="p-6 bg-white/5 border border-white/10 rounded-sm flex flex-col gap-6">
 
               {/* Dominant Renkler */}
               <div>
@@ -235,7 +235,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
                   {result.renk_analizi.dominant_colors.map((renk, index) => (
                     <div key={index} className="flex-1 flex flex-col items-center gap-2">
                       <div
-                        className="w-full h-14 rounded-lg border border-white/10 shadow-lg"
+                        className="w-full h-14 rounded-sm border border-white/10 shadow-lg"
                         style={{ backgroundColor: rgbToCss(renk.rgb) }}
                       />
                       <p className="text-xs text-gray-300 font-medium text-center">{renk.isim}</p>
@@ -294,7 +294,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
                       result.renk_analizi.genel_istatistikler.uyum_skoru >= 75
                         ? "text-green-400"
                         : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50
-                        ? "text-teal-400"
+                        ? "text-orange-400"
                         : "text-red-400"
                     }`}>
                       {result.renk_analizi.genel_istatistikler.uyum_notu}
@@ -327,7 +327,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
             </div>
 
             {/* açılır/kapanır panel */}
-            <div className="border border-white/5 rounded-md overflow-hidden">
+            <div className="border border-white/5 rounded-sm overflow-hidden">
               <button
                 onClick={() => setShowDetails(!showDetails)}
                 className="w-full flex items-center justify-between p-4 text-sm text-textMuted hover:text-gray-200 hover:bg-white/5 transition-colors duration-200"
@@ -344,23 +344,23 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
 
               {showDetails && (
                 <div className="px-4 pb-4 grid grid-cols-2 gap-3 animate-in slide-in-from-top-2 duration-200">
-                  <div className="p-3 bg-background/50 rounded-lg border border-white/5">
+                  <div className="p-3 bg-background/50 rounded-sm border border-white/5">
                     <p className="text-xs text-textMuted mb-1">Çıkarım Süresi</p>
                     <p className="font-medium text-gray-200">{result.cikarim_suresi_ms} ms</p>
                   </div>
-                  <div className="p-3 bg-background/50 rounded-lg border border-white/5">
+                  <div className="p-3 bg-background/50 rounded-sm border border-white/5">
                     <p className="text-xs text-textMuted mb-1">Dosya Boyutu</p>
                     <p className="font-medium text-gray-200">{result.dosya_boyutu_mb} MB</p>
                   </div>
-                  <div className="p-3 bg-background/50 rounded-lg border border-white/5">
+                  <div className="p-3 bg-background/50 rounded-sm border border-white/5">
                     <p className="text-xs text-textMuted mb-1">Ort. Doygunluk</p>
                     <p className="font-medium text-gray-200">{result.renk_analizi.genel_istatistikler.ort_doygunluk}</p>
                   </div>
-                  <div className="p-3 bg-background/50 rounded-lg border border-white/5">
+                  <div className="p-3 bg-background/50 rounded-sm border border-white/5">
                     <p className="text-xs text-textMuted mb-1">Ort. Parlaklık</p>
                     <p className="font-medium text-gray-200">{result.renk_analizi.genel_istatistikler.ort_parlaklik}</p>
                   </div>
-                  <div className="col-span-2 p-3 bg-background/50 rounded-lg border border-white/5">
+                  <div className="col-span-2 p-3 bg-background/50 rounded-sm border border-white/5">
                     <p className="text-xs text-textMuted mb-1">Renk Çeşitliliği</p>
                     <p className="font-medium text-gray-200">{result.renk_analizi.genel_istatistikler.renk_cesitliligi}</p>
                   </div>

@@ -17,16 +17,16 @@ export default function Tool2Page() {
         </div>
 
         {/* Yapım aşamasında kartı */}
-        <div className="glass-panel rounded-lg p-12 border border-white/5 flex flex-col items-center justify-center text-center gap-6">
+        <div className="glass-panel rounded-sm p-12 border border-white/5 flex flex-col items-center justify-center text-center gap-6">
           
-          <div className="w-16 h-16 rounded-lg bg-surface flex items-center justify-center border border-white/10">
+          <div className="w-16 h-16 rounded-sm bg-surface flex items-center justify-center border border-white/10">
             <Cpu className="w-8 h-8 text-textMuted" />
           </div>
 
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-center gap-2">
-              <Clock className="w-4 h-4 text-teal-400" />
-              <span className="text-sm font-medium text-teal-400">Geliştirme Aşamasında</span>
+              <Clock className="w-4 h-4 text-orange-400" />
+              <span className="text-sm font-medium text-orange-400">Geliştirme Aşamasında</span>
             </div>
             <h3 className="text-xl font-semibold text-gray-200">Bu araç henüz hazır değil</h3>
             <p className="text-textMuted text-sm max-w-md leading-relaxed">
