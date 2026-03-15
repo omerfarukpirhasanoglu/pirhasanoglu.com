@@ -45,7 +45,7 @@ export default function DashboardPage() {
         <div className="rounded-sm p-1 border group hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-full bg-linear-to-l from-accent/5 to-transparent pointer-events-none" />
           
-          <div className="bg-surface/50 rounded-sm flex flex-col md:flex-row relative z-10">
+          <div className="rounded-sm flex flex-col md:flex-row relative z-10">
             
             {/* Sol metin */}
             <div className="md:w-[55%] p-6 md:p-8 flex flex-col min-w-0">
@@ -79,7 +79,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Sağ  inference sonucu */}
-            <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "200px"}}>
+            <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "200px", background: "transparent"}}>
               <Image
                 src="/sample-output.jpg"
                 alt="örnek çıktı"
