@@ -291,7 +291,6 @@ export default function LandingPage() {
           WebkitBackdropFilter: "blur(10px)",
           border: "0.5px solid rgba(255,255,255,0.08)",
         }}>
-          <div className="p-8 md:p-12">
             <defs>
               <linearGradient id="aboutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#f75f5f"/>
@@ -420,7 +419,6 @@ export default function LandingPage() {
               <animate attributeName="r"       values="4;14;4"    dur="5.5s" repeatCount="indefinite" begin="4.0s"/>
               <animate attributeName="opacity" values="0.35;0;0.35" dur="5.5s" repeatCount="indefinite" begin="4.0s"/>
             </circle>
-        </div>
 
         {/* Cam kart — SVG'nin üstünde */}
         <div className="max-w-4xl mx-auto relative" style={{
