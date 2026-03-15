@@ -412,7 +412,7 @@ export default function LandingPage() {
         <div className="max-w-4xl mx-auto relative" style={{
           zIndex: 1,
           borderRadius: "6px",
-          background: "rgba(33,33,33,0.75)",
+          background: "rgba(33,33,33,0.85)",
           boxShadow: "0 0 0 0.5px rgba(255,255,255,0.08), 0 24px 48px rgba(0,0,0,0.4)",
           backdropFilter: "blur(10px)",
           WebkitBackdropFilter: "blur(10px)",
@@ -422,14 +422,14 @@ export default function LandingPage() {
             <div className="flex items-center gap-4 mb-8">
               <div>
                 <h2 className="text-2xl font-bold tracking-tight text-gray-100">Sistem Mimarı & Geliştirici</h2>
-                <p className="text-sm font-semibold mt-1" style={{
+                <h3 className="text-sm font-semibold mt-1" style={{
                   background: "linear-gradient(90deg, #f75f5f, #f9964a, #ffd44f)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
                 }}>
                   Ömer Faruk Pirhasanoğlu
-                </p>
+                </h3>
               </div>
             </div>
             <div className="space-y-6 text-textMuted leading-relaxed text-lg">
