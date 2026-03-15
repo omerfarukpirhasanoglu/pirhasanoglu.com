@@ -42,44 +42,67 @@ export default function DashboardPage() {
         <h2 className="text-2xl font-semibold text-gray-200 animate-reveal delay-200">Modellerim</h2>
         
         {/* Proje Kartı 1 */}
-        <div className="glass-panel rounded-sm p-1 border border-white/5 group hover:border-accent to-[#ffd44f] hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden">
-          {/*glow*/}
+        <div className="glass-panel rounded-sm p-1 border border-white/5 group hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-full bg-linear-to-l from-accent/5 to-transparent pointer-events-none" />
           
-          <div className="bg-surface/50 rounded-sm p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center relative z-10">
+          <div className="bg-surface/50 rounded-sm flex flex-col md:flex-row relative z-10">
             
-            {/*contents*/}
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-2">
-                <h3 className="text-xl font-bold text-gray-100 flex items-center gap-3">
-                  Chroma
-                  <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent">
-                    v1.0
-                  </span>
-                </h3>
-                <span className="px-2.5 py-0.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3 h-3" /> Yayında
+            {/* Sol — metin */}
+            <div className="flex-1 p-6 md:p-8 flex flex-col min-w-0">
+              <div className="flex items-center gap-3 mb-3">
+                <h3 className="text-xl font-bold text-gray-100">Chroma</h3>
+                <span className="text-xs font-medium px-2 py-0.5 rounded-sm bg-accent/10 border border-accent/20 text-accent">v1.0</span>
+                <span className="px-2 py-0.5 rounded-sm bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>yayında
                 </span>
               </div>
-              <p className="text-textMuted leading-relaxed mb-4 max-w-2xl">
+              <p className="text-textMuted leading-relaxed mb-6 flex-1">
                 FastAPI backendine bağlı, Keras tabanlı konvolüsyonel sinir ağları (CNN) kullanarak yüklenen görüntülerin özniteliklerini çıkaran ve yüksek doğrulukla analiz eden modelim.
                 Bu model sayesinde tarzınızı uzman bir yapay zekanın detaylı metrikleriyle inceleyebilirsiniz.
               </p>
-              
-              {/*tags*/}
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-300 text-xs font-medium border border-white/5">Keras</span>
-                <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-300 text-xs font-medium border border-white/5">FastAPI</span>
-                <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-300 text-xs font-medium border border-white/5">Python</span>
-                <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-300 text-xs font-medium border border-white/5">React</span>
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-300 text-xs font-medium border border-white/5">Keras</span>
+                  <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-300 text-xs font-medium border border-white/5">FastAPI</span>
+                  <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-300 text-xs font-medium border border-white/5">Python</span>
+                  <span className="px-3 py-1 rounded-sm bg-white/5 text-gray-300 text-xs font-medium border border-white/5">React</span>
+                </div>
+                <Link href="/dashboard/tool-1" className="shrink-0 flex items-center gap-2 bg-linear-to-r from-accent to-[#ffd44f] text-[#1a0808] px-5 py-2 rounded-sm font-semibold text-sm hover:opacity-90 transition-opacity duration-250">
+                  Modeli İncele
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
 
-            {/* Buttons*/}
-            <Link href="/dashboard/tool-1" className="shrink-0 w-full md:w-auto flex items-center justify-center gap-2 bg-linear-to-r from-accent to-[#ffd44f] text-[#1a0808] px-6 py-3 rounded-sm font-semibold hover:opacity-90 transition-colors duration-250">
-              Modeli İncele
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            {/* Sağ — inference sonucu */}
+            <div className="w-full md:w-56 shrink-0 border-t md:border-t-0 md:border-l border-white/5 flex flex-col items-center justify-center gap-3 p-6 bg-black/15 relative">
+              <div className="absolute inset-0 bg-linear-to-b from-accent/3 to-transparent pointer-events-none" />
+              <div className="relative z-10 flex flex-col items-center gap-3 w-full">
+                <div className="w-20 h-20 rounded-sm border border-white/8 bg-surface flex items-center justify-center overflow-hidden">
+                  <img src="/sample-output.jpg" alt="örnek çıktı" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display='none' }} />
+                </div>
+                <div className="w-full flex flex-col gap-1.5">
+                  {[
+                    { label: "Casual", score: 88 },
+                    { label: "Minimal", score: 61 },
+                    { label: "Formal", score: 24 },
+                  ].map((item) => (
+                    <div key={item.label} className="flex items-center gap-2">
+                      <span className="text-[10px] text-textMuted font-mono w-10">{item.label}</span>
+                      <div className="flex-1 h-0.75 bg-white/5 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-linear-to-r from-accent to-[#ffd44f] rounded-full"
+                          style={{ width: `${item.score}%` }}
+                        />
+                      </div>
+                      <span className="text-[10px] text-accent font-mono w-7 text-right">{item.score}%</span>
+                    </div>
+                  ))}
+                </div>
+                <span className="text-[10px] text-white/20 font-mono">örnek inference çıktısı</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
