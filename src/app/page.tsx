@@ -260,16 +260,18 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="space-y-6 text-textMuted leading-relaxed text-lg">
-              <Image src="/profile.png" alt="Ömer Faruk Pirhasanoğlu" width={90} height={90} style={{ borderRadius: "7%" }} />
-              <p className="text-xl font-semibold mt-1" style={{
-                  background: "linear-gradient(90deg, #f75f5f, #f9964a, #ffd44f)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}>
-                  Ömer Faruk Pirhasanoğlu
-                </p>
-              <p>
+              <div className="flex items-end gap-4 mb-2">
+                <Image src="/profile.png" alt="Ömer Faruk Pirhasanoğlu" width={90} height={90} style={{ borderRadius: "7%" }} />
+                <p className="text-xl font-semibold mt-1" style={{
+                    background: "linear-gradient(90deg, #f75f5f, #f9964a, #ffd44f)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}>
+                    Ömer Faruk Pirhasanoğlu
+                  </p>
+                </div>
+                <p>
                 Derin öğrenme ve bilgisayarla görme alanında uzmanlaşmakta olan 3. sınıf Bilgisayar Mühendisliği öğrencisiyim. Mimari tasarımdan bulut dağıtımına kadar uçtan uca üretim kalitesinde,
                 olabildiğince optimize yapay zeka modelleri tasarlıyor, eğitiyor ve deploy ediyorum.
               </p>
