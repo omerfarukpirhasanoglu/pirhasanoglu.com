@@ -57,7 +57,7 @@ export default function Sidebar() {
 
   const menuItems: MenuItem[] = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-    { name: "Chroma v1.0", href: "/dashboard/tool-1", icon: ImageIcon },
+    { name: "Chroma v1.1", href: "/dashboard/tool-1", icon: ImageIcon },
     { name: "Tensör İşleme", href: "/dashboard/tool-2", icon: Cpu },
     { name: "Nesne Tespiti", href: "/dashboard/tool-3", icon: ScanSearch },
   ];

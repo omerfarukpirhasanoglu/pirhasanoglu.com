@@ -158,12 +158,12 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
         {/* Changelog toggle butonu */}
         <button
           onClick={() => setShowChangelog(!showChangelog)}
-          className={`shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-sm text-xs font-mono transition-all duration-200 border ${
-            showChangelog
-              ? "border-accent/30 text-accent bg-accent/5"
-              : "border-white/8 text-[#666] bg-white/3 hover:text-[#c8c4be] hover:bg-white/6"
-          }`}
-        >
+          className="shrink-0 flex items-center gap-2 px-4 py-2 rounded-sm text-sm font-mono transition-all duration-200 text-[#1a0808] font-semibold"
+          style={{
+            background: "linear-gradient(135deg, #f75f5f, #ffd44f)",
+            opacity: showChangelog ? 0.75 : 1,
+          }} 
+        >    
           <History className="w-3.5 h-3.5" />
           changelog
           <span className={`transition-transform duration-200 ${showChangelog ? "rotate-180" : ""}`}>▾</span>
