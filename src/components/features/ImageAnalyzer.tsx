@@ -165,7 +165,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
           }} 
         >    
           <History className="w-3.5 h-3.5" />
-          changelog
+          ChangeLog
           <span className={`transition-transform duration-200 ${showChangelog ? "rotate-180" : ""}`}>▾</span>
         </button>
       </div>
