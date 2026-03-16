@@ -285,7 +285,11 @@ export default function LandingPage() {
                 Sıkıcı teknik laflar bir yana; bilgisayar denen ve mimarisine hayran olduğum bu çok havalı hesap makinesinin tabiri caizse "öğrenebiliyor" oluşu, içine doğduğum çağın en müthiş kırılma noktası gibi :D
                 Dolayısı ile bu teknoloji ve insanımızın arasındaki pürüzler kaldırılmalı, AI okuryazarlığımız hem bireysel hem toplumsal ölçekte ilerleme kaydetmeli.
               </p>
-              <p>Ben feedback panelini bitirene kadar öneriler için sosyal medya adreslerim aşağıda bulunuyor olacak.</p>
+              <p>
+                AI teknolojilerinin ulaşılabilir ve açıklanabilir olmasını vizyon edindiğimden, bir de elbette ki yetkinliklerimi gösterebilmek istediğimden bu platformu kurdum.
+              </p>
+              <p>Ben feedback panelini bitirene kadar öneriler için sosyal medya adreslerim hep aktif olacak.
+              </p>
             </div>
           </div>
         </div>
