@@ -171,10 +171,10 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
       </div>
 
       {/* Ana layout */}
-      <div className="relative">
+      <div className="flex gap-4 items-start overflow-hidden">
 
         {/* Analiz alanı */}
-        <div className={`transition-all duration-300 ${showChangelog ? "mr-76" : "mr-0 max-w-2xl mx-auto"}`}>
+        <div className="flex-1 min-w-0">
           <Card className="flex flex-col gap-6 bg-surface/40">
 
             {/* Yükleme Alanı */}
@@ -360,8 +360,8 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
         </div>
 
         {/* Changelog panel */}
-        <div className={`absolute top-0 right-0 w-72 transition-transform duration-300 ${showChangelog ? "translate-x-0" : "translate-x-[110%]"}`}>
-          <div className="ml-4 border border-white/[0.07] rounded-sm overflow-hidden bg-surface/40">
+        <div className={`shrink-0 transition-all duration-300 ${showChangelog ? "w-72 opacity-100" : "w-0 opacity-0 pointer-events-none"}`} style={{overflow: "hidden"}}>
+          <div className={`w-72 transition-transform duration-300 border border-white/[0.07] rounded-sm bg-surface/40 ${showChangelog ? "translate-x-0" : "translate-x-full"}`}>
 
             {/* Panel başlık */}
             <div className="px-4 py-3 border-b border-white/6 flex items-center gap-2">
