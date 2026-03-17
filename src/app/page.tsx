@@ -276,10 +276,14 @@ export default function LandingPage() {
                 olabildiğince optimize yapay zeka modelleri tasarlıyor, eğitiyor ve deploy ediyorum.
               </p>
               <p>
-                Temel uzmanlık alanlarım: Keras & PyTorch · Transfer Learning · Çok Fazlı Eğitim · Hiperparametre Fine-Tuning · GPU Destekli Çıkarım (CUDA) · Bilgisayarla Görme · Özel Sinir Ağı Mimarileri
+                Temel uzmanlık alanları: Keras & PyTorch · Model Building · Transfer Learning · Çok Fazlı Eğitim · Hiperparametre Fine-Tuning · GPU Destekli Çıkarım (CUDA) · Bilgisayarla Görme · Özel Sinir Ağı Mimarileri · Sisteme Göre Mimari Optimizasyonu
               </p>
               <p>
-                Uçtan uca bir görüntü sınıflandırma sistemi geliştirip deploy ettim: ön işleme pipeline'ı → 2 fazlı transfer learning → Docker'lı AI-Backend → canlı bulut endpoint'i.
+                Herkesin kullanımına açık uçtan uca bir görüntü sınıflandırma sistemi geliştirip deploy ettim: ön işleme pipeline'ı → 2 fazlı transfer learning (temel katmanlar donduruldu, üst katmanlar düşük öğrenme hızıyla fine-tune edildi,
+                en iyi sonuç için kendi sınıflandırma katmanlarım eklendi) → Docker'lı AI-Backend → canlı bulut endpoint'i. 
+              </p>
+              <p>
+                Ayrıca: Git/GitHub · Docker · Agile/Scrum · LLM prompt mühendisliği & hata giderimi · kod inceleme (code review).
               </p>
               <p>
                 Sıkıcı teknik laflar bir yana; bilgisayar denen ve mimarisine hayran olduğum bu çok havalı hesap makinesinin tabiri caizse "öğrenebiliyor" oluşu, içine doğduğum çağın en müthiş kırılma noktası gibi :D
