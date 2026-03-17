@@ -206,11 +206,12 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
             </div>
 
             {/* Buton */}
-            <div className="flex justify-center p-5">
+            <div className="flex justify-center">
               <Button
                 onClick={handleAnalyze}
                 disabled={!selectedFile || isLoading}
                 isLoading={isLoading}
+                className="px-20 min-w-50"
               >
                 {isLoading ? "Analiz Ediliyor..." : "Analiz Et"}
               </Button>
