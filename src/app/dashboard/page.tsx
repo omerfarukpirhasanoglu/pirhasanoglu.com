@@ -12,7 +12,7 @@ export default function DashboardPage() {
       {/*Metrics*/}
       <div className="flex flex-col gap-8 animate-reveal">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-gray-100 mb-2">Proje Paneli</h1>
+          <h1 className="text-3xl font-bold tracking-tight shadow-lg shadow-black/80 text-gray-100 mb-2">Proje Paneli</h1>
         </div>
 
         {/* Vision Bar */}
@@ -39,7 +39,7 @@ export default function DashboardPage() {
 
       {/* Ana Projeler Listesi */}
       <div className="flex flex-col gap-6">
-        <h2 className="text-2xl font-semibold text-gray-200 animate-reveal delay-200">Modellerim</h2>
+        <h2 className="text-2xl font-semibold text-gray-200 animate-reveal shadow-lg shadow-black/80 delay-200">Modellerim</h2>
         
         {/* Proje Kartı 1 */}
         <div className="rounded-sm border border-white/5 group hover:border-accent/30 shadow-lg shadow-black/80 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden">

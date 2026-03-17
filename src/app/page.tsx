@@ -247,7 +247,7 @@ export default function LandingPage() {
       <section className="px-6 py-24" style={{position: "relative", zIndex: 1}}>
         <div className="max-w-4xl mx-auto" style={{
           borderRadius: "6px",
-          background: "rgba(33,33,33,0.48)",
+          background: "rgba(33,33,33,0.1)",
           backdropFilter: "blur(10px)",
           WebkitBackdropFilter: "blur(10px)",
           border: "0.5px solid rgba(255,255,255,0.08)",
