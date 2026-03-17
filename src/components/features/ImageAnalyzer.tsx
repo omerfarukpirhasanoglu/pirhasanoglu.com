@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { UploadCloud, Cpu, AlertCircle, Sparkles, Clock, HardDrive, ChevronDown, ChevronUp, History } from "lucide-react";
+import { UploadCloud, AlertCircle, Sparkles, Clock, ChevronDown, ChevronUp, History } from "lucide-react";
 import { Button } from "@/src/components/ui/Button";
 import { Card } from "@/src/components/ui/Card";
 import { API_CONFIG } from "@/src/config/api";
@@ -59,9 +59,9 @@ const CHANGELOG = [
       "Chroma'nın veri seti kaynaklı, belirli sınıflara meyletme sorunu çözüldü",
       "Augmentation ve normalization yükü GPU ya kaydırılarak CPU darboğazı giderildi",
       "Dominant palet çıkarımı ~%20 oranında iyileştirildi",
-      "Backend tarafı optimize edilerek yanıt süresi azaltıldı",
+      "Backend tarafı optimize edilerek yanıt süresi yaklaşık %25 azaltıldı",
     ],
-    meta: { accuracy: "-%", epochs: "20", inference: "-ms" },
+    meta: { accuracy: "-%", epochs: "20", inference: "-6000ms" },
   },
   {
     version: "v1.0",
@@ -74,7 +74,7 @@ const CHANGELOG = [
       "Her faz için özel parametrelerle fine tuning uygulandı",
       "Renk analizi ve dominant palet çıkarımı eklendi",
     ],
-    meta: { accuracy: "87.9%", epochs: "20", inference: "~6200ms" },
+    meta: { accuracy: "87.9%", epochs: "20", inference: "~8100ms" },
   },
 ];
 
@@ -212,7 +212,6 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
                 disabled={!selectedFile || isLoading}
                 isLoading={isLoading}
               >
-                <Cpu className="w-4 h-4 mr-2" />
                 {isLoading ? "Analiz Ediliyor..." : "Analiz Et"}
               </Button>
             </div>
@@ -272,8 +271,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
                       {result.renk_analizi.dominant_colors.map((renk, index) => (
                         <div key={index} className="flex-1 flex flex-col items-center gap-2">
                           <div className="w-full h-14 rounded-sm border border-white/10 shadow-lg" style={{ backgroundColor: rgbToCss(renk.rgb) }} />
-                          <p className="text-xs text-gray-300 font-medium text-center">{renk.isim}</p>
-                          <p className="text-xs text-textMuted">%{renk.yuzde}</p>
+                          <p className="text-xs text-gray-200">%{renk.yuzde}</p>
                         </div>
                       ))}
                     </div>
@@ -302,7 +300,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
                         <p className={`text-lg font-bold ${result.renk_analizi.genel_istatistikler.uyum_skoru >= 75 ? "text-green-400" : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50 ? "text-accent" : "text-red-400"}`}>
                           {result.renk_analizi.genel_istatistikler.uyum_notu}
                         </p>
-                        <p className="text-sm text-textMuted leading-relaxed">
+                        <p className="text-xl text-textMuted leading-relaxed">
                           {result.renk_analizi.genel_istatistikler.uyum_skoru >= 75
                             ? "Seçtiğin renkler birbiriyle mükemmel bir ahenk içinde."
                             : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50
