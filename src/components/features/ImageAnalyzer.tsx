@@ -158,7 +158,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
         {/* Changelog toggle butonu */}
         <button
           onClick={() => setShowChangelog(!showChangelog)}
-          className="shrink-0 flex items-center gap-2 px-4 py-2 rounded-sm text-sm font-mono transition-all duration-200 text-[#1a0808] font-semibold"
+          className="shrink-0 flex justify-end gap-2 px-4 py-2 rounded-sm text-sm font-mono transition-all duration-200 text-[#1a0808] font-semibold"
           style={{
             background: "linear-gradient(135deg, #f75f5f, #ffd44f)",
             opacity: showChangelog ? 0.75 : 1,
@@ -171,7 +171,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
       </div>
 
       {/* Ana layout */}
-      <div className="flex gap-4 items-start overflow-hidden">
+      <div className="flex gap-10 items-start overflow-hidden">
 
         {/* Analiz alanı */}
         <div className="flex-1 min-w-0">
@@ -206,7 +206,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
             </div>
 
             {/* Buton */}
-            <div className="flex justify-end">
+            <div className="flex justify-center">
               <Button
                 onClick={handleAnalyze}
                 disabled={!selectedFile || isLoading}
@@ -300,7 +300,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
                         <p className={`text-lg font-bold ${result.renk_analizi.genel_istatistikler.uyum_skoru >= 75 ? "text-green-400" : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50 ? "text-accent" : "text-red-400"}`}>
                           {result.renk_analizi.genel_istatistikler.uyum_notu}
                         </p>
-                        <p className="text-xl text-textMuted leading-relaxed">
+                        <p className="text-sm text-textMuted leading-relaxed">
                           {result.renk_analizi.genel_istatistikler.uyum_skoru >= 75
                             ? "Seçtiğin renkler birbiriyle mükemmel bir ahenk içinde."
                             : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50
