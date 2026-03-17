@@ -202,8 +202,8 @@ export default function LandingPage() {
         <nav className="w-full flex items-center justify-between px-6 h-10 pointer-events-auto"
           style={{
             background: "rgba(33,33,33,0.38)",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
             border: "0.5px solid rgba(255,255,255,0.2)",
             borderRadius: "6px",
           }}>
@@ -248,9 +248,9 @@ export default function LandingPage() {
         <div className="max-w-4xl mx-auto" style={{
           borderRadius: "6px",
           background: "rgba(33,33,33,0.28)",
-          backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(10px)",
-          border: "0.5px solid rgba(255,255,255,0.08)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          border: "0.5px solid rgba(255,255,255,0.2)",
         }}>
           <div className="p-8 md:p-12">
             <div className="flex items-center gap-4 mb-8">
