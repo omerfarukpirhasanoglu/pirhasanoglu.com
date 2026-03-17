@@ -204,7 +204,7 @@ export default function LandingPage() {
             background: "rgba(33,33,33,0.38)",
             backdropFilter: "blur(10px)",
             WebkitBackdropFilter: "blur(10px)",
-            border: "0.5px solid rgba(255,255,255,0.2)",
+            border: "0.5px solid rgba(255,255,255,0.08)",
             borderRadius: "6px",
           }}>
           <Link href="/" className="text-sm font-medium text-[#c8c4be] tracking-wide hover:text-white transition-colors duration-200">
@@ -250,7 +250,7 @@ export default function LandingPage() {
           background: "rgba(33,33,33,0.28)",
           backdropFilter: "blur(5px)",
           WebkitBackdropFilter: "blur(5px)",
-          border: "0.5px solid rgba(255,255,255,0.008)",
+          border: "0.5px solid rgba(255,255,255,0.08)",
         }}>
           <div className="p-8 md:p-12">
             <div className="flex items-center gap-4 mb-8">
