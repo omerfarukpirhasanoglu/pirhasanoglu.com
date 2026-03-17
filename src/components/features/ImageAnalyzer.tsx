@@ -206,7 +206,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
             </div>
 
             {/* Buton */}
-            <div className="flex items-center px-7">
+            <div className="shrink-0 flex items-end gap-4 px-4 py-2">
               <Button
                 onClick={handleAnalyze}
                 disabled={!selectedFile || isLoading}
