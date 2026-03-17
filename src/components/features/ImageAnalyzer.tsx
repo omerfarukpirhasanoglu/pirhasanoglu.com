@@ -206,7 +206,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
             </div>
 
             {/* Buton */}
-            <div className="flex items-center-safe bg-clip-padding m-5">
+            <div className="flex items-center p-5">
               <Button
                 onClick={handleAnalyze}
                 disabled={!selectedFile || isLoading}
