@@ -158,7 +158,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
         {/* Changelog toggle butonu */}
         <button
           onClick={() => setShowChangelog(!showChangelog)}
-          className="shrink-4 flex items-center gap-2 px-4 py-2 rounded-sm text-sm font-mono transition-all duration-200 text-[#1a0808] font-semibold"
+          className="shrink-0 flex justify-items-end gap-2 px-4 py-2 rounded-sm text-sm font-mono transition-all duration-200 text-[#1a0808] font-semibold"
           style={{
             background: "linear-gradient(135deg, #f75f5f, #ffd44f)",
             opacity: showChangelog ? 0.75 : 1,
@@ -206,7 +206,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
             </div>
 
             {/* Buton */}
-            <div className="flex justify-center w-40">
+            <div className="flex justify-center px-7">
               <Button
                 onClick={handleAnalyze}
                 disabled={!selectedFile || isLoading}
