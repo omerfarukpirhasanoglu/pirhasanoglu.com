@@ -328,14 +328,13 @@ export default function LandingPage() {
               </div>
               <h3 className="text-xl font-medium mb-3">Tensör İşleme Mimarisi</h3>
               <p className="text-textMuted text-sm mb-8 flex-1 leading-relaxed">
-                PyTorch ortamında eğitilmiş modeller için GPU destekli çıkarım (inference) ve asenkron FastAPI köprüsü.
+                PyTorch ortamında eğitilmiş modeller için GPU destekli çıkarım ve asenkron veri akışı sağlayacak yeni nesil pipeline modülü.
               </p>
-              <div className="text-accent text-sm font-medium flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
-                İncele <ArrowRight className="w-4 h-4" />
-              </div>
+              <div className="text-gray-500 text-sm font-medium flex items-center gap-1">
+                  Yakında <span className="ml-1 px-2 py-0.5 rounded-full bg-white/5 border border-black/10 text-xs">Geliştiriliyor</span>
+                </div>
             </Link>
-            <Link href="/dashboard/tool-3" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
-              <div className="group glass-panel p-8 rounded-sm opacity-50 cursor-not-allowed flex flex-col">
+            <Link href="/dashboard/tool-3" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">              
                 <div className="w-14 h-14 bg-surface rounded-sm flex items-center justify-center mb-6 border border-black/5">
                   <ScanSearch className="w-6 h-6 text-gray-400" />
                 </div>
@@ -346,7 +345,6 @@ export default function LandingPage() {
                 <div className="text-gray-500 text-sm font-medium flex items-center gap-1">
                   Yakında <span className="ml-1 px-2 py-0.5 rounded-full bg-white/5 border border-black/10 text-xs">Geliştiriliyor</span>
                 </div>
-              </div>
             </Link>
           </div>
         </div>
