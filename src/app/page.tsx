@@ -248,9 +248,9 @@ export default function LandingPage() {
         <div className="max-w-4xl mx-auto" style={{
           borderRadius: "6px",
           background: "rgba(33,33,33,0.28)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          border: "0.5px solid rgba(255,255,255,0.2)",
+          backdropFilter: "blur(5px)",
+          WebkitBackdropFilter: "blur(5px)",
+          border: "0.5px solid rgba(255,255,255,0.008)",
         }}>
           <div className="p-8 md:p-12">
             <div className="flex items-center gap-4 mb-8">
