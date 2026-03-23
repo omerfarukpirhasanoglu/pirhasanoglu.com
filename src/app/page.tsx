@@ -276,15 +276,16 @@ export default function LandingPage() {
                 olabildiğince optimize yapay zeka modelleri tasarlıyor, eğitiyor ve deploy ediyorum.
               </p>
               
-              <strong><u> - Deep Learning Development & Deployment - </u></strong>
-              <p> Framework'ler: Keras (TensorFlow backend) · PyTorch </p>
-              <p> Kütüphaneler: NumPy · Pandas · Matplotlib · OpenCV </p>
-              <p> Model inşası: CNN · Transfer Learning </p>
-              <p> Çok Fazlı Eğitim · Fine-Tuning · Regularization </p>
-              <p> GPU-Optimized Preprocessing Pipeline </p>
-              <p> Production Inference Optimization </p>
-              <p> FastAPI · Cloud Deployment · Docker · AI-Backend </p>
-              <p> Python (ileri düzey) · Git / GitHub </p>
+              <strong> - Deep Learning Development & Deployment - </strong>
+              <p> Framework'ler: Keras (TensorFlow backend) · PyTorch
+               Kütüphaneler: NumPy · Pandas · Matplotlib · OpenCV
+               Model inşası: CNN · Transfer Learning
+               Çok Fazlı Eğitim · Fine-Tuning · Regularization
+               GPU-Optimized Preprocessing Pipeline
+               Production Inference Optimization
+               FastAPI · Cloud Deployment · Docker · AI-Backend
+               Python (ileri düzey) · Git / GitHub
+               </p>
 
               <p>
                 Herkesin kullanımına açık uçtan uca bir görüntü sınıflandırma sistemi geliştirip deploy ettim: ön işleme pipeline'ı → 2 fazlı transfer learning (temel katmanlar donduruldu, üst katmanlar düşük öğrenme hızıyla fine-tune edildi,
