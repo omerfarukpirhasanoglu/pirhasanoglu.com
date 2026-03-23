@@ -33,7 +33,7 @@ function NavItem({ item, isCollapsed, pathname }: NavItemProps) {
   return (
     <Link
       href={item.href}
-      className={`flex items-center gap-3 px-2 py-3 rounded-sm transition-all duration-250 soft-ease group relative
+      className={`flex items-center gap-3 px-3 py-3 rounded-sm transition-all duration-250 soft-ease group relative
         ${isActive
           ? "bg-accent/10 text-accent font-medium"
           : "text-textMuted hover:bg-black/5 hover:text-stone-700"
