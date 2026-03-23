@@ -277,13 +277,13 @@ export default function LandingPage() {
               </p>
               
               <strong> - Deep Learning Development & Deployment - </strong>
-              <p> Framework'ler: Keras (TensorFlow backend) · PyTorch
-               Kütüphaneler: NumPy · Pandas · Matplotlib · OpenCV
-               Model inşası: CNN · Transfer Learning
-               Çok Fazlı Eğitim · Fine-Tuning · Regularization
-               GPU-Optimized Preprocessing Pipeline
-               Production Inference Optimization
-               FastAPI · Cloud Deployment · Docker · AI-Backend
+              <p> Framework'ler: Keras (TensorFlow backend) · PyTorch<br/>
+               Kütüphaneler: NumPy · Pandas · Matplotlib · OpenCV<br/>
+               Model inşası: CNN · Transfer Learning<br/>
+               Çok Fazlı Eğitim · Fine-Tuning · Regularization<br/>
+               GPU-Optimized Preprocessing Pipeline<br/>
+               Production Inference Optimization<br/>
+               FastAPI · Cloud Deployment · Docker · AI-Backend<br/>
                Python (ileri düzey) · Git / GitHub
                </p>
 
