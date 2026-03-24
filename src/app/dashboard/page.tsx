@@ -86,21 +86,7 @@ export default function DashboardPage() {
                 fill
                 className="object-cover object-center"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/70 to-transparent flex flex-col gap-1.5">
-                {[
-                  { label: "Casual", score: 88 },
-                  { label: "Sport", score: 17 },
-                  { label: "Formal", score: 9 },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-2">
-                    <span className="text-[10px] text-white/60 font-mono w-10">{item.label}</span>
-                    <div className="flex-1 h-0.5 bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full bg-linear-to-r from-accent to-[#ffd44f] rounded-full" style={{ width: `${item.score}%` }}/>
-                    </div>
-                    <span className="text-[10px] text-accent font-mono w-7 text-right">{item.score}%</span>
-                  </div>
-                ))}
-              </div>
+              
             </div>
 
           </div>
