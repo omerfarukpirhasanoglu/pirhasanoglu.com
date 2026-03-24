@@ -228,7 +228,7 @@ export default function LandingPage() {
           AI & Sistem Mimarisi
         </div>
         <div className="relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent animate-reveal delay-400">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 bg-linear-to-r from-accent to-[#ffd44f] bg-clip-text text-transparent animate-reveal delay-400">
             Veriyi Anlama Dönüştür
           </h1>
         </div>
