@@ -21,19 +21,27 @@ interface DominantRenk {
   rgb: number[];
   yuzde: number;
   isim: string;
+  notr: boolean;
 }
 
 interface GenelIstatistikler {
   ort_doygunluk: number;
   ort_parlaklik: number;
   renk_cesitliligi: number;
-  uyum_skoru: number;
-  uyum_notu: string;
+  notr_oran: number;
+}
+
+interface UyumAnalizi {
+  tur: string;
+  aciklama: string;
+  skor: number;
 }
 
 interface RenkAnalizi {
   dominant_colors: DominantRenk[];
   genel_istatistikler: GenelIstatistikler;
+  uyum_analizi: UyumAnalizi;
+  stil_tahmini: string;
 }
 
 interface AnalysisResult {
@@ -57,11 +65,11 @@ const CHANGELOG = [
     current: true,
     items: [
       "Chroma'nın veri seti kaynaklı, belirli sınıflara meyletme sorunu çözüldü",
-      "Augmentation ve normalization yükü GPU ya kaydırılarak CPU darboğazı giderildi",
-      "Dominant palet çıkarımı ~%20 oranında iyileştirildi",
+      "Preprocessing yükü GPU ya kaydırılarak CPU darboğazı giderildi",
+      "Dominant palet çıkarımı ~%13 oranında iyileştirildi",
       "Backend tarafı optimize edilerek yanıt süresi yaklaşık %25 azaltıldı",
     ],
-    meta: { accuracy: "-%", epochs: "20", inference: "-6000ms" },
+    meta: { accuracy: "93.85%", epochs: "20", inference: "-6000ms" },
   },
   {
     version: "v1.0",
@@ -266,52 +274,93 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
 
                 {/* Dominant Renkler + Renk Uyumu */}
                 <div className="p-6 bg-white/5 border border-white/10 rounded-sm flex flex-col gap-6">
+
+                  {/* Dominant Renkler */}
                   <div>
                     <h3 className="font-semibold text-gray-200 mb-4">Dominant Renkler</h3>
-                    <div className="flex gap-3">
+                    <div className="flex gap-2">
                       {result.renk_analizi.dominant_colors.map((renk, index) => (
                         <div key={index} className="flex-1 flex flex-col items-center gap-2">
-                          <div className="w-full h-14 rounded-sm border border-white/10 shadow-lg" style={{ backgroundColor: rgbToCss(renk.rgb) }} />
-                          <p className="text-xs text-gray-200">%{renk.yuzde}</p>
+                          <div
+                            className="w-full h-14 rounded-sm border shadow-lg relative overflow-hidden"
+                            style={{
+                              backgroundColor: rgbToCss(renk.rgb),
+                              borderColor: renk.notr ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.12)",
+                            }}
+                          >
+                            {renk.notr && (
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-[9px] text-white/30 font-mono uppercase tracking-widest">nötr</span>
+                              </div>
+                            )}
+                          </div>
+                          <div className="text-center">
+                            <p className="text-xs text-gray-300 font-medium">%{renk.yuzde}</p>
+                            <p className="text-[10px] text-textMuted capitalize">{renk.isim}</p>
+                          </div>
                         </div>
                       ))}
                     </div>
+                    {/* Palet gradyanı */}
+                    <div
+                      className="mt-3 h-1.5 rounded-full w-full opacity-60"
+                      style={{ background: `linear-gradient(to right, ${result.renk_analizi.dominant_colors.map((r) => rgbToCss(r.rgb)).join(", ")})` }}
+                    />
                   </div>
+
+                  {/* Renk Uyumu */}
                   <div className="pt-4 border-t border-white/5">
                     <p className="text-xs text-textMuted uppercase tracking-widest mb-4">Renk Uyumu</p>
                     <div className="flex items-center gap-6">
+
+                      {/* Dairesel skor */}
                       <div className="relative w-24 h-24 shrink-0">
                         <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
                           <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="10" />
                           <circle
                             cx="50" cy="50" r="40" fill="none"
-                            stroke={result.renk_analizi.genel_istatistikler.uyum_skoru >= 75 ? "rgb(74, 222, 128)" : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50 ? "rgb(251, 191, 36)" : "rgb(248, 113, 113)"}
+                            stroke={
+                              result.renk_analizi.uyum_analizi.skor >= 80 ? "rgb(74, 222, 128)" :
+                              result.renk_analizi.uyum_analizi.skor >= 65 ? "rgb(251, 191, 36)" :
+                              "rgb(248, 113, 113)"
+                            }
                             strokeWidth="10" strokeLinecap="round"
                             strokeDasharray={`${2 * Math.PI * 40}`}
-                            strokeDashoffset={`${2 * Math.PI * 40 * (1 - result.renk_analizi.genel_istatistikler.uyum_skoru / 100)}`}
+                            strokeDashoffset={`${2 * Math.PI * 40 * (1 - result.renk_analizi.uyum_analizi.skor / 100)}`}
                             className="transition-all duration-1000"
                           />
                         </svg>
                         <div className="absolute inset-0 flex flex-col items-center justify-center">
-                          <span className="text-2xl font-bold text-gray-100">{result.renk_analizi.genel_istatistikler.uyum_skoru}</span>
-                          <span className="text-xs text-textMuted">/100</span>
+                          <span className="text-xl font-bold text-gray-100">{result.renk_analizi.uyum_analizi.skor}</span>
+                          <span className="text-[10px] text-textMuted">/100</span>
                         </div>
                       </div>
-                      <div className="flex flex-col gap-2">
-                        <p className={`text-lg font-bold ${result.renk_analizi.genel_istatistikler.uyum_skoru >= 75 ? "text-green-400" : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50 ? "text-accent" : "text-red-400"}`}>
-                          {result.renk_analizi.genel_istatistikler.uyum_notu}
+
+                      {/* Tur + aciklama */}
+                      <div className="flex flex-col gap-2 min-w-0">
+                        <p className={`text-base font-bold ${
+                          result.renk_analizi.uyum_analizi.skor >= 80 ? "text-green-400" :
+                          result.renk_analizi.uyum_analizi.skor >= 65 ? "text-accent" :
+                          "text-red-400"
+                        }`}>
+                          {result.renk_analizi.uyum_analizi.tur}
                         </p>
                         <p className="text-sm text-textMuted leading-relaxed">
-                          {result.renk_analizi.genel_istatistikler.uyum_skoru >= 75
-                            ? "Seçtiğin renkler birbiriyle mükemmel bir ahenk içinde."
-                            : result.renk_analizi.genel_istatistikler.uyum_skoru >= 50
-                            ? "Renkler tam anlamıyla uyumlu olmasa da küçük dokunuşlarla çok daha güçlü bir kombin elde edebilirsin."
-                            : "Renkler arasında fazla kontrast farkı var. Cesur bir tercih ama dikkatli kombinlemek gerekiyor."}
+                          {result.renk_analizi.uyum_analizi.aciklama}
                         </p>
                       </div>
                     </div>
-                    <div className="mt-5 h-2 rounded-full w-full" style={{ background: `linear-gradient(to right, ${result.renk_analizi.dominant_colors.map((r) => rgbToCss(r.rgb)).join(", ")})` }} />
                   </div>
+
+                  {/* Stil Tahmini */}
+                  <div className="pt-4 border-t border-white/5">
+                    <p className="text-xs text-textMuted uppercase tracking-widest mb-3">Sezon / Stil</p>
+                    <div className="flex items-center gap-3 p-3 bg-white/3 border border-white/8 rounded-sm">
+                      <div className="w-1.5 h-8 rounded-full shrink-0" style={{ background: "linear-gradient(180deg, #f75f5f, #ffd44f)" }} />
+                      <p className="text-sm text-gray-200 leading-snug">{result.renk_analizi.stil_tahmini}</p>
+                    </div>
+                  </div>
+
                 </div>
 
                 {/* Teknik Detaylar */}
@@ -338,15 +387,19 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
                       </div>
                       <div className="p-3 bg-background/50 rounded-sm border border-white/5">
                         <p className="text-xs text-textMuted mb-1">Ort. Doygunluk</p>
-                        <p className="font-medium text-gray-200">{result.renk_analizi.genel_istatistikler.ort_doygunluk}</p>
+                        <p className="font-medium text-gray-200">%{result.renk_analizi.genel_istatistikler.ort_doygunluk}</p>
                       </div>
                       <div className="p-3 bg-background/50 rounded-sm border border-white/5">
                         <p className="text-xs text-textMuted mb-1">Ort. Parlaklık</p>
-                        <p className="font-medium text-gray-200">{result.renk_analizi.genel_istatistikler.ort_parlaklik}</p>
+                        <p className="font-medium text-gray-200">%{result.renk_analizi.genel_istatistikler.ort_parlaklik}</p>
                       </div>
-                      <div className="col-span-2 p-3 bg-background/50 rounded-sm border border-white/5">
+                      <div className="p-3 bg-background/50 rounded-sm border border-white/5">
                         <p className="text-xs text-textMuted mb-1">Renk Çeşitliliği</p>
                         <p className="font-medium text-gray-200">{result.renk_analizi.genel_istatistikler.renk_cesitliligi}</p>
+                      </div>
+                      <div className="p-3 bg-background/50 rounded-sm border border-white/5">
+                        <p className="text-xs text-textMuted mb-1">Nötr Renk Oranı</p>
+                        <p className="font-medium text-gray-200">%{result.renk_analizi.genel_istatistikler.notr_oran}</p>
                       </div>
                     </div>
                   )}
