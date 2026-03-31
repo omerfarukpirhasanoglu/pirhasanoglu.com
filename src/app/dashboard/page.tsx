@@ -52,7 +52,7 @@ export default function DashboardPage() {
               {/*isim + badge + tag'ler*/}
               <div className="flex items-center gap-2 flex-wrap mb-3">
                 <h3 className="text-xl font-bold text-gray-100">Chroma</h3>
-                <span className="text-xs font-medium px-2 py-0.5 rounded-sm bg-accent/10 border border-accent/20 text-accent">v1.1</span>
+                <span className="text-xs font-medium px-2 py-0.5 rounded-sm bg-accent/10 border border-accent/20 text-accent">v1.2</span>
                 <span className="px-2 py-0.5 rounded-sm bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>yayında
                 </span>

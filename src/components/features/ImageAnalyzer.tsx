@@ -60,16 +60,28 @@ interface ImageAnalyzerProps {
 
 const CHANGELOG = [
   {
-    version: "v1.1",
+    version: "v1.2",
     date: "Mart2025",
     current: true,
     items: [
-      "Chroma'nın veri seti kaynaklı, belirli sınıflara meyletme sorunu çözüldü",
-      "Preprocessing yükü GPU ya kaydırılarak CPU darboğazı giderildi",
-      "Dominant palet çıkarımı ~%13 oranında iyileştirildi",
-      "Backend tarafı optimize edilerek yanıt süresi yaklaşık %25 azaltıldı",
+      "Chroma artık .keras formatı yerine onnx formatında, doğruluğu değişmeksizin boyutu %80 azaldı.",
+      "Model onnx sayesinde büyük bağımlılılarından kurtuldu ve çıkarım süresi dramatik şekilde kısaldı.",
+      "Çok daha detaylı renk/ton analizi ve yapıcı geri dönüşler eklendi.",
+      "Train pipeline güncellenerek daha yüksek doğruluk hedefi için yeniden eğitildi.",
     ],
-    meta: { accuracy: "93.85%", epochs: "20", inference: "-6000ms" },
+    meta: { accuracy: "93.85%", epochs: "20", inference: "-1500ms" },
+  },
+  {
+    version: "v1.1",
+    date: "Mart2025",
+    current: false,
+    items: [
+      "Chroma'nın veri seti kaynaklı, belirli sınıflara meyletme sorunu çözüldü.",
+      "Preprocessing yükü GPU ya kaydırılarak CPU darboğazı giderildi.",
+      "Dominant palet çıkarımı ~%13 oranında iyileştirildi.",
+      "Backend tarafı optimize edilerek yanıt süresi yaklaşık %25 azaltıldı.",
+    ],
+    meta: { accuracy: "87.9%", epochs: "20", inference: "-6000ms" },
   },
   {
     version: "v1.0",
@@ -77,10 +89,10 @@ const CHANGELOG = [
     current: false,
     items: [
       "İlk CNN mimarisi kuruldu",
-      "Veri ön işleme ve augmentation pipeline'ı eklendi",
-      "2 fazlı transfer learning pipeline'ı uygulanarak eğitildi",
-      "Her faz için özel parametrelerle fine tuning uygulandı",
-      "Renk analizi ve dominant palet çıkarımı eklendi",
+      "Veri ön işleme ve augmentation pipeline'ı eklendi.",
+      "2 fazlı transfer learning pipeline'ı uygulanarak eğitildi.",
+      "Her faz için özel parametrelerle fine tuning uygulandı.",
+      "Renk analizi ve dominant palet çıkarımı eklendi.",
     ],
     meta: { accuracy: "87.9%", epochs: "20", inference: "~8100ms" },
   },
@@ -296,7 +308,6 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
                           </div>
                           <div className="text-center">
                             <p className="text-xs text-gray-300 font-medium">%{renk.yuzde}</p>
-                            <p className="text-[10px] text-textMuted capitalize">{renk.isim}</p>
                           </div>
                         </div>
                       ))}
