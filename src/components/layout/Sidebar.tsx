@@ -67,7 +67,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`relative h-screen bg-black/20 backdrop-blur-md border-r border-white/10 flex flex-col transition-all duration-300 soft-ease z-20
+      className={`relative h-screen bg-black/10 backdrop-blur-md border-r border-white/10 flex flex-col transition-all duration-300 soft-ease z-20
         ${isCollapsed ? "w-20" : "w-64"}`}
     >
       {/* Header */}
