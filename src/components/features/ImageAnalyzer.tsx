@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { UploadCloud, AlertCircle, Sparkles, Clock, ChevronDown, ChevronUp, History } from "lucide-react";
+import { UploadCloud, AlertCircle, Clock, ChevronDown, ChevronUp, History } from "lucide-react";
 import { Button } from "@/src/components/ui/Button";
 import { Card } from "@/src/components/ui/Card";
 import { API_CONFIG } from "@/src/config/api";
@@ -247,171 +247,222 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
 
             {/* Sonuç */}
             {result && (
-              <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className="flex flex-col gap-3 animate-in fade-in slide-in-from-bottom-4 duration-500">
 
-                {/* Ana Stil Tahmini */}
-                <div className="p-6 bg-accent/5 border border-accent/20 rounded-sm">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Sparkles className="w-5 h-5 text-accent" />
-                    <h3 className="font-semibold text-gray-200">Stil Tahmini</h3>
-                  </div>
-                  <div className="flex items-end justify-between mb-3">
-                    <p className="text-3xl font-bold text-accent">{result.stil.tahmin}</p>
-                    <p className={`text-2xl font-bold ${getGuvenRengi(result.stil.guven)}`}>
-                      %{result.stil.guven}
-                    </p>
-                  </div>
-                  <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-linear-to-r from-accent to-[#ffd44f] rounded-full transition-all duration-700"
-                      style={{ width: `${result.stil.guven}%` }}
-                    />
-                  </div>
-                  {result.stil.diger_olasiliklar.length > 0 && (
-                    <div className="mt-4 flex flex-col gap-2">
-                      <p className="text-xs text-textMuted mb-1">Diğer olasılıklar</p>
-                      {result.stil.diger_olasiliklar.map((item) => (
-                        <div key={item.stil} className="flex items-center gap-3">
-                          <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
-                            <div className="h-full bg-white/20 rounded-full" style={{ width: `${item.guven_yuzdesi}%` }} />
-                          </div>
-                          <span className="text-xs text-textMuted shrink-0 w-24 text-right">
-                            {item.stil} %{item.guven_yuzdesi}
-                          </span>
-                        </div>
-                      ))}
+                {/* STİL BLOĞU */}
+                <div className="relative overflow-hidden rounded-sm border border-white/8 bg-white/3">
+                  {/* Arka plan accent şeridi */}
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-0.75"
+                    style={{ background: "linear-gradient(180deg, #f75f5f, #ffd44f)" }}
+                  />
+                  <div className="pl-5 pr-5 pt-5 pb-5">
+                    {/* Üst satır*/}
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-[10px] font-mono tracking-[0.18em] uppercase text-white/30">Stil Tahmini</span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[10px] font-mono text-white/30">güven</span>
+                        <span
+                          className="text-xs font-mono font-semibold tabular-nums"
+                          style={{
+                            color: result.stil.guven >= 75 ? "#4ade80" : result.stil.guven >= 50 ? "#f75f5f" : "#f87171"
+                          }}
+                        >
+                          %{result.stil.guven}
+                        </span>
+                      </div>
                     </div>
-                  )}
+
+                    {/* Stil adı */}
+                    <p className="text-2xl font-bold tracking-tight text-white mb-3">{result.stil.tahmin}</p>
+
+                    {/* Güven barı */}
+                    <div className="relative h-0.5 w-full bg-white/8 rounded-full overflow-hidden mb-4">
+                      <div
+                        className="absolute left-0 top-0 bottom-0 rounded-full transition-all duration-700"
+                        style={{
+                          width: `${result.stil.guven}%`,
+                          background: result.stil.guven >= 75
+                            ? "linear-gradient(90deg, #f75f5f, #ffd44f)"
+                            : result.stil.guven >= 50
+                            ? "linear-gradient(90deg, #ffd44f, #f75f5f)"
+                            : "#f87171",
+                        }}
+                      />
+                    </div>
+
+                    {/* Diğer olasılıklar */}
+                    {result.stil.diger_olasiliklar.length > 0 && (
+                      <div className="flex flex-col gap-2">
+                        {result.stil.diger_olasiliklar.map((item) => (
+                          <div key={item.stil} className="flex items-center gap-3">
+                            <span className="text-[11px] text-white/40 w-24 shrink-0">{item.stil}</span>
+                            <div className="flex-1 h-px bg-white/6 rounded-full overflow-hidden">
+                              <div
+                                className="h-full bg-white/20 rounded-full"
+                                style={{ width: `${item.guven_yuzdesi}%` }}
+                              />
+                            </div>
+                            <span className="text-[11px] font-mono text-white/30 shrink-0">%{item.guven_yuzdesi}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
 
-                {/* Dominant Renkler + Renk Uyumu */}
-                <div className="p-6 bg-white/5 border border-white/10 rounded-sm flex flex-col gap-6">
+                {/* PALET + UYUM BLOĞU */}
+                <div className="rounded-sm border border-white/8 bg-white/3 overflow-hidden">
 
-                  {/* Dominant Renkler */}
-                  <div>
-                    <h3 className="font-semibold text-gray-200 mb-4">Dominant Renkler</h3>
-                    <div className="flex gap-2">
-                      {result.renk_analizi.dominant_colors.map((renk, index) => (
-                        <div key={index} className="flex-1 flex flex-col items-center gap-2">
-                          <div
-                            className="w-full h-14 rounded-sm border shadow-lg relative overflow-hidden"
-                            style={{
-                              backgroundColor: rgbToCss(renk.rgb),
-                              borderColor: renk.notr ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.12)",
-                            }}
-                          >
-                            {renk.notr && (
-                              <div className="absolute inset-0 flex items-center justify-center">
-                                <span className="text-[9px] text-white/30 font-mono uppercase tracking-widest">nötr</span>
-                              </div>
-                            )}
-                          </div>
-                          <div className="text-center">
-                            <p className="text-xs text-gray-300 font-medium">%{renk.yuzde}</p>
-                          </div>
+                  {/*Palet şeridi*/}
+                  <div className="flex h-16">
+                    {result.renk_analizi.dominant_colors.map((renk, index) => (
+                      <div
+                        key={index}
+                        className="relative flex-1 group cursor-default"
+                        style={{ backgroundColor: rgbToCss(renk.rgb), flexBasis: `${renk.yuzde}%` }}
+                      >
+                        {/* Hover tooltip */}
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-1 rounded bg-black/80 text-[10px] font-mono text-white/80 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none z-10">
+                          {renk.isim} · %{renk.yuzde}
                         </div>
-                      ))}
-                    </div>
-                    {/* Palet gradyanı */}
-                    <div
-                      className="mt-3 h-1.5 rounded-full w-full opacity-60"
-                      style={{ background: `linear-gradient(to right, ${result.renk_analizi.dominant_colors.map((r) => rgbToCss(r.rgb)).join(", ")})` }}
-                    />
+                        {renk.notr && (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <span className="text-[8px] tracking-widest text-white/20 font-mono uppercase">nötr</span>
+                          </div>
+                        )}
+                      </div>
+                    ))}
                   </div>
 
-                  {/* Renk Uyumu */}
-                  <div className="pt-4 border-t border-white/5">
-                    <p className="text-xs text-textMuted uppercase tracking-widest mb-4">Renk Uyumu</p>
-                    <div className="flex items-center gap-6">
+                  {/* Palet isim etiketi */}
+                  <div className="px-5 pt-3 pb-1 flex gap-2 flex-wrap">
+                    {result.renk_analizi.dominant_colors.map((renk, index) => (
+                      <div key={index} className="flex items-center gap-1.5">
+                        <div
+                          className="w-2 h-2 rounded-full shrink-0"
+                          style={{ backgroundColor: rgbToCss(renk.rgb) }}
+                        />
+                        <span className="text-[10px] text-white/35 font-mono capitalize">{renk.isim}</span>
+                      </div>
+                    ))}
+                  </div>
 
-                      {/* Dairesel skor */}
-                      <div className="relative w-24 h-24 shrink-0">
-                        <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-                          <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="10" />
-                          <circle
-                            cx="50" cy="50" r="40" fill="none"
-                            stroke={
-                              result.renk_analizi.uyum_analizi.skor >= 80 ? "rgb(74, 222, 128)" :
-                              result.renk_analizi.uyum_analizi.skor >= 65 ? "rgb(251, 191, 36)" :
-                              "rgb(248, 113, 113)"
-                            }
-                            strokeWidth="10" strokeLinecap="round"
-                            strokeDasharray={`${2 * Math.PI * 40}`}
-                            strokeDashoffset={`${2 * Math.PI * 40 * (1 - result.renk_analizi.uyum_analizi.skor / 100)}`}
-                            className="transition-all duration-1000"
+                  <div className="mx-5 my-4 h-px bg-white/6" />
+
+                  {/*Uyum skoru*/}
+                  <div className="px-5 pb-5">
+                    <div className="flex items-start gap-5">
+
+                      {/*Skor göstergesi*/}
+                      <div className="shrink-0 flex flex-col items-center gap-1">
+                        <div
+                          className="relative w-16 h-16 flex items-center justify-center rounded-sm"
+                          style={{
+                            background: result.renk_analizi.uyum_analizi.skor >= 80
+                              ? "rgba(74,222,128,0.08)"
+                              : result.renk_analizi.uyum_analizi.skor >= 65
+                              ? "rgba(247,95,95,0.08)"
+                              : "rgba(248,113,113,0.08)",
+                            border: `1px solid ${
+                              result.renk_analizi.uyum_analizi.skor >= 80
+                                ? "rgba(74,222,128,0.25)"
+                                : result.renk_analizi.uyum_analizi.skor >= 65
+                                ? "rgba(247,95,95,0.25)"
+                                : "rgba(248,113,113,0.25)"
+                            }`,
+                          }}
+                        >
+                          {/* Köşe süslemeleri */}
+                          <div className="absolute top-0 left-0 w-2 h-2 border-t border-l"
+                            style={{ borderColor: result.renk_analizi.uyum_analizi.skor >= 80 ? "rgba(74,222,128,0.6)" : result.renk_analizi.uyum_analizi.skor >= 65 ? "rgba(247,95,95,0.6)" : "rgba(248,113,113,0.6)" }}
                           />
-                        </svg>
-                        <div className="absolute inset-0 flex flex-col items-center justify-center">
-                          <span className="text-xl font-bold text-gray-100">{result.renk_analizi.uyum_analizi.skor}</span>
-                          <span className="text-[10px] text-textMuted">/100</span>
+                          <div className="absolute top-0 right-0 w-2 h-2 border-t border-r"
+                            style={{ borderColor: result.renk_analizi.uyum_analizi.skor >= 80 ? "rgba(74,222,128,0.6)" : result.renk_analizi.uyum_analizi.skor >= 65 ? "rgba(247,95,95,0.6)" : "rgba(248,113,113,0.6)" }}
+                          />
+                          <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l"
+                            style={{ borderColor: result.renk_analizi.uyum_analizi.skor >= 80 ? "rgba(74,222,128,0.6)" : result.renk_analizi.uyum_analizi.skor >= 65 ? "rgba(247,95,95,0.6)" : "rgba(248,113,113,0.6)" }}
+                          />
+                          <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r"
+                            style={{ borderColor: result.renk_analizi.uyum_analizi.skor >= 80 ? "rgba(74,222,128,0.6)" : result.renk_analizi.uyum_analizi.skor >= 65 ? "rgba(247,95,95,0.6)" : "rgba(248,113,113,0.6)" }}
+                          />
+                          <span
+                            className="text-2xl font-bold tabular-nums leading-none"
+                            style={{
+                              color: result.renk_analizi.uyum_analizi.skor >= 80
+                                ? "#4ade80"
+                                : result.renk_analizi.uyum_analizi.skor >= 65
+                                ? "#f75f5f"
+                                : "#f87171",
+                            }}
+                          >
+                            {result.renk_analizi.uyum_analizi.skor}
+                          </span>
                         </div>
+                        <span className="text-[9px] font-mono text-white/20 tracking-widest">/100</span>
                       </div>
 
-                      {/* Tur + aciklama */}
-                      <div className="flex flex-col gap-2 min-w-0">
-                        <p className={`text-base font-bold ${
-                          result.renk_analizi.uyum_analizi.skor >= 80 ? "text-green-400" :
-                          result.renk_analizi.uyum_analizi.skor >= 65 ? "text-accent" :
-                          "text-red-400"
-                        }`}>
-                          {result.renk_analizi.uyum_analizi.tur}
-                        </p>
-                        <p className="text-sm text-textMuted leading-relaxed">
+                      {/* Sağ taraf: tür + çizgi + açıklama */}
+                      <div className="flex-1 min-w-0 pt-0.5">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span
+                            className="text-[10px] font-mono tracking-[0.15em] uppercase"
+                            style={{
+                              color: result.renk_analizi.uyum_analizi.skor >= 80
+                                ? "#4ade80"
+                                : result.renk_analizi.uyum_analizi.skor >= 65
+                                ? "#f75f5f"
+                                : "#f87171",
+                            }}
+                          >
+                            {result.renk_analizi.uyum_analizi.tur}
+                          </span>
+                          <div className="flex-1 h-px bg-white/6" />
+                        </div>
+                        <p className="text-[13px] text-white/55 leading-relaxed">
                           {result.renk_analizi.uyum_analizi.aciklama}
                         </p>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Stil Tahmini */}
-                  <div className="pt-4 border-t border-white/5">
-                    <p className="text-xs text-textMuted uppercase tracking-widest mb-3">Sezon / Stil</p>
-                    <div className="flex items-center gap-3 p-3 bg-white/3 border border-white/8 rounded-sm">
-                      <div className="w-1.5 h-8 rounded-full shrink-0" style={{ background: "linear-gradient(180deg, #f75f5f, #ffd44f)" }} />
-                      <p className="text-sm text-gray-200 leading-snug">{result.renk_analizi.stil_tahmini}</p>
+                    {/* Sezon şeridi */}
+                    <div className="mt-4 flex items-center gap-3">
+                      <span className="text-[9px] font-mono tracking-[0.18em] uppercase text-white/20 shrink-0">Sezon</span>
+                      <div className="flex-1 h-px bg-white/6" />
+                      <span className="text-[12px] text-white/45 text-right max-w-[75%] leading-snug">
+                        {result.renk_analizi.stil_tahmini}
+                      </span>
                     </div>
                   </div>
-
                 </div>
 
-                {/* Teknik Detaylar */}
-                <div className="border border-white/5 rounded-sm overflow-hidden">
+                {/* TEKNİK DETAYLAR */}
+                <div className="rounded-sm border border-white/6 overflow-hidden">
                   <button
                     onClick={() => setShowDetails(!showDetails)}
-                    className="w-full flex items-center justify-between p-4 text-sm text-textMuted hover:text-gray-200 hover:bg-white/5 transition-colors duration-200"
+                    className="w-full flex items-center justify-between px-4 py-3 text-white/25 hover:text-white/50 hover:bg-white/3 transition-colors duration-200"
                   >
                     <div className="flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-accent" />
-                      <span>Teknik Detaylar</span>
+                      <Clock className="w-3.5 h-3.5" />
+                      <span className="text-[11px] font-mono tracking-widest uppercase">Teknik</span>
                     </div>
-                    {showDetails ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    <span className="text-[10px] font-mono">{showDetails ? "−" : "+"}</span>
                   </button>
                   {showDetails && (
-                    <div className="px-4 pb-4 grid grid-cols-2 gap-3 animate-in slide-in-from-top-2 duration-200">
-                      <div className="p-3 bg-background/50 rounded-sm border border-white/5">
-                        <p className="text-xs text-textMuted mb-1">Çıkarım Süresi</p>
-                        <p className="font-medium text-gray-200">{result.cikarim_suresi_ms} ms</p>
-                      </div>
-                      <div className="p-3 bg-background/50 rounded-sm border border-white/5">
-                        <p className="text-xs text-textMuted mb-1">Dosya Boyutu</p>
-                        <p className="font-medium text-gray-200">{result.dosya_boyutu_mb} MB</p>
-                      </div>
-                      <div className="p-3 bg-background/50 rounded-sm border border-white/5">
-                        <p className="text-xs text-textMuted mb-1">Ort. Doygunluk</p>
-                        <p className="font-medium text-gray-200">%{result.renk_analizi.genel_istatistikler.ort_doygunluk}</p>
-                      </div>
-                      <div className="p-3 bg-background/50 rounded-sm border border-white/5">
-                        <p className="text-xs text-textMuted mb-1">Ort. Parlaklık</p>
-                        <p className="font-medium text-gray-200">%{result.renk_analizi.genel_istatistikler.ort_parlaklik}</p>
-                      </div>
-                      <div className="p-3 bg-background/50 rounded-sm border border-white/5">
-                        <p className="text-xs text-textMuted mb-1">Renk Çeşitliliği</p>
-                        <p className="font-medium text-gray-200">{result.renk_analizi.genel_istatistikler.renk_cesitliligi}</p>
-                      </div>
-                      <div className="p-3 bg-background/50 rounded-sm border border-white/5">
-                        <p className="text-xs text-textMuted mb-1">Nötr Renk Oranı</p>
-                        <p className="font-medium text-gray-200">%{result.renk_analizi.genel_istatistikler.notr_oran}</p>
-                      </div>
+                    <div className="px-4 pb-4 grid grid-cols-3 gap-2 animate-in slide-in-from-top-2 duration-200">
+                      {[
+                        { label: "Çıkarım", value: `${result.cikarim_suresi_ms} ms` },
+                        { label: "Dosya", value: `${result.dosya_boyutu_mb} MB` },
+                        { label: "Doygunluk", value: `%${result.renk_analizi.genel_istatistikler.ort_doygunluk}` },
+                        { label: "Parlaklık", value: `%${result.renk_analizi.genel_istatistikler.ort_parlaklik}` },
+                        { label: "Çeşitlilik", value: `${result.renk_analizi.genel_istatistikler.renk_cesitliligi}` },
+                        { label: "Nötr", value: `%${result.renk_analizi.genel_istatistikler.notr_oran}` },
+                      ].map(({ label, value }) => (
+                        <div key={label} className="p-2.5 rounded-sm border border-white/5 bg-white/2">
+                          <p className="text-[9px] font-mono tracking-widest uppercase text-white/20 mb-1">{label}</p>
+                          <p className="text-[12px] font-mono text-white/60">{value}</p>
+                        </div>
+                      ))}
                     </div>
                   )}
                 </div>
