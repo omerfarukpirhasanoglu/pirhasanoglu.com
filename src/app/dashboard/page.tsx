@@ -93,7 +93,7 @@ export default function DashboardPage() {
               {/* Sağ: inference sonucu */}
               <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "300px", background: "transparent"}}>
                 <Image
-                  src="/sample-output.jpg"
+                  src="/sample-output.png"
                   alt="örnek çıktı"
                   fill
                   className="object-cover object-center"
