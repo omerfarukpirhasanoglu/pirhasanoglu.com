@@ -28,7 +28,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Vision Bar */}
-          <div className="inline-flex items-center gap-0 px-7.5 h-15 bg-white/5 backdrop-blur-lg border border-white/[0.07] shadow-lg shadow-black/80 rounded-sm whitespace-nowrap overflow-hidden">
+          <div className="relative inline-flex items-center gap-0 px-7.5 h-15 bg-white/5 backdrop-blur-sm border border-white/[0.07] shadow-lg shadow-black/80 rounded-sm whitespace-nowrap overflow-hidden">
             <span className="text-accent font-mono text-[23px] mr-3.5">❯</span>
             <span
               className="text-[17px] font-semibold font-mono"
