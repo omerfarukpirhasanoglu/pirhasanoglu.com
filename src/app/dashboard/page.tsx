@@ -11,7 +11,7 @@ export default function DashboardPage() {
       
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <Image
-          src="/dashboardback.jpg"
+          src="/dashboardback.png"
           alt="Dashboard Background"
           fill
           className="object-cover object-center opacity-30"
