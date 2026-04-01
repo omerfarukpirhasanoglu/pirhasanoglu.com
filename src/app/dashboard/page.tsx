@@ -17,8 +17,6 @@ export default function DashboardPage() {
           className="object-cover object-center opacity-30"
           priority
         />
-        {/* Okunabilirlik için alt kısımlara doğru koyulaşan gradyan */}
-        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/70 to-[#0a0a0a]"></div>
       </div>
 
       <div className="max-w-6xl mx-auto w-full flex flex-col gap-10 relative z-10 px-4 md:px-0 pt-8">
