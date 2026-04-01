@@ -9,7 +9,7 @@ export default function DashboardPage() {
   return (
     <div className="relative w-full min-h-screen pb-20">
       
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
           src="/dashboardback.jpg"
           alt="Dashboard Background"
