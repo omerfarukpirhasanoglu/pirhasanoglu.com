@@ -21,14 +21,15 @@ export default function DashboardPage() {
 
       <div className="max-w-6xl mx-auto w-full flex flex-col gap-10 relative z-10 px-4 md:px-0 pt-8">
         
-        {/* Metrics */}
-        <div className="flex flex-col gap-8 animate-reveal">
-          <div>
+        {/*Metrics*/}
+        <div className="flex flex-col gap-8">
+          
+          <div className="animate-reveal">
             <h1 className="text-3xl font-bold tracking-tight text-gray-100 mb-2">Proje Paneli</h1>
           </div>
 
           {/* Vision Bar */}
-          <div className="relative z-10 inline-flex items-center gap-0 px-7.5 h-15 bg-white/5 backdrop-blur-sm border border-white/[0.07] shadow-lg shadow-black/80 rounded-sm whitespace-nowrap overflow-hidden">
+          <div className="animate-reveal inline-flex items-center gap-0 px-7.5 h-15 bg-white/5 backdrop-blur-sm border border-white/[0.07] shadow-lg shadow-black/80 rounded-sm whitespace-nowrap overflow-hidden">
             <span className="text-accent font-mono text-[23px] mr-3.5">❯</span>
             <span
               className="text-[17px] font-semibold font-mono"
