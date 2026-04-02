@@ -627,7 +627,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
           style={{ overflow: "hidden" }}
         >
           <div
-            className={`w-72 transition-transform duration-300 border border-white/[0.07] rounded-sm bg-surface/40 ${showChangelog ? "translate-x-0" : "translate-x-full"}`}
+            className={`w-72 transition-transform duration-300 border border-white/[0.07] backdrop-blur-sm rounded-sm bg-surface/40 ${showChangelog ? "translate-x-0" : "translate-x-full"}`}
           >
             <div className="px-4 py-3 border-b border-white/6 flex items-center gap-2">
               <span
