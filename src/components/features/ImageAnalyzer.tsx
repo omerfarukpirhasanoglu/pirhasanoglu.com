@@ -173,7 +173,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
       }}
     >
       {/* Dominant renk palet şeridi */}
-      <div className="flex" style={{ height: "6px" }}>
+      <div className="flex" style={{ height: "15px" }}>
         {result.renk_analizi.dominant_colors.map((renk, i) => (
           <div
             key={i}
@@ -187,7 +187,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
 
       <div className="flex">
 
-        {/* ── Sol Kolon ── */}
+        {/* Sol Kolon*/}
         <div
           className="flex flex-col p-7"
           style={{
@@ -197,7 +197,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         >
           {/* Stil tahmini başlık */}
           <span
-            className="font-mono text-[11px] tracking-[0.2em] uppercase mb-2"
+            className="font-mono text-[15px] tracking-[0.2em] uppercase mb-2"
             style={{
               background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
               WebkitBackgroundClip: "text",
@@ -286,7 +286,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
 
           {/* Uyum skoru başlık */}
           <span
-            className="font-mono text-[11px] tracking-[0.2em] uppercase mb-2"
+            className="font-mono text-[15px] tracking-[0.2em] uppercase mb-2"
             style={{
               background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
               WebkitBackgroundClip: "text",
@@ -334,7 +334,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
 
           {/* Dominant palet başlık */}
           <span
-            className="font-mono text-[11px] tracking-[0.2em] uppercase mb-3"
+            className="font-mono text-[15px] tracking-[0.2em] uppercase mb-3"
             style={{
               background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
               WebkitBackgroundClip: "text",
@@ -356,9 +356,6 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
                     border: "0.5px solid rgba(255,255,255,0.12)",
                   }}
                 />
-                <span className="font-mono text-[11px] text-white/28 text-center leading-tight max-w-13">
-                  {renk.isim}
-                </span>
                 <span className="font-mono text-[11px] text-white/22">
                   %{renk.yuzde}
                 </span>
@@ -425,9 +422,17 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         className="w-full flex items-center justify-between px-7 py-4 transition-colors duration-200 hover:bg-white/2"
         style={{ borderTop: "0.5px solid rgba(255,255,255,0.06)" }}
       >
-        <span className="font-mono text-[11px] tracking-[0.2em] uppercase  bg-linear-to-r from-accent to-[#ffd44f]">
-          Teknik Detaylar
-        </span>
+        <span
+            className="font-mono text-[11px] tracking-[0.2em] uppercase"
+            style={{
+              background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            Teknik Deteylar
+          </span>
         <span
           className="text-[13px] text-white/25 transition-transform duration-250"
           style={{ transform: showTech ? "rotate(180deg)" : "rotate(0deg)", display: "inline-block" }}
