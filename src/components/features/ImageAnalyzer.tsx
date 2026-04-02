@@ -372,7 +372,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         />
         <div className="flex items-center justify-between mb-3">
           <span
-            className="font-mono text-[11px] tracking-[0.2em] uppercase"
+            className="font-mono text-[15px] tracking-[0.2em] uppercase"
             style={{
               background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
               WebkitBackgroundClip: "text",
@@ -423,7 +423,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         style={{ borderTop: "0.5px solid rgba(255,255,255,0.06)" }}
       >
         <span
-            className="font-mono text-[11px] tracking-[0.2em] uppercase"
+            className="font-mono text-[15px] tracking-[0.2em] uppercase"
             style={{
               background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
               WebkitBackgroundClip: "text",
