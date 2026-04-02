@@ -173,7 +173,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
       }}
     >
       {/* Dominant renk palet şeridi */}
-      <div className="flex" style={{ height: "4px" }}>
+      <div className="flex" style={{ height: "6px" }}>
         {result.renk_analizi.dominant_colors.map((renk, i) => (
           <div
             key={i}
@@ -189,7 +189,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
 
         {/* ── Sol Kolon ── */}
         <div
-          className="flex flex-col p-5"
+          className="flex flex-col p-7"
           style={{
             flex: "1.15",
             borderRight: "0.5px solid rgba(255,255,255,0.06)",
@@ -197,7 +197,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         >
           {/* Stil tahmini başlık */}
           <span
-            className="font-mono text-[9px] tracking-[0.2em] uppercase mb-1.5"
+            className="font-mono text-[11px] tracking-[0.2em] uppercase mb-2"
             style={{
               background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
               WebkitBackgroundClip: "text",
@@ -209,19 +209,19 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
           </span>
 
           {/* Stil adı + güven */}
-          <div className="flex items-start justify-between gap-2 mb-1">
+          <div className="flex items-start justify-between gap-3 mb-1.5">
             <p
-              className="text-[27px] font-bold text-white leading-tight"
+              className="text-[38px] font-bold text-white leading-tight"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               {result.stil.tahmin}
             </p>
-            <div className="flex flex-col items-end pt-1 shrink-0">
-              <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/25 mb-0.5">
+            <div className="flex flex-col items-end pt-2 shrink-0">
+              <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-white/25 mb-1">
                 güven
               </span>
               <span
-                className="font-mono text-xl font-medium"
+                className="font-mono text-2xl font-medium"
                 style={{
                   background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
                   WebkitBackgroundClip: "text",
@@ -235,7 +235,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
           </div>
 
           <p
-            className="text-[12.5px] text-white/30 mb-4"
+            className="text-[15px] text-white/30 mb-5"
             style={{
               fontFamily: "'Playfair Display', serif",
               fontStyle: "italic",
@@ -245,25 +245,25 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
           </p>
 
           {/* Divider */}
-          <div style={{ height: "0.5px", background: "rgba(255,255,255,0.06)", margin: "0 0 12px" }} />
+          <div style={{ height: "0.5px", background: "rgba(255,255,255,0.06)", margin: "0 0 16px" }} />
 
           {/* Diğer olasılıklar */}
-          <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/28 mb-2">
+          <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/28 mb-3">
             Diğer Olasılıklar
           </span>
           <div className="flex flex-col">
             {result.stil.diger_olasiliklar.map((item) => (
               <div
                 key={item.stil}
-                className="flex items-center gap-2.5 py-1.25"
+                className="flex items-center gap-3 py-2"
                 style={{ borderBottom: "0.5px solid rgba(255,255,255,0.05)" }}
               >
-                <span className="font-mono text-[11px] text-white/38 w-20 shrink-0">
+                <span className="font-mono text-[13px] text-white/38 w-24 shrink-0">
                   {item.stil}
                 </span>
                 <div
-                  className="flex-1 h-0.5 rounded-full overflow-hidden"
-                  style={{ background: "rgba(255,255,255,0.07)" }}
+                  className="flex-1 rounded-full overflow-hidden"
+                  style={{ height: "2px", background: "rgba(255,255,255,0.07)" }}
                 >
                   <div
                     className="h-full rounded-full"
@@ -273,7 +273,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
                     }}
                   />
                 </div>
-                <span className="font-mono text-[10px] text-white/28 w-7 text-right shrink-0">
+                <span className="font-mono text-[12px] text-white/28 w-8 text-right shrink-0">
                   %{item.guven_yuzdesi}
                 </span>
               </div>
@@ -282,11 +282,11 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         </div>
 
         {/* ── Sağ Kolon ── */}
-        <div className="flex flex-col p-5" style={{ flex: "1" }}>
+        <div className="flex flex-col p-7" style={{ flex: "1" }}>
 
           {/* Uyum skoru başlık */}
           <span
-            className="font-mono text-[9px] tracking-[0.2em] uppercase mb-1.5"
+            className="font-mono text-[11px] tracking-[0.2em] uppercase mb-2"
             style={{
               background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
               WebkitBackgroundClip: "text",
@@ -298,26 +298,26 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
           </span>
 
           {/* Skor */}
-          <div className="flex items-baseline gap-1.5 mb-1">
+          <div className="flex items-baseline gap-2 mb-2">
             <span
               className="font-bold text-white leading-none"
-              style={{ fontFamily: "'Playfair Display', serif", fontSize: "50px" }}
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: "68px" }}
             >
               {result.renk_analizi.uyum_analizi.skor}
             </span>
-            <span className="font-mono text-xs text-white/22">/ 100</span>
+            <span className="font-mono text-sm text-white/22">/ 100</span>
           </div>
 
           {/* Uyum türü badge */}
           <div
-            className="inline-block self-start mb-4 px-2.5 py-0.5 rounded-sm"
+            className="inline-block self-start mb-5 px-3 py-1 rounded-sm"
             style={{
               background: "rgba(255,255,255,0.04)",
               border: "0.5px solid rgba(247,95,95,0.3)",
             }}
           >
             <span
-              className="font-mono text-[10px] tracking-widest"
+              className="font-mono text-[12px] tracking-widest"
               style={{
                 background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
                 WebkitBackgroundClip: "text",
@@ -330,11 +330,11 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
           </div>
 
           {/* Divider */}
-          <div style={{ height: "0.5px", background: "rgba(255,255,255,0.06)", margin: "0 0 12px" }} />
+          <div style={{ height: "0.5px", background: "rgba(255,255,255,0.06)", margin: "0 0 16px" }} />
 
           {/* Dominant palet başlık */}
           <span
-            className="font-mono text-[9px] tracking-[0.2em] uppercase mb-2.5"
+            className="font-mono text-[11px] tracking-[0.2em] uppercase mb-3"
             style={{
               background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
               WebkitBackgroundClip: "text",
@@ -346,20 +346,20 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
           </span>
 
           {/* Swatchlar */}
-          <div className="flex gap-2.5 flex-wrap">
+          <div className="flex gap-4 flex-wrap">
             {result.renk_analizi.dominant_colors.map((renk, i) => (
-              <div key={i} className="flex flex-col items-center gap-1">
+              <div key={i} className="flex flex-col items-center gap-1.5">
                 <div
-                  className="w-6 h-6 rounded-full shrink-0"
+                  className="w-9 h-9 rounded-full shrink-0"
                   style={{
                     backgroundColor: rgbToCss(renk.rgb),
                     border: "0.5px solid rgba(255,255,255,0.12)",
                   }}
                 />
-                <span className="font-mono text-[9px] text-white/28 text-center leading-tight max-w-11">
+                <span className="font-mono text-[11px] text-white/28 text-center leading-tight max-w-13">
                   {renk.isim}
                 </span>
-                <span className="font-mono text-[9px] text-white/22">
+                <span className="font-mono text-[11px] text-white/22">
                   %{renk.yuzde}
                 </span>
               </div>
@@ -368,14 +368,14 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         </div>
       </div>
 
-      {/*Analiz Yorumu*/}
-      <div className="px-5 pb-4">
+      {/* ── Analiz Yorumu ── */}
+      <div className="px-7 pb-6">
         <div
-          style={{ height: "0.5px", background: "rgba(255,255,255,0.06)", margin: "0 0 10px" }}
+          style={{ height: "0.5px", background: "rgba(255,255,255,0.06)", margin: "0 0 14px" }}
         />
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center justify-between mb-3">
           <span
-            className="font-mono text-[9px] tracking-[0.2em] uppercase"
+            className="font-mono text-[11px] tracking-[0.2em] uppercase"
             style={{
               background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
               WebkitBackgroundClip: "text",
@@ -387,7 +387,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
           </span>
           <button
             onClick={restart}
-            className="font-mono text-[9px] tracking-[0.15em] uppercase text-white/22 hover:text-white/50 transition-colors duration-200 px-2.5 py-1 rounded-sm"
+            className="font-mono text-[11px] tracking-[0.15em] uppercase text-white/22 hover:text-white/50 transition-colors duration-200 px-3 py-1.5 rounded-sm"
             style={{ border: "0.5px solid rgba(255,255,255,0.09)" }}
           >
             ↺ tekrar oynat
@@ -396,35 +396,29 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
 
         {/* Typewriter kutusu */}
         <div
-          className="relative overflow-hidden rounded-sm px-4 py-3"
+          className="relative overflow-hidden rounded-sm px-5 py-4"
           style={{
             background: "rgba(255,255,255,0.025)",
             borderLeft: "2px solid #f75f5f",
             borderRight: "2px solid #ffd44f",
           }}
         >
-          {/* Sol glow */}
           <div
-            className="absolute inset-y-0 left-0 w-32 pointer-events-none"
-            style={{
-              background: "linear-gradient(90deg, rgba(247,95,95,0.11), transparent)",
-            }}
+            className="absolute inset-y-0 left-0 w-36 pointer-events-none"
+            style={{ background: "linear-gradient(90deg, rgba(247,95,95,0.11), transparent)" }}
           />
-          {/* Sağ glow */}
           <div
-            className="absolute inset-y-0 right-0 w-32 pointer-events-none"
-            style={{
-              background: "linear-gradient(270deg, rgba(255,212,79,0.09), transparent)",
-            }}
+            className="absolute inset-y-0 right-0 w-36 pointer-events-none"
+            style={{ background: "linear-gradient(270deg, rgba(255,212,79,0.09), transparent)" }}
           />
           <p
-            className="relative z-10 text-[12.5px] text-white/52 leading-[1.75] italic"
+            className="relative z-10 text-[15px] text-white/52 leading-[1.8] italic"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
             {displayed}
             {!done && (
               <span
-                className="inline-block w-px h-3.25 ml-px align-middle animate-pulse"
+                className="inline-block w-px h-3.75 ml-px align-middle animate-pulse"
                 style={{ background: "#ffd44f" }}
               />
             )}
@@ -432,17 +426,17 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         </div>
       </div>
 
-      {/*Teknik Detaylar Toggle*/}
+      {/* ── Teknik Detaylar Toggle ── */}
       <button
         onClick={() => setShowTech((p) => !p)}
-        className="w-full flex items-center justify-between px-5 py-3 transition-colors duration-200 hover:bg-white/2"
+        className="w-full flex items-center justify-between px-7 py-4 transition-colors duration-200 hover:bg-white/2"
         style={{ borderTop: "0.5px solid rgba(255,255,255,0.06)" }}
       >
-        <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/28">
+        <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/28">
           Teknik Detaylar
         </span>
         <span
-          className="text-[11px] text-white/25 transition-transform duration-250"
+          className="text-[13px] text-white/25 transition-transform duration-250"
           style={{ transform: showTech ? "rotate(180deg)" : "rotate(0deg)", display: "inline-block" }}
         >
           ▾
@@ -450,42 +444,40 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
       </button>
 
       {showTech && (
-        <div
-          className="grid grid-cols-3 gap-2 px-5 pb-4 animate-in slide-in-from-top-2 duration-200"
-        >
+        <div className="grid grid-cols-3 gap-2.5 px-7 pb-5 animate-in slide-in-from-top-2 duration-200">
           {techItems.map(({ label, value }) => (
             <div
               key={label}
-              className="flex flex-col gap-1 rounded-sm p-2.5"
+              className="flex flex-col gap-1.5 rounded-sm p-3.5"
               style={{
                 background: "rgba(255,255,255,0.03)",
                 border: "0.5px solid rgba(255,255,255,0.07)",
               }}
             >
-              <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-white/28">
+              <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-white/28">
                 {label}
               </span>
-              <span className="font-mono text-[13px] text-white/60">{value}</span>
+              <span className="font-mono text-[15px] text-white/60">{value}</span>
             </div>
           ))}
         </div>
       )}
 
-      {/*Footer*/}
+      {/* ── Footer ── */}
       <div
-        className="flex items-center gap-4 px-5 py-3"
+        className="flex items-center gap-5 px-7 py-4"
         style={{ borderTop: "0.5px solid rgba(255,255,255,0.06)" }}
       >
-        <div className="flex flex-col gap-0.5">
-          <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/28">Sezon</span>
-          <span className="font-mono text-[13px] text-white/42">
+        <div className="flex flex-col gap-1">
+          <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/28">Sezon</span>
+          <span className="font-mono text-[15px] text-white/42">
             {result.renk_analizi.stil_tahmini}
           </span>
         </div>
-        <div style={{ width: "0.5px", height: "24px", background: "rgba(255,255,255,0.07)" }} />
-        <div className="flex flex-col gap-0.5">
-          <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/28">Model</span>
-          <span className="font-mono text-[13px] text-white/42">Chroma v1.2</span>
+        <div style={{ width: "0.5px", height: "28px", background: "rgba(255,255,255,0.07)" }} />
+        <div className="flex flex-col gap-1">
+          <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/28">Model</span>
+          <span className="font-mono text-[15px] text-white/42">Chroma v1.2</span>
         </div>
       </div>
     </div>
@@ -536,7 +528,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
   return (
     <div className="w-full flex flex-col gap-6">
 
-      {/*Başlık*/}
+      {/* ── Başlık ── */}
       <div className="flex items-start justify-between gap-4">
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-gray-100 flex items-center gap-3">
@@ -566,7 +558,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
         </button>
       </div>
 
-      {/* Ana layout */}
+      {/* ── Ana layout ── */}
       <div className="flex gap-4 items-start overflow-hidden">
 
         {/* Analiz alanı */}
@@ -629,7 +621,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
           </Card>
         </div>
 
-        {/* Changelog paneli*/}
+        {/* ── Changelog paneli ── */}
         <div
           className={`shrink-0 transition-all duration-300 ${showChangelog ? "w-72 opacity-100" : "w-0 opacity-0 pointer-events-none"}`}
           style={{ overflow: "hidden" }}
