@@ -172,13 +172,18 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         border: "0.5px solid rgba(255,255,255,0.09)",
       }}
     >
-      {/* Gradyan imza çizgisi */}
-      <div
-        style={{
-          height: "1.5px",
-          background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
-        }}
-      />
+      {/* Dominant renk palet şeridi */}
+      <div className="flex" style={{ height: "4px" }}>
+        {result.renk_analizi.dominant_colors.map((renk, i) => (
+          <div
+            key={i}
+            style={{
+              flex: renk.yuzde,
+              backgroundColor: rgbToCss(renk.rgb),
+            }}
+          />
+        ))}
+      </div>
 
       <div className="flex">
 
@@ -363,7 +368,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         </div>
       </div>
 
-      {/* ── Analiz Yorumu ── */}
+      {/*Analiz Yorumu*/}
       <div className="px-5 pb-4">
         <div
           style={{ height: "0.5px", background: "rgba(255,255,255,0.06)", margin: "0 0 10px" }}
@@ -466,7 +471,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         </div>
       )}
 
-      {/* Footer*/}
+      {/*Footer*/}
       <div
         className="flex items-center gap-4 px-5 py-3"
         style={{ borderTop: "0.5px solid rgba(255,255,255,0.06)" }}
@@ -561,7 +566,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
         </button>
       </div>
 
-      {/*Ana layout*/}
+      {/* Ana layout */}
       <div className="flex gap-4 items-start overflow-hidden">
 
         {/* Analiz alanı */}
@@ -624,7 +629,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
           </Card>
         </div>
 
-        {/*Changelog paneli*/}
+        {/* Changelog paneli*/}
         <div
           className={`shrink-0 transition-all duration-300 ${showChangelog ? "w-72 opacity-100" : "w-0 opacity-0 pointer-events-none"}`}
           style={{ overflow: "hidden" }}
