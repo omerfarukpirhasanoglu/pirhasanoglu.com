@@ -61,10 +61,6 @@ export default function Sidebar() {
     { name: "Nesne Tespiti", href: "/dashboard/tool-3", icon: ScanSearch },
   ];
 
-  const bottomItems: MenuItem[] = [
-    { name: "Ayarlar", href: "/dashboard/settings", icon: Settings },
-  ];
-
   return (
     <aside
       className={`relative h-screen bg-black/10 backdrop-blur-md border-r border-white/10 flex flex-col transition-all duration-300 soft-ease z-20
@@ -91,12 +87,6 @@ export default function Sidebar() {
           <NavItem key={item.href} item={item} isCollapsed={isCollapsed} pathname={pathname} />
         ))}
       </nav>
-
-      <div className="p-3 border-t border-white/10 flex flex-col gap-1 overflow-hidden">
-        {bottomItems.map((item) => (
-          <NavItem key={item.href} item={item} isCollapsed={isCollapsed} pathname={pathname} />
-        ))}
-      </div>
 
       <button
         onClick={() => setIsCollapsed(!isCollapsed)}
