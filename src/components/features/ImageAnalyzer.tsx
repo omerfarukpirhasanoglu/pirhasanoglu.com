@@ -425,7 +425,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         className="w-full flex items-center justify-between px-7 py-4 transition-colors duration-200 hover:bg-white/2"
         style={{ borderTop: "0.5px solid rgba(255,255,255,0.06)" }}
       >
-        <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/28">
+        <span className="font-mono text-[11px] tracking-[0.2em] uppercase  bg-linear-to-r from-accent to-[#ffd44f]">
           Teknik Detaylar
         </span>
         <span
@@ -620,7 +620,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
           style={{ overflow: "hidden" }}
         >
           <div
-            className={`w-72 transition-transform duration-300 border border-white/[0.07] backdrop-blur-sm rounded-sm bg-black/5 ${showChangelog ? "translate-x-0" : "translate-x-full"}`}
+            className={`w-72 transition-transform duration-300 border border-white/[0.07] backdrop-blur-sm rounded-sm bg-white/4 ${showChangelog ? "translate-x-0" : "translate-x-full"}`}
           >
             <div className="px-4 py-3 border-b border-white/5 flex items-center gap-2">
               <span
