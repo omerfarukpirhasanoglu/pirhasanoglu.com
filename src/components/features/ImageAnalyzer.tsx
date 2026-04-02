@@ -281,7 +281,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
           </div>
         </div>
 
-        {/* ── Sağ Kolon ── */}
+        {/* Sağ Kolon */}
         <div className="flex flex-col p-7" style={{ flex: "1" }}>
 
           {/* Uyum skoru başlık */}
@@ -368,7 +368,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         </div>
       </div>
 
-      {/* ── Analiz Yorumu ── */}
+      {/* Analiz Yorumu */}
       <div className="px-7 pb-6">
         <div
           style={{ height: "0.5px", background: "rgba(255,255,255,0.06)", margin: "0 0 14px" }}
@@ -385,13 +385,6 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
           >
             Analiz Yorumu
           </span>
-          <button
-            onClick={restart}
-            className="font-mono text-[11px] tracking-[0.15em] uppercase text-white/22 hover:text-white/50 transition-colors duration-200 px-3 py-1.5 rounded-sm"
-            style={{ border: "0.5px solid rgba(255,255,255,0.09)" }}
-          >
-            ↺ tekrar oynat
-          </button>
         </div>
 
         {/* Typewriter kutusu */}
@@ -426,7 +419,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         </div>
       </div>
 
-      {/* ── Teknik Detaylar Toggle ── */}
+      {/* Teknik Detaylar Toggle */}
       <button
         onClick={() => setShowTech((p) => !p)}
         className="w-full flex items-center justify-between px-7 py-4 transition-colors duration-200 hover:bg-white/2"
@@ -463,7 +456,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         </div>
       )}
 
-      {/* ── Footer ── */}
+      {/* Footer */}
       <div
         className="flex items-center gap-5 px-7 py-4"
         style={{ borderTop: "0.5px solid rgba(255,255,255,0.06)" }}
@@ -528,7 +521,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
   return (
     <div className="w-full flex flex-col gap-6">
 
-      {/* ── Başlık ── */}
+      {/* Başlık */}
       <div className="flex items-start justify-between gap-4">
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-gray-100 flex items-center gap-3">
@@ -558,7 +551,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
         </button>
       </div>
 
-      {/* ── Ana layout ── */}
+      {/* Ana layout */}
       <div className="flex gap-4 items-start overflow-hidden">
 
         {/* Analiz alanı */}
@@ -621,13 +614,13 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
           </Card>
         </div>
 
-        {/* ── Changelog paneli ── */}
+        {/* Changelog paneli */}
         <div
           className={`shrink-0 transition-all duration-300 ${showChangelog ? "w-72 opacity-100" : "w-0 opacity-0 pointer-events-none"}`}
           style={{ overflow: "hidden" }}
         >
           <div
-            className={`w-72 transition-transform duration-300 border border-white/[0.07] backdrop-blur-sm rounded-sm bg-white ${showChangelog ? "translate-x-0" : "translate-x-full"}`}
+            className={`w-72 transition-transform duration-300 border border-white/[0.07] backdrop-blur-sm rounded-sm bg-white/5 ${showChangelog ? "translate-x-0" : "translate-x-full"}`}
           >
             <div className="px-4 py-3 border-b border-white/5 flex items-center gap-2">
               <span
