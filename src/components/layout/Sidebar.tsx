@@ -6,10 +6,9 @@ import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   Image as ImageIcon,
-  Settings,
+  MessageSquareText,
   ChevronLeft,
   ChevronRight,
-  Cpu,
   LucideIcon,
   ScanSearch,
 } from "lucide-react";
@@ -57,7 +56,7 @@ export default function Sidebar() {
   const menuItems: MenuItem[] = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
     { name: "Chroma v1.2", href: "/dashboard/tool-1", icon: ImageIcon },
-    { name: "Tensör İşleme", href: "/dashboard/tool-2", icon: Cpu },
+    { name: "Doğal Dil İşleme", href: "/dashboard/tool-2", icon: MessageSquareText},
     { name: "Nesne Tespiti", href: "/dashboard/tool-3", icon: ScanSearch },
   ];
 

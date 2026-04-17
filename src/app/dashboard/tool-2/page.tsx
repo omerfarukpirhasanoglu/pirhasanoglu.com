@@ -1,4 +1,4 @@
-import { Clock, Cpu, ArrowLeft } from "lucide-react";
+import { Clock, MessageSquareText, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 export default function Tool2Page() {
@@ -9,10 +9,10 @@ export default function Tool2Page() {
         {/* Başlık */}
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-gray-100">
-            Tensör İşleme Mimarisi
+            Doğal Dil İşleme Aracı
           </h2>
           <p className="text-textMuted mt-1">
-            PyTorch ortamında eğitilmiş modeller için GPU destekli çıkarım ve asenkron FastAPI köprüsü.
+            PyTorch tabanlı bir doğal dil işleme aracı.
           </p>
         </div>
 
@@ -20,7 +20,7 @@ export default function Tool2Page() {
         <div className="glass-panel rounded-sm p-12 border border-white/5 flex flex-col items-center justify-center text-center gap-6">
           
           <div className="w-16 h-16 rounded-sm bg-surface flex items-center justify-center border border-white/10">
-            <Cpu className="w-8 h-8 text-textMuted" />
+            <MessageSquareText className="w-8 h-8 text-textMuted" />
           </div>
 
           <div className="flex flex-col gap-2">
@@ -30,8 +30,7 @@ export default function Tool2Page() {
             </div>
             <h3 className="text-xl font-semibold text-gray-200">Bu araç henüz hazır değil</h3>
             <p className="text-textMuted text-sm max-w-md leading-relaxed">
-              PyTorch modelinin GPU inference pipeline'ı ve FastAPI entegrasyonu üzerinde çalışıyorum.
-              Tamamlandığında burada yayınlanacak.
+              PyTorch tabanlı bir doğal dil işleme aracı üzerinde çalışıyorum. Bu araç, metin verilerini analiz etmek ve anlamak için kullanılacak.
             </p>
           </div>
 
