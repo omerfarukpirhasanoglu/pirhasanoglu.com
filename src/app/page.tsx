@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Cpu, MessageSquareText, ScanSearch} from "lucide-react";
+import { ArrowRight, Cpu, MessageSquareText, ScanText} from "lucide-react";
 import Footer from "@/src/components/layout/Footer";
 import Image from "next/image";
 export default function LandingPage() {
@@ -233,11 +233,11 @@ export default function LandingPage() {
           </h1>
         </div>
         <p className="max-w-2xl text-lg text-textMuted mb-10 leading-relaxed relative z-10 animate-reveal delay-600">
-          Deep Learning - Computer Vision - GPU Inference
+          Deep Learning - Computer Vision - NLP
         </p>
         <div className="animate-reveal delay-800 relative z-10">
           <Link href="/dashboard" className="group flex items-center gap-2 bg-linear-to-r from-accent to-[#ffd44f] text-[#1a0808] px-6 py-3 rounded-sm font-semibold hover:opacity-90 transition-colors duration-250 soft-ease">
-            Projeleri Keşfet
+            Projeleri Deneyin
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-250" />
           </Link>
         </div>
@@ -272,27 +272,23 @@ export default function LandingPage() {
                   </p>
                 </div>
                 <p>
-                Derin öğrenme ve bilgisayarla görme alanında uzmanlaşmakta olan 3. sınıf Bilgisayar Mühendisliği öğrencisiyim. Mimari tasarımdan bulut dağıtımına kadar uçtan uca üretim kalitesinde,
-                olabildiğince optimize yapay zeka modelleri tasarlıyor, eğitiyor ve deploy ediyorum.
+                Derin öğrenme, bilgisayarla görme ve doğal dil işleme alanlarında uzmanlaşmakta olan 3. sınıf Bilgisayar Mühendisliği öğrencisiyim.
+                Mimari tasarımdan bulut dağıtımına kadar uçtan uca yapay zeka modelleri tasarlıyor, eğitiyor ve deploy ediyorum. Kısıtlı donanım kaynaklarıyla
+                verimli model eğitimi ve ölçülebilir performans kazanımı sağlayan mimariler geliştirme konusunda pratik deneyim sahibiyim.
               </p>
               
               <strong> - Deep Learning Development & Deployment - </strong>
-              <p> Framework'ler: Keras (TensorFlow backend) · PyTorch<br/>
+              <p> Framework'ler: Keras · PyTorch<br/>
                Kütüphaneler: NumPy · Pandas · Matplotlib · OpenCV<br/>
-               Model inşası: CNN · Transfer Learning<br/>
+               Model inşası: CNN · Transfer Learning · Transformer Architecture · NLP · Text Segmentation<br/>
                Çok Fazlı Eğitim · Fine-Tuning · Regularization<br/>
-               GPU-Optimized Preprocessing Pipeline<br/>
-               Production Inference Optimization<br/>
+               Production Inference Optimization · ONNX Runtime<br/>
                FastAPI · Cloud Deployment · Docker · AI-Backend<br/>
                Python (ileri düzey) · Git / GitHub
                </p>
 
               <p>
-                Herkesin kullanımına açık uçtan uca bir görüntü sınıflandırma sistemi geliştirip deploy ettim: ön işleme pipeline'ı → 2 fazlı transfer learning (temel katmanlar donduruldu, üst katmanlar düşük öğrenme hızıyla fine-tune edildi,
-                en iyi sonuç için kendi sınıflandırma katmanlarım eklendi) → Docker'lı AI-Backend → canlı bulut endpoint'i. 
-              </p>
-              <p>
-                Sıkıcı teknik laflar bir yana; bilgisayar denen ve mimarisine hayran olduğum bu çok havalı hesap makinesinin tabiri caizse "öğrenebiliyor" oluşu, içine doğduğum çağın en müthiş kırılma noktası gibi :D
+                Bilgisayar denen ve mimarisine hayran olduğum bu çok havalı hesap makinesinin tabiri caizse "öğrenebiliyor" oluşu, içine doğduğum çağın en müthiş kırılma noktası gibi :D
                 Dolayısı ile bu teknoloji ve insanımızın arasındaki pürüzler kaldırılmalı, AI okuryazarlığımız hem bireysel hem toplumsal ölçekte ilerleme kaydetmeli.
               </p>
               <p>
@@ -315,38 +311,42 @@ export default function LandingPage() {
               Kapsamlı veri setleriyle eğitilmiş sinir ağları ve üretim ortamına hazır, API destekli sistem mimarileri.
             </p>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
             <Link href="/dashboard/tool-1" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
               <div className="w-14 h-14 bg-surface rounded-sm flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
                 <Cpu className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
               </div>
               <h3 className="text-xl font-medium mb-3">Görüntü Sınıflandırma - Stil Analizi</h3>
               <p className="text-textMuted text-sm mb-8 flex-1 leading-relaxed">
-                Keras kullanılarak eğitilmiş Convolutional Neural Network modelim. Yüklenen görüntülerin her bir pikselini özenle analiz eder.
+                Keras kullanarak geliştirdiğim Transfer Learning + Convolutional Neural Network modelim. Yüklenen görüntülerin her bir pikselini analiz eder. Stilinizi tahmin edip tarzınızı yorumlar.
               </p>
               <div className="text-accent text-sm font-medium flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
                 Model ile Etkileşime Geç <ArrowRight className="w-4 h-4" />
               </div>
             </Link>
+
             <Link href="/dashboard/tool-2" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
               <div className="w-14 h-14 bg-surface rounded-sm flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
                 <MessageSquareText className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
               </div>
-              <h3 className="text-xl font-medium mb-3">Doğal Dil İşleme</h3>
+              <h3 className="text-xl font-medium mb-3">RAG için Doğal Dil İşleme</h3>
               <p className="text-textMuted text-sm mb-8 flex-1 leading-relaxed">
-                PyTorch ortamında eğitilmiş bir dil modeli. Yüklenen metinleri anlamlandırır, özetler ve duygu analizleri yapar.
+                PyTorch ile geliştirdiğim NLP modelim. 2 transformer bloğundan oluşuyor.Yüklenen dokümanları anlamsal olarak bölütler, böylece RAG işleminden maximum verim almanızı sağlar.
               </p>
-              <div className="text-gray-500 text-sm font-medium flex items-center gap-1">
-                  Yakında <span className="ml-1 px-2 py-0.5 rounded-full bg-white/5 border border-black/10 text-xs">Geliştiriliyor</span>
-                </div>
+              <div className="text-accent text-sm font-medium flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                Model ile Etkileşime Geç <ArrowRight className="w-4 h-4" />
+              </div>
             </Link>
+
             <Link href="/dashboard/tool-3" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">              
                 <div className="w-14 h-14 bg-surface rounded-sm flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
-                  <ScanSearch className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
+                  <ScanText className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
                 </div>
-                <h3 className="text-xl font-medium mb-3">Nesne Tespiti</h3>
+                <h3 className="text-xl font-medium mb-3">yakında</h3>
                 <p className="text-textMuted text-sm mb-8 flex-1 leading-relaxed">
-                  PyTorch tabanlı model ile görüntü içindeki nesneleri tespit eder, bounding box ile işaretler ve güven skorlarını raporlar.
+                  bu projenin detaylarını vermek için henüz erken.
                 </p>
                 <div className="text-gray-500 text-sm font-medium flex items-center gap-1">
                   Yakında <span className="ml-1 px-2 py-0.5 rounded-full bg-white/5 border border-black/10 text-xs">Geliştiriliyor</span>

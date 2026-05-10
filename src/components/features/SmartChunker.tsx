@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { AlertCircle, Scissors, ChevronDown } from "lucide-react";
+import { AlertCircle, Scissors, ChevronDown, History } from "lucide-react";
 import { Button } from "@/src/components/ui/Button";
 import { Card } from "@/src/components/ui/Card";
 import { API_CONFIG } from "@/src/config/api";
@@ -36,6 +36,24 @@ interface SmartChunkerProps {
   titleBadge?: string;
   description: string;
 }
+
+// ─── Changelog ───────────────────────────────────────────────────────────────────
+
+const CHANGELOG = [
+  {
+    version: "v1.0",
+    date: "Mayıs 2025",
+    current: true,
+    items: [
+      "İlk sürüm. mE5-small üzerine Cross-Sentence Attention mimarisi kuruldu.",
+      "Wikipedia TR/EN ve OpenWebText kaynaklarından 52.000+ segment ile eğitildi.",
+      "ONNX formatına export edilerek production ortamına deploy edildi.",
+      "Türkçe ve İngilizce metin desteği eklendi.",
+      "Sliding window inference ile uzun döküman desteği sağlandı.",
+    ],
+    meta: { f1: "0.494", threshold: "0.70", inference: "~120ms" },
+  },
+];
 
 // ─── Örnek metinler ───────────────────────────────────────────────────────────
 
@@ -142,7 +160,7 @@ function ChunkCard({
         </div>
       </div>
 
-      {/* Boundary göstergesi — son chunk değilse */}
+      {/* Boundary göstergesi */}
       {!isLast && boundary && (
         <div className="flex items-center gap-3 py-2 px-1">
           <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.05)" }} />
@@ -313,6 +331,7 @@ function ResultPanel({ result }: { result: ChunkResponse }) {
           <span className="font-mono text-[13px] text-white/42">TR · EN</span>
         </div>
       </div>
+
     </div>
   );
 }
@@ -322,6 +341,7 @@ function ResultPanel({ result }: { result: ChunkResponse }) {
 export default function SmartChunker({ title, titleBadge, description }: SmartChunkerProps) {
   const [text, setText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showChangelog, setShowChangelog] = useState(false);
   const [result, setResult] = useState<ChunkResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -380,11 +400,27 @@ export default function SmartChunker({ title, titleBadge, description }: SmartCh
           </h2>
           <p className="text-textMuted mt-1">{description}</p>
         </div>
+
+        <button
+          onClick={() => setShowChangelog(!showChangelog)}
+          className="shrink-0 flex items-center gap-2 px-4 py-2 rounded-sm text-sm font-mono transition-all duration-200 text-[#1a0808] font-semibold"
+          style={{
+            background: "linear-gradient(135deg, #f75f5f, #ffd44f)",
+            opacity: showChangelog ? 0.75 : 1,
+          }}
+        >
+          <History className="w-3.5 h-3.5" />
+          Changelog
+          <span className={`transition-transform duration-200 ${showChangelog ? "rotate-180" : ""}`}>
+            ▾
+          </span>
+        </button>
       </div>
 
       {/* Ana layout */}
-      <div className="flex flex-col gap-4">
-        <Card className="flex flex-col gap-5 bg-surface/40">
+      <div className="flex gap-4 items-start overflow-hidden">
+        <div className="flex-1 min-w-0">
+          <Card className="flex flex-col gap-5 bg-surface/40">
 
           {/* Örnek metinler */}
           <div className="flex items-center gap-2 flex-wrap">
@@ -441,7 +477,7 @@ export default function SmartChunker({ title, titleBadge, description }: SmartCh
           </div>
 
           {/* Analiz butonu */}
-          <div className="flex justify-center">
+          <div className="flex flex-col items-center gap-2">
             <Button
               onClick={handleChunk}
               disabled={!text.trim() || isLoading || isOverLimit}
@@ -450,6 +486,9 @@ export default function SmartChunker({ title, titleBadge, description }: SmartCh
             >
               {isLoading ? "Analiz Ediliyor..." : "Chunk'la"}
             </Button>
+            <p className="text-[11px] font-mono text-center" style={{ color: "rgba(255,255,255,0.2)" }}>
+              Seam bir yapay zeka modelidir ve hata yapabilir.
+            </p>
           </div>
 
           {/* Hata */}
@@ -463,7 +502,81 @@ export default function SmartChunker({ title, titleBadge, description }: SmartCh
           {/* Sonuç */}
           {result && <ResultPanel result={result} />}
 
-        </Card>
+          </Card>
+        </div>
+
+        {/* Changelog paneli */}
+        <div
+          className={`shrink-0 transition-all duration-300 ${showChangelog ? "w-72 opacity-100" : "w-0 opacity-0 pointer-events-none"}`}
+          style={{ overflow: "hidden" }}
+        >
+          <div
+            className={`w-72 transition-transform duration-300 border border-white/[0.07] backdrop-blur-sm rounded-sm bg-white/4 ${showChangelog ? "translate-x-0" : "translate-x-full"}`}
+          >
+            <div className="px-4 py-3 border-b border-white/5 flex items-center gap-2">
+              <span
+                className="text-xs font-mono tracking-widest uppercase"
+                style={{
+                  background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Sürüm Geçmişi
+              </span>
+            </div>
+
+            <div className="overflow-y-auto" style={{ maxHeight: "calc(100vh - 200px)" }}>
+              {CHANGELOG.map((entry, i) => (
+                <div
+                  key={entry.version}
+                  className={`px-4 py-4 ${i < CHANGELOG.length - 1 ? "border-b border-white/4" : ""}`}
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <span
+                      className="text-sm font-semibold font-mono"
+                      style={{
+                        background: "linear-gradient(90deg, #f75f5f, #ffd44f)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        backgroundClip: "text",
+                      }}
+                    >
+                      {entry.version}
+                    </span>
+                    <span className="text-xs text-[#444] font-mono">{entry.date}</span>
+                    {entry.current && (
+                      <span className="text-[10px] px-1.5 py-0.5 rounded-sm bg-green-500/8 border border-green-500/20 text-green-400">
+                        güncel
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="flex flex-col gap-1.5 mb-3">
+                    {entry.items.map((item, j) => (
+                      <div key={j} className="flex items-start gap-2 text-xs text-[#666] leading-relaxed">
+                        <span className="text-[#333] mt-0.5 shrink-0">—</span>
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-3 flex-wrap pt-2 border-t border-white/4">
+                    <span className="text-[10px] font-mono text-[#444]">
+                      F1 {entry.meta.f1}
+                    </span>
+                    <span className="text-[10px] font-mono text-[#333]">·</span>
+                    <span className="text-[10px] font-mono text-[#444]">
+                      {entry.meta.inference}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );

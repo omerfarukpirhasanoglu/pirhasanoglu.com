@@ -10,7 +10,7 @@ import {
   ChevronLeft,
   ChevronRight,
   LucideIcon,
-  ScanSearch,
+  ScanText,
 } from "lucide-react";
 
 interface MenuItem {
@@ -56,8 +56,8 @@ export default function Sidebar() {
   const menuItems: MenuItem[] = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
     { name: "Chroma v1.2", href: "/dashboard/tool-1", icon: ImageIcon },
-    { name: "Doğal Dil İşleme", href: "/dashboard/tool-2", icon: MessageSquareText},
-    { name: "Nesne Tespiti", href: "/dashboard/tool-3", icon: ScanSearch },
+    { name: "Seam v1.0", href: "/dashboard/tool-2", icon: MessageSquareText},
+    { name: "Nesne Tespiti", href: "/dashboard/tool-3", icon: ScanText },
   ];
 
   return (
