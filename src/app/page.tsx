@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Cpu, MessageSquareText, ScanText} from "lucide-react";
+import { ArrowRight, Cpu, Loader, ScanText} from "lucide-react";
 import Footer from "@/src/components/layout/Footer";
 import Image from "next/image";
 export default function LandingPage() {
@@ -329,7 +329,7 @@ export default function LandingPage() {
 
             <Link href="/dashboard/tool-2" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
               <div className="w-14 h-14 bg-surface rounded-sm flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
-                <MessageSquareText className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
+                <ScanText className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
               </div>
               <h3 className="text-xl font-medium mb-3">RAG için Doğal Dil İşleme</h3>
               <p className="text-textMuted text-sm mb-8 flex-1 leading-relaxed">
@@ -342,7 +342,7 @@ export default function LandingPage() {
 
             <Link href="/dashboard/tool-3" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">              
                 <div className="w-14 h-14 bg-surface rounded-sm flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
-                  <ScanText className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
+                  <Loader className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
                 </div>
                 <h3 className="text-xl font-medium mb-3">yakında</h3>
                 <p className="text-textMuted text-sm mb-8 flex-1 leading-relaxed">
