@@ -511,7 +511,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
     formData.append("file", selectedFile);
 
     try {
-      const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.ANALYZE_IMAGE}`;
+      const url = `${API_CONFIG.CHROMA_API_URL}${API_CONFIG.ENDPOINTS.ANALYZE_IMAGE}`;
       const response = await fetch(url, { method: "POST", body: formData });
       if (!response.ok) throw new Error(`Sunucu hatası: ${response.status}`);
       const data: AnalysisResult = await response.json();

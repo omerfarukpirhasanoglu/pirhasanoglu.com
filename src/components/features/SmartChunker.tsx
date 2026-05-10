@@ -333,7 +333,7 @@ export default function SmartChunker({ title, titleBadge, description }: SmartCh
     setResult(null);
 
     try {
-      const url = `${API_CONFIG.CHUNKING_API_URL}${API_CONFIG.ENDPOINTS.CHUNK_TEXT}`;
+      const url = `${API_CONFIG.CHUNKER_API_URL}${API_CONFIG.ENDPOINTS.CHUNK_TEXT}`;
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
