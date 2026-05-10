@@ -1,49 +1,28 @@
-import { Clock, MessageSquareText, ArrowLeft } from "lucide-react";
-import Link from "next/link";
+import SmartChunker from "@/src/components/features/SmartChunker";
+import Image from "next/image";
 
 export default function Tool2Page() {
   return (
-    <div className="w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="max-w-3xl mx-auto flex flex-col gap-6">
+    <div className="relative w-full min-h-screen pb-20">
 
-        {/* Başlık */}
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight text-gray-100">
-            Doğal Dil İşleme Aracı
-          </h2>
-          <p className="text-textMuted mt-1">
-            PyTorch tabanlı bir doğal dil işleme aracı.
-          </p>
-        </div>
-
-        {/* Yapım aşamasında kartı */}
-        <div className="glass-panel rounded-sm p-12 border border-white/5 flex flex-col items-center justify-center text-center gap-6">
-          
-          <div className="w-16 h-16 rounded-sm bg-surface flex items-center justify-center border border-white/10">
-            <MessageSquareText className="w-8 h-8 text-textMuted" />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center justify-center gap-2">
-              <Clock className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-accent">Geliştirme Aşamasında</span>
-            </div>
-            <h3 className="text-xl font-semibold text-gray-200">Bu araç henüz hazır değil</h3>
-            <p className="text-textMuted text-sm max-w-md leading-relaxed">
-              PyTorch tabanlı bir doğal dil işleme aracı üzerinde çalışıyorum. Bu araç, metin verilerini analiz etmek ve anlamak için kullanılacak.
-            </p>
-          </div>
-
-          <Link
-            href="/dashboard"
-            className="flex items-center gap-2 text-sm text-textMuted hover:text-accent transition-colors duration-250"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Panele Dön
-          </Link>
-
-        </div>
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <Image
+          src="/dashboardback.png"
+          alt="Background"
+          fill
+          className="object-cover object-center opacity-30"
+          priority
+        />
       </div>
+
+      <div className="relative z-10 w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <SmartChunker
+          title="Nexus"
+          titleBadge="v1.0"
+          description="Metni anlamsal bölümlere ayıran RAG chunking motoru. Cümleler arası geçişleri öğrenerek sabit boyut yerine içeriğe duyarlı chunk'lar üretir."
+        />
+      </div>
+
     </div>
   );
 }
