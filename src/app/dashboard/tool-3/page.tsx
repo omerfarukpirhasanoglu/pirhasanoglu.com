@@ -1,4 +1,4 @@
-import { Clock, ScanSearch, ArrowLeft } from "lucide-react";
+import { Clock, Loader, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 export default function Tool3Page() {
@@ -9,18 +9,16 @@ export default function Tool3Page() {
         {/* Başlık */}
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-gray-100">
-            Nesne Tespiti
+            Yakında
           </h2>
-          <p className="text-textMuted mt-1">
-            Görüntü içindeki nesneleri tespit eden, sınıflandıran ve konumlarını belirleyen computer vision modeli.
-          </p>
+          
         </div>
 
         {/* Placeholder kartı */}
         <div className="glass-panel rounded-sm p-12 border border-white/5 flex flex-col items-center justify-center text-center gap-6">
 
           <div className="w-16 h-16 rounded-sm bg-surface flex items-center justify-center border border-white/10">
-            <ScanSearch className="w-8 h-8 text-textMuted" />
+            <Loader className="w-8 h-8 text-textMuted" />
           </div>
 
           <div className="flex flex-col gap-2">
@@ -29,10 +27,6 @@ export default function Tool3Page() {
               <span className="text-sm font-medium text-accent">Geliştirme Aşamasında</span>
             </div>
             <h3 className="text-xl font-semibold text-gray-200">Bu araç henüz hazır değil</h3>
-            <p className="text-textMuted text-sm max-w-md leading-relaxed">
-              PyTorch tabanlı nesne tespit modeli ve bounding box görselleştirme arayüzü üzerinde çalışıyorum.
-              Tamamlandığında burada yayınlanacak.
-            </p>
           </div>
 
           <Link
