@@ -237,7 +237,7 @@ export default function LandingPage() {
         </p>
         <div className="animate-reveal delay-800 relative z-10">
           <Link href="/dashboard" className="group flex items-center gap-2 bg-linear-to-r from-accent to-[#ffd44f] text-[#1a0808] px-6 py-3 rounded-sm font-semibold hover:opacity-90 transition-colors duration-250 soft-ease">
-            Projeleri Deneyin
+            Projeleri Keşfedin
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-250" />
           </Link>
         </div>
@@ -314,7 +314,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
 
-            <Link href="/dashboard/tool-1" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
+            <Link href="/dashboard" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
               <div className="w-14 h-14 bg-surface rounded-sm flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
                 <Cpu className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
               </div>
@@ -323,11 +323,11 @@ export default function LandingPage() {
                 Keras kullanarak geliştirdiğim Transfer Learning + Convolutional Neural Network modelim. Yüklenen görüntülerin her bir pikselini analiz eder. Stilinizi tahmin edip tarzınızı yorumlar.
               </p>
               <div className="text-accent text-sm font-medium flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
-                Model ile Etkileşime Geç <ArrowRight className="w-4 h-4" />
+                Panelde Gör <ArrowRight className="w-4 h-4" />
               </div>
             </Link>
 
-            <Link href="/dashboard/tool-2" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
+            <Link href="/dashboard" className="group glass-panel p-8 rounded-sm hover:-translate-y-2 hover:border-black/10 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 soft-ease flex flex-col">
               <div className="w-14 h-14 bg-surface rounded-sm flex items-center justify-center mb-6 border border-black/5 group-hover:border-accent/30 transition-colors">
                 <ScanText className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />
               </div>
@@ -336,7 +336,7 @@ export default function LandingPage() {
                 PyTorch ile geliştirdiğim NLP modelim. 2 transformer bloğundan oluşuyor.Yüklenen dokümanları anlamsal olarak bölütler, böylece RAG işleminden maximum verim almanızı sağlar.
               </p>
               <div className="text-accent text-sm font-medium flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
-                Model ile Etkileşime Geç <ArrowRight className="w-4 h-4" />
+                Panelde Gör <ArrowRight className="w-4 h-4" />
               </div>
             </Link>
 
