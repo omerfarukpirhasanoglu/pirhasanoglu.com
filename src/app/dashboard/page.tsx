@@ -71,9 +71,9 @@ export default function DashboardPage() {
                   </span>
                   <div className="flex flex-wrap gap-1.5 ml-1">
                     <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">Keras</span>
-                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">FastAPI</span>
+                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">CNN</span>
                     <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">Python</span>
-                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">React</span>
+                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">FastAPI</span>
                   </div>
                 </div>
 
@@ -90,11 +90,11 @@ export default function DashboardPage() {
                 </Link>
               </div>
 
-              {/* Sağ: inference sonucu */}
+              {/* Görsel */}
               <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "300px", background: "transparent"}}>
                 <Image
-                  src="/sample-output.png"
-                  alt="örnek çıktı"
+                  src="/Chroma.png"
+                  alt="Chroma"
                   fill
                   className="object-cover object-center"
                 />
@@ -119,10 +119,10 @@ export default function DashboardPage() {
                     <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>yayında
                   </span>
                   <div className="flex flex-wrap gap-1.5 ml-1">
-                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">Keras</span>
-                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">FastAPI</span>
+                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">Pytorch</span>
+                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">Transformers</span>
                     <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">Python</span>
-                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">React</span>
+                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">FastAPI</span>
                   </div>
                 </div>
 
@@ -139,11 +139,11 @@ export default function DashboardPage() {
                 </Link>
               </div>
 
-              {/* Sağ: inference sonucu */}
+              {/* Görsel */}
               <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "300px", background: "transparent"}}>
                 <Image
-                  src="/sample-output.png"
-                  alt="örnek çıktı"
+                  src="/Chunker.png"
+                  alt="Seam"
                   fill
                   className="object-cover object-center"
                 />
