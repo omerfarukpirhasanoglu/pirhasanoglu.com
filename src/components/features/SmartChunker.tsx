@@ -486,7 +486,7 @@ export default function SmartChunker({ title, titleBadge, description }: SmartCh
             >
               {isLoading ? "Analiz Ediliyor..." : "Chunk'la"}
             </Button>
-            <p className="text-[11px] font-mono text-center" style={{ color: "rgba(255,255,255,0.2)" }}>
+            <p className="text-[12px] font-mono text-center" style={{ color: "rgba(255,255,255,0.2)" }}>
               Seam bir yapay zeka modelidir ve hata yapabilir.
             </p>
           </div>

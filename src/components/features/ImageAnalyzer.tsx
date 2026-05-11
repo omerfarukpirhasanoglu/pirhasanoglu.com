@@ -603,9 +603,9 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
               >
                 {isLoading ? "Analiz Ediliyor..." : "Analiz Et"}
               </Button>
-              <p className="text-[11px] font-mono text-center" style={{ color: "rgba(255,255,255,0.2)" }}>
-              Chroma bir yapay zeka modelidir ve hata yapabilir.
-            </p>
+              <p className="text-[12px] font-mono text-center" style={{ color: "rgba(255,255,255,0.2)" }}>
+                Chroma bir yapay zeka modelidir ve hata yapabilir.
+              </p>
             </div>
 
             {/* Hata */}
