@@ -594,7 +594,7 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
             </div>
 
             {/* Analiz butonu */}
-            <div className="flex justify-center">
+            <div className="flex flex-col items-center gap-2">
               <Button
                 onClick={handleAnalyze}
                 disabled={!selectedFile || isLoading}
