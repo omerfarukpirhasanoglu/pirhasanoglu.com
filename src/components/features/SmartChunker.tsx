@@ -320,11 +320,7 @@ function ResultPanel({ result }: { result: ChunkResponse }) {
           <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/28">Model</span>
           <span className="font-mono text-[13px] text-white/42">mE5-small + CSA</span>
         </div>
-        <div style={{ width: "0.5px", height: "28px", background: "rgba(255,255,255,0.07)" }} />
-        <div className="flex flex-col gap-1">
-          <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/28">Format</span>
-          <span className="font-mono text-[13px] text-white/42">ONNX Runtime</span>
-        </div>
+        
         <div style={{ width: "0.5px", height: "28px", background: "rgba(255,255,255,0.07)" }} />
         <div className="flex flex-col gap-1">
           <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/28">Dil</span>

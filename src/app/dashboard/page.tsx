@@ -128,8 +128,8 @@ export default function DashboardPage() {
 
                 {/* Açıklama */}
                 <p className="text-textMuted leading-relaxed flex-1 mb-4">
-                  PyTorch ile geliştirdiğim, mE5-smal base encoderin üzerine kendi kurduğum Cross Sentence Attention mekanizmalı özel bir transformer bloğundan oluşan modelim.
-                  RAG dokümanlarının chunking problemini; dokmümanı anlamsal olarak, bilgi kaybı olmaksızın bölerek çözüyor. böylece RAG işleminden maximum verim almanızı sağlar.
+                  PyTorch ile geliştirdiğim, mE5-smal base encoderin üzerine kendi kurduğum Cross Sentence Attention mekanizmalı özel bir Transformer bloğundan oluşan modelim.
+                  RAG dokümanlarının chunking problemini; dokmümanı anlamsal olarak, bilgi kaybı olmaksızın bölerek çözüyor. böylece RAG işleminden maximum verim almanızı sağlıyor.
                 </p>
 
                 {/* Buton */}

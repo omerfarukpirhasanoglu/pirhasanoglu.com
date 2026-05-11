@@ -17,9 +17,9 @@ export default function Tool2Page() {
 
       <div className="relative z-10 w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
         <SmartChunker
-          title="Schism"
+          title="Seam"
           titleBadge="v1.0"
-          description="Metni anlamsal bölümlere ayıran RAG chunking motoru. Cümleler arası geçişleri öğrenerek sabit boyut yerine içeriğe duyarlı chunk'lar üretir."
+          description="RAG için dokümanları anlamsal bölümlere ayırır. Cümleler arası geçişleri öğrenerek sabit boyut yerine içeriğe duyarlı chunk'lar üretir."
         />
       </div>
 
