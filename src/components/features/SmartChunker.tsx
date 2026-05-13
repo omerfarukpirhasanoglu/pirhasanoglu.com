@@ -130,22 +130,13 @@ function ChunkCard({
     >
       {/* Chunk kutusu */}
       <div
-        className="relative rounded-sm overflow-hidden"
+        className="rounded-sm overflow-hidden"
         style={{
           background: "rgba(255,255,255,0.03)",
           border: "0.5px solid rgba(255,255,255,0.08)",
         }}
       >
-        {/* Sol gradient çizgi */}
-        <div
-          className="absolute left-0 top-0 bottom-0 w-[2px]"
-          style={{
-            background: "linear-gradient(180deg, #f75f5f, #ffd44f)",
-            opacity: 0.6 + chunk.index * 0.05,
-          }}
-        />
-
-        <div className="pl-5 pr-5 py-4">
+        <div className="px-5 py-4">
           {/* Chunk header */}
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2.5">
@@ -286,24 +277,11 @@ function ResultPanel({ result }: { result: ChunkResponse }) {
         </div>
       </div>
 
-      {/* Chunk listesi */}
-      <div className="px-6 py-5 flex flex-col gap-0">
-        {result.chunks.map((chunk, i) => (
-          <ChunkCard
-            key={chunk.index}
-            chunk={chunk}
-            boundary={getBoundary(i)}
-            isLast={i === result.chunks.length - 1}
-            delay={i * 80}
-          />
-        ))}
-      </div>
-
-      {/* Teknik Detaylar Toggle */}
+      {/* Teknik Detaylar Toggle — chunk listesinden önce */}
       <button
         onClick={() => setShowTech((p) => !p)}
         className="w-full flex items-center justify-between px-6 py-4 transition-colors duration-200 hover:bg-white/2"
-        style={{ borderTop: "0.5px solid rgba(255,255,255,0.06)" }}
+        style={{ borderBottom: "0.5px solid rgba(255,255,255,0.06)" }}
       >
         <span
           className="font-mono text-[13px] tracking-[0.2em] uppercase"
@@ -323,7 +301,7 @@ function ResultPanel({ result }: { result: ChunkResponse }) {
       </button>
 
       {showTech && (
-        <div className="grid grid-cols-3 gap-2.5 px-6 pb-5 animate-in slide-in-from-top-2 duration-200">
+        <div className="grid grid-cols-3 gap-2.5 px-6 py-5 animate-in slide-in-from-top-2 duration-200" style={{ borderBottom: "0.5px solid rgba(255,255,255,0.06)" }}>
           {techItems.map(({ label, value }) => (
             <div
               key={label}
@@ -341,6 +319,19 @@ function ResultPanel({ result }: { result: ChunkResponse }) {
           ))}
         </div>
       )}
+
+      {/* Chunk listesi */}
+      <div className="px-6 py-5 flex flex-col gap-0">
+        {result.chunks.map((chunk, i) => (
+          <ChunkCard
+            key={chunk.index}
+            chunk={chunk}
+            boundary={getBoundary(i)}
+            isLast={i === result.chunks.length - 1}
+            delay={i * 80}
+          />
+        ))}
+      </div>
 
       {/* Footer */}
       <div
@@ -360,7 +351,7 @@ function ResultPanel({ result }: { result: ChunkResponse }) {
 // ─── Ana Bileşen ──────────────────────────────────────────────────────────────
 
 export default function SmartChunker({ title, titleBadge, description }: SmartChunkerProps) {
-  const [mode, setMode] = useState<"text" | "file">("text");
+  const [mode, setMode] = useState<"text" | "file">("file");
   const [text, setText] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -582,7 +573,7 @@ export default function SmartChunker({ title, titleBadge, description }: SmartCh
                   {isLoading ? "Analiz Ediliyor..." : "Chunk'la"}
                 </Button>
                 <p className="text-[12px] font-mono text-center" style={{ color: "rgba(255,255,255,0.2)" }}>
-                  Schism bir yapay zeka modelidir ve hata yapabilir.
+                  Seam bir yapay zeka modelidir ve hata yapabilir.
                 </p>
               </div>
 
@@ -663,10 +654,10 @@ export default function SmartChunker({ title, titleBadge, description }: SmartCh
               {/* Dosya butonu */}
               <div className="flex flex-col items-center gap-2">
                 <Button onClick={handleFileChunk} disabled={!file || isLoading} isLoading={isLoading} className="px-20 min-w-50">
-                  {isLoading ? "İşleniyor..." : "Analiz Et ve İndir"}
+                  {isLoading ? "İşleniyor..." : "Analiz ve Embedding"}
                 </Button>
                 <p className="text-[12px] font-mono text-center" style={{ color: "rgba(255,255,255,0.2)" }}>
-                  Schism bir yapay zeka modelidir ve hata yapabilir.
+                  Seam bir yapay zeka modelidir ve hata yapabilir.
                 </p>
               </div>
 

@@ -221,7 +221,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 text-center pt-40 pb-48 relative" style={{zIndex: 1}}>
+      <main className="flex flex-col items-center justify-center px-6 text-center relative" style={{ minHeight: "100svh" }}>
         <div className="relative z-10 flex flex-col items-center mt-8"></div>
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-black/5 text-accent text-sm mb-8 animate-reveal delay-200 relative z-10">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
