@@ -4,5 +4,6 @@ export const API_CONFIG = {
   ENDPOINTS: {
     ANALYZE_IMAGE: "/api/analyze-image",
     CHUNK_TEXT:    "/chunk",
+    CHUNK_FILE:    "/chunk/file",
   },
 } as const;

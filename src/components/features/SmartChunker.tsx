@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { AlertCircle, Scissors, ChevronDown, History } from "lucide-react";
+import { AlertCircle, Scissors, ChevronDown, History, Upload, Download, FileText, Type } from "lucide-react";
 import { Button } from "@/src/components/ui/Button";
 import { Card } from "@/src/components/ui/Card";
 import { API_CONFIG } from "@/src/config/api";
@@ -31,6 +31,27 @@ interface ChunkResponse {
   language_detected: string;
 }
 
+interface ChunkWithEmbedding {
+  index: number;
+  text: string;
+  n_sentences: number;
+  start_sent: number;
+  end_sent: number;
+  embedding: number[];
+}
+
+interface FileChunkResponse {
+  filename: string;
+  file_type: string;
+  chunks: ChunkWithEmbedding[];
+  boundaries: BoundaryInfo[];
+  n_chunks: number;
+  n_sentences: number;
+  threshold_used: number;
+  processing_ms: number;
+  language_detected: string;
+}
+
 interface SmartChunkerProps {
   title: string;
   titleBadge?: string;
@@ -41,17 +62,27 @@ interface SmartChunkerProps {
 
 const CHANGELOG = [
   {
-    version: "v1.0",
+    version: "v1.1",
     date: "Mayıs 2025",
     current: true,
     items: [
-      "İlk sürüm. mE5-small üzerine Cross-Sentence Attention mimarisi kuruldu.",
-      "Wikipedia TR/EN ve OpenWebText kaynaklarından 52.000+ segment ile eğitildi.",
-      "ONNX formatına export edilerek production ortamına deploy edildi.",
-      "Türkçe ve İngilizce metin desteği eklendi.",
-      "Sliding window inference ile uzun döküman desteği sağlandı.",
+      "Seam artık doğrudan doküman inputu alabiliyor.",
+      "Çıktı olarak eskisi gibi chunkları göstermenin yanında doğruan embedding de üretiyor.Böylece çıktı RAG gibi downstream görevlerde hazır şekilde kullanılabiliyor.",
     ],
-    meta: { f1: "0.494", threshold: "0.70", inference: "~120ms" },
+    meta: { f1: "0.494", threshold: "0.70", inference: "texte göre değişir" },
+  },
+  {
+    version: "v1.0",
+    date: "Mayıs 2025",
+    current: false,
+    items: [
+      "İlk sürüm. mE5-small üzerine Cross-Sentence Attention mimarisi kuruldu.",
+      "Wikipedia TR/EN ve OpenWebText kaynaklarından hem Türkçe hem İngilizce 52.000+ segment ile eğitildi.",
+      "ONNX formatına export edilerek production ortamına deploy edildi.",
+      "Sliding window inference ile uzun döküman desteği sağlandı.",
+      "api endpointleri hazırlandı ve bu arayüz üzerinden metin chunklama servisi sunulmaya başlandı.",
+    ],
+    meta: { f1: "0.494", threshold: "0.70", inference: "texte göre değişir" },
   },
 ];
 
@@ -329,12 +360,17 @@ function ResultPanel({ result }: { result: ChunkResponse }) {
 // ─── Ana Bileşen ──────────────────────────────────────────────────────────────
 
 export default function SmartChunker({ title, titleBadge, description }: SmartChunkerProps) {
+  const [mode, setMode] = useState<"text" | "file">("text");
   const [text, setText] = useState("");
+  const [file, setFile] = useState<File | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showChangelog, setShowChangelog] = useState(false);
   const [result, setResult] = useState<ChunkResponse | null>(null);
+  const [fileResult, setFileResult] = useState<FileChunkResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleChunk = async () => {
     if (!text.trim()) return;
@@ -362,6 +398,66 @@ export default function SmartChunker({ title, titleBadge, description }: SmartCh
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleFileChunk = async () => {
+    if (!file) return;
+    setIsLoading(true);
+    setError(null);
+    setFileResult(null);
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const url = `${API_CONFIG.CHUNKER_API_URL}${API_CONFIG.ENDPOINTS.CHUNK_FILE}`;
+      const response = await fetch(url, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const err = await response.json().catch(() => ({}));
+        throw new Error(err.detail ?? `Sunucu hatası: ${response.status}`);
+      }
+
+      const data: FileChunkResponse = await response.json();
+      setFileResult(data);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Bilinmeyen bir hata oluştu.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const downloadJson = (data: FileChunkResponse) => {
+    const exportData = {
+      metadata: {
+        filename: data.filename,
+        file_type: data.file_type,
+        n_chunks: data.n_chunks,
+        n_sentences: data.n_sentences,
+        language: data.language_detected,
+        threshold: data.threshold_used,
+        processing_ms: data.processing_ms,
+        model: "intfloat/multilingual-e5-small",
+        embedding_dim: 384,
+      },
+      chunks: data.chunks.map((c) => ({
+        index: c.index,
+        text: c.text,
+        n_sentences: c.n_sentences,
+        embedding: c.embedding,
+      })),
+    };
+
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${data.filename.replace(/\.[^.]+$/, "")}_chunks.json`;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   const loadExample = (exampleText: string) => {
@@ -412,85 +508,221 @@ export default function SmartChunker({ title, titleBadge, description }: SmartCh
         <div className="flex-1 min-w-0">
           <Card className="flex flex-col gap-5 bg-surface/40">
 
-          {/* Örnek metinler */}
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-white/25 mr-1">
-              Örnek:
-            </span>
-            {EXAMPLE_TEXTS.map((ex) => (
+          {/* Tab geçişi */}
+          <div
+            className="flex rounded-sm p-0.5 gap-0.5"
+            style={{ background: "rgba(255,255,255,0.04)", border: "0.5px solid rgba(255,255,255,0.07)" }}
+          >
+            {(["text", "file"] as const).map((m) => (
               <button
-                key={ex.label}
-                onClick={() => loadExample(ex.text)}
-                className="font-mono text-[11px] px-2.5 py-1 rounded-sm transition-all duration-200 hover:bg-white/8"
+                key={m}
+                onClick={() => { setMode(m); setResult(null); setFileResult(null); setError(null); }}
+                className="flex-1 flex items-center justify-center gap-2 py-2 rounded-sm font-mono text-[12px] tracking-[0.15em] uppercase transition-all duration-200"
                 style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "0.5px solid rgba(255,255,255,0.08)",
-                  color: "rgba(255,255,255,0.45)",
+                  background: mode === m ? "rgba(255,255,255,0.07)" : "transparent",
+                  color: mode === m ? "rgba(255,255,255,0.75)" : "rgba(255,255,255,0.28)",
                 }}
               >
-                {ex.label}
+                {m === "text" ? <Type className="w-3.5 h-3.5" /> : <FileText className="w-3.5 h-3.5" />}
+                {m === "text" ? "Metin" : "Dosya"}
               </button>
             ))}
           </div>
 
-          {/* Metin girişi */}
-          <div className="relative">
-            <textarea
-              ref={textareaRef}
-              value={text}
-              onChange={(e) => {
-                setText(e.target.value);
-                setResult(null);
-                setError(null);
-              }}
-              placeholder="Metni buraya yapıştırın..."
-              rows={10}
-              className="w-full resize-none rounded-sm px-5 py-4 text-[14.5px] leading-[1.8] transition-all duration-200 focus:outline-none placeholder:text-white/15"
-              style={{
-                background: "rgba(255,255,255,0.03)",
-                border: `0.5px solid ${isOverLimit ? "rgba(247,95,95,0.4)" : "rgba(255,255,255,0.08)"}`,
-                color: "rgba(255,255,255,0.72)",
-                fontFamily: "'Playfair Display', serif",
-                fontStyle: text ? "italic" : "normal",
-              }}
-            />
+          {mode === "text" ? (
+            <>
+              {/* Örnek metinler */}
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-white/25 mr-1">
+                  Örnek:
+                </span>
+                {EXAMPLE_TEXTS.map((ex) => (
+                  <button
+                    key={ex.label}
+                    onClick={() => loadExample(ex.text)}
+                    className="font-mono text-[11px] px-2.5 py-1 rounded-sm transition-all duration-200 hover:bg-white/8"
+                    style={{
+                      background: "rgba(255,255,255,0.04)",
+                      border: "0.5px solid rgba(255,255,255,0.08)",
+                      color: "rgba(255,255,255,0.45)",
+                    }}
+                  >
+                    {ex.label}
+                  </button>
+                ))}
+              </div>
 
-            {/* Karakter sayacı */}
-            <div className="absolute bottom-3 right-4">
-              <span
-                className="font-mono text-[11px]"
-                style={{ color: isOverLimit ? "#f75f5f" : "rgba(255,255,255,0.18)" }}
+              {/* Metin girişi */}
+              <div className="relative">
+                <textarea
+                  ref={textareaRef}
+                  value={text}
+                  onChange={(e) => { setText(e.target.value); setResult(null); setError(null); }}
+                  placeholder="Metni buraya yapıştırın..."
+                  rows={10}
+                  className="w-full resize-none rounded-sm px-5 py-4 text-[14.5px] leading-[1.8] transition-all duration-200 focus:outline-none placeholder:text-white/15"
+                  style={{
+                    background: "rgba(255,255,255,0.03)",
+                    border: `0.5px solid ${isOverLimit ? "rgba(247,95,95,0.4)" : "rgba(255,255,255,0.08)"}`,
+                    color: "rgba(255,255,255,0.72)",
+                    fontFamily: "'Playfair Display', serif",
+                    fontStyle: text ? "italic" : "normal",
+                  }}
+                />
+                <div className="absolute bottom-3 right-4">
+                  <span className="font-mono text-[11px]" style={{ color: isOverLimit ? "#f75f5f" : "rgba(255,255,255,0.18)" }}>
+                    {charCount.toLocaleString()} / 50.000
+                  </span>
+                </div>
+              </div>
+
+              {/* Metin butonu */}
+              <div className="flex flex-col items-center gap-2">
+                <Button onClick={handleChunk} disabled={!text.trim() || isLoading || isOverLimit} isLoading={isLoading} className="px-20 min-w-50">
+                  {isLoading ? "Analiz Ediliyor..." : "Chunk'la"}
+                </Button>
+                <p className="text-[12px] font-mono text-center" style={{ color: "rgba(255,255,255,0.2)" }}>
+                  Schism bir yapay zeka modelidir ve hata yapabilir.
+                </p>
+              </div>
+
+              {error && (
+                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-sm flex items-center gap-3 text-red-400 text-sm animate-in slide-in-from-top-2">
+                  <AlertCircle className="w-5 h-5 shrink-0" />
+                  <p>{error}</p>
+                </div>
+              )}
+
+              {result && <ResultPanel result={result} />}
+            </>
+          ) : (
+            <>
+              {/* Dosya yükleme alanı */}
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept=".pdf,.docx"
+                className="hidden"
+                onChange={(e) => {
+                  const f = e.target.files?.[0] ?? null;
+                  setFile(f);
+                  setFileResult(null);
+                  setError(null);
+                }}
+              />
+
+              <div
+                onClick={() => fileInputRef.current?.click()}
+                onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+                onDragLeave={() => setIsDragging(false)}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  setIsDragging(false);
+                  const f = e.dataTransfer.files?.[0];
+                  if (f && (f.name.endsWith(".pdf") || f.name.endsWith(".docx"))) {
+                    setFile(f);
+                    setFileResult(null);
+                    setError(null);
+                  }
+                }}
+                className="flex flex-col items-center justify-center gap-3 rounded-sm cursor-pointer transition-all duration-200"
+                style={{
+                  minHeight: "200px",
+                  background: isDragging ? "rgba(247,95,95,0.06)" : "rgba(255,255,255,0.02)",
+                  border: `0.5px dashed ${isDragging ? "rgba(247,95,95,0.4)" : file ? "rgba(247,212,79,0.3)" : "rgba(255,255,255,0.1)"}`,
+                }}
               >
-                {charCount.toLocaleString()} / 50.000
-              </span>
-            </div>
-          </div>
+                {file ? (
+                  <>
+                    <FileText className="w-8 h-8" style={{ color: "#ffd44f" }} />
+                    <div className="text-center">
+                      <p className="font-mono text-[13px] text-white/70">{file.name}</p>
+                      <p className="font-mono text-[11px] text-white/28 mt-1">
+                        {(file.size / (1024 * 1024)).toFixed(2)} MB · {file.name.split(".").pop()?.toUpperCase()}
+                      </p>
+                    </div>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); setFile(null); setFileResult(null); }}
+                      className="font-mono text-[11px] px-3 py-1 rounded-sm text-white/30 hover:text-white/60 transition-colors"
+                      style={{ border: "0.5px solid rgba(255,255,255,0.08)" }}
+                    >
+                      Değiştir
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Upload className="w-8 h-8 text-white/20" />
+                    <div className="text-center">
+                      <p className="font-mono text-[13px] text-white/40">PDF veya DOCX sürükle ya da tıkla</p>
+                      <p className="font-mono text-[11px] text-white/20 mt-1">Maks. 10 MB</p>
+                    </div>
+                  </>
+                )}
+              </div>
 
-          {/* Analiz butonu */}
-          <div className="flex flex-col items-center gap-2">
-            <Button
-              onClick={handleChunk}
-              disabled={!text.trim() || isLoading || isOverLimit}
-              isLoading={isLoading}
-              className="px-20 min-w-50"
-            >
-              {isLoading ? "Analiz Ediliyor..." : "Chunk'la"}
-            </Button>
-            <p className="text-[12px] font-mono text-center" style={{ color: "rgba(255,255,255,0.2)" }}>
-              Seam bir yapay zeka modelidir ve hata yapabilir.
-            </p>
-          </div>
+              {/* Dosya butonu */}
+              <div className="flex flex-col items-center gap-2">
+                <Button onClick={handleFileChunk} disabled={!file || isLoading} isLoading={isLoading} className="px-20 min-w-50">
+                  {isLoading ? "İşleniyor..." : "Analiz Et ve İndir"}
+                </Button>
+                <p className="text-[12px] font-mono text-center" style={{ color: "rgba(255,255,255,0.2)" }}>
+                  Schism bir yapay zeka modelidir ve hata yapabilir.
+                </p>
+              </div>
 
-          {/* Hata */}
-          {error && (
-            <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-sm flex items-center gap-3 text-red-400 text-sm animate-in slide-in-from-top-2">
-              <AlertCircle className="w-5 h-5 shrink-0" />
-              <p>{error}</p>
-            </div>
+              {error && (
+                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-sm flex items-center gap-3 text-red-400 text-sm animate-in slide-in-from-top-2">
+                  <AlertCircle className="w-5 h-5 shrink-0" />
+                  <p>{error}</p>
+                </div>
+              )}
+
+              {/* Dosya sonucu */}
+              {fileResult && (
+                <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+
+                  {/* JSON indirme kartı */}
+                  <div
+                    className="flex items-center justify-between px-5 py-4 rounded-sm"
+                    style={{ background: "rgba(255,255,255,0.03)", border: "0.5px solid rgba(255,255,255,0.08)" }}
+                  >
+                    <div className="flex flex-col gap-1">
+                      <span
+                        className="font-mono text-[13px] tracking-[0.18em] uppercase"
+                        style={{ background: "linear-gradient(90deg, #f75f5f, #ffd44f)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
+                      >
+                        RAG için Hazır
+                      </span>
+                      <span className="font-mono text-[11px] text-white/28">
+                        {fileResult.n_chunks} chunk · {fileResult.n_sentences} cümle · 384-dim embedding
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => downloadJson(fileResult)}
+                      className="flex items-center gap-2 px-4 py-2 rounded-sm font-mono text-[12px] text-[#1a0808] font-semibold transition-all duration-200 hover:opacity-90"
+                      style={{ background: "linear-gradient(135deg, #f75f5f, #ffd44f)" }}
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      JSON İndir
+                    </button>
+                  </div>
+
+                  {/* Chunk listesi */}
+                  <ResultPanel
+                    result={{
+                      chunks: fileResult.chunks,
+                      boundaries: fileResult.boundaries,
+                      n_chunks: fileResult.n_chunks,
+                      n_sentences: fileResult.n_sentences,
+                      threshold_used: fileResult.threshold_used,
+                      processing_ms: fileResult.processing_ms,
+                      language_detected: fileResult.language_detected,
+                    }}
+                  />
+                </div>
+              )}
+            </>
           )}
-
-          {/* Sonuç */}
-          {result && <ResultPanel result={result} />}
 
           </Card>
         </div>
