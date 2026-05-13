@@ -69,7 +69,7 @@ const CHANGELOG = [
       "Seam artık doğrudan doküman inputu alabiliyor.",
       "Çıktı olarak eskisi gibi chunkları göstermenin yanında doğruan embedding de üretiyor.Böylece çıktı RAG gibi downstream görevlerde hazır şekilde kullanılabiliyor.",
     ],
-    meta: { f1: "0.494", threshold: "0.70", inference: "texte göre değişir" },
+    meta: { f1: "0.494", threshold: "0.70"},
   },
   {
     version: "v1.0",
@@ -82,7 +82,7 @@ const CHANGELOG = [
       "Sliding window inference ile uzun döküman desteği sağlandı.",
       "api endpointleri hazırlandı ve bu arayüz üzerinden metin chunklama servisi sunulmaya başlandı.",
     ],
-    meta: { f1: "0.494", threshold: "0.70", inference: "texte göre değişir" },
+    meta: { f1: "0.494", threshold: "0.70"},
   },
 ];
 
@@ -781,7 +781,7 @@ export default function SmartChunker({ title, titleBadge, description }: SmartCh
                     </span>
                     <span className="text-[10px] font-mono text-[#333]">·</span>
                     <span className="text-[10px] font-mono text-[#444]">
-                      {entry.meta.inference}
+                      {entry.meta.threshold}
                     </span>
                   </div>
                 </div>

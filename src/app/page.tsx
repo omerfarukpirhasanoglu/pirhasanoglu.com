@@ -229,7 +229,7 @@ export default function LandingPage() {
         </div>
         <div className="relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-linear-to-r from-accent to-[#ffd44f] bg-clip-text text-transparent animate-reveal delay-400">
-            Veriyi Anlama Dönüştür
+            "Attention" is all you need.
           </h1>
         </div>
         <p className="max-w-2xl text-lg text-textMuted mb-10 leading-relaxed relative z-10 animate-reveal delay-600">
