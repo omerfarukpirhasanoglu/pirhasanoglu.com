@@ -504,7 +504,7 @@ export default function SmartChunker({ title, titleBadge, description }: SmartCh
             className="flex rounded-sm p-0.5 gap-0.5"
             style={{ background: "rgba(255,255,255,0.04)", border: "0.5px solid rgba(255,255,255,0.07)" }}
           >
-            {(["text", "file"] as const).map((m) => (
+            {(["file", "text"] as const).map((m) => (
               <button
                 key={m}
                 onClick={() => { setMode(m); setResult(null); setFileResult(null); setError(null); }}
@@ -514,8 +514,8 @@ export default function SmartChunker({ title, titleBadge, description }: SmartCh
                   color: mode === m ? "rgba(255,255,255,0.75)" : "rgba(255,255,255,0.28)",
                 }}
               >
-                {m === "text" ? <Type className="w-3.5 h-3.5" /> : <FileText className="w-3.5 h-3.5" />}
-                {m === "text" ? "Metin" : "Dosya"}
+                {m === "file" ? <FileText className="w-3.5 h-3.5" /> : <Type className="w-3.5 h-3.5" />}
+                {m === "file" ? "Dosya" : "Metin"}
               </button>
             ))}
           </div>
