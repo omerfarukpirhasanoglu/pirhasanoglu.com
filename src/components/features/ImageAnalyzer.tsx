@@ -60,6 +60,11 @@ interface ImageAnalyzerProps {
   description: string;
 }
 
+interface ApiErrorResponse {
+  detail?: unknown;
+  message?: unknown;
+}
+
 // ─── Changelog ────────────────────────────────────────────────────────────────
 
 const CHANGELOG = [
@@ -106,6 +111,30 @@ const CHANGELOG = [
 
 function rgbToCss(rgb: number[]): string {
   return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+}
+
+function extractApiErrorMessage(payload: unknown, status: number): string {
+  if (payload && typeof payload === "object") {
+    const { detail, message } = payload as ApiErrorResponse;
+
+    if (typeof detail === "string") return detail;
+    if (Array.isArray(detail)) {
+      const validationMessages = detail
+        .map((item) => {
+          if (item && typeof item === "object" && "msg" in item) {
+            return String((item as { msg: unknown }).msg);
+          }
+          return typeof item === "string" ? item : null;
+        })
+        .filter(Boolean);
+
+      if (validationMessages.length > 0) return validationMessages.join(" ");
+    }
+
+    if (typeof message === "string") return message;
+  }
+
+  return `Sunucu hatası: ${status}`;
 }
 
 // ─── Typewriter Hook ──────────────────────────────────────────────────────────
@@ -513,9 +542,13 @@ export default function ImageAnalyzer({ title, titleBadge, description }: ImageA
     try {
       const url = `${API_CONFIG.CHROMA_API_URL}${API_CONFIG.ENDPOINTS.ANALYZE_IMAGE}`;
       const response = await fetch(url, { method: "POST", body: formData });
-      if (!response.ok) throw new Error(`Sunucu hatası: ${response.status}`);
-      const data: AnalysisResult = await response.json();
-      setResult(data);
+      const data = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        throw new Error(extractApiErrorMessage(data, response.status));
+      }
+
+      setResult(data as AnalysisResult);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Bilinmeyen bir hata oluştu.");
     } finally {
