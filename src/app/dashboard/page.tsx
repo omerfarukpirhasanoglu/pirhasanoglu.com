@@ -133,7 +133,7 @@ export default function DashboardPage() {
                 </p>
 
                 {/* Buton */}
-                <Link href="/dashboard/tool-1" className="w-full flex items-center justify-center gap-2 bg-linear-to-r from-accent to-[#ffd44f] text-[#1a0808] px-5 py-2.5 rounded-sm font-semibold text-sm hover:opacity-90 transition-opacity duration-250">
+                <Link href="/dashboard/tool-2" className="w-full flex items-center justify-center gap-2 bg-linear-to-r from-accent to-[#ffd44f] text-[#1a0808] px-5 py-2.5 rounded-sm font-semibold text-sm hover:opacity-90 transition-opacity duration-250">
                   Modeli İncele
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
