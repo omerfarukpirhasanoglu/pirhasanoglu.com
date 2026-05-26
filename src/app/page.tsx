@@ -222,7 +222,6 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <main className="flex flex-col items-center justify-center px-6 text-center relative" style={{ minHeight: "100svh" }}>
-        <div className="relative z-10 flex flex-col items-center mt-8"></div>
         <div className="relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-linear-to-r from-accent to-[#ffd44f] bg-clip-text text-transparent animate-reveal delay-400">
             "Attention" is all you need.
