@@ -224,8 +224,6 @@ export default function LandingPage() {
       <main className="flex flex-col items-center justify-center px-6 text-center relative" style={{ minHeight: "100svh" }}>
         <div className="relative z-10 flex flex-col items-center mt-8"></div>
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-black/5 text-accent text-sm mb-8 animate-reveal delay-200 relative z-10">
-          <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-          AI & Sistem Mimarisi
         </div>
         <div className="relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-linear-to-r from-accent to-[#ffd44f] bg-clip-text text-transparent animate-reveal delay-400">
