@@ -37,7 +37,7 @@ export default function DashboardPage() {
             marginBottom: "10px",
           }}
         >
-          Yapay Zeka Araçları
+          Geliştirdiğim yapay zeka modellerim
         </h1>
         <p
           style={{
