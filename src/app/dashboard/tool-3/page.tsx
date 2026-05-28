@@ -1,0 +1,44 @@
+import { Clock, Loader, ArrowLeft } from "lucide-react";
+import Link from "next/link";
+
+export default function Tool3Page() {
+  return (
+    <div className="w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <div className="max-w-3xl mx-auto flex flex-col gap-6">
+
+        {/* Başlık */}
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight text-gray-100">
+            Yakında
+          </h2>
+          
+        </div>
+
+        {/* Placeholder kartı */}
+        <div className="glass-panel rounded-sm p-12 border border-white/5 flex flex-col items-center justify-center text-center gap-6">
+
+          <div className="w-16 h-16 rounded-sm bg-surface flex items-center justify-center border border-white/10">
+            <Loader className="w-8 h-8 text-textMuted" />
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center justify-center gap-2">
+              <Clock className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-accent">Geliştirme Aşamasında</span>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-200">Bu araç henüz hazır değil</h3>
+          </div>
+
+          <Link
+            href="/dashboard"
+            className="flex items-center gap-2 text-sm text-textMuted hover:text-accent transition-colors duration-250"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Panele Dön
+          </Link>
+
+        </div>
+      </div>
+    </div>
+  );
+}
