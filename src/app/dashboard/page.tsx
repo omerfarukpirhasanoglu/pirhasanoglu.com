@@ -4,9 +4,11 @@ export default function DashboardPage() {
   return (
     <div
       style={{
-        maxWidth: "960px",
-        margin: "0 auto",
-        padding: "52px 40px 88px",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "0 clamp(2rem, 5vw, 5rem)",
       }}
     >
       {/* Başlık */}
@@ -14,12 +16,12 @@ export default function DashboardPage() {
         style={{
           fontFamily: "var(--font-display)",
           fontStyle: "italic",
-          fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
+          fontSize: "clamp(2.2rem, 4vw, 3.2rem)",
           fontWeight: 400,
           color: "#17142a",
           letterSpacing: "-0.01em",
           lineHeight: 1.1,
-          marginBottom: "48px",
+          marginBottom: "clamp(2.5rem, 5vh, 4rem)",
         }}
       >
         Geliştirdiğim Modeller
@@ -31,7 +33,7 @@ export default function DashboardPage() {
           display: "grid",
           gridTemplateColumns: "1fr 1fr 1fr",
           gap: "0",
-          minHeight: "280px",
+          flex: "0 0 auto",
         }}
       >
         {/* Chroma */}
@@ -41,17 +43,19 @@ export default function DashboardPage() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            padding: "0 32px 0 0",
+            padding: "clamp(1.5rem, 3vh, 2.5rem) clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 3vh, 2.5rem) 0",
             borderRight: "0.5px solid rgba(23,20,42,0.08)",
+            borderTop: "0.5px solid rgba(23,20,42,0.08)",
             textDecoration: "none",
+            minHeight: "clamp(260px, 38vh, 380px)",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             <h2
               style={{
                 fontFamily: "var(--font-display)",
                 fontStyle: "italic",
-                fontSize: "28px",
+                fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
                 fontWeight: 400,
                 color: "#17142a",
                 letterSpacing: "-0.01em",
@@ -63,10 +67,10 @@ export default function DashboardPage() {
             <p
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "13px",
+                fontSize: "clamp(13px, 1.2vw, 15px)",
                 fontWeight: 300,
                 color: "rgba(23,20,42,0.42)",
-                lineHeight: 1.75,
+                lineHeight: 1.78,
               }}
             >
               Keras tabanlı CNN. Görüntü sınıflandırma ve stil analizi,
@@ -74,14 +78,14 @@ export default function DashboardPage() {
             </p>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "24px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px", paddingTop: "32px" }}>
             <p
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "11px",
+                fontSize: "12px",
                 fontWeight: 300,
                 color: "rgba(23,20,42,0.28)",
-                lineHeight: 1.85,
+                lineHeight: 1.90,
               }}
             >
               Keras · CNN<br />
@@ -90,9 +94,9 @@ export default function DashboardPage() {
             <span
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "10px",
+                fontSize: "10.5px",
                 fontWeight: 500,
-                padding: "2px 9px",
+                padding: "3px 10px",
                 borderRadius: "3px",
                 background: "rgba(90,65,155,0.08)",
                 color: "rgba(90,65,155,0.60)",
@@ -104,7 +108,7 @@ export default function DashboardPage() {
             <span
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "11.5px",
+                fontSize: "12.5px",
                 fontWeight: 500,
                 color: "rgba(90,65,155,0.42)",
               }}
@@ -121,17 +125,19 @@ export default function DashboardPage() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            padding: "0 32px 0 32px",
+            padding: "clamp(1.5rem, 3vh, 2.5rem) clamp(2rem, 4vw, 3.5rem)",
             borderRight: "0.5px solid rgba(23,20,42,0.08)",
+            borderTop: "0.5px solid rgba(23,20,42,0.08)",
             textDecoration: "none",
+            minHeight: "clamp(260px, 38vh, 380px)",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             <h2
               style={{
                 fontFamily: "var(--font-display)",
                 fontStyle: "italic",
-                fontSize: "28px",
+                fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
                 fontWeight: 400,
                 color: "#17142a",
                 letterSpacing: "-0.01em",
@@ -143,10 +149,10 @@ export default function DashboardPage() {
             <p
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "13px",
+                fontSize: "clamp(13px, 1.2vw, 15px)",
                 fontWeight: 300,
                 color: "rgba(23,20,42,0.42)",
-                lineHeight: 1.75,
+                lineHeight: 1.78,
               }}
             >
               PyTorch Transformer. RAG pipeline'ları için bilgi kaybı
@@ -154,14 +160,14 @@ export default function DashboardPage() {
             </p>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "24px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px", paddingTop: "32px" }}>
             <p
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "11px",
+                fontSize: "12px",
                 fontWeight: 300,
                 color: "rgba(23,20,42,0.28)",
-                lineHeight: 1.85,
+                lineHeight: 1.90,
               }}
             >
               PyTorch · Transformers<br />
@@ -170,9 +176,9 @@ export default function DashboardPage() {
             <span
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "10px",
+                fontSize: "10.5px",
                 fontWeight: 500,
-                padding: "2px 9px",
+                padding: "3px 10px",
                 borderRadius: "3px",
                 background: "rgba(90,65,155,0.08)",
                 color: "rgba(90,65,155,0.60)",
@@ -184,7 +190,7 @@ export default function DashboardPage() {
             <span
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "11.5px",
+                fontSize: "12.5px",
                 fontWeight: 500,
                 color: "rgba(90,65,155,0.42)",
               }}
@@ -200,16 +206,18 @@ export default function DashboardPage() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            padding: "0 0 0 32px",
+            padding: "clamp(1.5rem, 3vh, 2.5rem) 0 clamp(1.5rem, 3vh, 2.5rem) clamp(2rem, 4vw, 3.5rem)",
+            borderTop: "0.5px solid rgba(23,20,42,0.08)",
             opacity: 0.28,
+            minHeight: "clamp(260px, 38vh, 380px)",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             <h2
               style={{
                 fontFamily: "var(--font-display)",
                 fontStyle: "italic",
-                fontSize: "28px",
+                fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
                 fontWeight: 400,
                 color: "#17142a",
                 letterSpacing: "-0.01em",
@@ -220,27 +228,26 @@ export default function DashboardPage() {
             <p
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "13px",
+                fontSize: "clamp(13px, 1.2vw, 15px)",
                 fontWeight: 300,
                 color: "rgba(23,20,42,0.42)",
-                lineHeight: 1.75,
+                lineHeight: 1.78,
               }}
             >
               Bu proje hakkında bilgi vermek için henüz erken.
             </p>
           </div>
 
-          <div style={{ paddingTop: "24px" }}>
+          <div style={{ paddingTop: "32px" }}>
             <span
               style={{
                 fontFamily: "var(--font-body)",
-                fontSize: "10px",
+                fontSize: "10.5px",
                 fontWeight: 500,
-                padding: "2px 9px",
+                padding: "3px 10px",
                 borderRadius: "3px",
                 background: "rgba(23,20,42,0.04)",
                 color: "rgba(23,20,42,0.30)",
-                width: "fit-content",
                 display: "inline-block",
               }}
             >
