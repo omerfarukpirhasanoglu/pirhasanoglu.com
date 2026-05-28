@@ -1,179 +1,379 @@
 import Link from "next/link";
-import { 
-  ArrowRight, 
-  Clock,
-} from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import Image from "next/image";
 
 export default function DashboardPage() {
   return (
-    <div className="relative w-full min-h-screen pb-20">
-      
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <Image
-          src="/dashboardback.png"
-          alt="Dashboard Background"
-          fill
-          className="object-cover object-center opacity-30"
-          priority
-        />
+    <div
+      style={{
+        maxWidth: "860px",
+        margin: "0 auto",
+        padding: "48px 32px 80px",
+      }}
+    >
+      {/* Header */}
+      <div style={{ marginBottom: "48px" }}>
+        <p
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "9.5px",
+            fontWeight: 500,
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+            color: "rgba(25,22,46,0.22)",
+            marginBottom: "10px",
+          }}
+        >
+          Panel
+        </p>
+        <h1
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
+            fontWeight: 600,
+            color: "#19162e",
+            letterSpacing: "-0.01em",
+            lineHeight: 1.1,
+            marginBottom: "10px",
+          }}
+        >
+          Yapay Zeka Araçları
+        </h1>
+        <p
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "13.5px",
+            fontWeight: 300,
+            color: "rgba(25,22,46,0.42)",
+            lineHeight: 1.70,
+          }}
+        >
+          Çözüm odaklı · optimize · ölçeklenebilir
+        </p>
       </div>
 
-      <div className="max-w-6xl mx-auto w-full flex flex-col gap-10 relative z-10 px-4 md:px-0 pt-8">
-        
-        {/*Metrics*/}
-        <div className="flex flex-col gap-8">
-          
-          <div className="animate-reveal">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-100 mb-2">Proje Paneli</h1>
-          </div>
+      {/* Project cards */}
+      <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
 
-          {/* Vision Bar */}
-          <div className="animate-reveal inline-flex items-center gap-0 px-7.5 h-15 bg-white/5 backdrop-blur-sm border border-white/[0.07] shadow-lg shadow-black/80 rounded-sm whitespace-nowrap overflow-hidden">
-            <span className="text-accent font-mono text-[23px] mr-3.5">❯</span>
-            <span
-              className="text-[17px] font-semibold font-mono"
+        {/* Chroma */}
+        <div
+          style={{
+            background: "rgba(255,255,255,0.50)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+            border: "0.5px solid rgba(25,22,46,0.08)",
+            borderRadius: "10px",
+            overflow: "hidden",
+            display: "flex",
+            marginBottom: "12px",
+          }}
+        >
+          <div style={{ flex: 1, padding: "28px 28px 28px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px", flexWrap: "wrap" }}>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "1.5rem",
+                  fontWeight: 600,
+                  color: "#19162e",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                Chroma
+              </h2>
+              <span
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "10px",
+                  fontWeight: 500,
+                  padding: "2px 8px",
+                  borderRadius: "3px",
+                  background: "rgba(100,80,160,0.08)",
+                  color: "rgba(100,80,160,0.65)",
+                  letterSpacing: "0.03em",
+                }}
+              >
+                v1.2
+              </span>
+              <span
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "10px",
+                  fontWeight: 500,
+                  padding: "2px 8px",
+                  borderRadius: "3px",
+                  background: "rgba(60,180,100,0.08)",
+                  color: "rgba(40,150,80,0.75)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "5px",
+                }}
+              >
+                <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "rgba(40,150,80,0.70)", display: "inline-block" }} />
+                yayında
+              </span>
+              <div style={{ display: "flex", gap: "5px", flexWrap: "wrap" }}>
+                {["Keras", "CNN", "Python", "FastAPI"].map((t) => (
+                  <span
+                    key={t}
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: "10px",
+                      padding: "2px 8px",
+                      borderRadius: "3px",
+                      border: "0.5px solid rgba(25,22,46,0.10)",
+                      color: "rgba(25,22,46,0.32)",
+                      background: "rgba(255,255,255,0.30)",
+                    }}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <p
               style={{
-                background: "linear-gradient(90deg, #f75f5f 0%, #f9964a 40%, #ffd44f 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
+                fontFamily: "var(--font-body)",
+                fontSize: "13px",
+                fontWeight: 300,
+                color: "rgba(25,22,46,0.45)",
+                lineHeight: 1.75,
+                marginBottom: "20px",
               }}
             >
-              çözüm odaklı
-              <span style={{ WebkitTextFillColor: "rgba(255,255,255,0.15)", background: "none" }}> · </span>
-              optimize
-              <span style={{ WebkitTextFillColor: "rgba(255,255,255,0.15)", background: "none" }}> · </span>
-              ölçeklenebilir
-            </span>
-            <span className="text-[17px] text-[#555] font-mono ml-3.5">AI teknolojileri</span>
+              FastAPI backendine bağlı, Keras tabanlı konvolüsyonel sinir ağları kullanarak
+              yüklenen görüntülerin özniteliklerini çıkaran ve yüksek doğrulukla analiz eden modelim.
+              Tarzınızı uzman bir yapay zekanın detaylı metrikleriyle inceleyebilirsiniz.
+            </p>
+            <Link
+              href="/dashboard/tool-1"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                fontFamily: "var(--font-body)",
+                fontSize: "12px",
+                fontWeight: 500,
+                color: "rgba(25,22,46,0.65)",
+                background: "rgba(25,22,46,0.07)",
+                border: "0.5px solid rgba(25,22,46,0.14)",
+                borderRadius: "100px",
+                padding: "9px 20px",
+                textDecoration: "none",
+              }}
+            >
+              Modeli İncele
+              <ArrowRight style={{ width: "12px", height: "12px" }} />
+            </Link>
+          </div>
+          <div
+            style={{
+              width: "280px",
+              flexShrink: 0,
+              position: "relative",
+              borderLeft: "0.5px solid rgba(25,22,46,0.06)",
+            }}
+          >
+            <Image src="/Chroma.png" alt="Chroma" fill style={{ objectFit: "cover" }} />
           </div>
         </div>
 
-        {/* Ana Projeler Listesi */}
-        <div className="flex flex-col gap-6">
-          <h2 className="text-2xl font-semibold text-gray-200 animate-reveal delay-200">Modellerim</h2>
-          
-          {/* Proje Kartı 1: Chroma */}
-          <div className="rounded-sm border border-white/5 group hover:border-accent/30 shadow-lg shadow-black/80 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden backdrop-blur-sm">
-            <div className="absolute top-0 left-0 w-96 h-full bg-linear-to-r from-accent/7 to-transparent pointer-events-none"></div>
-            
-            <div className="rounded-sm flex flex-col md:flex-row relative z-10">
-              
-              {/* Sol metin */}
-              <div className="md:w-[55%] p-6 md:p-8 flex flex-col min-w-0">
-                {/* isim + badge + tag'ler */}
-                <div className="flex items-center gap-2 flex-wrap mb-3">
-                  <h3 className="text-xl font-bold text-gray-100">Chroma</h3>
-                  <span className="text-xs font-medium px-2 py-0.5 rounded-sm bg-accent/10 border border-accent/20 text-accent">v1.2</span>
-                  <span className="px-2 py-0.5 rounded-sm bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>yayında
+        {/* Seam */}
+        <div
+          style={{
+            background: "rgba(255,255,255,0.50)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+            border: "0.5px solid rgba(25,22,46,0.08)",
+            borderRadius: "10px",
+            overflow: "hidden",
+            display: "flex",
+            marginBottom: "12px",
+          }}
+        >
+          <div style={{ flex: 1, padding: "28px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px", flexWrap: "wrap" }}>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "1.5rem",
+                  fontWeight: 600,
+                  color: "#19162e",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                Seam
+              </h2>
+              <span
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "10px",
+                  fontWeight: 500,
+                  padding: "2px 8px",
+                  borderRadius: "3px",
+                  background: "rgba(100,80,160,0.08)",
+                  color: "rgba(100,80,160,0.65)",
+                  letterSpacing: "0.03em",
+                }}
+              >
+                v1.1
+              </span>
+              <span
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "10px",
+                  fontWeight: 500,
+                  padding: "2px 8px",
+                  borderRadius: "3px",
+                  background: "rgba(60,180,100,0.08)",
+                  color: "rgba(40,150,80,0.75)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "5px",
+                }}
+              >
+                <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "rgba(40,150,80,0.70)", display: "inline-block" }} />
+                yayında
+              </span>
+              <div style={{ display: "flex", gap: "5px", flexWrap: "wrap" }}>
+                {["PyTorch", "Transformers", "Python", "FastAPI"].map((t) => (
+                  <span
+                    key={t}
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: "10px",
+                      padding: "2px 8px",
+                      borderRadius: "3px",
+                      border: "0.5px solid rgba(25,22,46,0.10)",
+                      color: "rgba(25,22,46,0.32)",
+                      background: "rgba(255,255,255,0.30)",
+                    }}
+                  >
+                    {t}
                   </span>
-                  <div className="flex flex-wrap gap-1.5 ml-1">
-                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">Keras</span>
-                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">CNN</span>
-                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">Python</span>
-                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">FastAPI</span>
-                  </div>
-                </div>
-
-                {/* Açıklama */}
-                <p className="text-textMuted leading-relaxed flex-1 mb-4">
-                  FastAPI backendine bağlı, Keras tabanlı konvolüsyonel sinir ağları (CNN) kullanarak yüklenen görüntülerin özniteliklerini çıkaran ve yüksek doğrulukla analiz eden modelim.
-                  Bu model sayesinde tarzınızı uzman bir yapay zekanın detaylı metrikleriyle inceleyebilirsiniz.
-                </p>
-
-                {/* Buton */}
-                <Link href="/dashboard/tool-1" className="w-full flex items-center justify-center gap-2 bg-linear-to-r from-accent to-[#ffd44f] text-[#1a0808] px-5 py-2.5 rounded-sm font-semibold text-sm hover:opacity-90 transition-opacity duration-250">
-                  Modeli İncele
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                ))}
               </div>
-
-              {/* Görsel */}
-              <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "300px", background: "transparent"}}>
-                <Image
-                  src="/Chroma.png"
-                  alt="Chroma"
-                  fill
-                  className="object-cover object-center"
-                />
-              </div>
-
             </div>
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "13px",
+                fontWeight: 300,
+                color: "rgba(25,22,46,0.45)",
+                lineHeight: 1.75,
+                marginBottom: "20px",
+              }}
+            >
+              PyTorch ile geliştirdiğim, mE5-small base encoderın üzerine kendi kurduğum
+              Cross Sentence Attention mekanizmalı Transformer modelim. RAG dokümanlarının
+              chunking problemini bilgi kaybı olmaksızın çözüyor.
+            </p>
+            <Link
+              href="/dashboard/tool-2"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                fontFamily: "var(--font-body)",
+                fontSize: "12px",
+                fontWeight: 500,
+                color: "rgba(25,22,46,0.65)",
+                background: "rgba(25,22,46,0.07)",
+                border: "0.5px solid rgba(25,22,46,0.14)",
+                borderRadius: "100px",
+                padding: "9px 20px",
+                textDecoration: "none",
+              }}
+            >
+              Modeli İncele
+              <ArrowRight style={{ width: "12px", height: "12px" }} />
+            </Link>
           </div>
-
-          {/* Proje Kartı 2: Seam */}
-          <div className="rounded-sm border border-white/5 group hover:border-accent/30 shadow-lg shadow-black/80 hover:shadow-2xl hover:shadow-accent/10 transition-all duration-300 animate-reveal delay-200 relative overflow-hidden backdrop-blur-sm">
-            <div className="absolute top-0 left-0 w-96 h-full bg-linear-to-r from-accent/7 to-transparent pointer-events-none"></div>
-            
-            <div className="rounded-sm flex flex-col md:flex-row relative z-10">
-              
-              {/* Sol metin */}
-              <div className="md:w-[55%] p-6 md:p-8 flex flex-col min-w-0">
-                {/* isim + badge + tag'ler */}
-                <div className="flex items-center gap-2 flex-wrap mb-3">
-                  <h3 className="text-xl font-bold text-gray-100">Seam</h3>
-                  <span className="text-xs font-medium px-2 py-0.5 rounded-sm bg-accent/10 border border-accent/20 text-accent">v1.1</span>
-                  <span className="px-2 py-0.5 rounded-sm bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>yayında
-                  </span>
-                  <div className="flex flex-wrap gap-1.5 ml-1">
-                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">Pytorch</span>
-                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">Transformers</span>
-                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">Python</span>
-                    <span className="px-2.5 py-0.5 rounded-sm bg-white/5 text-gray-400 text-xs font-medium border border-white/5">FastAPI</span>
-                  </div>
-                </div>
-
-                {/* Açıklama */}
-                <p className="text-textMuted leading-relaxed flex-1 mb-4">
-                  PyTorch ile geliştirdiğim, mE5-smal base encoderin üzerine kendi kurduğum Cross Sentence Attention mekanizmalı özel bir Transformer bloğundan oluşan modelim.
-                  RAG dokümanlarının chunking problemini; dokmümanı anlamsal olarak, bilgi kaybı olmaksızın bölerek çözüyor. böylece RAG işleminden maximum verim almanızı sağlıyor.
-                </p>
-
-                {/* Buton */}
-                <Link href="/dashboard/tool-2" className="w-full flex items-center justify-center gap-2 bg-linear-to-r from-accent to-[#ffd44f] text-[#1a0808] px-5 py-2.5 rounded-sm font-semibold text-sm hover:opacity-90 transition-opacity duration-250">
-                  Modeli İncele
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-
-              {/* Görsel */}
-              <div className="md:w-[45%] shrink-0 border-t md:border-t-0 md:border-l border-white/5 relative overflow-hidden" style={{minHeight: "300px", background: "transparent"}}>
-                <Image
-                  src="/Chunker.png"
-                  alt="Seam"
-                  fill
-                  className="object-cover object-center"
-                />
-              </div>
-
-            </div>
+          <div
+            style={{
+              width: "280px",
+              flexShrink: 0,
+              position: "relative",
+              borderLeft: "0.5px solid rgba(25,22,46,0.06)",
+            }}
+          >
+            <Image src="/Chunker.png" alt="Seam" fill style={{ objectFit: "cover" }} />
           </div>
+        </div>
 
-          {/* Proje Kartı 3: */}
-          <div className="glass-panel rounded-sm p-1 border border-white/5 opacity-60 hover:opacity-100 transition-opacity duration-300 animate-reveal delay-800 backdrop-blur-md">
-            <div className="bg-surface/50 rounded-sm p-6 md:p-8 flex flex-col md:flex-row gap-8 items-start md:items-center">
-
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-2">
-                  <h3 className="text-xl font-bold text-gray-100">Yakında</h3>
-                  <span className="px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-gray-400 text-xs font-medium flex items-center gap-1.5">
-                    <Clock className="w-3 h-3" /> Geliştiriliyor
-                  </span>
-                </div>
-                <p className="text-textMuted leading-relaxed max-w-2xl">
-                  Bu proje hakkında bilgi vermek için henüz erken.
-                </p>
-              </div>
-
-              <button disabled className="shrink-0 w-full md:w-auto px-6 py-3 rounded-sm font-medium bg-white/5 text-textMuted cursor-not-allowed border border-white/5">
+        {/* Yakında */}
+        <div
+          style={{
+            background: "rgba(255,255,255,0.28)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+            border: "0.5px solid rgba(25,22,46,0.06)",
+            borderRadius: "10px",
+            padding: "24px 28px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            opacity: 0.60,
+          }}
+        >
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
+              <h3
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "1.2rem",
+                  fontWeight: 600,
+                  color: "#19162e",
+                }}
+              >
                 Yakında
-              </button>
+              </h3>
+              <span
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "10px",
+                  padding: "2px 8px",
+                  borderRadius: "100px",
+                  border: "0.5px solid rgba(25,22,46,0.10)",
+                  color: "rgba(25,22,46,0.30)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "4px",
+                }}
+              >
+                <Clock style={{ width: "10px", height: "10px" }} />
+                Geliştiriliyor
+              </span>
             </div>
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "13px",
+                fontWeight: 300,
+                color: "rgba(25,22,46,0.35)",
+              }}
+            >
+              Bu proje hakkında bilgi vermek için henüz erken.
+            </p>
           </div>
+          <button
+            disabled
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "12px",
+              fontWeight: 400,
+              color: "rgba(25,22,46,0.22)",
+              background: "rgba(25,22,46,0.04)",
+              border: "0.5px solid rgba(25,22,46,0.08)",
+              borderRadius: "100px",
+              padding: "9px 20px",
+              cursor: "not-allowed",
+            }}
+          >
+            Yakında
+          </button>
         </div>
+
       </div>
     </div>
   );

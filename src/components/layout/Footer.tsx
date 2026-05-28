@@ -1,32 +1,52 @@
 import Link from "next/link";
-import { Github, Linkedin, Instagram} from "lucide-react";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-white/5 bg-background py-8 mt-auto z-10 relative">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        
-        <div className="flex flex-col items-center md:items-start gap-1">
-          <span className="text-gray-200 font-semibold tracking-tight">AI & Sistem Mimarisi</span>
-          <p className="text-sm text-textMuted">
-            © {currentYear} Tüm hakları saklıdır.
-          </p>
-        </div>
+    <footer
+      style={{
+        position: "relative",
+        zIndex: 10,
+        borderTop: "0.5px solid rgba(25,22,46,0.08)",
+        padding: "20px clamp(2rem, 8vw, 7rem)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <span
+        style={{
+          fontFamily: "var(--font-body)",
+          fontSize: "11px",
+          fontWeight: 400,
+          color: "rgba(25,22,46,0.22)",
+        }}
+      >
+        © {year} · AI & Sistem Mimarisi
+      </span>
 
-        <div className="flex items-center gap-5 text-textMuted">
-          <Link href="https://github.com/omerfarukpirhasanoglu" target="_blank" className="hover:text-accent transition-colors duration-250">
-            <Github className="w-5 h-5" />
+      <div style={{ display: "flex", gap: "20px" }}>
+        {[
+          { label: "GitHub", href: "https://github.com/omerfarukpirhasanoglu" },
+          { label: "LinkedIn", href: "https://www.linkedin.com/in/omer-pirhasanoglu" },
+          { label: "Instagram", href: "https://www.instagram.com/omerpirhasanoglu" },
+        ].map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            target="_blank"
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "11px",
+              fontWeight: 400,
+              color: "rgba(25,22,46,0.22)",
+              textDecoration: "none",
+            }}
+          >
+            {item.label}
           </Link>
-          <Link href="https://www.linkedin.com/in/omer-pirhasanoglu" target="_blank" className="hover:text-accent transition-colors duration-250">
-            <Linkedin className="w-5 h-5" />
-          </Link>
-          <Link href="https://www.instagram.com/omerpirhasanoglu" target="_blank" className="hover:text-accent transition-colors duration-250">
-            <Instagram className="w-5 h-5" />
-          </Link>
-        </div>
-
+        ))}
       </div>
     </footer>
   );
