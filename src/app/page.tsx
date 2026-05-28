@@ -63,7 +63,7 @@ export default function LandingPage() {
           href="/"
           style={{
             fontFamily: "var(--font-nav)",
-            fontSize: "17px",
+            fontSize: "19px",
             fontWeight: 400,
             color: "rgba(23,20,42,0.58)",
             letterSpacing: "0.01em",
@@ -81,7 +81,7 @@ export default function LandingPage() {
               target="_blank"
               style={{
                 fontFamily: "var(--font-nav)",
-                fontSize: "15px",
+                fontSize: "17px",
                 fontWeight: 400,
                 color: "rgba(23,20,42,0.38)",
                 letterSpacing: "0.01em",
@@ -134,13 +134,14 @@ export default function LandingPage() {
           className="reveal reveal-2"
           style={{
             fontFamily: "var(--font-display)",
+            fontStyle: "italic",
             fontSize: "clamp(3.6rem, 9vw, 7.5rem)",
-            fontWeight: 600,
+            fontWeight: 400,
             lineHeight: 1.04,
             color: "#17142a",
             maxWidth: "820px",
             marginBottom: "28px",
-            letterSpacing: "-0.015em",
+            letterSpacing: "-0.01em",
           }}
         >
           "Attention" is all<br />you need.
