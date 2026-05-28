@@ -37,7 +37,7 @@ export default function Sidebar() {
         height: "100vh",
         display: "flex",
         flexDirection: "column",
-        width: expanded ? "200px" : "52px",
+        width: expanded ? "210px" : "52px",
         transition: "width 0.30s cubic-bezier(0.22,1,0.36,1)",
         background: "transparent",
         borderRight: "0.5px solid rgba(23,20,42,0.08)",
@@ -52,63 +52,53 @@ export default function Sidebar() {
         style={{
           display: "flex",
           alignItems: "center",
-          height: "60px",
+          height: "64px",
           padding: "0 14px",
           borderBottom: "0.5px solid rgba(23,20,42,0.07)",
           textDecoration: "none",
           flexShrink: 0,
           overflow: "hidden",
           whiteSpace: "nowrap",
-          gap: "12px",
+          gap: "14px",
         }}
       >
-        {/* Monogram */}
-        <span
-          style={{
-            fontFamily: "var(--font-display)",
-            fontStyle: "italic",
-            fontSize: "16px",
-            color: "rgba(90,65,155,0.55)",
-            flexShrink: 0,
-            lineHeight: 1,
-            width: "24px",
-            textAlign: "center",
-          }}
-        >
+        <span style={{
+          fontFamily: "var(--font-display)",
+          fontStyle: "italic",
+          fontSize: "18px",
+          color: "rgba(90,65,155,0.55)",
+          flexShrink: 0,
+          lineHeight: 1,
+          width: "24px",
+          textAlign: "center",
+        }}>
           o
         </span>
-
-        {/* İsim — sadece expanded'da görünür */}
-        <span
-          style={{
-            fontFamily: "var(--font-nav)",
-            fontSize: "13px",
-            fontWeight: 400,
-            color: "rgba(23,20,42,0.50)",
-            opacity: expanded ? 1 : 0,
-            transition: "opacity 0.20s",
-            whiteSpace: "nowrap",
-          }}
-        >
+        <span style={{
+          fontFamily: "var(--font-nav)",
+          fontSize: "15px",
+          fontWeight: 400,
+          color: "rgba(23,20,42,0.50)",
+          opacity: expanded ? 1 : 0,
+          transition: "opacity 0.20s",
+          whiteSpace: "nowrap",
+        }}>
           Ana Sayfa
         </span>
       </Link>
 
       {/* Nav */}
-      <nav
-        style={{
-          flex: 1,
-          padding: "12px 8px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "2px",
-          overflow: "hidden",
-        }}
-      >
+      <nav style={{
+        flex: 1,
+        padding: "14px 8px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "3px",
+        overflow: "hidden",
+      }}>
         {menuItems.map((item) => {
           const isActive = pathname === item.href;
           const Icon = item.icon;
-
           return (
             <Link
               key={item.href}
@@ -117,8 +107,8 @@ export default function Sidebar() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "12px",
-                padding: "9px 10px",
+                gap: "13px",
+                padding: "10px 10px",
                 borderRadius: "6px",
                 textDecoration: "none",
                 background: isActive ? "rgba(90,65,155,0.08)" : "transparent",
@@ -128,30 +118,22 @@ export default function Sidebar() {
                 flexShrink: 0,
               }}
             >
-              <Icon
-                style={{
-                  width: "15px",
-                  height: "15px",
-                  flexShrink: 0,
-                  color: isActive
-                    ? "rgba(90,65,155,0.70)"
-                    : "rgba(23,20,42,0.30)",
-                  transition: "color 0.15s",
-                }}
-              />
-              <span
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: "12.5px",
-                  fontWeight: isActive ? 500 : 400,
-                  color: isActive
-                    ? "rgba(90,65,155,0.72)"
-                    : "rgba(23,20,42,0.40)",
-                  opacity: expanded ? 1 : 0,
-                  transition: "opacity 0.18s",
-                  whiteSpace: "nowrap",
-                }}
-              >
+              <Icon style={{
+                width: "16px",
+                height: "16px",
+                flexShrink: 0,
+                color: isActive ? "rgba(90,65,155,0.70)" : "rgba(23,20,42,0.28)",
+                transition: "color 0.15s",
+              }} />
+              <span style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "14px",
+                fontWeight: isActive ? 500 : 400,
+                color: isActive ? "rgba(90,65,155,0.72)" : "rgba(23,20,42,0.38)",
+                opacity: expanded ? 1 : 0,
+                transition: "opacity 0.18s",
+                whiteSpace: "nowrap",
+              }}>
                 {item.name}
               </span>
             </Link>
