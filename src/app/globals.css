@@ -1,15 +1,15 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Gowun+Batang:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap');
 
 @theme {
-  --color-background: #f0eef8;
-  --color-surface:    #ffffff;
-  --color-accent:     rgba(100,80,160,0.70);
-  --color-text:       #19162e;
-  --color-muted:      rgba(25,22,46,0.42);
-  --color-border:     rgba(25,22,46,0.10);
+  --color-background: #ece9f5;
+  --color-accent:     rgba(90,65,155,0.75);
+  --color-text:       #17142a;
+  --color-muted:      rgba(23,20,42,0.42);
+  --color-border:     rgba(23,20,42,0.09);
 
   --font-display: 'Cormorant Garamond', serif;
+  --font-nav:     'Gowun Batang', serif;
   --font-body:    'DM Sans', sans-serif;
 }
 
@@ -19,9 +19,7 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
@@ -31,7 +29,7 @@ body {
   min-height: 100svh;
 }
 
-/* Aurora background — fixed, full page */
+/* Aurora — canlı, doygun */
 body::before {
   content: '';
   position: fixed;
@@ -39,36 +37,28 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 90% 75% at 10% 85%, rgba(255,175,130,0.50) 0%, transparent 58%),
-    radial-gradient(ellipse 65% 65% at 88% 15%, rgba(170,205,255,0.48) 0%, transparent 54%),
-    radial-gradient(ellipse 55% 55% at 52% 48%, rgba(215,195,255,0.22) 0%, transparent 68%),
-    radial-gradient(ellipse 40% 40% at 75% 70%, rgba(200,230,255,0.20) 0%, transparent 55%),
-    #f0eef8;
+    radial-gradient(ellipse 85% 70% at 8% 88%,  rgba(255,140,90,0.68)  0%, transparent 55%),
+    radial-gradient(ellipse 60% 60% at 90% 12%,  rgba(120,185,255,0.62) 0%, transparent 52%),
+    radial-gradient(ellipse 50% 55% at 50% 45%,  rgba(190,160,255,0.32) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 40% at 78% 72%,  rgba(160,220,255,0.28) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 35% at 25% 30%,  rgba(255,200,160,0.20) 0%, transparent 60%),
+    #ece9f5;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(100,80,160,0.20); border-radius: 9999px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(100,80,160,0.35); }
+::-webkit-scrollbar-thumb { background: rgba(90,65,155,0.22); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(90,65,155,0.38); }
 
-/* Reveal animation */
+/* Reveal */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
-.reveal {
-  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.reveal-1 { animation-delay: 80ms; }
-.reveal-2 { animation-delay: 180ms; }
-.reveal-3 { animation-delay: 280ms; }
-.reveal-4 { animation-delay: 400ms; }
-.reveal-5 { animation-delay: 520ms; }
+.reveal   { animation: fadeUp 0.85s cubic-bezier(0.22,1,0.36,1) both; }
+.reveal-1 { animation-delay: 60ms;  }
+.reveal-2 { animation-delay: 160ms; }
+.reveal-3 { animation-delay: 270ms; }
+.reveal-4 { animation-delay: 390ms; }
+.reveal-5 { animation-delay: 510ms; }

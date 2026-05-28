@@ -1,19 +1,71 @@
 import Link from "next/link";
 import Footer from "@/src/components/layout/Footer";
 
+const NAV_LINKS = [
+  { label: "GitHub",    href: "https://github.com/omerfarukpirhasanoglu" },
+  { label: "LinkedIn",  href: "https://www.linkedin.com/in/omer-pirhasanoglu" },
+  { label: "Instagram", href: "https://www.instagram.com/omerpirhasanoglu" },
+];
+
+const TECH_COLS = [
+  {
+    label: "Model & Mimari",
+    items: "Keras, PyTorch\nCNN, Transformer Architecture\nTransfer Learning, Fine-Tuning",
+  },
+  {
+    label: "Altyapı & Araçlar",
+    items: "FastAPI, Docker\nONNX Runtime, Python\nGit",
+  },
+];
+
+const PROJECTS = [
+  {
+    name: "Chroma",
+    version: "v1.2",
+    tags: ["Keras", "CNN", "Transfer Learning", "Görüntü Sınıflandırma"],
+    href: "/dashboard/tool-1",
+    live: true,
+  },
+  {
+    name: "Seam",
+    version: "v1.1",
+    tags: ["PyTorch", "Transformers", "NLP", "RAG"],
+    href: "/dashboard/tool-2",
+    live: true,
+  },
+  {
+    name: "———",
+    version: null,
+    tags: [],
+    href: "/dashboard/tool-3",
+    live: false,
+  },
+];
+
 export default function LandingPage() {
   return (
     <div className="relative z-10 min-h-screen flex flex-col">
 
       {/* ── NAV ── */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-14 h-16">
+      <header
+        style={{
+          position: "fixed",
+          top: 0, left: 0, right: 0,
+          zIndex: 50,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "0 clamp(2rem, 7vw, 6rem)",
+          height: "68px",
+        }}
+      >
         <Link
           href="/"
           style={{
-            fontFamily: "var(--font-body)",
-            fontSize: "13px",
-            fontWeight: 500,
-            color: "rgba(25,22,46,0.60)",
+            fontFamily: "var(--font-nav)",
+            fontSize: "17px",
+            fontWeight: 400,
+            color: "rgba(23,20,42,0.58)",
             letterSpacing: "0.01em",
             textDecoration: "none",
           }}
@@ -21,22 +73,18 @@ export default function LandingPage() {
           omer faruk pirhasanoglu
         </Link>
 
-        <nav style={{ display: "flex", gap: "28px" }}>
-          {[
-            { label: "GitHub", href: "https://github.com/omerfarukpirhasanoglu" },
-            { label: "LinkedIn", href: "https://www.linkedin.com/in/omer-pirhasanoglu" },
-            { label: "Instagram", href: "https://www.instagram.com/omerpirhasanoglu" },
-          ].map((item) => (
+        <nav style={{ display: "flex", gap: "36px" }}>
+          {NAV_LINKS.map((item) => (
             <Link
               key={item.label}
               href={item.href}
               target="_blank"
               style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "12px",
+                fontFamily: "var(--font-nav)",
+                fontSize: "15px",
                 fontWeight: 400,
-                color: "rgba(25,22,46,0.32)",
-                letterSpacing: "0.02em",
+                color: "rgba(23,20,42,0.38)",
+                letterSpacing: "0.01em",
                 textDecoration: "none",
               }}
             >
@@ -53,7 +101,7 @@ export default function LandingPage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          padding: "0 clamp(2rem, 8vw, 7rem)",
+          padding: "68px clamp(2rem, 7vw, 6rem) 0",
           minHeight: "100svh",
         }}
       >
@@ -62,18 +110,22 @@ export default function LandingPage() {
           className="reveal reveal-1"
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: "10px",
+            fontSize: "11px",
             fontWeight: 500,
             letterSpacing: "0.16em",
             textTransform: "uppercase",
-            color: "rgba(100,80,160,0.58)",
-            marginBottom: "20px",
+            color: "rgba(90,65,155,0.60)",
+            marginBottom: "22px",
             display: "flex",
             alignItems: "center",
             gap: "10px",
           }}
         >
-          <span style={{ display: "inline-block", width: "18px", height: "1px", background: "rgba(100,80,160,0.35)" }} />
+          <span style={{
+            display: "inline-block",
+            width: "18px", height: "1px",
+            background: "rgba(90,65,155,0.38)",
+          }} />
           Deep Learning · Computer Vision · NLP
         </div>
 
@@ -82,13 +134,13 @@ export default function LandingPage() {
           className="reveal reveal-2"
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+            fontSize: "clamp(3.6rem, 9vw, 7.5rem)",
             fontWeight: 600,
-            lineHeight: 1.06,
-            color: "#19162e",
-            maxWidth: "700px",
-            marginBottom: "24px",
-            letterSpacing: "-0.01em",
+            lineHeight: 1.04,
+            color: "#17142a",
+            maxWidth: "820px",
+            marginBottom: "28px",
+            letterSpacing: "-0.015em",
           }}
         >
           "Attention" is all<br />you need.
@@ -99,12 +151,12 @@ export default function LandingPage() {
           className="reveal reveal-3"
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: "14px",
+            fontSize: "16px",
             fontWeight: 300,
-            color: "rgba(25,22,46,0.45)",
+            color: "rgba(23,20,42,0.45)",
             lineHeight: 1.75,
-            maxWidth: "400px",
-            marginBottom: "36px",
+            maxWidth: "420px",
+            marginBottom: "40px",
           }}
         >
           Mimari tasarımdan bulut dağıtımına kadar<br />
@@ -120,18 +172,17 @@ export default function LandingPage() {
               display: "inline-flex",
               alignItems: "center",
               fontFamily: "var(--font-body)",
-              fontSize: "12.5px",
+              fontSize: "14px",
               fontWeight: 500,
-              color: "rgba(25,22,46,0.72)",
-              background: "rgba(25,22,46,0.08)",
-              border: "0.5px solid rgba(25,22,46,0.18)",
+              color: "rgba(23,20,42,0.70)",
+              background: "rgba(23,20,42,0.08)",
+              border: "0.5px solid rgba(23,20,42,0.18)",
               borderRadius: "100px",
-              padding: "11px 26px",
+              padding: "13px 30px",
               letterSpacing: "0.02em",
               textDecoration: "none",
               backdropFilter: "blur(12px)",
               WebkitBackdropFilter: "blur(12px)",
-              transition: "background 0.2s, border-color 0.2s",
             }}
           >
             Projeleri Keşfet
@@ -144,57 +195,49 @@ export default function LandingPage() {
         style={{
           position: "relative",
           zIndex: 10,
-          padding: "72px clamp(2rem, 8vw, 7rem) 64px",
-          borderTop: "0.5px solid rgba(25,22,46,0.08)",
+          padding: "80px clamp(2rem, 7vw, 6rem) 72px",
+          borderTop: "0.5px solid rgba(23,20,42,0.08)",
         }}
       >
-        <p
-          style={{
-            fontFamily: "var(--font-body)",
-            fontSize: "9.5px",
-            fontWeight: 500,
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: "rgba(25,22,46,0.22)",
-            marginBottom: "28px",
-          }}
-        >
+        <p style={{
+          fontFamily: "var(--font-body)",
+          fontSize: "10px",
+          fontWeight: 500,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "rgba(23,20,42,0.22)",
+          marginBottom: "32px",
+        }}>
           Hakkımda
         </p>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "48px",
-            alignItems: "start",
-          }}
-        >
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "1.1fr 0.9fr",
+          gap: "56px",
+          alignItems: "start",
+        }}>
           {/* Sol — metin */}
           <div>
-            <h2
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)",
-                fontWeight: 600,
-                color: "#19162e",
-                marginBottom: "16px",
-                letterSpacing: "-0.01em",
-                lineHeight: 1.15,
-              }}
-            >
+            <h2 style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1.7rem, 3vw, 2.4rem)",
+              fontWeight: 600,
+              color: "#17142a",
+              marginBottom: "20px",
+              letterSpacing: "-0.01em",
+              lineHeight: 1.12,
+            }}>
               Ömer Faruk Pirhasanoğlu
             </h2>
-            <p
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "13.5px",
-                fontWeight: 300,
-                color: "rgba(25,22,46,0.48)",
-                lineHeight: 1.80,
-                maxWidth: "420px",
-              }}
-            >
+            <p style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "15px",
+              fontWeight: 300,
+              color: "rgba(23,20,42,0.48)",
+              lineHeight: 1.82,
+              maxWidth: "480px",
+            }}>
               Derin öğrenme, bilgisayarla görme ve doğal dil işleme alanlarında
               uzmanlaşmakta olan 3. sınıf Bilgisayar Mühendisliği öğrencisiyim.
               Kısıtlı donanım kaynaklarıyla verimli model eğitimi ve ölçülebilir
@@ -203,175 +246,150 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* Sağ — tag'ler */}
-          <div style={{ paddingTop: "4px" }}>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "7px" }}>
-              {[
-                "Keras", "PyTorch", "CNN", "Transformer Architecture",
-                "Transfer Learning", "Fine-Tuning", "FastAPI", "Docker",
-                "ONNX Runtime", "Python", "NLP", "Computer Vision",
-              ].map((tag) => (
-                <span
-                  key={tag}
-                  style={{
+          {/* Sağ — kategorili sütunlar */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "20px 28px",
+            paddingTop: "6px",
+          }}>
+            {TECH_COLS.map((col) => (
+              <div key={col.label}>
+                <p style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "9px",
+                  fontWeight: 500,
+                  letterSpacing: "0.16em",
+                  textTransform: "uppercase",
+                  color: "rgba(90,65,155,0.50)",
+                  marginBottom: "10px",
+                }}>
+                  {col.label}
+                </p>
+                {col.items.split("\n").map((line, i) => (
+                  <p key={i} style={{
                     fontFamily: "var(--font-body)",
-                    fontSize: "11px",
-                    fontWeight: 400,
-                    color: "rgba(25,22,46,0.40)",
-                    background: "rgba(255,255,255,0.38)",
-                    border: "0.5px solid rgba(25,22,46,0.10)",
-                    borderRadius: "4px",
-                    padding: "4px 10px",
-                    backdropFilter: "blur(6px)",
-                    WebkitBackdropFilter: "blur(6px)",
-                  }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+                    fontSize: "14px",
+                    fontWeight: 300,
+                    color: "rgba(23,20,42,0.55)",
+                    lineHeight: 1.85,
+                  }}>
+                    {line}
+                  </p>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── PROJECTS ── */}
-      <section
-        style={{
-          position: "relative",
-          zIndex: 10,
-          padding: "0 clamp(2rem, 8vw, 7rem) 80px",
-          borderTop: "0.5px solid rgba(25,22,46,0.08)",
-        }}
-      >
-        <p
-          style={{
-            fontFamily: "var(--font-body)",
-            fontSize: "9.5px",
-            fontWeight: 500,
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: "rgba(25,22,46,0.22)",
-            marginBottom: "0",
-            paddingTop: "28px",
-          }}
-        >
+      <section style={{
+        position: "relative",
+        zIndex: 10,
+        padding: "0 clamp(2rem, 7vw, 6rem) 88px",
+        borderTop: "0.5px solid rgba(23,20,42,0.08)",
+      }}>
+        <p style={{
+          fontFamily: "var(--font-body)",
+          fontSize: "10px",
+          fontWeight: 500,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "rgba(23,20,42,0.22)",
+          paddingTop: "32px",
+          marginBottom: "0",
+        }}>
           Yapay Zeka Araçları
         </p>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          {[
-            {
-              name: "Chroma",
-              version: "v1.2",
-              tags: ["Keras", "CNN", "Transfer Learning", "Görüntü Sınıflandırma"],
-              href: "/dashboard/tool-1",
-              live: true,
-            },
-            {
-              name: "Seam",
-              version: "v1.1",
-              tags: ["PyTorch", "Transformers", "NLP", "RAG"],
-              href: "/dashboard/tool-2",
-              live: true,
-            },
-            {
-              name: "———",
-              version: null,
-              tags: [],
-              href: "/dashboard/tool-3",
-              live: false,
-            },
-          ].map((project, i) => (
+          {PROJECTS.map((project, i) => (
             <Link
               key={i}
               href={project.href}
               style={{
                 display: "flex",
                 alignItems: "center",
-                padding: "16px 0",
-                borderTop: "0.5px solid rgba(25,22,46,0.08)",
+                padding: "18px 0",
+                borderTop: "0.5px solid rgba(23,20,42,0.08)",
+                borderBottom: i === PROJECTS.length - 1
+                  ? "0.5px solid rgba(23,20,42,0.08)"
+                  : undefined,
                 textDecoration: "none",
                 gap: "0",
-                ...(i === 2 ? { borderBottom: "0.5px solid rgba(25,22,46,0.08)" } : {}),
               }}
             >
               {/* İsim */}
-              <span
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: "13.5px",
-                  fontWeight: 500,
-                  color: project.live ? "#19162e" : "rgba(25,22,46,0.25)",
-                  minWidth: "110px",
-                }}
-              >
+              <span style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "15px",
+                fontWeight: 500,
+                color: project.live ? "#17142a" : "rgba(23,20,42,0.25)",
+                minWidth: "120px",
+              }}>
                 {project.name}
               </span>
 
-              {/* Versiyon badge */}
+              {/* Versiyon / durum */}
               {project.version ? (
-                <span
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "10px",
-                    fontWeight: 500,
-                    padding: "2px 8px",
-                    borderRadius: "3px",
-                    background: "rgba(100,80,160,0.08)",
-                    color: "rgba(100,80,160,0.65)",
-                    marginRight: "20px",
-                    letterSpacing: "0.03em",
-                    whiteSpace: "nowrap",
-                  }}
-                >
+                <span style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "10.5px",
+                  fontWeight: 500,
+                  padding: "3px 9px",
+                  borderRadius: "3px",
+                  background: "rgba(90,65,155,0.08)",
+                  color: "rgba(90,65,155,0.65)",
+                  marginRight: "22px",
+                  letterSpacing: "0.03em",
+                  whiteSpace: "nowrap",
+                }}>
                   {project.version}
                 </span>
               ) : (
-                <span
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "10px",
-                    fontWeight: 400,
-                    padding: "2px 8px",
-                    borderRadius: "3px",
-                    background: "rgba(25,22,46,0.04)",
-                    color: "rgba(25,22,46,0.22)",
-                    marginRight: "20px",
-                    letterSpacing: "0.03em",
-                    whiteSpace: "nowrap",
-                  }}
-                >
+                <span style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "10.5px",
+                  fontWeight: 400,
+                  padding: "3px 9px",
+                  borderRadius: "3px",
+                  background: "rgba(23,20,42,0.04)",
+                  color: "rgba(23,20,42,0.22)",
+                  marginRight: "22px",
+                  whiteSpace: "nowrap",
+                }}>
                   geliştiriliyor
                 </span>
               )}
 
               {/* Tag'ler */}
-              <div style={{ display: "flex", gap: "0", flex: 1 }}>
+              <div style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
                 {project.tags.map((tag, j) => (
-                  <span
-                    key={j}
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "11px",
-                      fontWeight: 300,
-                      color: "rgba(25,22,46,0.30)",
-                    }}
-                  >
-                    {tag}{j < project.tags.length - 1 ? <span style={{ margin: "0 6px", color: "rgba(25,22,46,0.14)" }}> · </span> : null}
+                  <span key={j} style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "12px",
+                    fontWeight: 300,
+                    color: "rgba(23,20,42,0.30)",
+                  }}>
+                    {tag}
+                    {j < project.tags.length - 1 && (
+                      <span style={{ margin: "0 7px", color: "rgba(23,20,42,0.14)" }}>·</span>
+                    )}
                   </span>
                 ))}
               </div>
 
               {/* Ok */}
-              <span
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: "14px",
-                  color: project.live ? "rgba(100,80,160,0.40)" : "rgba(25,22,46,0.12)",
-                  marginLeft: "auto",
-                  paddingLeft: "16px",
-                }}
-              >
+              <span style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "16px",
+                color: project.live
+                  ? "rgba(90,65,155,0.38)"
+                  : "rgba(23,20,42,0.12)",
+                marginLeft: "auto",
+                paddingLeft: "16px",
+              }}>
                 {project.live ? "→" : "…"}
               </span>
             </Link>
