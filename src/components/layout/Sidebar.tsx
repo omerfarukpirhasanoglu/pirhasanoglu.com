@@ -122,14 +122,14 @@ export default function Sidebar() {
                 width: "16px",
                 height: "16px",
                 flexShrink: 0,
-                color: isActive ? "rgba(90,65,155,0.70)" : "rgba(23,20,42,0.28)",
+                color: isActive ? "rgba(90,65,155,0.70)" : "rgba(23,20,42,0.42)",
                 transition: "color 0.15s",
               }} />
               <span style={{
                 fontFamily: "var(--font-body)",
                 fontSize: "14px",
                 fontWeight: isActive ? 500 : 400,
-                color: isActive ? "rgba(90,65,155,0.72)" : "rgba(23,20,42,0.38)",
+                color: isActive ? "rgba(90,65,155,0.72)" : "rgba(23,20,42,0.42)",
                 opacity: expanded ? 1 : 0,
                 transition: "opacity 0.18s",
                 whiteSpace: "nowrap",

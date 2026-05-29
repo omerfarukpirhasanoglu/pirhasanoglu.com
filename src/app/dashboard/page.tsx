@@ -76,7 +76,7 @@ export default function DashboardPage() {
             }}>
               v1.2 · yayında
             </span>
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: "rgba(90,65,155,0.62)" }}>
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "18px", fontWeight: 500, color: "rgba(90,65,155,0.62)" }}>
               İncele →
             </span>
           </div>
@@ -84,7 +84,7 @@ export default function DashboardPage() {
 
         {/* Seam */}
         <Link
-          href="/dashboard"
+          href="/dashboard/tool-2"
           style={{
             display: "flex",
             flexDirection: "column",
@@ -123,7 +123,7 @@ export default function DashboardPage() {
             }}>
               v1.1 · yayında
             </span>
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: "rgba(90,65,155,0.62)" }}>
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "18px", fontWeight: 500, color: "rgba(90,65,155,0.62)" }}>
               İncele →
             </span>
           </div>
