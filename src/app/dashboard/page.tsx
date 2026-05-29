@@ -59,14 +59,14 @@ export default function DashboardPage() {
             </h2>
             <p style={{
               fontFamily: "var(--font-body)", fontSize: "13.5px", fontWeight: 300,
-              color: "rgba(23,20,42,0.42)", lineHeight: 1.78,
+              color: "rgba(23,20,42,0.62)", lineHeight: 1.78,
             }}>
               Keras tabanlı CNN. Görüntü sınıflandırma ve stil analizi,
               transfer learning ile optimize edilmiş.
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "28px" }}>
-            <p style={{ fontFamily: "var(--font-body)", fontSize: "11.5px", fontWeight: 300, color: "rgba(23,20,42,0.28)", lineHeight: 1.90 }}>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: "11.5px", fontWeight: 300, color: "rgba(23,20,42,0.42)", lineHeight: 1.90 }}>
               Keras · CNN<br />Transfer Learning · FastAPI
             </p>
             <span style={{
@@ -106,14 +106,14 @@ export default function DashboardPage() {
             </h2>
             <p style={{
               fontFamily: "var(--font-body)", fontSize: "13.5px", fontWeight: 300,
-              color: "rgba(23,20,42,0.42)", lineHeight: 1.78,
+              color: "rgba(23,20,42,0.62)", lineHeight: 1.78,
             }}>
               PyTorch Transformer. RAG pipeline'ları için bilgi kaybı
               olmaksızın anlamsal metin bölütleme.
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "28px" }}>
-            <p style={{ fontFamily: "var(--font-body)", fontSize: "11.5px", fontWeight: 300, color: "rgba(23,20,42,0.28)", lineHeight: 1.90 }}>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: "11.5px", fontWeight: 300, color: "rgba(23,20,42,0.42)", lineHeight: 1.90 }}>
               PyTorch · Transformers<br />NLP · RAG
             </p>
             <span style={{
@@ -123,7 +123,7 @@ export default function DashboardPage() {
             }}>
               v1.1 · yayında
             </span>
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: "rgba(90,65,155,0.42)" }}>
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: "rgba(90,65,155,0.82)" }}>
               İncele →
             </span>
           </div>
