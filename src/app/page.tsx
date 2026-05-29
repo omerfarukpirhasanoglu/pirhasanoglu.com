@@ -103,8 +103,39 @@ export default function LandingPage() {
           justifyContent: "center",
           padding: "68px clamp(2rem, 7vw, 6rem) 0",
           minHeight: "100svh",
+          position: "relative",
         }}
       >
+        {/* Scroll hint */}
+        <div
+          className="reveal reveal-5"
+          style={{
+            position: "absolute",
+            bottom: "32px",
+            right: "clamp(2rem, 7vw, 6rem)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "10px",
+          }}
+        >
+          <div style={{
+            width: "1px",
+            height: "48px",
+            background: "linear-gradient(to bottom, rgba(23,20,42,0.18), transparent)",
+          }} />
+          <span style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "8.5px",
+            fontWeight: 500,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "rgba(23,20,42,0.22)",
+            writingMode: "vertical-rl" as const,
+          }}>
+            scroll
+          </span>
+        </div>
         {/* Eyebrow */}
         <div
           className="reveal reveal-1"
