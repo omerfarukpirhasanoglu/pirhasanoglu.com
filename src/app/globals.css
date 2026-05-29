@@ -29,7 +29,7 @@ body {
   min-height: 100svh;
 }
 
-/* Aurora — soft & clean, mor-mavi-şeftali, kızıl yok */
+/* Aurora — dağılmış, GPT-5.5 renkleri */
 body::before {
   content: '';
   position: fixed;
@@ -37,12 +37,12 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 75% 65% at 6% 90%,  rgba(200,160,255,0.48) 0%, transparent 56%),
-    radial-gradient(ellipse 60% 60% at 92% 10%,  rgba(130,190,255,0.46) 0%, transparent 52%),
-    radial-gradient(ellipse 50% 55% at 50% 46%,  rgba(180,150,255,0.22) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 40% at 76% 72%,  rgba(160,215,255,0.22) 0%, transparent 54%),
-    radial-gradient(ellipse 35% 35% at 24% 28%,  rgba(255,200,180,0.18) 0%, transparent 58%),
-    #edeaf6;
+    radial-gradient(ellipse 150% 100% at -15% 70%, rgba(255,130,90,0.42) 0%, transparent 58%),
+    radial-gradient(ellipse 130% 85% at 115% 15%, rgba(170,120,255,0.38) 0%, transparent 58%),
+    radial-gradient(ellipse 120% 75% at 55% 115%, rgba(255,200,70,0.32) 0%, transparent 58%),
+    radial-gradient(ellipse 100% 65% at 75% 85%, rgba(255,100,150,0.24) 0%, transparent 55%),
+    radial-gradient(ellipse 80%  80% at 25%  5%, rgba(220,170,255,0.22) 0%, transparent 55%),
+    #ede9f6;
 }
 
 /* Scrollbar */
