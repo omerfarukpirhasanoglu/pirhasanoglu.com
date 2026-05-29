@@ -159,7 +159,7 @@ export default function DashboardPage() {
             <span style={{
               fontFamily: "var(--font-body)", fontSize: "10.5px", fontWeight: 500,
               padding: "3px 10px", borderRadius: "3px",
-              background: "rgba(23,20,42,0.42)", color: "rgba(23,20,42,0.42)", display: "inline-block",
+              background: "rgba(23,20,42,0.08)", color: "rgba(23,20,42,0.42)", display: "inline-block",
             }}>
               geliştiriliyor
             </span>
