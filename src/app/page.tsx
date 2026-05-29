@@ -81,7 +81,7 @@ export default function LandingPage() {
               target="_blank"
               style={{
                 fontFamily: "var(--font-nav)",
-                fontSize: "17px",
+                fontSize: "21px",
                 fontWeight: 400,
                 color: "rgba(23,20,42,0.38)",
                 letterSpacing: "0.01em",
@@ -141,7 +141,7 @@ export default function LandingPage() {
           className="reveal reveal-1"
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: "11px",
+            fontSize: "15px",
             fontWeight: 500,
             letterSpacing: "0.16em",
             textTransform: "uppercase",
@@ -154,7 +154,7 @@ export default function LandingPage() {
         >
           <span style={{
             display: "inline-block",
-            width: "18px", height: "1px",
+            width: "85px", height: "1px",
             background: "rgba(90,65,155,0.38)",
           }} />
           Deep Learning · Computer Vision · NLP
