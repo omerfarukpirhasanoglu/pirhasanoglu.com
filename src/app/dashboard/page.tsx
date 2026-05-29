@@ -43,8 +43,8 @@ export default function DashboardPage() {
             flexDirection: "column",
             justifyContent: "space-between",
             padding: "2rem 2.5rem 2rem 0",
-            borderRight: "0.5px solid rgba(23,20,42,0.08)",
-            borderTop: "0.5px solid rgba(23,20,42,0.08)",
+            borderRight: "0.5px solid rgba(23,20,42,0.42)",
+            borderTop: "0.5px solid rgba(23,20,42,0.42)",
             textDecoration: "none",
             minHeight: "240px",
           }}
@@ -90,8 +90,8 @@ export default function DashboardPage() {
             flexDirection: "column",
             justifyContent: "space-between",
             padding: "2rem 2.5rem",
-            borderRight: "0.5px solid rgba(23,20,42,0.08)",
-            borderTop: "0.5px solid rgba(23,20,42,0.08)",
+            borderRight: "0.5px solid rgba(23,20,42,0.42)",
+            borderTop: "0.5px solid rgba(23,20,42,0.42)",
             textDecoration: "none",
             minHeight: "240px",
           }}
@@ -136,7 +136,7 @@ export default function DashboardPage() {
             flexDirection: "column",
             justifyContent: "space-between",
             padding: "2rem 0 2rem 2.5rem",
-            borderTop: "0.5px solid rgba(23,20,42,0.08)",
+            borderTop: "0.5px solid rgba(23,20,42,0.42)",
             opacity: 0.28,
             minHeight: "240px",
           }}
@@ -160,7 +160,7 @@ export default function DashboardPage() {
             <span style={{
               fontFamily: "var(--font-body)", fontSize: "10.5px", fontWeight: 500,
               padding: "3px 10px", borderRadius: "3px",
-              background: "rgba(23,20,42,0.04)", color: "rgba(23,20,42,0.30)", display: "inline-block",
+              background: "rgba(23,20,42,0.42)", color: "rgba(23,20,42,0.42)", display: "inline-block",
             }}>
               geliştiriliyor
             </span>

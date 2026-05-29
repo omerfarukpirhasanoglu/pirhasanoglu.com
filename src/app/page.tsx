@@ -122,7 +122,7 @@ export default function LandingPage() {
           <div style={{
             width: "1px",
             height: "48px",
-            background: "linear-gradient(to bottom, rgba(23,20,42,0.18), transparent)",
+            background: "linear-gradient(to bottom, rgba(23,20,42,0.42), transparent)",
           }} />
           <span style={{
             fontFamily: "var(--font-body)",
@@ -130,7 +130,7 @@ export default function LandingPage() {
             fontWeight: 500,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "rgba(23,20,42,0.22)",
+            color: "rgba(23,20,42,0.42)",
             writingMode: "vertical-rl" as const,
           }}>
             scroll
@@ -154,7 +154,7 @@ export default function LandingPage() {
         >
           <span style={{
             display: "inline-block",
-            width: "350px", height: "1px",
+            width: "365px", height: "1px",
             background: "rgba(90,65,155,0.38)",
           }} />
           Deep Learning · Computer Vision · NLP
@@ -207,8 +207,8 @@ export default function LandingPage() {
               fontSize: "14px",
               fontWeight: 500,
               color: "rgba(23,20,42,0.70)",
-              background: "rgba(23,20,42,0.08)",
-              border: "0.5px solid rgba(23,20,42,0.18)",
+              background: "rgba(23,20,42,0.42)",
+              border: "0.5px solid rgba(23,20,42,0.42)",
               borderRadius: "100px",
               padding: "13px 30px",
               letterSpacing: "0.02em",
@@ -228,7 +228,7 @@ export default function LandingPage() {
           position: "relative",
           zIndex: 10,
           padding: "80px clamp(2rem, 7vw, 6rem) 72px",
-          borderTop: "0.5px solid rgba(23,20,42,0.08)",
+          borderTop: "0.5px solid rgba(23,20,42,0.42)",
         }}
       >
         <p style={{
@@ -237,7 +237,7 @@ export default function LandingPage() {
           fontWeight: 500,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          color: "rgba(23,20,42,0.22)",
+          color: "rgba(23,20,42,0.42)",
           marginBottom: "32px",
         }}>
           Hakkımda
@@ -320,7 +320,7 @@ export default function LandingPage() {
         position: "relative",
         zIndex: 10,
         padding: "0 clamp(2rem, 7vw, 6rem) 88px",
-        borderTop: "0.5px solid rgba(23,20,42,0.08)",
+        borderTop: "0.5px solid rgba(23,20,42,0.42)",
       }}>
         <p style={{
           fontFamily: "var(--font-body)",
@@ -328,7 +328,7 @@ export default function LandingPage() {
           fontWeight: 500,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          color: "rgba(23,20,42,0.22)",
+          color: "rgba(23,20,42,0.42)",
           paddingTop: "32px",
           marginBottom: "0",
         }}>
@@ -344,9 +344,9 @@ export default function LandingPage() {
                 display: "flex",
                 alignItems: "center",
                 padding: "18px 0",
-                borderTop: "0.5px solid rgba(23,20,42,0.08)",
+                borderTop: "0.5px solid rgba(23,20,42,0.42)",
                 borderBottom: i === PROJECTS.length - 1
-                  ? "0.5px solid rgba(23,20,42,0.08)"
+                  ? "0.5px solid rgba(23,20,42,0.42)"
                   : undefined,
                 textDecoration: "none",
                 gap: "0",
@@ -357,7 +357,7 @@ export default function LandingPage() {
                 fontFamily: "var(--font-body)",
                 fontSize: "15px",
                 fontWeight: 500,
-                color: project.live ? "#17142a" : "rgba(23,20,42,0.25)",
+                color: project.live ? "#17142a" : "rgba(23,20,42,0.42)",
                 minWidth: "120px",
               }}>
                 {project.name}
@@ -386,8 +386,8 @@ export default function LandingPage() {
                   fontWeight: 400,
                   padding: "3px 9px",
                   borderRadius: "3px",
-                  background: "rgba(23,20,42,0.04)",
-                  color: "rgba(23,20,42,0.22)",
+                  background: "rgba(23,20,42,0.42)",
+                  color: "rgba(23,20,42,0.42)",
                   marginRight: "22px",
                   whiteSpace: "nowrap",
                 }}>
@@ -402,11 +402,11 @@ export default function LandingPage() {
                     fontFamily: "var(--font-body)",
                     fontSize: "12px",
                     fontWeight: 300,
-                    color: "rgba(23,20,42,0.30)",
+                    color: "rgba(23,20,42,0.42)",
                   }}>
                     {tag}
                     {j < project.tags.length - 1 && (
-                      <span style={{ margin: "0 7px", color: "rgba(23,20,42,0.14)" }}>·</span>
+                      <span style={{ margin: "0 7px", color: "rgba(23,20,42,0.42)" }}>·</span>
                     )}
                   </span>
                 ))}
@@ -418,7 +418,7 @@ export default function LandingPage() {
                 fontSize: "16px",
                 color: project.live
                   ? "rgba(90,65,155,0.38)"
-                  : "rgba(23,20,42,0.12)",
+                  : "rgba(23,20,42,0.42)",
                 marginLeft: "auto",
                 paddingLeft: "16px",
               }}>

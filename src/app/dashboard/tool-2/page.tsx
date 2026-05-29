@@ -54,17 +54,17 @@ function ChunkCard({ chunk, boundary, isLast, delay }: { chunk: ChunkInfo; bound
 
   return (
     <div style={{ animationDelay: `${delay}ms` }}>
-      <div style={{ padding: "18px 0", borderTop: "0.5px solid rgba(23,20,42,0.07)" }}>
+      <div style={{ padding: "18px 0", borderTop: "0.5px solid rgba(23,20,42,0.42)" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
             <span style={{ fontFamily: "var(--font-body)", fontSize: "9.5px", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(90,65,155,0.55)" }}>
               Chunk {chunk.index + 1}
             </span>
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", padding: "1px 7px", borderRadius: "3px", background: "rgba(23,20,42,0.04)", border: "0.5px solid rgba(23,20,42,0.08)", color: "rgba(23,20,42,0.30)" }}>
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", padding: "1px 7px", borderRadius: "3px", background: "rgba(23,20,42,0.42)", border: "0.5px solid rgba(23,20,42,0.42)", color: "rgba(23,20,42,0.42)" }}>
               {chunk.n_sentences} cümle
             </span>
           </div>
-          <span style={{ fontFamily: "var(--font-body)", fontSize: "10.5px", color: "rgba(23,20,42,0.22)" }}>
+          <span style={{ fontFamily: "var(--font-body)", fontSize: "10.5px", color: "rgba(23,20,42,0.42)" }}>
             {chunk.start_sent}–{chunk.end_sent}
           </span>
         </div>
@@ -75,12 +75,12 @@ function ChunkCard({ chunk, boundary, isLast, delay }: { chunk: ChunkInfo; bound
 
       {!isLast && boundary && (
         <div style={{ display: "flex", alignItems: "center", gap: "12px", padding: "6px 0" }}>
-          <div style={{ flex: 1, height: "0.5px", background: "rgba(23,20,42,0.06)" }} />
+          <div style={{ flex: 1, height: "0.5px", background: "rgba(23,20,42,0.42)" }} />
           <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
             <Scissors style={{ width: "11px", height: "11px", color: `rgba(90,65,155,${0.2 + prob * 0.6})` }} />
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", color: "rgba(23,20,42,0.25)" }}>{probPercent}%</span>
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", color: "rgba(23,20,42,0.42)" }}>{probPercent}%</span>
           </div>
-          <div style={{ flex: 1, height: "0.5px", background: "rgba(23,20,42,0.06)" }} />
+          <div style={{ flex: 1, height: "0.5px", background: "rgba(23,20,42,0.42)" }} />
         </div>
       )}
     </div>
@@ -105,7 +105,7 @@ function ResultPanel({ result }: { result: ChunkResponse }) {
     result.boundaries.find(b => { const c = result.chunks[chunkIndex]; return b.position === c?.end_sent; });
 
   return (
-    <div style={{ borderTop: "0.5px solid rgba(23,20,42,0.08)", paddingTop: "28px", display: "flex", flexDirection: "column", gap: "0" }}>
+    <div style={{ borderTop: "0.5px solid rgba(23,20,42,0.42)", paddingTop: "28px", display: "flex", flexDirection: "column", gap: "0" }}>
 
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "20px" }}>
@@ -124,10 +124,10 @@ function ResultPanel({ result }: { result: ChunkResponse }) {
           onClick={() => setShowTech(p => !p)}
           style={{ display: "flex", alignItems: "center", gap: "5px", background: "none", border: "none", cursor: "pointer", padding: 0 }}
         >
-          <span style={{ fontFamily: "var(--font-body)", fontSize: "9.5px", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(23,20,42,0.28)" }}>
+          <span style={{ fontFamily: "var(--font-body)", fontSize: "9.5px", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(23,20,42,0.42)" }}>
             Teknik Detaylar
           </span>
-          <ChevronDown style={{ width: "12px", height: "12px", color: "rgba(23,20,42,0.25)", transform: showTech ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }} />
+          <ChevronDown style={{ width: "12px", height: "12px", color: "rgba(23,20,42,0.42)", transform: showTech ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }} />
         </button>
       </div>
 
@@ -135,8 +135,8 @@ function ResultPanel({ result }: { result: ChunkResponse }) {
       {showTech && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px", marginBottom: "20px" }}>
           {techItems.map(({ label, value }) => (
-            <div key={label} style={{ padding: "12px 14px", background: "rgba(255,255,255,0.50)", border: "0.5px solid rgba(23,20,42,0.08)", borderRadius: "6px" }}>
-              <p style={{ fontFamily: "var(--font-body)", fontSize: "9.5px", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(23,20,42,0.28)", marginBottom: "4px" }}>{label}</p>
+            <div key={label} style={{ padding: "12px 14px", background: "rgba(255,255,255,0.50)", border: "0.5px solid rgba(23,20,42,0.42)", borderRadius: "6px" }}>
+              <p style={{ fontFamily: "var(--font-body)", fontSize: "9.5px", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(23,20,42,0.42)", marginBottom: "4px" }}>{label}</p>
               <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 400, color: "rgba(23,20,42,0.65)" }}>{value}</p>
             </div>
           ))}
@@ -148,8 +148,8 @@ function ResultPanel({ result }: { result: ChunkResponse }) {
         {result.chunks.map((chunk, i) => (
           <ChunkCard key={chunk.index} chunk={chunk} boundary={getBoundary(i)} isLast={i === result.chunks.length - 1} delay={i * 60} />
         ))}
-        <div style={{ borderTop: "0.5px solid rgba(23,20,42,0.07)", paddingTop: "16px", marginTop: "4px" }}>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.25)" }}>
+        <div style={{ borderTop: "0.5px solid rgba(23,20,42,0.42)", paddingTop: "16px", marginTop: "4px" }}>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.42)" }}>
             mE5-small + Custom Transformer · Seam v1.1
           </p>
         </div>
@@ -235,7 +235,7 @@ export default function SeamPage() {
 
         <button
           onClick={() => setShowChangelog(p => !p)}
-          style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: showChangelog ? "rgba(23,20,42,0.60)" : "rgba(23,20,42,0.38)", background: "rgba(23,20,42,0.05)", border: "0.5px solid rgba(23,20,42,0.12)", borderRadius: "100px", padding: "8px 18px", cursor: "pointer", letterSpacing: "0.02em" }}
+          style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: showChangelog ? "rgba(23,20,42,0.60)" : "rgba(23,20,42,0.38)", background: "rgba(23,20,42,0.42)", border: "0.5px solid rgba(23,20,42,0.42)", borderRadius: "100px", padding: "8px 18px", cursor: "pointer", letterSpacing: "0.02em" }}
         >
           Sürüm Geçmişi
         </button>
@@ -245,17 +245,17 @@ export default function SeamPage() {
       {showChangelog && (
         <div style={{ marginBottom: "32px" }}>
           {CHANGELOG.map((entry, i) => (
-            <div key={entry.version} style={{ padding: "20px 0", borderTop: "0.5px solid rgba(23,20,42,0.08)", ...(i === CHANGELOG.length - 1 ? { borderBottom: "0.5px solid rgba(23,20,42,0.08)" } : {}) }}>
+            <div key={entry.version} style={{ padding: "20px 0", borderTop: "0.5px solid rgba(23,20,42,0.42)", ...(i === CHANGELOG.length - 1 ? { borderBottom: "0.5px solid rgba(23,20,42,0.42)" } : {}) }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
                 <span style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: "18px", color: "#17142a" }}>{entry.version}</span>
-                <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.28)" }}>{entry.date}</span>
+                <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.42)" }}>{entry.date}</span>
                 {entry.current && <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 500, padding: "1px 7px", borderRadius: "3px", background: "rgba(60,180,100,0.08)", color: "rgba(40,150,80,0.70)" }}>güncel</span>}
-                <span style={{ marginLeft: "auto", fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.25)" }}>F1 {entry.meta.f1} · threshold {entry.meta.threshold}</span>
+                <span style={{ marginLeft: "auto", fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.42)" }}>F1 {entry.meta.f1} · threshold {entry.meta.threshold}</span>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                 {entry.items.map((item, j) => (
                   <div key={j} style={{ display: "flex", gap: "10px" }}>
-                    <span style={{ fontFamily: "var(--font-body)", fontSize: "12.5px", color: "rgba(23,20,42,0.20)", flexShrink: 0 }}>—</span>
+                    <span style={{ fontFamily: "var(--font-body)", fontSize: "12.5px", color: "rgba(23,20,42,0.42)", flexShrink: 0 }}>—</span>
                     <span style={{ fontFamily: "var(--font-body)", fontSize: "12.5px", fontWeight: 300, color: "rgba(23,20,42,0.45)", lineHeight: 1.65 }}>{item}</span>
                   </div>
                 ))}
@@ -266,7 +266,7 @@ export default function SeamPage() {
       )}
 
       {/* Tab */}
-      <div style={{ display: "flex", background: "rgba(23,20,42,0.05)", border: "0.5px solid rgba(23,20,42,0.09)", borderRadius: "8px", padding: "3px", gap: "3px", marginBottom: "20px" }}>
+      <div style={{ display: "flex", background: "rgba(23,20,42,0.42)", border: "0.5px solid rgba(23,20,42,0.42)", borderRadius: "8px", padding: "3px", gap: "3px", marginBottom: "20px" }}>
         {(["file", "text"] as const).map(m => (
           <button key={m} onClick={() => { setMode(m); setResult(null); setFileResult(null); setError(null); }} style={btnStyle(mode === m)}>
             {m === "file" ? <FileText style={{ width: "13px", height: "13px" }} /> : <Type style={{ width: "13px", height: "13px" }} />}
@@ -279,10 +279,10 @@ export default function SeamPage() {
       {mode === "text" && (
         <>
           <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(23,20,42,0.25)" }}>Örnek:</span>
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(23,20,42,0.42)" }}>Örnek:</span>
             {EXAMPLE_TEXTS.map(ex => (
               <button key={ex.label} onClick={() => { setText(ex.text); setResult(null); setError(null); textareaRef.current?.focus(); }}
-                style={{ fontFamily: "var(--font-body)", fontSize: "11px", padding: "3px 10px", borderRadius: "3px", background: "rgba(255,255,255,0.40)", border: "0.5px solid rgba(23,20,42,0.10)", color: "rgba(23,20,42,0.40)", cursor: "pointer" }}>
+                style={{ fontFamily: "var(--font-body)", fontSize: "11px", padding: "3px 10px", borderRadius: "3px", background: "rgba(255,255,255,0.40)", border: "0.5px solid rgba(23,20,42,0.42)", color: "rgba(23,20,42,0.40)", cursor: "pointer" }}>
                 {ex.label}
               </button>
             ))}
@@ -293,7 +293,7 @@ export default function SeamPage() {
               ref={textareaRef} value={text}
               onChange={e => { setText(e.target.value); setResult(null); setError(null); }}
               placeholder="Metni buraya yapıştırın…" rows={10}
-              style={{ width: "100%", resize: "none", borderRadius: "8px", padding: "18px 20px", fontFamily: "var(--font-display)", fontStyle: text ? "italic" : "normal", fontSize: "14.5px", lineHeight: 1.78, color: "rgba(23,20,42,0.65)", background: "rgba(255,255,255,0.35)", border: `0.5px solid ${isOverLimit ? "rgba(200,50,50,0.30)" : "rgba(23,20,42,0.10)"}`, outline: "none", backdropFilter: "blur(8px)" }}
+              style={{ width: "100%", resize: "none", borderRadius: "8px", padding: "18px 20px", fontFamily: "var(--font-display)", fontStyle: text ? "italic" : "normal", fontSize: "14.5px", lineHeight: 1.78, color: "rgba(23,20,42,0.65)", background: "rgba(255,255,255,0.35)", border: `0.5px solid ${isOverLimit ? "rgba(200,50,50,0.30)" : "rgba(23,20,42,0.42)"}`, outline: "none", backdropFilter: "blur(8px)" }}
             />
             <span style={{ position: "absolute", bottom: "12px", right: "16px", fontFamily: "var(--font-body)", fontSize: "10.5px", color: isOverLimit ? "rgba(200,50,50,0.70)" : "rgba(23,20,42,0.42)" }}>
               {text.length.toLocaleString()} / 50.000
@@ -302,7 +302,7 @@ export default function SeamPage() {
 
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", marginBottom: "24px" }}>
             <button onClick={handleChunk} disabled={!text.trim() || isLoading || isOverLimit}
-              style={{ fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "rgba(23,20,42,0.70)", background: text.trim() && !isLoading && !isOverLimit ? "rgba(23,20,42,0.08)" : "rgba(23,20,42,0.04)", border: "0.5px solid rgba(23,20,42,0.14)", borderRadius: "100px", padding: "12px 40px", cursor: text.trim() && !isLoading && !isOverLimit ? "pointer" : "not-allowed", letterSpacing: "0.02em", backdropFilter: "blur(10px)" }}>
+              style={{ fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "rgba(23,20,42,0.70)", background: text.trim() && !isLoading && !isOverLimit ? "rgba(23,20,42,0.42)" : "rgba(23,20,42,0.42)", border: "0.5px solid rgba(23,20,42,0.42)", borderRadius: "100px", padding: "12px 40px", cursor: text.trim() && !isLoading && !isOverLimit ? "pointer" : "not-allowed", letterSpacing: "0.02em", backdropFilter: "blur(10px)" }}>
               {isLoading ? "Analiz Ediliyor…" : "Chunk'la"}
             </button>
             <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", color: "rgba(23,20,42,0.42)" }}>Seam bir yapay zeka modelidir ve hata yapabilir.</p>
@@ -329,26 +329,26 @@ export default function SeamPage() {
             onDragOver={e => { e.preventDefault(); setIsDragging(true); }}
             onDragLeave={() => setIsDragging(false)}
             onDrop={e => { e.preventDefault(); setIsDragging(false); const f = e.dataTransfer.files?.[0]; if (f && (f.name.endsWith(".pdf") || f.name.endsWith(".docx"))) { setFile(f); setFileResult(null); setError(null); } }}
-            style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "12px", minHeight: "180px", borderRadius: "8px", border: `0.5px dashed ${isDragging ? "rgba(90,65,155,0.40)" : file ? "rgba(90,65,155,0.25)" : "rgba(23,20,42,0.14)"}`, background: isDragging ? "rgba(90,65,155,0.04)" : "rgba(255,255,255,0.30)", backdropFilter: "blur(8px)", cursor: "pointer", marginBottom: "16px", transition: "all 0.15s" }}
+            style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "12px", minHeight: "180px", borderRadius: "8px", border: `0.5px dashed ${isDragging ? "rgba(90,65,155,0.40)" : file ? "rgba(90,65,155,0.25)" : "rgba(23,20,42,0.42)"}`, background: isDragging ? "rgba(90,65,155,0.04)" : "rgba(255,255,255,0.30)", backdropFilter: "blur(8px)", cursor: "pointer", marginBottom: "16px", transition: "all 0.15s" }}
           >
             {file ? (
               <>
                 <FileText style={{ width: "26px", height: "26px", color: "rgba(90,65,155,0.55)" }} />
                 <div style={{ textAlign: "center" }}>
                   <p style={{ fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "rgba(23,20,42,0.60)" }}>{file.name}</p>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.28)", marginTop: "3px" }}>{(file.size / (1024 * 1024)).toFixed(2)} MB · {file.name.split(".").pop()?.toUpperCase()}</p>
+                  <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.42)", marginTop: "3px" }}>{(file.size / (1024 * 1024)).toFixed(2)} MB · {file.name.split(".").pop()?.toUpperCase()}</p>
                 </div>
                 <button onClick={e => { e.stopPropagation(); setFile(null); setFileResult(null); }}
-                  style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.35)", background: "none", border: "0.5px solid rgba(23,20,42,0.12)", borderRadius: "100px", padding: "4px 12px", cursor: "pointer" }}>
+                  style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.35)", background: "none", border: "0.5px solid rgba(23,20,42,0.42)", borderRadius: "100px", padding: "4px 12px", cursor: "pointer" }}>
                   Değiştir
                 </button>
               </>
             ) : (
               <>
-                <Upload style={{ width: "24px", height: "24px", color: "rgba(23,20,42,0.22)" }} />
+                <Upload style={{ width: "24px", height: "24px", color: "rgba(23,20,42,0.42)" }} />
                 <div style={{ textAlign: "center" }}>
                   <p style={{ fontFamily: "var(--font-body)", fontSize: "13.5px", color: "rgba(23,20,42,0.42)" }}>PDF veya DOCX sürükle ya da tıkla</p>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.25)", marginTop: "4px" }}>Maks. 10 MB</p>
+                  <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.42)", marginTop: "4px" }}>Maks. 10 MB</p>
                 </div>
               </>
             )}
@@ -356,10 +356,10 @@ export default function SeamPage() {
 
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", marginBottom: "24px" }}>
             <button onClick={handleFileChunk} disabled={!file || isLoading}
-              style={{ fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "rgba(23,20,42,0.70)", background: file && !isLoading ? "rgba(23,20,42,0.08)" : "rgba(23,20,42,0.04)", border: "0.5px solid rgba(23,20,42,0.14)", borderRadius: "100px", padding: "12px 40px", cursor: file && !isLoading ? "pointer" : "not-allowed", letterSpacing: "0.02em", backdropFilter: "blur(10px)" }}>
+              style={{ fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "rgba(23,20,42,0.70)", background: file && !isLoading ? "rgba(23,20,42,0.42)" : "rgba(23,20,42,0.42)", border: "0.5px solid rgba(23,20,42,0.42)", borderRadius: "100px", padding: "12px 40px", cursor: file && !isLoading ? "pointer" : "not-allowed", letterSpacing: "0.02em", backdropFilter: "blur(10px)" }}>
               {isLoading ? "İşleniyor…" : "Analiz ve Embedding"}
             </button>
-            <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.22)" }}>Seam bir yapay zeka modelidir ve hata yapabilir.</p>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.42)" }}>Seam bir yapay zeka modelidir ve hata yapabilir.</p>
           </div>
 
           {error && (
@@ -371,13 +371,13 @@ export default function SeamPage() {
 
           {fileResult && (
             <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 0", borderTop: "0.5px solid rgba(23,20,42,0.08)", marginBottom: "8px" }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 0", borderTop: "0.5px solid rgba(23,20,42,0.42)", marginBottom: "8px" }}>
                 <div>
                   <p style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: "rgba(90,65,155,0.65)", letterSpacing: "0.04em", marginBottom: "3px" }}>RAG İÇİN HAZIR</p>
                   <p style={{ fontFamily: "var(--font-body)", fontSize: "12px", color: "rgba(23,20,42,0.35)" }}>{fileResult.n_chunks} chunk · {fileResult.n_sentences} cümle · 384-dim embedding</p>
                 </div>
                 <button onClick={() => downloadJson(fileResult)}
-                  style={{ display: "flex", alignItems: "center", gap: "6px", fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: "rgba(23,20,42,0.65)", background: "rgba(23,20,42,0.07)", border: "0.5px solid rgba(23,20,42,0.14)", borderRadius: "100px", padding: "8px 18px", cursor: "pointer" }}>
+                  style={{ display: "flex", alignItems: "center", gap: "6px", fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: "rgba(23,20,42,0.65)", background: "rgba(23,20,42,0.42)", border: "0.5px solid rgba(23,20,42,0.42)", borderRadius: "100px", padding: "8px 18px", cursor: "pointer" }}>
                   <Download style={{ width: "13px", height: "13px" }} />
                   JSON İndir
                 </button>

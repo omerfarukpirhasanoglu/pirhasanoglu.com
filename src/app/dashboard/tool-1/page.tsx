@@ -84,7 +84,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
     fontFamily: "var(--font-body)",
     fontSize: "11px", fontWeight: 500,
     letterSpacing: "0.14em", textTransform: "uppercase",
-    color: "rgba(23,20,42,0.28)", marginBottom: "10px",
+    color: "rgba(23,20,42,0.42)", marginBottom: "10px",
   };
 
   const techItems = [
@@ -97,7 +97,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
   ];
 
   return (
-    <div style={{ borderTop: "0.5px solid rgba(23,20,42,0.08)", paddingTop: "28px", display: "flex", flexDirection: "column", gap: "28px" }}>
+    <div style={{ borderTop: "0.5px solid rgba(23,20,42,0.42)", paddingTop: "28px", display: "flex", flexDirection: "column", gap: "28px" }}>
 
       {/* Renk şeridi */}
       <div style={{ height: "6px", borderRadius: "3px", overflow: "hidden", display: "flex" }}>
@@ -122,12 +122,12 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
           <p style={{ ...s, marginBottom: "12px" }}>Diğer Olasılıklar</p>
           <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
             {result.stil.diger_olasiliklar.map((item) => (
-              <div key={item.stil} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "8px 0", borderTop: "0.5px solid rgba(23,20,42,0.06)" }}>
+              <div key={item.stil} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "8px 0", borderTop: "0.5px solid rgba(23,20,42,0.42)" }}>
                 <span style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 400, color: "rgba(23,20,42,0.45)", minWidth: "90px" }}>{item.stil}</span>
-                <div style={{ flex: 1, height: "2px", background: "rgba(23,20,42,0.07)", borderRadius: "1px", overflow: "hidden" }}>
+                <div style={{ flex: 1, height: "2px", background: "rgba(23,20,42,0.42)", borderRadius: "1px", overflow: "hidden" }}>
                   <div style={{ width: `${item.guven_yuzdesi}%`, height: "100%", background: "rgba(90,65,155,0.35)", borderRadius: "1px" }} />
                 </div>
-                <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.30)", minWidth: "28px", textAlign: "right" }}>%{item.guven_yuzdesi}</span>
+                <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.42)", minWidth: "28px", textAlign: "right" }}>%{item.guven_yuzdesi}</span>
               </div>
             ))}
           </div>
@@ -140,7 +140,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
             <span style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 400, color: "#17142a", lineHeight: 1 }}>
               {result.renk_analizi.uyum_analizi.skor}
             </span>
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "12px", color: "rgba(23,20,42,0.25)" }}>/ 100</span>
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "12px", color: "rgba(23,20,42,0.42)" }}>/ 100</span>
           </div>
           <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 500, padding: "2px 9px", borderRadius: "3px", background: "rgba(90,65,155,0.08)", color: "rgba(90,65,155,0.60)", display: "inline-block", marginBottom: "20px", letterSpacing: "0.04em" }}>
             {result.renk_analizi.uyum_analizi.tur}
@@ -150,8 +150,8 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
             {result.renk_analizi.dominant_colors.map((r, i) => (
               <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "5px" }}>
-                <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: rgbToCss(r.rgb), border: "0.5px solid rgba(23,20,42,0.10)" }} />
-                <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", color: "rgba(23,20,42,0.28)" }}>%{r.yuzde}</span>
+                <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: rgbToCss(r.rgb), border: "0.5px solid rgba(23,20,42,0.42)" }} />
+                <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", color: "rgba(23,20,42,0.42)" }}>%{r.yuzde}</span>
               </div>
             ))}
           </div>
@@ -179,8 +179,8 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         {showTech && (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" }}>
             {techItems.map(({ label, value }) => (
-              <div key={label} style={{ padding: "12px 14px", background: "rgba(255,255,255,0.50)", border: "0.5px solid rgba(23,20,42,0.08)", borderRadius: "6px" }}>
-                <p style={{ fontFamily: "var(--font-body)", fontSize: "9.5px", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(23,20,42,0.28)", marginBottom: "4px" }}>{label}</p>
+              <div key={label} style={{ padding: "12px 14px", background: "rgba(255,255,255,0.50)", border: "0.5px solid rgba(23,20,42,0.42)", borderRadius: "6px" }}>
+                <p style={{ fontFamily: "var(--font-body)", fontSize: "9.5px", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(23,20,42,0.42)", marginBottom: "4px" }}>{label}</p>
                 <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 400, color: "rgba(23,20,42,0.65)" }}>{value}</p>
               </div>
             ))}
@@ -249,7 +249,7 @@ export default function ChromaPage() {
 
         <button
           onClick={() => setShowChangelog(p => !p)}
-          style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: showChangelog ? "rgba(23,20,42,0.60)" : "rgba(23,20,42,0.38)", background: "rgba(23,20,42,0.05)", border: "0.5px solid rgba(23,20,42,0.12)", borderRadius: "100px", padding: "8px 18px", cursor: "pointer", letterSpacing: "0.02em" }}
+          style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: showChangelog ? "rgba(23,20,42,0.60)" : "rgba(23,20,42,0.38)", background: "rgba(23,20,42,0.42)", border: "0.5px solid rgba(23,20,42,0.42)", borderRadius: "100px", padding: "8px 18px", cursor: "pointer", letterSpacing: "0.02em" }}
         >
           Sürüm Geçmişi
         </button>
@@ -259,17 +259,17 @@ export default function ChromaPage() {
       {showChangelog && (
         <div style={{ marginBottom: "32px", display: "flex", flexDirection: "column", gap: "0" }}>
           {CHANGELOG.map((entry, i) => (
-            <div key={entry.version} style={{ padding: "20px 0", borderTop: "0.5px solid rgba(23,20,42,0.08)", ...(i === CHANGELOG.length - 1 ? { borderBottom: "0.5px solid rgba(23,20,42,0.08)" } : {}) }}>
+            <div key={entry.version} style={{ padding: "20px 0", borderTop: "0.5px solid rgba(23,20,42,0.42)", ...(i === CHANGELOG.length - 1 ? { borderBottom: "0.5px solid rgba(23,20,42,0.42)" } : {}) }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
                 <span style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: "18px", color: "#17142a" }}>{entry.version}</span>
-                <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.28)" }}>{entry.date}</span>
+                <span style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.42)" }}>{entry.date}</span>
                 {entry.current && <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 500, padding: "1px 7px", borderRadius: "3px", background: "rgba(60,180,100,0.08)", color: "rgba(40,150,80,0.70)" }}>güncel</span>}
-                <span style={{ marginLeft: "auto", fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.25)" }}>acc {entry.meta.accuracy} · {entry.meta.epochs} epoch · {entry.meta.inference}</span>
+                <span style={{ marginLeft: "auto", fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.42)" }}>acc {entry.meta.accuracy} · {entry.meta.epochs} epoch · {entry.meta.inference}</span>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                 {entry.items.map((item, j) => (
                   <div key={j} style={{ display: "flex", gap: "10px" }}>
-                    <span style={{ fontFamily: "var(--font-body)", fontSize: "12.5px", color: "rgba(23,20,42,0.20)", flexShrink: 0 }}>—</span>
+                    <span style={{ fontFamily: "var(--font-body)", fontSize: "12.5px", color: "rgba(23,20,42,0.42)", flexShrink: 0 }}>—</span>
                     <span style={{ fontFamily: "var(--font-body)", fontSize: "12.5px", fontWeight: 300, color: "rgba(23,20,42,0.45)", lineHeight: 1.65 }}>{item}</span>
                   </div>
                 ))}
@@ -280,20 +280,20 @@ export default function ChromaPage() {
       )}
 
       {/* Upload alanı */}
-      <div style={{ position: "relative", border: "0.5px dashed rgba(23,20,42,0.16)", borderRadius: "8px", padding: "40px 24px", textAlign: "center", marginBottom: "20px", background: "rgba(255,255,255,0.30)", backdropFilter: "blur(8px)" }}>
+      <div style={{ position: "relative", border: "0.5px dashed rgba(23,20,42,0.42)", borderRadius: "8px", padding: "40px 24px", textAlign: "center", marginBottom: "20px", background: "rgba(255,255,255,0.30)", backdropFilter: "blur(8px)" }}>
         <input type="file" accept="image/*" onChange={handleFileChange} style={{ position: "absolute", inset: 0, opacity: 0, cursor: "pointer", zIndex: 10 }} />
         {previewUrl ? (
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
-            <div style={{ width: "120px", height: "120px", borderRadius: "6px", overflow: "hidden", border: "0.5px solid rgba(23,20,42,0.10)" }}>
+            <div style={{ width: "120px", height: "120px", borderRadius: "6px", overflow: "hidden", border: "0.5px solid rgba(23,20,42,0.42)" }}>
               <img src={previewUrl} alt="Önizleme" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
             <p style={{ fontFamily: "var(--font-body)", fontSize: "12px", color: "rgba(90,65,155,0.60)", fontWeight: 500 }}>{selectedFile?.name}</p>
           </div>
         ) : (
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
-            <UploadCloud style={{ width: "28px", height: "28px", color: "rgba(23,20,42,0.20)" }} />
+            <UploadCloud style={{ width: "28px", height: "28px", color: "rgba(23,20,42,0.42)" }} />
             <p style={{ fontFamily: "var(--font-body)", fontSize: "13.5px", fontWeight: 400, color: "rgba(23,20,42,0.45)" }}>Görüntü seçmek için tıklayın veya sürükleyin</p>
-            <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.25)" }}>JPEG · PNG · WEBP · Max 5MB</p>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.42)" }}>JPEG · PNG · WEBP · Max 5MB</p>
           </div>
         )}
       </div>
@@ -303,7 +303,7 @@ export default function ChromaPage() {
         <button
           onClick={handleAnalyze}
           disabled={!selectedFile || isLoading}
-          style={{ fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "rgba(23,20,42,0.70)", background: selectedFile && !isLoading ? "rgba(23,20,42,0.08)" : "rgba(23,20,42,0.04)", border: "0.5px solid rgba(23,20,42,0.14)", borderRadius: "100px", padding: "12px 40px", cursor: selectedFile && !isLoading ? "pointer" : "not-allowed", letterSpacing: "0.02em", backdropFilter: "blur(10px)", transition: "background 0.2s" }}
+          style={{ fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "rgba(23,20,42,0.70)", background: selectedFile && !isLoading ? "rgba(23,20,42,0.42)" : "rgba(23,20,42,0.42)", border: "0.5px solid rgba(23,20,42,0.42)", borderRadius: "100px", padding: "12px 40px", cursor: selectedFile && !isLoading ? "pointer" : "not-allowed", letterSpacing: "0.02em", backdropFilter: "blur(10px)", transition: "background 0.2s" }}
         >
           {isLoading ? "Analiz Ediliyor…" : "Analiz Et"}
         </button>

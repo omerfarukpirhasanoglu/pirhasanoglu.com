@@ -1,44 +1,80 @@
-import { Clock, Loader, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export default function Tool3Page() {
   return (
-    <div className="w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="max-w-3xl mx-auto flex flex-col gap-6">
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "24px",
+        padding: "0 clamp(2rem, 7vw, 6rem)",
+        textAlign: "center",
+      }}
+    >
+      <h1
+        style={{
+          fontFamily: "var(--font-display)",
+          fontStyle: "italic",
+          fontSize: "clamp(2rem, 4vw, 3rem)",
+          fontWeight: 400,
+          color: "#17142a",
+          letterSpacing: "-0.01em",
+          lineHeight: 1.1,
+        }}
+      >
+        Yakında
+      </h1>
 
-        {/* Başlık */}
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight text-gray-500">
-            Yakında
-          </h2>
-          
-        </div>
+      <p
+        style={{
+          fontFamily: "var(--font-body)",
+          fontSize: "15px",
+          fontWeight: 300,
+          color: "rgba(23,20,42,0.50)",
+          lineHeight: 1.75,
+          maxWidth: "360px",
+        }}
+      >
+        Bu proje hakkında bilgi vermek için henüz erken.
+        Hazır olduğunda burada olacak.
+      </p>
 
-        {/* Placeholder kartı */}
-        <div className="glass-panel rounded-sm p-12 border border-white/5 flex flex-col items-center justify-center text-center gap-6">
+      <span
+        style={{
+          fontFamily: "var(--font-body)",
+          fontSize: "10.5px",
+          fontWeight: 500,
+          padding: "3px 12px",
+          borderRadius: "100px",
+          border: "0.5px solid rgba(23,20,42,0.14)",
+          color: "rgba(23,20,42,0.45)",
+          letterSpacing: "0.04em",
+        }}
+      >
+        Geliştiriliyor
+      </span>
 
-          <div className="w-16 h-16 rounded-sm bg-surface flex items-center justify-center border border-white/10">
-            <Loader className="w-8 h-8 text-textMuted" />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center justify-center gap-2">
-              <Clock className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-accent">Geliştirme Aşamasında</span>
-            </div>
-            <h3 className="text-xl font-semibold text-gray-500">Bu araç henüz hazır değil</h3>
-          </div>
-
-          <Link
-            href="/dashboard"
-            className="flex items-center gap-2 text-sm text-textMuted hover:text-accent transition-colors duration-250"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Panele Dön
-          </Link>
-
-        </div>
-      </div>
+      <Link
+        href="/dashboard"
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "6px",
+          fontFamily: "var(--font-body)",
+          fontSize: "13px",
+          fontWeight: 400,
+          color: "rgba(23,20,42,0.45)",
+          textDecoration: "none",
+          marginTop: "8px",
+        }}
+      >
+        <ArrowLeft style={{ width: "14px", height: "14px" }} />
+        Panele Dön
+      </Link>
     </div>
   );
 }
