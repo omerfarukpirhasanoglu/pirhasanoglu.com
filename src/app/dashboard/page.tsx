@@ -37,7 +37,7 @@ export default function DashboardPage() {
       >
         {/* Chroma */}
         <Link
-          href="/dashboard/tool-1"
+          href="/dashboard"
           style={{
             display: "flex",
             flexDirection: "column",
@@ -84,7 +84,7 @@ export default function DashboardPage() {
 
         {/* Seam */}
         <Link
-          href="/dashboard/tool-2"
+          href="/dashboard"
           style={{
             display: "flex",
             flexDirection: "column",

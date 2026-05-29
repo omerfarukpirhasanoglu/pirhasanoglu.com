@@ -18,7 +18,7 @@ export default function Footer() {
       <span
         style={{
           fontFamily: "var(--font-body)",
-          fontSize: "11px",
+          fontSize: "13px",
           fontWeight: 400,
           color: "rgba(25,22,46,0.22)",
         }}
@@ -38,7 +38,7 @@ export default function Footer() {
             target="_blank"
             style={{
               fontFamily: "var(--font-body)",
-              fontSize: "11px",
+              fontSize: "13px",
               fontWeight: 400,
               color: "rgba(25,22,46,0.22)",
               textDecoration: "none",

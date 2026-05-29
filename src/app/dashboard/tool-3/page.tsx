@@ -8,7 +8,7 @@ export default function Tool3Page() {
 
         {/* Başlık */}
         <div>
-          <h2 className="text-2xl font-bold tracking-tight text-gray-100">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-500">
             Yakında
           </h2>
           
@@ -26,7 +26,7 @@ export default function Tool3Page() {
               <Clock className="w-4 h-4 text-accent" />
               <span className="text-sm font-medium text-accent">Geliştirme Aşamasında</span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-200">Bu araç henüz hazır değil</h3>
+            <h3 className="text-xl font-semibold text-gray-500">Bu araç henüz hazır değil</h3>
           </div>
 
           <Link
