@@ -126,7 +126,7 @@ export default function LandingPage() {
           }} />
           <span style={{
             fontFamily: "var(--font-body)",
-            fontSize: "8.5px",
+            fontSize: "13px",
             fontWeight: 500,
             letterSpacing: "0.18em",
             textTransform: "uppercase",
@@ -233,7 +233,7 @@ export default function LandingPage() {
       >
         <p style={{
           fontFamily: "var(--font-body)",
-          fontSize: "10px",
+          fontSize: "18px",
           fontWeight: 500,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
@@ -289,7 +289,7 @@ export default function LandingPage() {
               <div key={col.label}>
                 <p style={{
                   fontFamily: "var(--font-body)",
-                  fontSize: "9px",
+                  fontSize: "10px",
                   fontWeight: 500,
                   letterSpacing: "0.16em",
                   textTransform: "uppercase",

@@ -37,7 +37,7 @@ export default function DashboardPage() {
       >
         {/* Chroma */}
         <Link
-          href="/dashboard"
+          href="/dashboard/tool-1"
           style={{
             display: "flex",
             flexDirection: "column",
