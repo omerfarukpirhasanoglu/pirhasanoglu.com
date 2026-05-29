@@ -10,11 +10,11 @@ const NAV_LINKS = [
 const TECH_COLS = [
   {
     label: "Model & Mimari",
-    items: "Keras, PyTorch\nCNN, Transformer Architecture\nTransfer Learning, Fine-Tuning",
+    items: "Keras, PyTorch\nCNN, Transformer Architecture\nTransfer Learning, Fine-Tuning\nRegularization, Text Segmentation",
   },
   {
     label: "Altyapı & Araçlar",
-    items: "FastAPI, Docker\nONNX Runtime, Python\nGit",
+    items: "FastAPI, Docker, Git\nONNX Runtime, Python\nAI Backend",
   },
 ];
 
@@ -154,7 +154,7 @@ export default function LandingPage() {
         >
           <span style={{
             display: "inline-block",
-            width: "85px", height: "1px",
+            width: "350px", height: "1px",
             background: "rgba(90,65,155,0.38)",
           }} />
           Deep Learning · Computer Vision · NLP

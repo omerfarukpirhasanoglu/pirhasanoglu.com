@@ -61,8 +61,8 @@ export default function DashboardPage() {
               fontFamily: "var(--font-body)", fontSize: "13.5px", fontWeight: 300,
               color: "rgba(23,20,42,0.62)", lineHeight: 1.78,
             }}>
-              Keras tabanlı CNN. Görüntü sınıflandırma ve stil analizi,
-              transfer learning ile optimize edilmiş.
+              FastAPI backendine bağlı, Keras tabanlı konvolüsyonel sinir ağları (CNN) kullanarak yüklenen görüntülerin özniteliklerini çıkaran ve yüksek doğrulukla analiz eden modelim.
+              Bu model sayesinde tarzınızı uzman bir yapay zekanın detaylı metrikleriyle inceleyebilirsiniz.
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "28px" }}>
@@ -76,7 +76,7 @@ export default function DashboardPage() {
             }}>
               v1.2 · yayında
             </span>
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: "rgba(90,65,155,0.42)" }}>
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: "rgba(90,65,155,0.62)" }}>
               İncele →
             </span>
           </div>
@@ -108,8 +108,8 @@ export default function DashboardPage() {
               fontFamily: "var(--font-body)", fontSize: "13.5px", fontWeight: 300,
               color: "rgba(23,20,42,0.62)", lineHeight: 1.78,
             }}>
-              PyTorch Transformer. RAG pipeline'ları için bilgi kaybı
-              olmaksızın anlamsal metin bölütleme.
+              PyTorch ile geliştirdiğim, mE5-smal base encoderin üzerine kendi kurduğum Cross Sentence Attention mekanizmalı özel bir Transformer bloğundan oluşan modelim.
+              RAG dokümanlarının chunking problemini; dokmümanı anlamsal olarak, bilgi kaybı olmaksızın bölerek çözüyor. böylece RAG işleminden maximum verim almanızı sağlıyor.
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "28px" }}>
@@ -123,7 +123,7 @@ export default function DashboardPage() {
             }}>
               v1.1 · yayında
             </span>
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: "rgba(90,65,155,0.82)" }}>
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "12px", fontWeight: 500, color: "rgba(90,65,155,0.62)" }}>
               İncele →
             </span>
           </div>
