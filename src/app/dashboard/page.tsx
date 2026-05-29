@@ -43,8 +43,8 @@ export default function DashboardPage() {
             flexDirection: "column",
             justifyContent: "space-between",
             padding: "2rem 2.5rem 2rem 0",
-            borderRight: "0.5px solid rgba(23,20,42,0.42)",
-            borderTop: "0.5px solid rgba(23,20,42,0.42)",
+            borderRight: "0.5px solid rgba(23,20,42,0.10)",
+            borderTop: "0.5px solid rgba(23,20,42,0.10)",
             textDecoration: "none",
             minHeight: "240px",
           }}
@@ -90,8 +90,8 @@ export default function DashboardPage() {
             flexDirection: "column",
             justifyContent: "space-between",
             padding: "2rem 2.5rem",
-            borderRight: "0.5px solid rgba(23,20,42,0.42)",
-            borderTop: "0.5px solid rgba(23,20,42,0.42)",
+            borderRight: "0.5px solid rgba(23,20,42,0.10)",
+            borderTop: "0.5px solid rgba(23,20,42,0.10)",
             textDecoration: "none",
             minHeight: "240px",
           }}
@@ -136,8 +136,7 @@ export default function DashboardPage() {
             flexDirection: "column",
             justifyContent: "space-between",
             padding: "2rem 0 2rem 2.5rem",
-            borderTop: "0.5px solid rgba(23,20,42,0.42)",
-            opacity: 0.28,
+            borderTop: "0.5px solid rgba(23,20,42,0.10)",
             minHeight: "240px",
           }}
         >

@@ -8,7 +8,7 @@ export default function Footer() {
       style={{
         position: "relative",
         zIndex: 10,
-        borderTop: "0.5px solid rgba(25,22,46,0.42)",
+        borderTop: "0.5px solid rgba(25,22,46,0.10)",
         padding: "20px clamp(2rem, 8vw, 7rem)",
         display: "flex",
         alignItems: "center",

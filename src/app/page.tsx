@@ -154,7 +154,7 @@ export default function LandingPage() {
         >
           <span style={{
             display: "inline-block",
-            width: "365px", height: "1px",
+            width: "18px", height: "1px",
             background: "rgba(90,65,155,0.38)",
           }} />
           Deep Learning · Computer Vision · NLP
@@ -228,7 +228,7 @@ export default function LandingPage() {
           position: "relative",
           zIndex: 10,
           padding: "80px clamp(2rem, 7vw, 6rem) 72px",
-          borderTop: "0.5px solid rgba(23,20,42,0.42)",
+          borderTop: "0.5px solid rgba(23,20,42,0.10)",
         }}
       >
         <p style={{
@@ -320,7 +320,7 @@ export default function LandingPage() {
         position: "relative",
         zIndex: 10,
         padding: "0 clamp(2rem, 7vw, 6rem) 88px",
-        borderTop: "0.5px solid rgba(23,20,42,0.42)",
+        borderTop: "0.5px solid rgba(23,20,42,0.10)",
       }}>
         <p style={{
           fontFamily: "var(--font-body)",
@@ -344,9 +344,9 @@ export default function LandingPage() {
                 display: "flex",
                 alignItems: "center",
                 padding: "18px 0",
-                borderTop: "0.5px solid rgba(23,20,42,0.42)",
+                borderTop: "0.5px solid rgba(23,20,42,0.10)",
                 borderBottom: i === PROJECTS.length - 1
-                  ? "0.5px solid rgba(23,20,42,0.42)"
+                  ? "0.5px solid rgba(23,20,42,0.10)"
                   : undefined,
                 textDecoration: "none",
                 gap: "0",
