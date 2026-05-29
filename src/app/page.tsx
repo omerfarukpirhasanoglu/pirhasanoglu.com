@@ -74,6 +74,7 @@ export default function LandingPage() {
                 color: "rgba(23,20,42,0.38)",
                 letterSpacing: "0.01em",
                 textDecoration: "none",
+                textAlign: "right",
               }}
             >
               {item.label}
