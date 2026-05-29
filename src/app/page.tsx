@@ -59,19 +59,7 @@ export default function LandingPage() {
           height: "68px",
         }}
       >
-        <Link
-          href="/"
-          style={{
-            fontFamily: "var(--font-nav)",
-            fontSize: "19px",
-            fontWeight: 400,
-            color: "rgba(23,20,42,0.58)",
-            letterSpacing: "0.01em",
-            textDecoration: "none",
-          }}
-        >
-          omer faruk pirhasanoglu
-        </Link>
+
 
         <nav style={{ display: "flex", gap: "36px" }}>
           {NAV_LINKS.map((item) => (

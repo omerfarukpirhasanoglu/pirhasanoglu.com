@@ -24,7 +24,7 @@ const CHANGELOG = [
       "Çok daha detaylı renk/ton analizi ve yapıcı geri dönüşler eklendi.",
       "Train pipeline güncellenerek daha yüksek doğruluk için yeniden eğitildi.",
     ],
-    meta: { accuracy: "93.85%", epochs: "20", inference: "−1500ms" },
+    meta: { accuracy: "93.85%", epochs: "20", inference: "−7500ms" },
   },
   {
     version: "v1.1", date: "Mart 2025", current: false,
@@ -174,7 +174,7 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
           style={{ display: "flex", alignItems: "center", gap: "6px", background: "none", border: "none", cursor: "pointer", padding: "0", marginBottom: showTech ? "14px" : "0" }}
         >
           <p style={{ ...s, marginBottom: 0 }}>Teknik Detaylar</p>
-          <ChevronDown style={{ width: "12px", height: "12px", color: "rgba(23,20,42,0.25)", transform: showTech ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }} />
+          <ChevronDown style={{ width: "12px", height: "12px", color: "rgba(23,20,42,0.42)", transform: showTech ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }} />
         </button>
         {showTech && (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" }}>
@@ -224,7 +224,7 @@ export default function ChromaPage() {
 
   const labelStyle: React.CSSProperties = {
     fontFamily: "var(--font-body)", fontSize: "9.5px", fontWeight: 500,
-    letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(23,20,42,0.22)",
+    letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(23,20,42,0.42)",
   };
 
   return (
@@ -307,7 +307,7 @@ export default function ChromaPage() {
         >
           {isLoading ? "Analiz Ediliyor…" : "Analiz Et"}
         </button>
-        <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.22)", textAlign: "center" }}>
+        <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", color: "rgba(23,20,42,0.42)", textAlign: "center" }}>
           Chroma bir yapay zeka modelidir ve hata yapabilir.
         </p>
       </div>

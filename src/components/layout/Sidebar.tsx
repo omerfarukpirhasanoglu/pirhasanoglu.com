@@ -72,7 +72,7 @@ export default function Sidebar() {
           width: "24px",
           textAlign: "center",
         }}>
-          o
+          P
         </span>
         <span style={{
           fontFamily: "var(--font-nav)",

@@ -295,7 +295,7 @@ export default function SeamPage() {
               placeholder="Metni buraya yapıştırın…" rows={10}
               style={{ width: "100%", resize: "none", borderRadius: "8px", padding: "18px 20px", fontFamily: "var(--font-display)", fontStyle: text ? "italic" : "normal", fontSize: "14.5px", lineHeight: 1.78, color: "rgba(23,20,42,0.65)", background: "rgba(255,255,255,0.35)", border: `0.5px solid ${isOverLimit ? "rgba(200,50,50,0.30)" : "rgba(23,20,42,0.10)"}`, outline: "none", backdropFilter: "blur(8px)" }}
             />
-            <span style={{ position: "absolute", bottom: "12px", right: "16px", fontFamily: "var(--font-body)", fontSize: "10.5px", color: isOverLimit ? "rgba(200,50,50,0.70)" : "rgba(23,20,42,0.22)" }}>
+            <span style={{ position: "absolute", bottom: "12px", right: "16px", fontFamily: "var(--font-body)", fontSize: "10.5px", color: isOverLimit ? "rgba(200,50,50,0.70)" : "rgba(23,20,42,0.42)" }}>
               {text.length.toLocaleString()} / 50.000
             </span>
           </div>
@@ -305,7 +305,7 @@ export default function SeamPage() {
               style={{ fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "rgba(23,20,42,0.70)", background: text.trim() && !isLoading && !isOverLimit ? "rgba(23,20,42,0.08)" : "rgba(23,20,42,0.04)", border: "0.5px solid rgba(23,20,42,0.14)", borderRadius: "100px", padding: "12px 40px", cursor: text.trim() && !isLoading && !isOverLimit ? "pointer" : "not-allowed", letterSpacing: "0.02em", backdropFilter: "blur(10px)" }}>
               {isLoading ? "Analiz Ediliyor…" : "Chunk'la"}
             </button>
-            <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.22)" }}>Seam bir yapay zeka modelidir ve hata yapabilir.</p>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", color: "rgba(23,20,42,0.42)" }}>Seam bir yapay zeka modelidir ve hata yapabilir.</p>
           </div>
 
           {error && (

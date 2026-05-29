@@ -20,7 +20,7 @@ export default function Footer() {
           fontFamily: "var(--font-body)",
           fontSize: "13px",
           fontWeight: 400,
-          color: "rgba(25,22,46,0.22)",
+          color: "rgba(25, 22, 46, 0.42)",
         }}
       >
         © {year} · AI & Sistem Mimarisi
@@ -40,7 +40,7 @@ export default function Footer() {
               fontFamily: "var(--font-body)",
               fontSize: "13px",
               fontWeight: 400,
-              color: "rgba(25,22,46,0.22)",
+              color: "rgba(25, 22, 46, 0.42)",
               textDecoration: "none",
             }}
           >
