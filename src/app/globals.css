@@ -9,7 +9,7 @@
   --color-border:     rgba(23,20,42,0.09);
 
   --font-display: 'Instrument Serif', serif;
-  --font-nav:     'Gowun Batang', serif;
+  --font-nav:     'Instrument Serif', serif;
   --font-body:    'DM Sans', sans-serif;
 }
 
@@ -29,7 +29,7 @@ body {
   min-height: 100svh;
 }
 
-/* Aurora — dağılmış, GPT-5.5 renkleri */
+/* Aurora renkleri */
 body::before {
   content: '';
   position: fixed;
@@ -63,7 +63,7 @@ body::before {
 .reveal-4 { animation-delay: 390ms; }
 .reveal-5 { animation-delay: 510ms; }
 
-/* Responsive grid — about & tech columns */
+/* Responsive grid about & tech columns */
 .about-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;

@@ -81,7 +81,7 @@ export default function LandingPage() {
               target="_blank"
               style={{
                 fontFamily: "var(--font-nav)",
-                fontSize: "21px",
+                fontSize: "19px",
                 fontWeight: 400,
                 color: "rgba(23,20,42,0.38)",
                 letterSpacing: "0.01em",
