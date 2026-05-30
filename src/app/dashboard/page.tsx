@@ -114,7 +114,7 @@ export default function DashboardPage() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "28px" }}>
             <p style={{ fontFamily: "var(--font-body)", fontSize: "11.5px", fontWeight: 300, color: "rgba(23,20,42,0.42)", lineHeight: 1.90 }}>
-              PyTorch · Transformers<br />NLP · RAG
+              PyTorch · NLP<br />Transformers · RAG
             </p>
             <span style={{
               fontFamily: "var(--font-body)", fontSize: "10.5px", fontWeight: 500,
@@ -157,7 +157,7 @@ export default function DashboardPage() {
           </div>
           <div style={{ paddingTop: "28px" }}>
             <span style={{
-              fontFamily: "var(--font-body)", fontSize: "10.5px", fontWeight: 500,
+              fontFamily: "var(--font-body)", fontSize: "15px", fontWeight: 500,
               padding: "3px 10px", borderRadius: "3px",
               background: "rgba(23,20,42,0.08)", color: "rgba(23,20,42,0.42)", display: "inline-block",
             }}>
