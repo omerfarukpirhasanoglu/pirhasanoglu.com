@@ -28,13 +28,7 @@ export default function DashboardPage() {
       </h1>
 
       {/* Dikey sütunlar */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gap: "0",
-        }}
-      >
+      <div className="project-columns">
         {/* Chroma */}
         <Link
           href="/dashboard/tool-1"

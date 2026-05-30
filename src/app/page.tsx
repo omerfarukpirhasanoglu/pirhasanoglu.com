@@ -243,12 +243,7 @@ export default function LandingPage() {
           Hakkımda
         </p>
 
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1.1fr 0.9fr",
-          gap: "56px",
-          alignItems: "start",
-        }}>
+        <div className="about-grid">
           {/* Sol — metin */}
           <div>
             <h2 style={{
@@ -278,13 +273,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* Sağ — kategorili sütunlar */}
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "20px 28px",
-            paddingTop: "6px",
-          }}>
+          <div className="tech-grid">
             {TECH_COLS.map((col) => (
               <div key={col.label}>
                 <p style={{
