@@ -152,11 +152,7 @@ export default function LandingPage() {
             gap: "10px",
           }}
         >
-          <span style={{
-            display: "inline-block",
-            width: "380px", height: "1px",
-            background: "rgba(90,65,155,0.38)",
-          }} />
+
           Deep Learning · Computer Vision · NLP
         </div>
 
