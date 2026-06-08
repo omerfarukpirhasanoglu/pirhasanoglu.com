@@ -304,7 +304,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── PROJECTS ── */}
-      <section style={{
+      <section className="project-row" style={{
         position: "relative",
         zIndex: 10,
         padding: "0 clamp(2rem, 7vw, 6rem) 88px",
