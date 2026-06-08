@@ -274,7 +274,7 @@ export default function LandingPage() {
 
           <div className="tech-grid">
             {TECH_COLS.map((col) => (
-              <div className="tech-col" key={col.label}>
+              <div key={col.label}>
                 <p className="tech-label" style={{
                   fontFamily: "var(--font-body)",
                   fontSize: "10px",
@@ -287,7 +287,7 @@ export default function LandingPage() {
                   {col.label}
                 </p>
                 {col.items.split("\n").map((line, i) => (
-                  <p key={i} style={{
+                  <p className="tech-col" key={i} style={{
                     fontFamily: "var(--font-body)",
                     fontSize: "14px",
                     fontWeight: 300,
