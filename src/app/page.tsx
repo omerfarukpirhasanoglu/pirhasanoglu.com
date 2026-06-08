@@ -323,7 +323,7 @@ export default function LandingPage() {
           Yapay Zeka Araçları
         </p>
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className="project-row" style={{ display: "flex", flexDirection: "column" }}>
           {PROJECTS.map((project, i) => (
             <Link
               className="project-row"
@@ -385,7 +385,7 @@ export default function LandingPage() {
               )}
 
               {/* Tag'ler */}
-              <div className="project-row" style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
+              <div style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
                 {project.tags.map((tag, j) => (
                   <span key={j} style={{
                     fontFamily: "var(--font-body)",

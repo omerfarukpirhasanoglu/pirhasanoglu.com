@@ -307,7 +307,7 @@ export default function ChromaPage() {
         >
           {isLoading ? "Analiz Ediliyor…" : "Analiz Et"}
         </button>
-        <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", color: "rgba(23,20,42,0.42)", textAlign: "center" }}>
+        <p style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "rgba(23,20,42,0.42)", textAlign: "center" }}>
           Chroma bir yapay zeka modelidir ve hata yapabilir.
         </p>
       </div>
