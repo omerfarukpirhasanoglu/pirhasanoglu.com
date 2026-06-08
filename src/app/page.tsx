@@ -323,11 +323,12 @@ export default function LandingPage() {
           Yapay Zeka Araçları
         </p>
 
-        <div className="project-row" style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           {PROJECTS.map((project, i) => (
             <Link
               key={i}
               href={project.href}
+              className="project-row"
               style={{
                 display: "flex",
                 alignItems: "center",
