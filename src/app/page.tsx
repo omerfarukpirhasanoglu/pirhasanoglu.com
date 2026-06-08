@@ -304,7 +304,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── PROJECTS ── */}
-      <section className="project-row" style={{
+      <section style={{
         position: "relative",
         zIndex: 10,
         padding: "0 clamp(2rem, 7vw, 6rem) 88px",
@@ -323,10 +323,9 @@ export default function LandingPage() {
           Yapay Zeka Araçları
         </p>
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className="project-row" style={{ display: "flex", flexDirection: "column" }}>
           {PROJECTS.map((project, i) => (
             <Link
-              className="project-row"
               key={i}
               href={project.href}
               style={{
