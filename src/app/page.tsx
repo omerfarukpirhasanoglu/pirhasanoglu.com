@@ -385,7 +385,7 @@ export default function LandingPage() {
               )}
 
               {/* Tag'ler */}
-              <div style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
+              <div className="project-row" style={{ display: "flex", flex: 1, flexWrap: "wrap" }}>
                 {project.tags.map((tag, j) => (
                   <span key={j} style={{
                     fontFamily: "var(--font-body)",

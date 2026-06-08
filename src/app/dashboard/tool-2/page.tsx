@@ -38,11 +38,17 @@ const CHANGELOG = [
 const EXAMPLE_TEXTS = [
   {
     label: "Teknoloji (TR)",
-    text: `Yapay zeka, insan zekasını taklit eden bilgisayar sistemlerini ifade eder. Bu sistemler öğrenme, problem çözme ve dil anlama gibi görevleri yerine getirebilir. Makine öğrenmesi, yapay zekanın en önemli alt dallarından biridir.\n\nOsmanlı İmparatorluğu, 1299 yılında Osman Bey tarafından kuruldu. Altı yüz yılı aşkın bir süre boyunca üç kıtaya yayıldı. İstanbul'un 1453'te fethiyle birlikte dünya tarihin en önemli güçlerinden biri hâline geldi.\n\nİklim değişikliği, dünya genelinde ciddi sonuçlar doğurmaktadır. Kutup buzulları erimekte, deniz seviyeleri yükselmektedir. Bilim insanları, emisyonların acilen azaltılması gerektiği konusunda hemfikirdir.`,
+    text: `Yapay zeka, insan zekasını taklit eden bilgisayar sistemlerini ifade eder. Bu sistemler öğrenme, problem çözme ve dil anlama gibi görevleri yerine getirebilir.
+    Makine öğrenmesi, yapay zekanın en önemli alt dallarından biridir.\n\nOsmanlı İmparatorluğu, 1299 yılında Osman Bey tarafından kuruldu. Altı yüz yılı aşkın bir süre boyunca hüküm sürdü.
+    İstanbul'un 1453'te fethiyle birlikte tarihin en önemli güçlerinden biri hâline geldi.\n\nİklim değişikliği, Dünya genelinde ciddi sonuçlar doğurmaktadır. Kutup buzulları erimekte, 
+    deniz seviyeleri yükselmektedir. Bilim insanları, emisyonların acilen azaltılması gerektiği konusunda hemfikirdir.`,
   },
   {
     label: "Bilim (EN)",
-    text: `Quantum mechanics describes the behavior of matter at the atomic and subatomic scale. Unlike classical physics, quantum systems can exist in multiple states simultaneously. This principle, known as superposition, is fundamental to quantum computing.\n\nThe Renaissance was a cultural movement that began in Italy during the 14th century. It spread throughout Europe and marked the transition from the Middle Ages to modernity. Artists like Leonardo da Vinci and Michelangelo defined this era.\n\nClimate science relies on complex models to predict future temperature changes. Data from satellites, ocean buoys, and weather stations feed into these models. The Intergovernmental Panel on Climate Change synthesizes this research globally.`,
+    text: `Quantum mechanics describes the behavior of matter at the atomic and subatomic scale. Unlike classical physics, quantum systems can exist in multiple states simultaneously.
+    This principle, known as superposition, is fundamental to quantum computing.\n\nThe Renaissance was a cultural movement that began in Italy during the 14th century. It spread throughout
+    Europe and marked the transition from the Middle Ages to modernity. Artists like Leonardo da Vinci and Michelangelo defined this era.\n\nClimate science relies on complex models to predict future temperature changes.
+    Data from satellites, ocean buoys, and weather stations feed into these models. The Intergovernmental Panel on Climate Change synthesizes this research globally.`,
   },
 ];
 
@@ -336,10 +342,10 @@ export default function SeamPage() {
                 <FileText style={{ width: "26px", height: "26px", color: "rgba(90,65,155,0.55)" }} />
                 <div style={{ textAlign: "center" }}>
                   <p style={{ fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "rgba(23,20,42,0.60)" }}>{file.name}</p>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.42)", marginTop: "3px" }}>{(file.size / (1024 * 1024)).toFixed(2)} MB · {file.name.split(".").pop()?.toUpperCase()}</p>
+                  <p style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "rgba(23,20,42,0.42)", marginTop: "3px" }}>{(file.size / (1024 * 1024)).toFixed(2)} MB · {file.name.split(".").pop()?.toUpperCase()}</p>
                 </div>
                 <button onClick={e => { e.stopPropagation(); setFile(null); setFileResult(null); }}
-                  style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.35)", background: "none", border: "0.5px solid rgba(23,20,42,0.12)", borderRadius: "100px", padding: "4px 12px", cursor: "pointer" }}>
+                  style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "rgba(23,20,42,0.35)", background: "none", border: "0.5px solid rgba(23,20,42,0.12)", borderRadius: "100px", padding: "4px 12px", cursor: "pointer" }}>
                   Değiştir
                 </button>
               </>
@@ -348,7 +354,7 @@ export default function SeamPage() {
                 <Upload style={{ width: "24px", height: "24px", color: "rgba(23,20,42,0.42)" }} />
                 <div style={{ textAlign: "center" }}>
                   <p style={{ fontFamily: "var(--font-body)", fontSize: "13.5px", color: "rgba(23,20,42,0.42)" }}>PDF veya DOCX sürükle ya da tıkla</p>
-                  <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.42)", marginTop: "4px" }}>Maks. 10 MB</p>
+                  <p style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "rgba(23,20,42,0.42)", marginTop: "4px" }}>Maks. 10 MB</p>
                 </div>
               </>
             )}
@@ -359,7 +365,7 @@ export default function SeamPage() {
               style={{ fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500, color: "rgba(23,20,42,0.70)", background: file && !isLoading ? "rgba(23,20,42,0.08)" : "rgba(23,20,42,0.04)", border: "0.5px solid rgba(23,20,42,0.14)", borderRadius: "100px", padding: "12px 40px", cursor: file && !isLoading ? "pointer" : "not-allowed", letterSpacing: "0.02em", backdropFilter: "blur(10px)" }}>
               {isLoading ? "İşleniyor…" : "Analiz ve Embedding"}
             </button>
-            <p style={{ fontFamily: "var(--font-body)", fontSize: "11px", color: "rgba(23,20,42,0.42)" }}>Seam bir yapay zeka modelidir ve hata yapabilir.</p>
+            <p style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "rgba(23,20,42,0.42)" }}>Seam bir yapay zeka modelidir ve hata yapabilir.</p>
           </div>
 
           {error && (
