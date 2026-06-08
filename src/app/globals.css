@@ -129,9 +129,9 @@ footer a:hover { color: rgba(23,20,42,0.70) !important; }
 .nav-link:hover { color: rgba(23,20,42,0.72) !important; }
 
 .project-row { transition: background 0.22s ease, padding-left 0.28s cubic-bezier(0.22,1,0.36,1); }
-.project-row:hover { background: rgba(23,20,42,0.035); padding-left: calc(clamp(2rem, 7vw, 6rem) + 8px); }
-.project-row:hover .proj-name { color: rgba(90,65,155,0.85); }
-.project-row:hover .proj-arrow { transform: translateX(5px); color: rgba(90,65,155,0.70); }
+.project-row { background: rgba(23,20,42,0.035); padding-left: calc(clamp(2rem, 7vw, 6rem) + 8px); }
+.project-row .proj-name { color: rgba(90,65,155,0.85); }
+.project-row .proj-arrow { transform: translateX(5px); color: rgba(90,65,155,0.70); }
 .proj-arrow { display: inline-block; transition: transform 0.28s cubic-bezier(0.22,1,0.36,1), color 0.22s ease; }
 .proj-name { transition: color 0.22s ease; }
 
