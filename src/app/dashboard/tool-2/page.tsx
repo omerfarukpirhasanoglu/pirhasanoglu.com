@@ -38,17 +38,11 @@ const CHANGELOG = [
 const EXAMPLE_TEXTS = [
   {
     label: "Teknoloji (TR)",
-    text: `Yapay zeka, insan zekasını taklit eden bilgisayar sistemlerini ifade eder. Bu sistemler öğrenme, problem çözme ve dil anlama gibi görevleri yerine getirebilir.
-    Makine öğrenmesi, yapay zekanın en önemli alt dallarından biridir.\n\nOsmanlı İmparatorluğu, 1299 yılında Osman Bey tarafından kuruldu. Altı yüz yılı aşkın bir süre boyunca hüküm sürdü.
-    İstanbul'un 1453'te fethiyle birlikte tarihin en önemli güçlerinden biri hâline geldi.\n\nİklim değişikliği, Dünya genelinde ciddi sonuçlar doğurmaktadır. Kutup buzulları erimekte, 
-    deniz seviyeleri yükselmektedir. Bilim insanları, emisyonların acilen azaltılması gerektiği konusunda hemfikirdir.`,
+    text: `Yapay zeka, insan zekasını taklit eden bilgisayar sistemlerini ifade eder. Bu sistemler öğrenme, problem çözme ve dil anlama gibi görevleri yerine getirebilir. Makine öğrenmesi, yapay zekanın en önemli alt dallarından biridir.\n\nYıldızlar ömürlerini tamamladıklarında kütleleri yeterliyse devasa bir süpernova yaşarlar. Bu esnada atomların çekirdeğine uygulanan basınç dolayısıyla birleşen proton ve elektronlar yoğun bir nötron yıldızını oluşturur.\n\nİklim değişikliği, Dünya genelinde ciddi sonuçlar doğurmaktadır. Kutup buzulları erimekte, deniz seviyeleri yükselmektedir. Bilim insanları, emisyonların acilen azaltılması gerektiği konusunda hemfikirdir.`,
   },
   {
     label: "Bilim (EN)",
-    text: `Quantum mechanics describes the behavior of matter at the atomic and subatomic scale. Unlike classical physics, quantum systems can exist in multiple states simultaneously.
-    This principle, known as superposition, is fundamental to quantum computing.\n\nThe Renaissance was a cultural movement that began in Italy during the 14th century. It spread throughout
-    Europe and marked the transition from the Middle Ages to modernity. Artists like Leonardo da Vinci and Michelangelo defined this era.\n\nClimate science relies on complex models to predict future temperature changes.
-    Data from satellites, ocean buoys, and weather stations feed into these models. The Intergovernmental Panel on Climate Change synthesizes this research globally.`,
+    text: `Quantum mechanics describes the behavior of matter at the atomic and subatomic scale. Unlike classical physics, quantum systems can exist in multiple states simultaneously. This principle, known as superposition, is fundamental to quantum computing.\n\nThe Renaissance was a cultural movement that began in Italy during the 14th century. It spread throughout Europe and marked the transition from the Middle Ages to modernity. Artists like Leonardo da Vinci and Michelangelo defined this era.\n\n The climate science relies on complex models to predict future temperature changes. Data from satellites, ocean buoys, and weather stations feed into these models. The Intergovernmental Panel on Climate Change synthesizes this research globally.`,
   },
 ];
 
