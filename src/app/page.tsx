@@ -57,6 +57,7 @@ export default function LandingPage() {
           justifyContent: "space-between",
           padding: "0 clamp(2rem, 7vw, 6rem)",
           height: "68px",
+          transition: "color 0.25s ease",
         }}
       >
         <Link
@@ -76,6 +77,7 @@ export default function LandingPage() {
         <nav style={{ display: "flex", gap: "36px" }}>
           {NAV_LINKS.map((item) => (
             <Link
+              className="nav-link"
               key={item.label}
               href={item.href}
               target="_blank"
@@ -195,6 +197,7 @@ export default function LandingPage() {
         {/* CTA */}
         <div className="reveal reveal-4">
           <Link
+            className="cta-btn"
             href="/dashboard"
             style={{
               display: "inline-flex",
@@ -240,7 +243,7 @@ export default function LandingPage() {
         </p>
 
         <div className="about-grid">
-          {/* Sol — metin */}
+          {/* Sol  metin */}
           <div>
             <h2 style={{
               fontFamily: "var(--font-display)",
@@ -271,8 +274,8 @@ export default function LandingPage() {
 
           <div className="tech-grid">
             {TECH_COLS.map((col) => (
-              <div key={col.label}>
-                <p style={{
+              <div className="tech-col" key={col.label}>
+                <p className="tech-label" style={{
                   fontFamily: "var(--font-body)",
                   fontSize: "10px",
                   fontWeight: 500,
@@ -323,6 +326,7 @@ export default function LandingPage() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {PROJECTS.map((project, i) => (
             <Link
+              className="project-row"
               key={i}
               href={project.href}
               style={{
@@ -338,7 +342,7 @@ export default function LandingPage() {
               }}
             >
               {/* İsim */}
-              <span style={{
+              <span className="proj-name" style={{
                 fontFamily: "var(--font-body)",
                 fontSize: "15px",
                 fontWeight: 500,
@@ -398,7 +402,7 @@ export default function LandingPage() {
               </div>
 
               {/* Ok */}
-              <span style={{
+              <span className="proj-arrow" style={{
                 fontFamily: "var(--font-body)",
                 fontSize: "16px",
                 color: project.live

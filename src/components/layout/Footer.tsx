@@ -33,6 +33,7 @@ export default function Footer() {
           { label: "Instagram", href: "https://www.instagram.com/omerpirhasanoglu" },
         ].map((item) => (
           <Link
+            className="footer-link"
             key={item.label}
             href={item.href}
             target="_blank"

@@ -63,6 +63,23 @@ body::before {
 .reveal-4 { animation-delay: 390ms; }
 .reveal-5 { animation-delay: 510ms; }
 
+/* Nav links */
+header a { transition: color 0.25s ease; }
+
+/* CTA ghost pill */
+a[style*="border-radius: 100px"] {
+  transition: background 0.28s ease, border-color 0.28s ease, color 0.28s ease;
+}
+a[style*="border-radius: 100px"]:hover {
+  background: rgba(23,20,42,0.13) !important;
+  border-color: rgba(23,20,42,0.65) !important;
+  color: rgba(23,20,42,0.88) !important;
+}
+
+/* Footer links */
+footer a { transition: color 0.22s ease; }
+footer a:hover { color: rgba(23,20,42,0.70) !important; }
+
 /* Responsive grid about & tech columns */
 .about-grid {
   display: grid;
@@ -106,3 +123,23 @@ body::before {
     padding-top: 0 !important;
   }
 }
+
+/* Hover states */
+.nav-link { transition: color 0.25s ease; }
+.nav-link:hover { color: rgba(23,20,42,0.72) !important; }
+
+.project-row { transition: background 0.22s ease, padding-left 0.28s cubic-bezier(0.22,1,0.36,1); }
+.project-row:hover { background: rgba(23,20,42,0.035); padding-left: calc(clamp(2rem, 7vw, 6rem) + 8px); }
+.project-row:hover .proj-name { color: rgba(90,65,155,0.85); }
+.project-row:hover .proj-arrow { transform: translateX(5px); color: rgba(90,65,155,0.70); }
+.proj-arrow { display: inline-block; transition: transform 0.28s cubic-bezier(0.22,1,0.36,1), color 0.22s ease; }
+.proj-name { transition: color 0.22s ease; }
+
+.cta-btn { transition: background 0.28s ease, border-color 0.28s ease, color 0.28s ease; }
+.cta-btn:hover { background: rgba(23,20,42,0.13) !important; border-color: rgba(23,20,42,0.65) !important; color: rgba(23,20,42,0.88) !important; }
+
+.tech-label { transition: color 0.22s ease; }
+.tech-col:hover .tech-label { color: rgba(90,65,155,0.80); }
+
+.footer-link { transition: color 0.22s ease; }
+.footer-link:hover { color: rgba(23,20,42,0.70) !important; }
