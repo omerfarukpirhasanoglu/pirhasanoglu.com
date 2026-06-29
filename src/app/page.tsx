@@ -265,7 +265,7 @@ export default function LandingPage() {
               maxWidth: "480px",
             }}>
               Derin öğrenme, bilgisayarla görme ve doğal dil işleme alanlarında
-              uzmanlaşmakta olan 3. sınıf Bilgisayar Mühendisliği öğrencisiyim.
+              uzmanlaşmakta olan 4. sınıf Bilgisayar Mühendisliği öğrencisiyim.
               Kısıtlı donanım kaynaklarıyla verimli model eğitimi ve ölçülebilir
               performans kazanımı sağlayan mimariler geliştirme konusunda pratik
               deneyim sahibiyim.
