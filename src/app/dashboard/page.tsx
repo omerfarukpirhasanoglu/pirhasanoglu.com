@@ -55,20 +55,20 @@ export default function DashboardPage() {
               fontFamily: "var(--font-body)", fontSize: "13.5px", fontWeight: 300,
               color: "rgba(23,20,42,0.62)", lineHeight: 1.78,
             }}>
-              FastAPI backendine bağlı, Keras tabanlı konvolüsyonel sinir ağları (CNN) kullanarak yüklenen görüntülerin özniteliklerini çıkaran ve yüksek doğrulukla analiz eden modelim.
-              Bu model sayesinde tarzınızı uzman bir yapay zekanın detaylı metrikleriyle inceleyebilirsiniz.
+              Agentic workflowuma bağlı, Keras tabanlı konvolüsyonel sinir ağları (CNN) kullanarak yüklenen görüntülerin özniteliklerini çıkaran ve yüksek doğrulukla analiz eden modelim.
+              Bu model sayesinde tarzınızı uzman bir yapay zekanın detaylı metrikleriyle ve bu metriklerin LLM yorumlarıyla inceleyebilirsiniz.
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px", paddingTop: "28px" }}>
             <p style={{ fontFamily: "var(--font-body)", fontSize: "11.5px", fontWeight: 300, color: "rgba(23,20,42,0.42)", lineHeight: 1.90 }}>
-              Keras · CNN<br />Transfer Learning · FastAPI
+              Keras · CNN<br />Transfer Learning · FastAPI · LangGraph
             </p>
             <span style={{
               fontFamily: "var(--font-body)", fontSize: "10.5px", fontWeight: 500,
               padding: "3px 10px", borderRadius: "3px",
               background: "rgba(90,65,155,0.08)", color: "rgba(90,65,155,0.60)", width: "fit-content",
             }}>
-              v1.2 · yayında
+              v1.3 · yayında
             </span>
             <span style={{ fontFamily: "var(--font-body)", fontSize: "18px", fontWeight: 500, color: "rgba(90,65,155,0.62)" }}>
               İncele →

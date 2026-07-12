@@ -155,7 +155,7 @@ export default function LandingPage() {
           }}
         >
 
-          Deep Learning · Computer Vision · NLP
+          Deep Learning · Computer Vision · NLP· Agentic AI
         </div>
 
         {/* Title */}
@@ -189,9 +189,7 @@ export default function LandingPage() {
             marginBottom: "40px",
           }}
         >
-          Mimari tasarımdan bulut dağıtımına kadar<br />
-          uçtan uca yapay zeka modelleri tasarlıyor,<br />
-          eğitiyor ve deploy ediyorum.
+          Derin öğrenmenin veriyi anlama gücünü, LLM'lerin bağlamsal yorumlama yetenekleriyle birleştiriyorum.
         </p>
 
         {/* CTA */}
@@ -264,11 +262,15 @@ export default function LandingPage() {
               lineHeight: 1.82,
               maxWidth: "480px",
             }}>
-              Derin öğrenme, bilgisayarla görme ve doğal dil işleme alanlarında
-              uzmanlaşmakta olan 4. sınıf Bilgisayar Mühendisliği öğrencisiyim.
+              Derin öğrenme, bilgisayarla görme, doğal dil işleme ve Agentic workflow 
+              alanlarında uzmanlaşmakta olan 4. sınıf Bilgisayar Mühendisliği öğrencisiyim.
               Kısıtlı donanım kaynaklarıyla verimli model eğitimi ve ölçülebilir
               performans kazanımı sağlayan mimariler geliştirme konusunda pratik
-              deneyim sahibiyim.
+              deneyim sahibiyim. Geliştirdiğim custom DL/ML modelinin hem 
+              birbirleri ile hem de LLM'ler ile iletişim kurup görev dizilerini yerine 
+              getirebildiği ekosistemler inşa ediyorum. Bu sayede deterministik DL/ML
+              algoritmalarının gücünü, LLM'lerin bağlamsal yorumlama yetenekleriyle birleştirerek
+              yapay zekanın en güçlü iki kolunu bir araya getiren çözümler üretiyorum.
             </p>
           </div>
 

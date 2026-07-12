@@ -220,7 +220,7 @@ function ResultPanel({
         ))}
       </div>
 
-      {/* İki sütun — Stil + Uyum */}
+      {/* İki sütun */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
 
         {/* Stil tahmini */}
@@ -272,7 +272,7 @@ function ResultPanel({
         </div>
       </div>
 
-      {/* Analiz yorumu — LLM */}
+      {/* LLM */}
       <AgentInterpretation result={result} onSubmitAnswer={onSubmitAnswer} isAnswering={isAnswering} />
 
       {/* Teknik detaylar */}
