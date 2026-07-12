@@ -10,17 +10,35 @@ interface DigerOlasilik { stil: string; guven_yuzdesi: number; }
 interface StilSonucu { tahmin: string; guven: number; diger_olasiliklar: DigerOlasilik[]; }
 interface DominantRenk { rgb: number[]; yuzde: number; isim: string; notr: boolean; }
 interface GenelIstatistikler { ort_doygunluk: number; ort_parlaklik: number; renk_cesitliligi: number; notr_oran: number; }
-interface UyumAnalizi { tur: string; aciklama: string; skor: number; }
+interface UyumAnalizi { tur: string; skor: number; }
 interface RenkAnalizi { dominant_colors: DominantRenk[]; genel_istatistikler: GenelIstatistikler; uyum_analizi: UyumAnalizi; stil_tahmini: string; }
-interface AnalysisResult { status: string; dosya_boyutu_mb: number; cikarim_suresi_ms: number; stil: StilSonucu; renk_analizi: RenkAnalizi; }
+interface AnalysisResult {
+  status: string; dosya_boyutu_mb: number; cikarim_suresi_ms: number;
+  stil: StilSonucu; renk_analizi: RenkAnalizi;
+  // Agent katmanından gelen alanlar
+  thread_id: string;
+  agent_status: "needs_clarification" | "completed";
+  question?: string;
+  final_response?: string;
+}
 
 // ─── Changelog ────────────────────────────────────────────────────────────────
 
 const CHANGELOG = [
   {
-    version: "v1.2", date: "Mart 2025", current: true,
+    version: "v1.3", date: "Temmuz 2026", current: true,
     items: [
-      "ONNX formatına geçildi — boyut %80 azaldı, çıkarım süresi dramatik şekilde kısaldı.",
+      "Statik uyum açıklamaları kaldırıldı. yerini metrikleri bağlama göre yorumlayan bir LLM katmanı aldı.",
+      "Model artık tek başına değil, LangGraph tabanlı bir agent içinde çalışıyor: gerektiğinde kombinin amacını soruyor, yanıta göre yeniden değerlendiriyor.",
+      "Cihaz bazlı geçmiş eklendi. tekrar eden analizlerde LLM geçmiş tercihleri bağlam olarak kullanıyor.",
+      "Yorumlama iki aşamalı: LLM önce taslak yorum üretiyor, ayrı bir öz-eleştiri adımı tutarlılığı denetliyor.",
+    ],
+    meta: { accuracy: "93.85%", epochs: "20", inference: "+LLM gecikmesi" },
+  },
+  {
+    version: "v1.2", date: "Mart 2025", current: false,
+    items: [
+      "ONNX formatına geçildi, boyut %80 azaldı, çıkarım süresi dramatik şekilde kısaldı.",
       "Çok daha detaylı renk/ton analizi ve yapıcı geri dönüşler eklendi.",
       "Train pipeline güncellenerek daha yüksek doğruluk için yeniden eğitildi.",
     ],
@@ -50,6 +68,16 @@ const CHANGELOG = [
 
 function rgbToCss(rgb: number[]) { return `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`; }
 
+function getDeviceId(): string {
+  if (typeof window === "undefined") return "";
+  let id = localStorage.getItem("device_id");
+  if (!id) {
+    id = crypto.randomUUID();
+    localStorage.setItem("device_id", id);
+  }
+  return id;
+}
+
 function useTypewriter(text: string, trigger: boolean, speed = 18) {
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
@@ -74,11 +102,97 @@ function useTypewriter(text: string, trigger: boolean, speed = 18) {
   return { displayed, done };
 }
 
+// ─── Agent Interpretation ─────────────────────────────────────────────────────
+
+function AgentInterpretation({
+  result, onSubmitAnswer, isAnswering,
+}: {
+  result: AnalysisResult;
+  onSubmitAnswer: (answer: string) => void;
+  isAnswering: boolean;
+}) {
+  const [answer, setAnswer] = useState("");
+  const isCompleted = result.agent_status === "completed";
+  const { displayed, done } = useTypewriter(result.final_response ?? "", isCompleted);
+
+  const s: React.CSSProperties = {
+    fontFamily: "var(--font-body)",
+    fontSize: "11px", fontWeight: 500,
+    letterSpacing: "0.14em", textTransform: "uppercase",
+    color: "rgba(23,20,42,0.42)", marginBottom: "10px",
+  };
+
+  const quoteStyle: React.CSSProperties = {
+    fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: "15px",
+    color: "rgba(23,20,42,0.55)", lineHeight: 1.80,
+    borderLeft: "1.5px solid rgba(90,65,155,0.25)", paddingLeft: "16px",
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!answer.trim() || isAnswering) return;
+    onSubmitAnswer(answer.trim());
+  };
+
+  return (
+    <div>
+      <p style={s}>Analiz Yorumu</p>
+
+      <p style={{ ...quoteStyle, marginBottom: isCompleted ? 0 : "16px" }}>
+        {isCompleted ? (
+          <>
+            {displayed}
+            {!done && <span style={{ display: "inline-block", width: "1px", height: "14px", background: "rgba(90,65,155,0.50)", marginLeft: "2px", verticalAlign: "middle", animation: "pulse 1s infinite" }} />}
+          </>
+        ) : (
+          result.question
+        )}
+      </p>
+
+      {!isCompleted && (
+        <form onSubmit={handleSubmit} style={{ display: "flex", gap: "10px", paddingLeft: "16px" }}>
+          <input
+            type="text"
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+            placeholder="Örn. iş görüşmesi, gündelik, spor…"
+            disabled={isAnswering}
+            style={{
+              flex: 1, fontFamily: "var(--font-body)", fontSize: "13px", color: "#17142a",
+              background: "rgba(255,255,255,0.5)", border: "0.5px solid rgba(23,20,42,0.14)",
+              borderRadius: "6px", padding: "10px 14px", outline: "none",
+            }}
+          />
+          <button
+            type="submit"
+            disabled={isAnswering || !answer.trim()}
+            style={{
+              fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 500,
+              color: "rgba(23,20,42,0.70)",
+              background: answer.trim() && !isAnswering ? "rgba(23,20,42,0.08)" : "rgba(23,20,42,0.04)",
+              border: "0.5px solid rgba(23,20,42,0.14)", borderRadius: "100px",
+              padding: "10px 22px", cursor: answer.trim() && !isAnswering ? "pointer" : "not-allowed",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {isAnswering ? "Gönderiliyor…" : "Gönder"}
+          </button>
+        </form>
+      )}
+    </div>
+  );
+}
+
 // ─── Result Panel ─────────────────────────────────────────────────────────────
 
-function ResultPanel({ result }: { result: AnalysisResult }) {
+function ResultPanel({
+  result, onSubmitAnswer, isAnswering,
+}: {
+  result: AnalysisResult;
+  onSubmitAnswer: (answer: string) => void;
+  isAnswering: boolean;
+}) {
   const [showTech, setShowTech] = useState(false);
-  const { displayed, done } = useTypewriter(result.renk_analizi.uyum_analizi.aciklama, true);
 
   const s: React.CSSProperties = {
     fontFamily: "var(--font-body)",
@@ -158,14 +272,8 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         </div>
       </div>
 
-      {/* Analiz yorumu */}
-      <div>
-        <p style={s}>Analiz Yorumu</p>
-        <p style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: "15px", color: "rgba(23,20,42,0.55)", lineHeight: 1.80, borderLeft: "1.5px solid rgba(90,65,155,0.25)", paddingLeft: "16px" }}>
-          {displayed}
-          {!done && <span style={{ display: "inline-block", width: "1px", height: "14px", background: "rgba(90,65,155,0.50)", marginLeft: "2px", verticalAlign: "middle", animation: "pulse 1s infinite" }} />}
-        </p>
-      </div>
+      {/* Analiz yorumu — LLM */}
+      <AgentInterpretation result={result} onSubmitAnswer={onSubmitAnswer} isAnswering={isAnswering} />
 
       {/* Teknik detaylar */}
       <div>
@@ -200,6 +308,7 @@ export default function ChromaPage() {
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showChangelog, setShowChangelog] = useState(false);
+  const [isAnswering, setIsAnswering] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -208,9 +317,10 @@ export default function ChromaPage() {
 
   const handleAnalyze = async () => {
     if (!selectedFile) return;
-    setIsLoading(true); setError(null);
+    setIsLoading(true); setError(null); setResult(null);
     const formData = new FormData();
     formData.append("file", selectedFile);
+    formData.append("device_id", getDeviceId());
     try {
       const url = `${API_CONFIG.CHROMA_API_URL}${API_CONFIG.ENDPOINTS.ANALYZE_IMAGE}`;
       const response = await fetch(url, { method: "POST", body: formData });
@@ -220,6 +330,24 @@ export default function ChromaPage() {
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Bilinmeyen bir hata oluştu.");
     } finally { setIsLoading(false); }
+  };
+
+  const handleSubmitAnswer = async (answer: string) => {
+    if (!result?.thread_id) return;
+    setIsAnswering(true); setError(null);
+    try {
+      const url = `${API_CONFIG.CHROMA_API_URL}${API_CONFIG.ENDPOINTS.ANALYZE_IMAGE}`;
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ thread_id: result.thread_id, answer }),
+      });
+      const data = await response.json().catch(() => null);
+      if (!response.ok) throw new Error(data?.detail ?? `Sunucu hatası: ${response.status}`);
+      setResult(data as AnalysisResult);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Bilinmeyen bir hata oluştu.");
+    } finally { setIsAnswering(false); }
   };
 
   const labelStyle: React.CSSProperties = {
@@ -238,12 +366,11 @@ export default function ChromaPage() {
               Chroma
             </h1>
             <span style={{ fontFamily: "var(--font-body)", fontSize: "10px", fontWeight: 500, padding: "2px 9px", borderRadius: "3px", background: "rgba(90,65,155,0.08)", color: "rgba(90,65,155,0.60)", letterSpacing: "0.03em" }}>
-              v1.2
+              v1.3
             </span>
           </div>
           <p style={{ fontFamily: "var(--font-body)", fontSize: "14px", fontWeight: 300, color: "rgba(23,20,42,0.42)", lineHeight: 1.70, maxWidth: "440px" }}>
-            Keras tabanlı CNN. Görüntü sınıflandırma ve stil analizi,
-            transfer learning ile optimize edilmiş.
+            Keras tabanlı CNN Görüntü sınıflandırma ve stil analizi modelimin deterministik metriklerinin gücü ve inşa ettiğim Agentic workflowun bağlamsal LLM yorum gücü birleştirildi.
           </p>
         </div>
 
@@ -321,7 +448,9 @@ export default function ChromaPage() {
       )}
 
       {/* Sonuç */}
-      {result && <ResultPanel result={result} />}
+      {result && (
+        <ResultPanel result={result} onSubmitAnswer={handleSubmitAnswer} isAnswering={isAnswering} />
+      )}
     </div>
   );
 }
