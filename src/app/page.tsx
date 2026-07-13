@@ -10,7 +10,7 @@ const NAV_LINKS = [
 const TECH_COLS = [
   {
     label: "Model & Mimari",
-    items: "Keras, PyTorch\nCNN, Transformer Architecture\nTransfer Learning, Fine-Tuning\nRegularization, Text Segmentation",
+    items: "Keras, PyTorch, LangGraph\nCNN, NLP, Transformer Architecture\nTransfer Learning, Fine-Tuning\nRegularization, Text Segmentation",
   },
   {
     label: "Altyapı & Araçlar",
@@ -21,8 +21,8 @@ const TECH_COLS = [
 const PROJECTS = [
   {
     name: "Chroma",
-    version: "v1.2",
-    tags: ["Keras", "CNN", "Transfer Learning", "Görüntü Sınıflandırma"],
+    version: "v1.3",
+    tags: ["Keras", "CNN", "Transfer Learning", "cv", "LangGraph", "LLM Integration"],
     href: "/dashboard/tool-1",
     live: true,
   },
@@ -155,7 +155,7 @@ export default function LandingPage() {
           }}
         >
 
-          Deep Learning · Computer Vision · NLP· Agentic AI
+          Deep Learning · Computer Vision · NLP  · Agentic AI
         </div>
 
         {/* Title */}
