@@ -3,6 +3,7 @@ export const API_CONFIG = {
   CHUNKER_API_URL: process.env.NEXT_PUBLIC_CHUNKING_API_URL,
   ENDPOINTS: {
     ANALYZE_IMAGE: "/analyze",
+    SUBMIT_ANSWER: "/analyze/resume",
     CHUNK_TEXT:    "/chunk",
     CHUNK_FILE:    "/chunk/file",
   },

@@ -336,7 +336,7 @@ export default function ChromaPage() {
     if (!result?.thread_id) return;
     setIsAnswering(true); setError(null);
     try {
-      const url = `${API_CONFIG.CHROMA_API_URL}${API_CONFIG.ENDPOINTS.ANALYZE_IMAGE}`;
+      const url = `${API_CONFIG.CHROMA_API_URL}${API_CONFIG.ENDPOINTS.SUBMIT_ANSWER}`;
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
